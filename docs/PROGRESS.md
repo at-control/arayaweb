@@ -6,6 +6,16 @@ Read and rendered both pages of the owner's supplied brochure; explained the onb
 
 Updated 9 October 2026, Asia/Jakarta. Historical session evidence; no ongoing monitoring or fresh production audit is implied.
 
+## Reference-only content — 9 October 2026
+
+Owner direction: the new site must not show Araya claims that the reference (live arayainternusa.co.id and the company profile PDF) does not make. Reviewed every statement on the home, marine, industrial and automation pages against both sources; details and the removed/kept lists are in [Content sources](CONTENT-SOURCES.md#reference-only-content-rule--9-october-2026).
+
+- **Home:** feature strip, "Selected clients" sentence and trademark note removed (owner request). Hero, "What we do" and clients copy rewritten from the reference mission and "Partners Who Trust Araya Internusa" wording. Common requests now say "Fire alarm & monitoring" and "Generator systems". Schema description and `knowsAbout` follow the same terms.
+- **Marine:** tank/cargo monitoring card removed (11 scopes). Scopes trimmed to reference wording; fire doors added.
+- **Industrial / Automation:** scope descriptions trimmed to reference wording; design/commissioning claims removed.
+- **Not changed:** layout and styling, apart from removing the strip and right-aligning the logo Pause button now that the note beside it is gone. Noris/ComAp manufacturer content and owner-supplied 1,500+, regions and WhatsApp kept.
+- **Checks:** `build.py`, `check.py`, `node --check` passed. Screenshots of home, marine, industrial and automation at 1440px and 390px over local HTTP: no horizontal overflow, no console errors.
+
 ## Reproducible build — 9 October 2026
 
 `tools/build.py` hashed the raw bytes of `site.css`/`site.js` for the `?v=` cache-bust query. On a Windows checkout (`core.autocrlf=true`) those files have CRLF line endings, so a rebuild changed the hash in all six pages without any content change. The hash now normalises CRLF to LF first; a Windows rebuild reproduces the committed pages byte for byte (`git status` clean, CSS `2e2316f7ac`). No page content, styling or behaviour changed. The "Current release" table below was also corrected to list the Automation page and the current scope counts.
@@ -37,7 +47,7 @@ Owner direction: keep the existing design, change content only; English only; sh
 | Page | Implemented scope |
 | --- | --- |
 | [Home](https://hakiimm8.github.io/arayaweb/) | WhatsApp-first hero, founding story and leadership, three service cards with 12 common-request links, scrolling client logos (7 clients), owner-supplied 1,500+ total and Indonesian regions, featured partners plus multi-brand equipment list, contacts. |
-| [Marine](https://hakiimm8.github.io/arayaweb/marine/) | 12 scope areas: alarms, safety, engines, generators, propulsion, navigation, automation, monitoring, cranes, HVAC/refrigeration, retrofit and test facilities. Equipment list, featured partners, enquiry checklist. |
+| [Marine](https://hakiimm8.github.io/arayaweb/marine/) | 11 scope areas: alarms, safety, engines, generators, propulsion, navigation, automation, cranes, HVAC/refrigeration, retrofit and test facilities. Equipment list, featured partners, enquiry checklist. |
 | [Industrial](https://hakiimm8.github.io/arayaweb/industrial/) | 8 scope areas: machinery, wire-cut/EDM, cutting, production machines, cranes, generators, electrical and automation. Equipment list, featured partners, enquiry checklist. |
 | [Automation & Electrical](https://hakiimm8.github.io/arayaweb/automation/) | 12 scope areas: PLC, SCADA, instrumentation, panels, drives, motors, hazardous area, protection, power, earthing, gensets and electronics. Nine equipment groups, featured partners, enquiry checklist. |
 | [Noris](https://hakiimm8.github.io/arayaweb/noris/) | Eight product areas: speed, temperature, pressure, instruments, signal processing, noriMos, noriStar and noriNet. Brand profile, product pictures in every family, applications, references, enquiry brief and FAQs. |
