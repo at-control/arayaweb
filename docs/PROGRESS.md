@@ -6,6 +6,10 @@ Read and rendered both pages of the owner's supplied brochure; explained the onb
 
 Updated 9 October 2026, Asia/Jakarta. Historical session evidence; no ongoing monitoring or fresh production audit is implied.
 
+## Reproducible build — 9 October 2026
+
+`tools/build.py` hashed the raw bytes of `site.css`/`site.js` for the `?v=` cache-bust query. On a Windows checkout (`core.autocrlf=true`) those files have CRLF line endings, so a rebuild changed the hash in all six pages without any content change. The hash now normalises CRLF to LF first; a Windows rebuild reproduces the committed pages byte for byte (`git status` clean, CSS `2e2316f7ac`). No page content, styling or behaviour changed. The "Current release" table below was also corrected to list the Automation page and the current scope counts.
+
 ## Content restructure — 9 October 2026
 
 Deployed from `main` at [`541345c`](https://github.com/hakiimm8/arayaweb/commit/541345c62dee0caf8a15f0d7c3ae8ede2b389291) in [Pages run 37896406947](https://github.com/hakiimm8/arayaweb/actions/runs/37896406947), which succeeded. All six routes, `sitemap.xml` and the new assets return 200 on the published preview. The published logo strip loads all 14 images and animates at 1440px and 390px; it stays static with reduced motion.
@@ -32,9 +36,10 @@ Owner direction: keep the existing design, change content only; English only; sh
 
 | Page | Implemented scope |
 | --- | --- |
-| [Home](https://hakiimm8.github.io/arayaweb/) | Company, services, brand entry points, owner-supplied 1,500+ total and Indonesian regions, project-scope summaries, contacts. |
-| [Marine](https://hakiimm8.github.io/arayaweb/marine/) | Eight scope areas spanning electrical/mechanical work, monitoring, control, navigation/manoeuvring and retrofit. |
-| [Industrial](https://hakiimm8.github.io/arayaweb/industrial/) | Five scope areas: machinery, cranes, panels/motor controls, PLC/HMI/SCADA/instrumentation and generator control. |
+| [Home](https://hakiimm8.github.io/arayaweb/) | WhatsApp-first hero, founding story and leadership, three service cards with 12 common-request links, scrolling client logos (7 clients), owner-supplied 1,500+ total and Indonesian regions, featured partners plus multi-brand equipment list, contacts. |
+| [Marine](https://hakiimm8.github.io/arayaweb/marine/) | 12 scope areas: alarms, safety, engines, generators, propulsion, navigation, automation, monitoring, cranes, HVAC/refrigeration, retrofit and test facilities. Equipment list, featured partners, enquiry checklist. |
+| [Industrial](https://hakiimm8.github.io/arayaweb/industrial/) | 8 scope areas: machinery, wire-cut/EDM, cutting, production machines, cranes, generators, electrical and automation. Equipment list, featured partners, enquiry checklist. |
+| [Automation & Electrical](https://hakiimm8.github.io/arayaweb/automation/) | 12 scope areas: PLC, SCADA, instrumentation, panels, drives, motors, hazardous area, protection, power, earthing, gensets and electronics. Nine equipment groups, featured partners, enquiry checklist. |
 | [Noris](https://hakiimm8.github.io/arayaweb/noris/) | Eight product areas: speed, temperature, pressure, instruments, signal processing, noriMos, noriStar and noriNet. Brand profile, product pictures in every family, applications, references, enquiry brief and FAQs. |
 | [ComAp](https://hakiimm8.github.io/arayaweb/comap/) | 19 detailed applications across marine, power generation and smart energy, plus six product areas: engine control, paralleling/load sharing, marine PMS, single-generator control, InteliSCADA and WebSupervisor. Brand profile, product pictures in every family, applications, references, enquiry brief and FAQs. |
 

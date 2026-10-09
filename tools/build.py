@@ -13,8 +13,12 @@ PUBLIC = ROOT / "public"
 BASE = "https://hakiimm8.github.io/arayaweb/"
 PRODUCTION = "https://arayainternusa.co.id/araya/"
 ARROW = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg>'
-CSS_VERSION = hashlib.sha256((PUBLIC / 'assets/site.css').read_bytes()).hexdigest()[:10]
-JS_VERSION = hashlib.sha256((PUBLIC / 'assets/site.js').read_bytes()).hexdigest()[:10]
+def asset_version(name):
+    # Normalise line endings so Windows (CRLF) and Linux checkouts produce identical output.
+    return hashlib.sha256((PUBLIC / 'assets' / name).read_bytes().replace(b'\r\n', b'\n')).hexdigest()[:10]
+
+CSS_VERSION = asset_version('site.css')
+JS_VERSION = asset_version('site.js')
 EMAIL = "cs@arayainternusa.com"
 MAP = "https://www.google.com/maps/search/?api=1&query=" + quote("Gateway Citra Harmoni RKG 32-33, Taman, Sidoarjo")
 
