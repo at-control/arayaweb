@@ -53,4 +53,10 @@ Implemented from the owner's approval of the [experience audit](EXPERIENCE-AUDIT
 
 Additional mobile positioning, FAQ evidence and service-layout measurements are in [the evidence folder](reviews/improvements-2026-10-14/).
 
-Publication status: verified locally; deployment record will be added after GitHub Pages completes. Production WordPress is unchanged.
+## Published release
+
+Website-content commit: [921909b](https://github.com/hakiimm8/arayaweb/commit/921909bf355c1ec6454f63127ea26a12e378daa1). [GitHub Pages deployment](https://github.com/hakiimm8/arayaweb/actions/runs/38473028516) succeeded on 14 October 2026. All six published HTML pages and both shared CSS/JS assets returned HTTP 200 and matched the verified local files byte for byte after line-ending normalisation. The push also included the previously local reference-only content and reproducible cache-hash fixes.
+
+The hosted preview could not be reopened in the in-app browser because the new webview failed to attach twice. Published verification therefore confirms identical deployed files; visual/interaction evidence is from the local build. No fresh hosted-browser visual claim is made. The user's existing local browser tab was preserved.
+
+The full improvement, source and prior review documentation is committed to main. Only public is deployed. Production WordPress is unchanged.

@@ -2,7 +2,7 @@
 
 ## Experience improvements — 14 October 2026
 
-Implemented and verified professional company positioning, persistent inner-page navigation, contextual enquiries, contrast/type/disclosure fixes and additional motion. Certifications omitted at the owner’s request. Full change and evidence record: [Implemented improvements](IMPROVEMENTS-2026-10-14.md). Publication pending final Pages verification.
+Implemented and verified professional company positioning, persistent inner-page navigation, contextual enquiries, contrast/type/disclosure fixes and additional motion. Certifications omitted at the owner’s request. Full change and evidence record: [Implemented improvements](IMPROVEMENTS-2026-10-14.md). Website-content release [921909b](https://github.com/hakiimm8/arayaweb/commit/921909bf355c1ec6454f63127ea26a12e378daa1) deployed successfully in [Pages run 38473028516](https://github.com/hakiimm8/arayaweb/actions/runs/38473028516). All six HTML routes and both shared assets return 200 and match local verified bytes. Hosted browser re-opening failed; visual/interaction evidence is local.
 
 ## Initial NORINET research — 9 October 2026 (historical)
 
@@ -48,7 +48,7 @@ Owner direction: keep the existing design, change content only; English only; sh
 - **Design:** original Araya artwork and orange/charcoal/white Space Grotesk styling.
 - **Publication:** only `public/`; all six pages intentionally `noindex, nofollow`.
 
-The scope table below reflects the current local implementation; the historical published baseline above had twelve Marine scopes. The new release carries the reference-only eleven-scope version.
+The scope table below reflects the 14 October published implementation. The historical 541345c baseline above had twelve Marine scopes; the current release carries the reference-only eleven-scope version.
 
 | Page | Implemented scope |
 | --- | --- |

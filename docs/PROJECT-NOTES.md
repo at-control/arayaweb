@@ -1,5 +1,7 @@
 # Araya project notes
 
+Current release: [921909b](https://github.com/hakiimm8/arayaweb/commit/921909bf355c1ec6454f63127ea26a12e378daa1), 14 October 2026. Professional positioning, navigation/enquiry improvements and motion are recorded in [implementation notes](IMPROVEMENTS-2026-10-14.md). The earlier release notes below are historical.
+
 Recorded 8 October 2026, Asia/Jakarta. Historical observations from the project session; not a fresh audit or ongoing monitoring.
 
 ## Current state and records

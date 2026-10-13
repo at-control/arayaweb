@@ -6,7 +6,7 @@ Preview: https://hakiimm8.github.io/arayaweb/
 
 Saved audit findings, design decisions, verification results and next steps: [Project notes](docs/PROJECT-NOTES.md).
 
-Start with the [documentation index](docs/README.md), [progress/release record](docs/PROGRESS.md) and [content sources](docs/CONTENT-SOURCES.md). The 14 October experience improvements are recorded in [implementation notes](docs/IMPROVEMENTS-2026-10-14.md); current deployment status is in the progress/release record.
+Start with the [documentation index](docs/README.md), [progress/release record](docs/PROGRESS.md) and [content sources](docs/CONTENT-SOURCES.md). Latest website-content release: [921909b](https://github.com/hakiimm8/arayaweb/commit/921909bf355c1ec6454f63127ea26a12e378daa1). The 14 October experience improvements are recorded in [implementation notes](docs/IMPROVEMENTS-2026-10-14.md); current deployment status is in the progress/release record.
 
 ## Files
 
@@ -17,6 +17,8 @@ Start with the [documentation index](docs/README.md), [progress/release record](
 - `tools/brand_profiles.py` and `tools/brand_pages.py`: researched brand content and dedicated brand-page layout.
 - `tools/comap_applications.py`: 19 sourced application explanations grouped by marine, power generation and smart energy management.
 - `.github/workflows/pages.yml`: publishes `public/` on push to main or manual dispatch. No PR triggers.
+
+The build templates require Python 3.12 or newer.
 
 To preview locally, serve `public/` with a static HTTP server. WordPress and PHP are not required for this preview.
 
