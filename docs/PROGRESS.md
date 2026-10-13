@@ -2,7 +2,7 @@
 
 ## Single landing page and automatic years — 14 October 2026
 
-Implemented one Araya landing page plus dedicated Noris/ComAp guides. Common requests removed; full services and enquiries are on the homepage. Legacy service bookmarks redirect to their matching anchors. Automatic company age/copyright follow Jakarta time, including New Year and resumed tabs. Company labels are Noris Group GmbH and ComAp a.s. Local/static/clock tests and independent review passed; see [implementation record](LANDING-AND-DATES-2026-10-14.md). Deployment verification pending. Earlier six-page content architecture below is historical.
+Implemented one Araya landing page plus dedicated Noris/ComAp guides. Common requests removed; full services and enquiries are on the homepage. Legacy service bookmarks redirect to their matching anchors. Automatic company age/copyright follow Jakarta time, including New Year and resumed tabs. Company labels are Noris Group GmbH and ComAp a.s. Local/static/clock tests and independent review passed; see [implementation record](LANDING-AND-DATES-2026-10-14.md). Published release [dac0b92](https://github.com/hakiimm8/arayaweb/commit/dac0b92eac714fead13f1d2957faa0487d1b5b53); [Pages deployment](https://github.com/hakiimm8/arayaweb/actions/runs/38477724617) succeeded. All eleven published HTML/sitemap/script/style files checked return 200 and match the verified artifact. Earlier six-page content architecture below is historical.
 
 ## Approved copy decisions — 14 October 2026
 

@@ -50,4 +50,4 @@ The founding year remains 2009. public/assets/company-date.js calculates the yea
 
 ![Consistent manufacturer company labels](reviews/landing-2026-10-14/04-partner-company-names.png)
 
-Deployment verification pending. Only public is published to GitHub Pages; production WordPress remains a separate deployment.
+Published release [dac0b92](https://github.com/hakiimm8/arayaweb/commit/dac0b92eac714fead13f1d2957faa0487d1b5b53). [Pages run 38477724617](https://github.com/hakiimm8/arayaweb/actions/runs/38477724617) succeeded. All three content pages, three legacy compatibility documents, sitemap and four shared scripts/styles returned 200 and matched the verified local bytes after line-ending normalisation. Published-file verification is separate from the local browser screenshots and clock simulation. Only public is published to GitHub Pages; production WordPress remains a separate deployment.
