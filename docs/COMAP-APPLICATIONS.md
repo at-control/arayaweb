@@ -1,5 +1,7 @@
 # ComAp application guide research
 
+Owner decisions, 14 October 2026: eighteen applications are now published. Energy-market integration is hidden; hydrogen, fuel cells, CHP, datacentres and the other applications remain. Earlier nineteen-application research/release notes below are historical. See [approved content decisions](CONTENT-DECISIONS-2026-10-14.md).
+
 Reviewed 9 October 2026, Asia/Jakarta.
 
 ## Owner brief and implementation

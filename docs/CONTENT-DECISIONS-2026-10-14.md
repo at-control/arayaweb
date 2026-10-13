@@ -37,7 +37,7 @@ Technical references, original branding, professional/international positioning 
 
 Checks: six-page artifact checker, three experience regression checks and whitespace check passed. ComAp has 24 contextual enquiry links (18 applications plus six product families), Noris eight. About heading rendered without horizontal overflow in the desktop browser. Current certification copy supersedes earlier working-practices screenshots and notes.
 
-Publication verification pending for this content revision.
+Published as [c92ba45](https://github.com/hakiimm8/arayaweb/commit/c92ba4524cb85d2354bda8f8dd159478cbca7b93). [Pages run 38475579209](https://github.com/hakiimm8/arayaweb/actions/runs/38475579209) succeeded. All six published HTML pages return 200 and match the verified local artifact after line-ending normalisation.
 
 
 ![Approved company-age and certification copy](reviews/improvements-2026-10-14/08-approved-company-copy.png)

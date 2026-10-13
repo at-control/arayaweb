@@ -2,7 +2,7 @@
 
 ## Approved copy decisions — 14 October 2026
 
-Implemented owner selections and the follow-up certified wording. Age is 17 years in 2026. Marine has ten scopes; ComAp publishes eighteen applications. Preview-only visible footer text removed. See [Content decisions](CONTENT-DECISIONS-2026-10-14.md). Publication pending verification. Earlier working-practices wording below is historical and superseded.
+Implemented owner selections and the follow-up certified wording. Age is 17 years in 2026. Marine has ten scopes; ComAp publishes eighteen applications. Preview-only visible footer text removed. See [Content decisions](CONTENT-DECISIONS-2026-10-14.md). Published release [c92ba45](https://github.com/hakiimm8/arayaweb/commit/c92ba4524cb85d2354bda8f8dd159478cbca7b93); [Pages deployment](https://github.com/hakiimm8/arayaweb/actions/runs/38475579209) succeeded. All six published HTML routes return 200 and match the local verified artifact. Earlier working-practices wording below is historical and superseded.
 
 ## Branch office correction — 14 October 2026
 
