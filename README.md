@@ -10,7 +10,7 @@ Start with the [documentation index](docs/README.md), [progress/release record](
 
 ## Files
 
-- `public/`: the complete published site, with home, marine, industrial, automation & electrical, Noris and ComAp pages, plus `sitemap.xml`.
+- `public/`: the complete published site, with one Araya landing page, Noris and ComAp guides, three legacy service redirects and sitemap.xml.
 - `tools/site_content.py`: company content: service pages, clients, multi-brand equipment lists and homepage common requests.
 - `tools/prepare_site_assets.py`: client logos, date-stamp-free responsive photos, the share image and the proportioned logo.
 - `tools/build.py`: shared HTML template and page copy. Run `python tools/build.py` after editing.
@@ -19,6 +19,8 @@ Start with the [documentation index](docs/README.md), [progress/release record](
 - `.github/workflows/pages.yml`: publishes `public/` on push to main or manual dispatch. No PR triggers.
 
 The build templates require Python 3.12 or newer.
+
+Current structure and automatic years: [implementation notes](docs/LANDING-AND-DATES-2026-10-14.md). Date regression checks: node tools/test_company_dates.cjs.
 
 To preview locally, serve `public/` with a static HTTP server. WordPress and PHP are not required for this preview.
 

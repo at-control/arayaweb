@@ -1,15 +1,24 @@
 // The `js` class is set inline in <head> so the collapsed mobile menu is styled before first paint.
-// Application links reveal the referenced explanation, including deep links.
+// Service and application links reveal their explanation, including nested deep links.
 const revealApplication = (hash) => {
   if (!hash || hash === '#') return;
-  const target = document.getElementById(hash.slice(1));
-  if (target && target.matches('details.application-detail')) target.open = true;
+  let id;
+  try { id = decodeURIComponent(hash.slice(1)); } catch (_) { return; }
+  const target = document.getElementById(id);
+  let disclosure = target?.closest('details');
+  while (disclosure) {
+    disclosure.open = true;
+    disclosure = disclosure.parentElement?.closest('details');
+  }
 };
 revealApplication(window.location.hash);
 window.addEventListener('hashchange', () => revealApplication(window.location.hash));
-document.querySelector('.application-guide')?.addEventListener('click', (event) => {
-  const link = event.target.closest('a[href^="#"]');
-  if (link) revealApplication(link.getAttribute('href'));
+document.addEventListener('click', (event) => {
+  const link = event.target.closest('a[href]');
+  if (link && link.origin === location.origin &&
+      link.pathname.replace(/index\.html$/, '') === location.pathname.replace(/index\.html$/, '')) {
+    revealApplication(link.hash);
+  }
 });
 const diagramViewer = document.querySelector('.diagram-viewer');
 if (diagramViewer && typeof diagramViewer.showModal === 'function') {

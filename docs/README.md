@@ -2,8 +2,9 @@
 
 Updated 14 October 2026, Asia/Jakarta.
 
+- [Single landing page and automatic years](LANDING-AND-DATES-2026-10-14.md): three content routes, old-link compatibility, company labels and Jakarta New Year updates.
 - [Approved content decisions](CONTENT-DECISIONS-2026-10-14.md): owner choices, certification wording, age, hidden/removed services and simplified copy.
-- [Progress and releases](PROGRESS.md): current six-page preview, deployed commits, verification and remaining work.
+- [Progress and releases](PROGRESS.md): current three-page site and legacy service redirects, deployed commits, verification and remaining work.
 - [Implemented improvements 14 October 2026](IMPROVEMENTS-2026-10-14.md): professional positioning, contextual enquiries, persistent navigation, readable mobile clients and additional motion.
 - [Review 13 October 2026](REVIEW-2026-10-13.md): review of the owner's local changes, findings, desktop/mobile screenshots and unpublished-commit status.
 - [UI consistency 13 October 2026](UI-CONSISTENCY-2026-10-13.md): shared component comparison, accordion styles, type/spacing and badge contrast, with fresh screenshots.

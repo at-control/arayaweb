@@ -1,5 +1,9 @@
 # Progress and release record
 
+## Single landing page and automatic years — 14 October 2026
+
+Implemented one Araya landing page plus dedicated Noris/ComAp guides. Common requests removed; full services and enquiries are on the homepage. Legacy service bookmarks redirect to their matching anchors. Automatic company age/copyright follow Jakarta time, including New Year and resumed tabs. Company labels are Noris Group GmbH and ComAp a.s. Local/static/clock tests and independent review passed; see [implementation record](LANDING-AND-DATES-2026-10-14.md). Deployment verification pending. Earlier six-page content architecture below is historical.
+
 ## Approved copy decisions — 14 October 2026
 
 Implemented owner selections and the follow-up certified wording. Age is 17 years in 2026. Marine has ten scopes; ComAp publishes eighteen applications. Preview-only visible footer text removed. See [Content decisions](CONTENT-DECISIONS-2026-10-14.md). Published release [c92ba45](https://github.com/hakiimm8/arayaweb/commit/c92ba4524cb85d2354bda8f8dd159478cbca7b93); [Pages deployment](https://github.com/hakiimm8/arayaweb/actions/runs/38475579209) succeeded. All six published HTML routes return 200 and match the local verified artifact. Earlier working-practices wording below is historical and superseded.

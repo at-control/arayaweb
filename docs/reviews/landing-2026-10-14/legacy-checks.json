@@ -1,0 +1,20 @@
+[
+  {
+    "hash": "#marine-alarms",
+    "open": true,
+    "path": "/index.html",
+    "targetPresent": true
+  },
+  {
+    "hash": "#industrial-cranes",
+    "open": true,
+    "path": "/index.html",
+    "targetPresent": true
+  },
+  {
+    "hash": "#automation-equipment",
+    "open": true,
+    "path": "/index.html",
+    "targetPresent": true
+  }
+]

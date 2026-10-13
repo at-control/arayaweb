@@ -11,3 +11,6 @@
 - Owner correction, 14 October 2026: never describe a Sidoarjo-based team or Sidoarjo backup team. Araya serves Indonesia professionally, with branch offices in Sidoarjo (Gateway Citra Harmoni RKG 32–33) and Jakarta (Townhouse PIK). No Jakarta unit number, street or postal code was supplied.
 
 - Approved content decisions, 14 October 2026: use company age (build year minus 2009), Clients who trust Araya, direct service wording and Share your equipment details. Remove hydrodynamic test facilities and hide ComAp energy-market integration; retain other ComAp applications. Simplify dense automation terminology. Remove preview-only visible footer text and the old-site link; keep preview noindex metadata until production deployment is requested.
+
+- Current structure, 14 October 2026: one Araya landing page with all services; dedicated Noris and ComAp pages only. The old three service routes are compatibility redirects; keep their bookmarked scope hashes working. Do not restore Common requests. Use Noris Group GmbH and ComAp a.s. for manufacturer company labels.
+- Displayed company age and copyright use company-date.js and Asia/Jakarta. Keep all date fields wired and the age-free fallback; verify with node tools/test_company_dates.cjs. Do not hardcode ages in metadata.

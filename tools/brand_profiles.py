@@ -8,7 +8,7 @@ CC = COMAP + '/products/controllers'
 
 BRANDS = {
     'noris': {
-        'name': 'Noris', 'label': 'NORIS GROUP GmbH · INDONESIA',
+        'name': 'Noris', 'legal_name': 'Noris Group GmbH', 'label': 'Noris Group GmbH · INDONESIA',
         'title': 'Noris Distributor Indonesia: Sensors & Marine AMS | Araya',
         'menu_note': 'Sensors, instruments & marine automation',
         'home_summary': 'Speed, temperature and pressure sensors, analogue indicators, signal processing, noriMos alarm monitoring, noriStar propulsion control and noriNet remote monitoring.',
@@ -100,7 +100,7 @@ BRANDS = {
     },
     'comap': {
         'application_groups': COMAP_APPLICATIONS,
-        'name': 'ComAp', 'label': 'COMAP CONTROL · INDONESIA',
+        'name': 'ComAp', 'legal_name': 'ComAp a.s.', 'label': 'ComAp a.s. · INDONESIA',
         'title': 'ComAp Distributor Indonesia: Engine & Genset Control | Araya',
         'menu_note': 'Engine, generator & power control',
         'home_summary': 'Engine controllers, generator synchronisation and load sharing, marine power management, standby generator control, SCADA and remote fleet monitoring.',

@@ -24,7 +24,7 @@ Technical references, original branding, professional/international positioning 
 
 1. Changed client heading to Clients who trust Araya.
 2. Replaced the generic total-solutions sentence with supply, repair, upgrade and retrofit scope.
-3. Show company age: 17 years in 2026, calculated at build time from the founding year 2009. Updated About heading, hero annotation, footer and home metadata. Founding year remains in the history and structured data. Rebuild in a new year to refresh the static age.
+3. Show company age: 17 years in 2026, calculated at build time from the founding year 2009. Updated About heading, hero annotation, footer and home metadata. Founding year remains in the history and structured data. Superseded by the automatic Jakarta-time date updater; see LANDING-AND-DATES-2026-10-14.md.
 4. Initially retained working-practices wording at the owner's request. A subsequent instruction superseded this: remove standardised/standardized positioning and use certified wording. General certification wording is owner-approved; no named certification, issuer, logo or accreditation was invented.
 5. Changed brand enquiry heading to Share your equipment details.
 6. Noris heading now says Sensors, instruments & integrated marine systems.

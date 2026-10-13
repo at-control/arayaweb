@@ -21,6 +21,8 @@ class Links(HTMLParser):
 class ExperienceTests(unittest.TestCase):
     def test_contact_keeps_current_page(self):
         for path in PUBLIC.rglob('index.html'):
+            if path.parent.name in {'marine', 'industrial', 'automation'}:
+                continue  # These URLs are now compatibility redirects.
             with self.subTest(page=path.parent.name):
                 link = next(a for a in Links(path).links if a.get('class') == 'nav-contact')
                 self.assertEqual(link['href'], '#contact')
@@ -44,6 +46,18 @@ class ExperienceTests(unittest.TestCase):
         self.assertNotIn('local talent', html)
         self.assertIn('International technical backing', html)
         self.assertIn('Certified &amp; experienced', html)
+
+    def test_single_landing_page(self):
+        html = (PUBLIC / 'index.html').read_text(encoding='utf-8')
+        self.assertNotIn('Common requests', html)
+        for service in ['marine', 'industrial', 'automation']:
+            self.assertIn(f'id="{service}-services"', html)
+            self.assertIn(f'href="#{service}-services"', html)
+            for page in ['index.html', 'noris/index.html', 'comap/index.html']:
+                self.assertNotIn(f'href="./{service}/"', (PUBLIC / page).read_text(encoding='utf-8'))
+                self.assertNotIn(f'href="../{service}/"', (PUBLIC / page).read_text(encoding='utf-8'))
+        sitemap = (PUBLIC / 'sitemap.xml').read_text(encoding='utf-8')
+        self.assertEqual(sitemap.count('<url>'), 3)
 
 
 if __name__ == '__main__':

@@ -155,3 +155,8 @@ Owner correction: do not describe Araya as a Sidoarjo-based team or Sidoarjo bac
 ## Owner-approved wording and scope — 14 October 2026
 
 Owner selected the twelve content decisions in CONTENT-DECISIONS-2026-10-14.md: company age instead of since wording, clear client/service/brand headings and equipment-detail enquiries; remove hydrodynamic testing, hide energy-market integration, retain other ComAp applications, simplify dense automation wording and remove visible preview footer text. A later explicit instruction supersedes the initial working-practices decision: use certified wording, not standardised. The owner confirms certification; general wording is approved, while exact names, issuers, scope and logos remain unspecified. No named certificate or accreditation is asserted. Marine has ten scopes; ComAp publishes eighteen applications.
+
+
+## Single landing page and company labels — 14 October 2026
+
+Owner direction: services live on one Araya landing page, with only Noris and ComAp as separate content pages. Common requests removed. Approved service content, equipment and six partner technology descriptions retained in three disclosures. Old service URLs are compatibility redirects. Owner supplied exact ComAp a.s. label, shown consistently with Noris Group GmbH. Automatic age uses founding year 2009 and Jakarta calendar year; no numeric age is hardcoded into metadata. See LANDING-AND-DATES-2026-10-14.md for verification and fallback.
