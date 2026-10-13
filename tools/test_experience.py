@@ -26,7 +26,7 @@ class ExperienceTests(unittest.TestCase):
                 self.assertEqual(link['href'], '#contact')
 
     def test_every_product_and_application_has_contextual_enquiry(self):
-        for brand, expected in [('Noris', 8), ('ComAp', 25)]:
+        for brand, expected in [('Noris', 8), ('ComAp', 24)]:
             links = [a for a in Links(PUBLIC / brand.lower() / 'index.html').links
                      if 'context-enquiry' in a.get('class', '').split()]
             self.assertEqual(len(links), expected)
@@ -43,7 +43,7 @@ class ExperienceTests(unittest.TestCase):
         self.assertNotIn('Local engineers', html)
         self.assertNotIn('local talent', html)
         self.assertIn('International technical backing', html)
-        self.assertIn('Standardised working practices', html)
+        self.assertIn('Certified &amp; experienced', html)
 
 
 if __name__ == '__main__':

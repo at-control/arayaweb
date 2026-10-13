@@ -1,5 +1,9 @@
 # Progress and release record
 
+## Approved copy decisions — 14 October 2026
+
+Implemented owner selections and the follow-up certified wording. Age is 17 years in 2026. Marine has ten scopes; ComAp publishes eighteen applications. Preview-only visible footer text removed. See [Content decisions](CONTENT-DECISIONS-2026-10-14.md). Publication pending verification. Earlier working-practices wording below is historical and superseded.
+
 ## Branch office correction — 14 October 2026
 
 Removed Sidoarjo-based team wording. Added the owner-confirmed Sidoarjo and Jakarta (Townhouse PIK) branch offices to the shared contact details, About copy and structured locations. Exact Jakarta unit/street/postal details were not supplied. Release [ff94e52](https://github.com/hakiimm8/arayaweb/commit/ff94e522261fed5e63a1df2cd14d43ab4f5fd064) deployed successfully in [Pages run 38473939229](https://github.com/hakiimm8/arayaweb/actions/runs/38473939229). Published homepage returns 200, includes Townhouse PIK and omits the old team wording. Local six-page checks and structured-location assertions passed.
@@ -57,11 +61,11 @@ The scope table below reflects the 14 October published implementation. The hist
 | Page | Implemented scope |
 | --- | --- |
 | [Home](https://hakiimm8.github.io/arayaweb/) | WhatsApp-first hero, founding story and leadership, three service cards with 12 common-request links, client logos (7 clients; desktop motion/mobile grid), owner-supplied 1,500+ total and Indonesian regions, featured partners plus multi-brand equipment list, contacts. |
-| [Marine](https://hakiimm8.github.io/arayaweb/marine/) | 11 scope areas: alarms, safety, engines, generators, propulsion, navigation, automation, cranes, HVAC/refrigeration, retrofit and test facilities. Equipment list, featured partners, enquiry checklist. |
+| [Marine](https://hakiimm8.github.io/arayaweb/marine/) | 10 scope areas: alarms, safety, engines, generators, propulsion, navigation, automation, cranes, HVAC/refrigeration, and retrofit. Equipment list, featured partners, enquiry checklist. |
 | [Industrial](https://hakiimm8.github.io/arayaweb/industrial/) | 8 scope areas: machinery, wire-cut/EDM, cutting, production machines, cranes, generators, electrical and automation. Equipment list, featured partners, enquiry checklist. |
 | [Automation & Electrical](https://hakiimm8.github.io/arayaweb/automation/) | 12 scope areas: PLC, SCADA, instrumentation, panels, drives, motors, hazardous area, protection, power, earthing, gensets and electronics. Nine equipment groups, featured partners, enquiry checklist. |
 | [Noris](https://hakiimm8.github.io/arayaweb/noris/) | Eight product areas: speed, temperature, pressure, instruments, signal processing, noriMos, noriStar and noriNet. Brand profile, product pictures in every family, applications, references, enquiry brief and FAQs. |
-| [ComAp](https://hakiimm8.github.io/arayaweb/comap/) | 19 detailed applications across marine, power generation and smart energy, plus six product areas: engine control, paralleling/load sharing, marine PMS, single-generator control, InteliSCADA and WebSupervisor. Brand profile, product pictures in every family, applications, references, enquiry brief and FAQs. |
+| [ComAp](https://hakiimm8.github.io/arayaweb/comap/) | 18 detailed applications across marine, power generation and smart energy, plus six product areas: engine control, paralleling/load sharing, marine PMS, single-generator control, InteliSCADA and WebSupervisor. Brand profile, product pictures in every family, applications, references, enquiry brief and FAQs. |
 
 WhatsApp is owner-supplied +62 81326396262, linked as https://wa.me/6281326396262. No enquiry message was sent during checks.
 

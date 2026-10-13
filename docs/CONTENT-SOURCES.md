@@ -150,3 +150,8 @@ Owner direction: remove local-engineer, local-talent and Indonesian-team positio
 ## Branch offices and company voice — 14 October 2026
 
 Owner correction: do not describe Araya as a Sidoarjo-based team or Sidoarjo backup team. The owner confirms branch offices in Sidoarjo and Jakarta, with Jakarta at Townhouse PIK. Retained the existing Sidoarjo contact address. Added Jakarta as supplied, without inventing a unit number, street address or postal code; its map link is a place-name search. Shared header/footer, About text and structured locations reflect both offices. Professional/international positioning remains.
+
+
+## Owner-approved wording and scope — 14 October 2026
+
+Owner selected the twelve content decisions in CONTENT-DECISIONS-2026-10-14.md: company age instead of since wording, clear client/service/brand headings and equipment-detail enquiries; remove hydrodynamic testing, hide energy-market integration, retain other ComAp applications, simplify dense automation wording and remove visible preview footer text. A later explicit instruction supersedes the initial working-practices decision: use certified wording, not standardised. The owner confirms certification; general wording is approved, while exact names, issuers, scope and logos remain unspecified. No named certificate or accreditation is asserted. Marine has ten scopes; ComAp publishes eighteen applications.

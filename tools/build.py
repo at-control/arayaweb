@@ -4,6 +4,7 @@ from html import escape
 from urllib.parse import quote
 import json
 import hashlib
+from datetime import date
 from brand_profiles import BRANDS
 from brand_pages import brand_content
 from ui_components import page_index
@@ -11,6 +12,8 @@ from site_content import SERVICES, CLIENTS, BRAND_GROUPS, CAPABILITIES
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
+CURRENT_YEAR = date.today().year
+COMPANY_AGE = CURRENT_YEAR - 2009
 BASE = "https://hakiimm8.github.io/arayaweb/"
 PRODUCTION = "https://arayainternusa.co.id/araya/"
 ARROW = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg>'
@@ -34,7 +37,7 @@ def organization():
         "@type": "ProfessionalService", "@id": BASE + "#organization",
         "name": "PT Araya Internusa", "alternateName": "Araya Internusa", "url": PRODUCTION,
         "logo": BASE + "assets/images/araya-logo.png", "image": BASE + "assets/images/og-araya.jpg",
-        "description": "Marine, industrial and automation engineering company serving Indonesia: supply, repair, modification, upgrade and retrofit since 2009.",
+        "description": f"Marine, industrial and automation engineering company serving Indonesia, with {COMPANY_AGE} years of experience in supply, repair, modification, upgrade and retrofit.",
         "email": EMAIL, "telephone": "+62-31-7877990", "foundingDate": "2009",
         "founder": {"@type": "Person", "name": "Arif Fatkur Rohman"},
         "address": {"@type": "PostalAddress", "streetAddress": "Gateway Citra Harmoni RKG 32–33", "addressLocality": "Taman, Sidoarjo",
@@ -101,13 +104,13 @@ def shell(title, description, content, route="", schema=()):
 <section class="contact" id="contact" aria-labelledby="contact-heading">
   <div class="container contact-intro"><div><p class="eyebrow">GET IN TOUCH</p><h2 id="contact-heading">Let’s find the right solution.</h2><p>Send the equipment model, a nameplate photo and the problem or change you need.</p></div><div class="contact-actions"><a class="button" href="{whatsapp(contact_topic)}">Chat on WhatsApp {ARROW}</a><a class="button button-outline" href="mailto:{EMAIL}">Email our team {ARROW}</a></div></div>
   <div class="container footer-grid">
-    <div class="footer-company"><img src="{prefix}assets/images/araya-logo-transparent.png" alt="PT Araya Internusa" width="238" height="52" loading="lazy"><p>Marine, industrial and automation engineering across Indonesia since 2009.</p><a class="text-link light" href="{PRODUCTION}">Visit our current website {ARROW}</a></div>
+    <div class="footer-company"><img src="{prefix}assets/images/araya-logo-transparent.png" alt="PT Araya Internusa" width="238" height="52" loading="lazy"><p>{COMPANY_AGE} years of marine, industrial and automation engineering across Indonesia.</p></div>
     <div><h3>Explore Araya</h3><a href="{home}#about">About Us</a>{service_footer_links}{brand_footer_links}<a href="{home}#clients">Our Clients</a></div>
     <div><h3>Branch Offices</h3><p><strong>Sidoarjo</strong><a href="{MAP}">Gateway Citra Harmoni RKG 32–33<br>Taman, Sidoarjo<br>Jawa Timur 61257, Indonesia</a></p><p><strong>Jakarta</strong><a href="{JAKARTA_MAP}">Townhouse PIK<br>Jakarta, Indonesia</a></p><p class="contact-note">Mon–Sat, 08.00–17.00 WIB</p></div>
     <div><h3>Contact Us</h3><a href="mailto:{EMAIL}">{EMAIL}</a><a href="tel:+62317877990">+62 (031) 7877990</a><a href="{whatsapp(contact_topic)}">WhatsApp: +62 813 2639 6262</a><p class="contact-note">Share your system details with our team.</p></div>
   </div>
 </section>
-<footer class="copyright"><div class="container"><span>© 2026 PT Araya Internusa.</span><span>Design preview · Current website remains live</span></div></footer>
+<footer class="copyright"><div class="container"><span>© {CURRENT_YEAR} PT Araya Internusa.</span></div></footer>
 </body></html>'''
 
 
@@ -126,19 +129,19 @@ def home():
   <img class="hero-photo" src="./assets/images/ship-1400.webp" srcset="{srcset((("ship-800.webp", 800), ("ship-1400.webp", 1400)))}" sizes="100vw" alt="PELNI passenger vessel alongside a quay, from Araya’s marine project photographs" width="1400" height="784" fetchpriority="high">
   <div class="hero-shade"></div>
   <div class="container hero-content"><p class="eyebrow">PT ARAYA INTERNUSA</p><h1 id="hero-heading">Marine, industrial &amp;<br>automation engineering<br><span>across Indonesia.</span></h1><p class="hero-description">Supply, repair, modification, upgrade and retrofit for marine equipment, industrial systems and automation.</p><div class="hero-actions"><a class="button" href="{whatsapp()}">Discuss your project {ARROW}</a><a class="button button-outline" href="#services">Our services {ARROW}</a></div></div>
-  <div class="hero-index" aria-hidden="true"><span>1,500+</span> / PROJECTS SINCE 2009</div>
+  <div class="hero-index" aria-hidden="true"><span>1,500+</span> / PROJECTS OVER {COMPANY_AGE} YEARS</div>
 </section>
 <section class="section about" id="about"><div class="container about-grid">
   <div class="about-media"><img src="./assets/images/team.webp" alt="Araya technicians working together in a vessel’s engine room" width="600" height="600" loading="lazy"><div class="since"><strong>2009</strong><span>Where our story began</span></div></div>
-  <div><p class="eyebrow">ABOUT PT ARAYA INTERNUSA</p><h2>Professional experience.<br>International technical backing.</h2><p class="lead">Experienced engineering for marine and industrial systems, supported by standardised working practices and international technical expertise.</p><p>Founded in 2009 by Arif Fatkur Rohman, PT Araya Internusa brings together repair, modification, upgrade and retrofit experience. International technical backing includes HIT (Haven- und Industrietechnik GmbH), Noris Automation and ComAp.</p><p>Araya serves projects across Sumatra, Jawa, Kalimantan, Sulawesi and Papua, with branch offices in Sidoarjo and Jakarta (Townhouse PIK). We also extend the life of obsolete or end-of-sale equipment with practical, reliable solutions.</p><div class="scope-list"><span>Marine</span><span>Industrial</span><span>Automation &amp; electrical</span></div><p class="working-practice"><strong>Standardised working practices</strong><br>Equipment requirements, agreed scope and technical references guide each engineering discussion.</p><p class="leaders"><strong>Leadership:</strong> Arif Fatkur Rohman, S.T., M.MT (Founder &amp; Director) · M Rosul Akbar (Manager) · Anjas Budiarso (Manager)</p></div>
+  <div><p class="eyebrow">ABOUT PT ARAYA INTERNUSA</p><h2>{COMPANY_AGE} years of<br>professional engineering.</h2><p class="lead">Professional engineering for marine and industrial systems, backed by certification and international technical expertise.</p><p>Founded in 2009 by Arif Fatkur Rohman, PT Araya Internusa brings together repair, modification, upgrade and retrofit experience. International technical backing includes HIT (Haven- und Industrietechnik GmbH), Noris Automation and ComAp.</p><p>Araya serves projects across Sumatra, Jawa, Kalimantan, Sulawesi and Papua, with branch offices in Sidoarjo and Jakarta (Townhouse PIK). We also extend the life of obsolete or end-of-sale equipment with practical, reliable solutions.</p><div class="scope-list"><span>Marine</span><span>Industrial</span><span>Automation &amp; electrical</span></div><p class="working-practice"><strong>Certified &amp; experienced</strong><br>Professional engineering experience, backed by certification and international technical support.</p><p class="leaders"><strong>Leadership:</strong> Arif Fatkur Rohman, S.T., M.MT (Founder &amp; Director) · M Rosul Akbar (Manager) · Anjas Budiarso (Manager)</p></div>
 </div></section>
 <section class="section section-muted" id="services"><div class="container">
-  <div class="section-heading"><div><p class="eyebrow">WHAT WE DO</p><h2>Marine. Industrial.<br>Automation.</h2></div><p>Total solutions for engineering, automation and ship repair needs, delivered with speed, precision and professionalism.</p></div>
+  <div class="section-heading"><div><p class="eyebrow">WHAT WE DO</p><h2>Marine. Industrial.<br>Automation.</h2></div><p>Supply, repair, upgrade and retrofit for marine and industrial systems.</p></div>
   <div class="service-grid">{cards}</div>
   <div class="capabilities"><h3>Common requests</h3><nav class="capability-list" aria-label="Common requests">{capabilities}</nav></div>
 </div></section>
 <section class="section projects" id="clients"><div class="container">
-  <div class="section-heading"><div><p class="eyebrow">OUR CLIENTS</p><h2>Partners who<br>trust Araya.</h2></div><p>Organisations that trust PT Araya Internusa with their engineering and automation work.</p></div>
+  <div class="section-heading"><div><p class="eyebrow">OUR CLIENTS</p><h2>Clients who<br>trust Araya.</h2></div><p>Organisations that trust PT Araya Internusa with their engineering and automation work.</p></div>
   <div class="project-reach"><div class="project-total"><strong>1,500+</strong><span>projects across Indonesia</span></div><div class="project-coverage"><h3>Across the archipelago</h3><ul><li>Sumatra</li><li>Jawa</li><li>Kalimantan</li><li>Sulawesi</li><li>Papua</li></ul></div></div>
   <div class="client-marquee"><ul class="client-track" aria-label="Selected clients">{clients}</ul><ul class="client-track" aria-hidden="true">{clients}</ul></div>
   <div class="client-footer"><button class="marquee-toggle" type="button" aria-pressed="false">Pause logos</button></div>
@@ -163,7 +166,7 @@ def sector_content(key, s):
     variants = f' srcset="{srcset(s["hero_variants"], "../")}" sizes="(max-width: 680px) 100vw, 45vw"' if s.get('hero_variants') else ''
     return f'''<section class="brand-hero"><div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><span>{escape(s['name'])}</span></nav><p class="eyebrow">{escape(s['label'].upper())}</p><h1>{s['heading']}</h1><p>{escape(s['intro'])}</p><div class="brand-actions"><a class="button" href="{whatsapp(s['short'] + ' work')}">Discuss your project {ARROW}</a><a class="text-link light" href="#project-scopes">See what we handle {ARROW}</a></div></div></section>
 {page_index(s["name"], [("project-scopes", "Service scopes"), ("equipment", "Equipment"), ("contact", "Enquire with Araya")])}
-<section class="section"><div class="container brand-overview"><div><p class="eyebrow">PT ARAYA INTERNUSA</p><h2>{s['scope_heading']}</h2><p class="lead">{escape(s['overview'])}</p><p>Our experienced team brings standardised working practices and international technical backing to marine and industrial engineering. Tell us what needs to be repaired, replaced, controlled or monitored. We agree the scope around your equipment, operating requirements and site or vessel conditions.</p></div><figure><img src="../assets/images/{s['hero_image']}"{variants} alt="{escape(s['hero_alt'], quote=True)}" width="{s['hero_width']}" height="{s['hero_height']}" loading="lazy"><figcaption>From Araya’s engineering and service photography.</figcaption></figure></div></section>
+<section class="section"><div class="container brand-overview"><div><p class="eyebrow">PT ARAYA INTERNUSA</p><h2>{s['scope_heading']}</h2><p class="lead">{escape(s['overview'])}</p><p>Araya combines professional engineering experience, certification and international technical backing for marine and industrial projects. Tell us what needs to be repaired, replaced, controlled or monitored. We agree the scope around your equipment, operating requirements and site or vessel conditions.</p></div><figure><img src="../assets/images/{s['hero_image']}"{variants} alt="{escape(s['hero_alt'], quote=True)}" width="{s['hero_width']}" height="{s['hero_height']}" loading="lazy"><figcaption>From Araya’s engineering and service photography.</figcaption></figure></div></section>
 <section class="section section-muted" id="project-scopes"><div class="container"><p class="eyebrow">WHAT WE DO</p><h2>Typical {escape(s['short'])} project scopes.</h2><details class="scope-finder"><summary>Find a service scope</summary><nav class="product-finder" aria-label="Service scopes">{scope_links}</nav></details><div class="scope-details">{rows}</div></div></section>
 <section class="section" id="equipment"><div class="container"><p class="eyebrow">EQUIPMENT WE WORK ON</p><h2>Multi-brand experience.</h2><p class="portfolio-intro">A selection of the manufacturers and systems our engineers supply or repair.</p><dl class="equipment-list">{equipment}</dl></div></section>
 <section class="section section-muted"><div class="container"><p class="eyebrow">FEATURED PARTNER TECHNOLOGY</p><h2>International technology.<br>Professional support.</h2><div class="connection-grid">{featured}</div><div class="equipment-note"><h3>What to send us.</h3><ul class="enquiry-checklist">{checklist}</ul><a class="text-link" href="{whatsapp(s['short'] + ' work')}">Send your project details on WhatsApp {ARROW}</a></div></div></section>
@@ -180,7 +183,7 @@ def main():
     routes = [""]
     website = {"@type": "WebSite", "@id": BASE + "#website", "name": "PT Araya Internusa", "url": BASE, "publisher": {"@id": BASE + "#organization"}}
     write("", shell("Marine & Industrial Automation Engineering | Araya Internusa",
-                    "Marine, industrial and automation engineering in Indonesia since 2009: ship systems, generators, PLC/SCADA, cranes and machinery. Noris and ComAp partner.",
+                    f"{COMPANY_AGE} years of marine, industrial and automation engineering in Indonesia: ship systems, generators, cranes and machinery. Noris and ComAp partner.",
                     home(), schema=[website]))
     for key, s in SERVICES.items():
         service = {"@type": "Service", "name": s['name'] + " engineering services", "serviceType": s['name'], "provider": {"@id": BASE + "#organization"},

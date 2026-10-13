@@ -15,7 +15,7 @@ Start with the [documentation index](docs/README.md), [progress/release record](
 - `tools/prepare_site_assets.py`: client logos, date-stamp-free responsive photos, the share image and the proportioned logo.
 - `tools/build.py`: shared HTML template and page copy. Run `python tools/build.py` after editing.
 - `tools/brand_profiles.py` and `tools/brand_pages.py`: researched brand content and dedicated brand-page layout.
-- `tools/comap_applications.py`: 19 sourced application explanations grouped by marine, power generation and smart energy management.
+- `tools/comap_applications.py`: 18 published application explanations grouped by marine, power generation and smart energy management.
 - `.github/workflows/pages.yml`: publishes `public/` on push to main or manual dispatch. No PR triggers.
 
 The build templates require Python 3.12 or newer.
@@ -34,7 +34,7 @@ Marine and industrial pages describe project scopes provided by the owner and th
 
 Dedicated Noris and ComAp guides include manufacturer background, a product-family index, application guidance, an Araya enquiry brief and accessible expandable FAQs. Noris covers eight product areas; ComAp covers six. These are Araya's brand guides for Indonesia; manufacturer links lead to current product details and documents.
 
-The owner states that Araya distributes Noris and ComAp in Indonesia. Authorization, exclusivity, specific product availability, warranties and certifications are not asserted.
+The owner states that Araya distributes Noris and ComAp in Indonesia. Authorization, exclusivity, specific product availability and warranties are not asserted. General certification wording is owner-approved; specific certification names, issuers and scope have not been provided.
 
 Manufacturer application sources checked 2026-10-08:
 

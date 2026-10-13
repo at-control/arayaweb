@@ -212,6 +212,8 @@ COMAP_APPLICATIONS = [
     },
 ]
 
+# Owner decision: hide energy-market integration from the Indonesia-facing guide.
 for group in COMAP_APPLICATIONS:
+    group['items'] = [item for item in group['items'] if item['id'] != 'energy-market-integration']
     for application in group['items']:
         application['diagrams'] = APPLICATION_DIAGRAMS.get(application['id'], [])

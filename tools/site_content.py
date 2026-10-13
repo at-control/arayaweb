@@ -62,7 +62,6 @@ SERVICES = {
             ('cranes', 'Deck cranes & deck machinery', 'Supply and repair of deck cranes and deck machinery.'),
             ('hvac', 'AC & refrigeration systems', 'Supply and repair of onboard air-conditioning and refrigeration systems.'),
             ('retrofit', 'Retrofit of obsolete systems', 'Modification, upgrade and retrofit that extend the use of obsolete or end-of-sale equipment.'),
-            ('test-facilities', 'Hydrodynamic test facilities', 'Specialist design and engineering for marine ocean basins (MOB), towing tanks and hydrodynamics laboratories.'),
         ],
         'equipment': [
             ('Fire & alarm systems', ['Consilium', 'Autronica', 'Siemens', 'Tyco', 'Honeywell', 'MEDC', 'Hekatron']),
@@ -123,7 +122,7 @@ SERVICES = {
         'groups': [
             ('plc', 'PLC & software', 'PLC hardware and software, and replacement of obsolete or end-of-sale controllers.'),
             ('scada', 'SCADA & HMI software', 'SCADA and HMI software for plants and onboard systems.'),
-            ('instrumentation', 'Process control & instrumentation', 'Process control and instrumentation systems, including regulators, transmitters and PV, LV and PSV valves.'),
+            ('instrumentation', 'Process control & instrumentation', 'Automation systems for process control and instrumentation.'),
             ('panels', 'Panels, switchboards & MCC', 'Electrical panels, MV/LV switchboards and motor-control centres, plus MV/LV power and instrument cable supply.'),
             ('drives', 'Soft starters & VFDs', 'Soft starters and variable-frequency drives.'),
             ('motors', 'Electric motors', 'Industrial and hazardous-area electric motors.'),
@@ -132,7 +131,7 @@ SERVICES = {
             ('power', 'Transformers, UPS & chargers', 'Transformers, UPS systems and battery chargers.'),
             ('earthing', 'Surge protection, earthing & PFC', 'Lightning and surge protection, grounding and retractable grounding assemblies, and reactive-power compensation.'),
             ('gensets', 'Generators & generating sets', 'MV/LV generators and generating sets.'),
-            ('electronics', 'Electronic card repair', 'Cloning and rebuilding circuit boards up to four layers; copying and programming EPROM, GAL, PAL, EPLD and PLCC ICs up to 64 pins.'),
+            ('electronics', 'Electronic card repair', 'Repair of electronic control boards for automation systems.'),
         ],
         'equipment': [
             ('PLC & control', ['Siemens', 'ABB', 'Omron', 'Mitsubishi', 'Allen-Bradley', 'Modicon', 'Honeywell']),
