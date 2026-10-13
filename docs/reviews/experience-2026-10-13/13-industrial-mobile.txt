@@ -1,0 +1,164 @@
+- link "Skip to content":
+  - /url: "#main"
+- banner:
+  - link "cs@arayainternusa.com":
+    - /url: mailto:cs@arayainternusa.com
+  - link "+62 (031) 7877990":
+    - /url: tel:+62317877990
+  - link "PT Araya Internusa home":
+    - /url: ../index.html
+    - img "PT Araya Internusa"
+  - button "Menu":
+    - generic: Menu
+- main:
+  - navigation "Breadcrumb":
+    - link "Home":
+      - /url: ../index.html
+    - generic: /
+    - generic: Industrial
+  - paragraph: INDUSTRIAL ENGINEERING
+  - heading "Industrial machinery. Back in production." [level=1]:
+    - text: Industrial machinery.
+    - text: Back in production.
+  - paragraph: Supply and repair of industrial machines, cranes and MV/LV generators.
+  - link "Discuss your project":
+    - /url: https://wa.me/6281326396262?text=Hello%20Araya%2C%20I%20would%20like%20to%20discuss%20industrial%20work.
+    - text: Discuss your project
+  - link "See what we handle":
+    - /url: "#project-scopes"
+    - text: See what we handle
+  - paragraph: PT ARAYA INTERNUSA
+  - heading "Machines and equipment we supply and repair." [level=2]:
+    - text: Machines and equipment
+    - text: we supply and repair.
+  - paragraph: We supply and repair industrial machines and cranes, together with the electrical and control equipment that runs them.
+  - paragraph: Tell us what needs to be repaired, replaced, controlled or monitored. We agree the scope around your equipment, operating requirements and site or vessel conditions.
+  - figure "From Araya’s engineering and service photography.":
+    - img "Araya engineer working inside an industrial electrical cabinet"
+    - generic: From Araya’s engineering and service photography.
+  - paragraph: WHAT WE DO
+  - heading "Typical industrial project scopes." [level=2]
+  - article:
+    - generic: "01"
+    - heading "CNC lathes & milling machines" [level=3]
+    - paragraph: Supply and repair of CNC lathes and CNC milling machines.
+  - article:
+    - generic: "02"
+    - heading "Wire-cut & EDM machines" [level=3]
+    - paragraph: Supply and repair of wire-cut and EDM machines.
+  - article:
+    - generic: "03"
+    - heading "NC gas & plasma cutting" [level=3]
+    - paragraph: NC gas-cutting and NC plasma-cutting machines, including PAC 500/600.
+  - article:
+    - generic: "04"
+    - heading "Hobbing, casting & moulding" [level=3]
+    - paragraph: Supply and repair of hobbing machines, continuous-casting equipment and moulding machines.
+  - article:
+    - generic: "05"
+    - heading "Crane supply & repair" [level=3]
+    - paragraph: Supply and repair of level-luffing, slewing, overhead, portal and port cranes, including P&H cranes.
+  - article:
+    - generic: "06"
+    - heading "MV/LV generators" [level=3]
+    - paragraph: Supply and repair of medium- and low-voltage generators.
+  - article:
+    - generic: "07"
+    - heading "Panels & motor controls" [level=3]
+    - paragraph: Electrical panels, MV/LV switchboards, motor-control centres, soft starters and variable-frequency drives.
+  - article:
+    - generic: "08"
+    - heading "PLC, HMI & instrumentation" [level=3]
+    - paragraph: PLC, SCADA and HMI software, and process instrumentation.
+  - paragraph: EQUIPMENT WE WORK ON
+  - heading "Multi-brand experience." [level=2]
+  - paragraph: A selection of the manufacturers and systems our engineers supply or repair.
+  - term: CNC & machine tools
+  - definition: Fanuc · Mitsubishi · Toshiba · Mori Seiki · Okuma · Makino
+  - term: Wire-cut & EDM
+  - definition: Charmilles · Fuji Electric · Fanuc
+  - term: Casting & cranes
+  - definition: CEIA · P&H
+  - term: Generators
+  - definition: GE · Leroy-Somer · Stamford · ABB · Marathon
+  - paragraph: FEATURED PARTNER TECHNOLOGY
+  - heading "Specialist brands, supplied locally." [level=2]:
+    - text: Specialist brands,
+    - text: supplied locally.
+  - link "ComAp Standby, prime-power and parallel generator control, load sharing and remote monitoring for industrial sites. Explore ComAp details":
+    - /url: ../comap/
+    - heading "ComAp" [level=3]
+    - paragraph: Standby, prime-power and parallel generator control, load sharing and remote monitoring for industrial sites.
+    - text: Explore ComAp details
+  - link "Noris Speed, temperature and pressure measurement, indicators and signal processing for machinery. Explore Noris details":
+    - /url: ../noris/
+    - heading "Noris" [level=3]
+    - paragraph: Speed, temperature and pressure measurement, indicators and signal processing for machinery.
+    - text: Explore Noris details
+  - heading "What to send us." [level=3]
+  - list:
+    - listitem: Site name and location
+    - listitem: Machine or generator make, model and nameplate photo
+    - listitem: Fault symptoms, error codes or the upgrade you need
+    - listitem: Electrical drawings and PLC/HMI project files, if available
+    - listitem: Required completion date or shutdown window
+  - link "Send your project details on WhatsApp":
+    - /url: https://wa.me/6281326396262?text=Hello%20Araya%2C%20I%20would%20like%20to%20discuss%20industrial%20work.
+    - text: Send your project details on WhatsApp
+  - link "Marine services":
+    - /url: ../marine/
+    - text: Marine services
+  - link "Automation & Electrical services":
+    - /url: ../automation/
+    - text: Automation & Electrical services
+  - link "Back to our services":
+    - /url: ../index.html#services
+- region "Let’s find the right solution.":
+  - paragraph: GET IN TOUCH
+  - heading "Let’s find the right solution." [level=2]
+  - paragraph: Send the equipment model, a nameplate photo and the problem or change you need.
+  - link "Chat on WhatsApp":
+    - /url: https://wa.me/6281326396262?text=Hello%20Araya%2C%20I%20would%20like%20to%20discuss%20a%20project.
+    - text: Chat on WhatsApp
+  - link "Email our team":
+    - /url: mailto:cs@arayainternusa.com
+    - text: Email our team
+  - img "PT Araya Internusa"
+  - paragraph: Marine, industrial and automation engineering across Indonesia since 2009.
+  - link "Visit our current website":
+    - /url: https://arayainternusa.co.id/araya/
+    - text: Visit our current website
+  - heading "Explore Araya" [level=3]
+  - link "About Us":
+    - /url: ../index.html#about
+  - link "Marine":
+    - /url: ../marine/
+  - link "Industrial":
+    - /url: ../industrial/
+  - link "Automation & Electrical":
+    - /url: ../automation/
+  - link "Noris":
+    - /url: ../noris/
+  - link "ComAp":
+    - /url: ../comap/
+  - link "Our Clients":
+    - /url: ../index.html#clients
+  - heading "Office Address" [level=3]
+  - paragraph:
+    - link "Gateway Citra Harmoni RKG 32–33 Taman, Sidoarjo Jawa Timur 61257, Indonesia":
+      - /url: https://www.google.com/maps/search/?api=1&query=Gateway%20Citra%20Harmoni%20RKG%2032-33%2C%20Taman%2C%20Sidoarjo
+      - text: Gateway Citra Harmoni RKG 32–33
+      - text: Taman, Sidoarjo
+      - text: Jawa Timur 61257, Indonesia
+  - paragraph: Mon–Sat, 08.00–17.00 WIB
+  - heading "Contact Us" [level=3]
+  - link "cs@arayainternusa.com":
+    - /url: mailto:cs@arayainternusa.com
+  - link "+62 (031) 7877990":
+    - /url: tel:+62317877990
+  - 'link "WhatsApp: +62 813 2639 6262"':
+    - /url: https://wa.me/6281326396262?text=Hello%20Araya%2C%20I%20would%20like%20to%20discuss%20a%20project.
+  - paragraph: Share your system details with our team.
+- contentinfo:
+  - generic: © 2026 PT Araya Internusa.
+  - generic: Design preview · Current website remains live

@@ -1,0 +1,480 @@
+- link "Skip to content":
+  - /url: "#main"
+- banner:
+  - link "cs@arayainternusa.com":
+    - /url: mailto:cs@arayainternusa.com
+  - link "+62 (031) 7877990":
+    - /url: tel:+62317877990
+  - link "PT Araya Internusa home":
+    - /url: ../index.html
+    - img "PT Araya Internusa"
+  - button "Menu":
+    - generic: Menu
+- main:
+  - navigation "Breadcrumb":
+    - link "Home":
+      - /url: ../index.html
+    - generic: /
+    - generic: ComAp
+  - paragraph: COMAP CONTROL · INDONESIA
+  - heading "ComAp engine & power control." [level=1]:
+    - text: ComAp engine &
+    - text: power control.
+  - paragraph: Start with your application. From marine propulsion and generator load sharing to standby power and hybrid energy, see how ComAp controls fit the complete system.
+  - link "Explore ComAp applications":
+    - /url: "#applications"
+    - text: Explore ComAp applications
+  - link "View products":
+    - /url: "#portfolio"
+    - text: View products
+  - link "Talk to Araya":
+    - /url: "#araya-support"
+    - text: Talk to Araya
+  - 'figure "InteliGen 500 G2 · Product image: ComAp"':
+    - img "ComAp InteliGen 500 G2 generator paralleling controller, manufacturer product image"
+    - 'link "InteliGen 500 G2 · Product image: ComAp"':
+      - /url: https://www.comap-control.com/products/controllers/paralleling-gen-set-controllers/inteligen/inteligen-500-g2/
+  - navigation "ComAp page sections":
+    - link "About the brand":
+      - /url: "#about-brand"
+    - link "Applications":
+      - /url: "#applications"
+    - link "Products & systems":
+      - /url: "#portfolio"
+    - link "Enquire with Araya":
+      - /url: "#araya-support"
+    - link "FAQs":
+      - /url: "#brand-faq"
+  - paragraph: ABOUT COMAP
+  - heading "Engine supervision. Coordinated power." [level=2]:
+    - text: Engine supervision.
+    - text: Coordinated power.
+  - link "Manufacturer background":
+    - /url: https://www.comap-control.com/about/35-years-comap/
+    - text: Manufacturer background
+  - paragraph: Founded in Prague in 1991, ComAp develops control solutions for power generation and energy management. Its portfolio spans engine controllers, single and parallel generator control, marine power management, and monitoring software.
+  - paragraph: PT Araya Internusa distributes ComAp solutions in Indonesia. Discuss engine control, automatic start/stop, generator synchronisation, load sharing, or a power-management retrofit with our team.
+  - term: Founded
+  - definition: "1991"
+  - term: Origin
+  - definition: Prague, Czech Republic
+  - term: Focus
+  - definition: Engine & power control
+  - paragraph: COMAP APPLICATIONS
+  - heading "The application defines the control system." [level=2]:
+    - text: The application defines
+    - text: the control system.
+  - paragraph: Start with what your engine, vessel or power system needs to do. Then select the controller family, interfaces and operating logic.
+  - paragraph: Explore the manufacturer application examples below. Araya confirms the controller, configuration and scope for your project.
+  - navigation "ComAp application groups":
+    - link "01 Marine":
+      - /url: "#marine-applications"
+      - generic: "01"
+      - text: Marine
+    - link "02 Power generation":
+      - /url: "#power-generation-applications"
+      - generic: "02"
+      - text: Power generation
+    - link "03 Smart energy management":
+      - /url: "#energy-management-applications"
+      - generic: "03"
+      - text: Smart energy management
+  - paragraph: Select an application to see its system, control functions and diagrams. Select a diagram to enlarge it.
+  - region "Marine":
+    - paragraph: APPLICATION GROUP 01
+    - heading "Marine" [level=3]
+    - paragraph: From the propulsion engine to the ship’s electrical bus. Define the engine, power sources, operating stations and vessel requirements together.
+    - list "Conceptual system flow":
+      - listitem: Engines, generators & shore power
+      - listitem: ↓ Engine control & power management
+      - listitem: ↓ Propulsion & onboard loads
+    - 'figure "Marine AC PMS example · Diagram: ComAp"':
+      - 'link "Enlarge diagram: Marine AC PMS example"':
+        - /url: ../assets/images/comap-application-marine-pms.webp
+        - img "ComAp example marine AC power-management arrangement with generators, bus connections and shore supply"
+        - generic: Enlarge diagram ↗
+      - 'link "Marine AC PMS example · Diagram: ComAp"':
+        - /url: https://www.comap-control.com/application-areas/marine/ac-dc-power-management/
+    - generic "AC / DC power management Coordinate generators, storage, shore supply and the electrical load.":
+      - strong: AC / DC power management
+      - generic: Coordinate generators, storage, shore supply and the electrical load.
+      - generic: +
+    - 'figure "Marine DC / hybrid power example · Diagram: ComAp"':
+      - 'link "Enlarge diagram: Marine DC / hybrid power example"':
+        - /url: ../assets/images/comap-diagram-marine-dc.webp
+        - img "ComAp example marine power arrangement connecting generator sources, conversion equipment, propulsion loads and shore supply"
+        - generic: Enlarge diagram ↗
+      - 'link "Marine DC / hybrid power example · Diagram: ComAp"':
+        - /url: https://www.comap-control.com/application-areas/marine/ac-dc-power-management/
+    - 'figure "Shore connection example · Diagram: ComAp"':
+      - 'link "Enlarge diagram: Shore connection example"':
+        - /url: ../assets/images/comap-diagram-shore-connection.webp
+        - img "ComAp marine shore-connection diagram highlighting the shore supply, controller and vessel bus"
+        - generic: Enlarge diagram ↗
+      - 'link "Shore connection example · Diagram: ComAp"':
+        - /url: https://www.comap-control.com/application-areas/marine/ac-dc-power-management/
+    - term: Typical system
+    - definition: A vessel with several generators, bus sections and shore connection; DC or hybrid designs also include converters and battery storage.
+    - term: What ComAp controls
+    - definition: "For AC systems: synchronisation, breaker sequencing, active/reactive load sharing and load-dependent start/stop. DC systems coordinate energy sources through conversion equipment. Emergency generation has its own defined operating arrangement."
+    - term: Example product families
+    - definition: InteliGen 1000 Marine for source control; InteliMains 1010 Marine for shore, bus-tie and other breaker applications.
+    - term: What to review with Araya
+    - definition: Single-line diagram, AC/DC architecture, reserve power, heavy consumers, shore transfer and protection requirements.
+    - link "Marine PMS products":
+      - /url: "#marine-power-management"
+      - text: Marine PMS products
+    - link "ComAp application reference":
+      - /url: https://www.comap-control.com/application-areas/marine/ac-dc-power-management/
+      - text: ComAp application reference
+    - generic "Engine control Supervise propulsion, auxiliary, emergency and harbour engines.":
+      - strong: Engine control
+      - generic: Supervise propulsion, auxiliary, emergency and harbour engines.
+      - generic: +
+    - generic "Emissions reduction Use operating data and coordinated energy sources to review fuel use.":
+      - strong: Emissions reduction
+      - generic: Use operating data and coordinated energy sources to review fuel use.
+      - generic: +
+    - generic "Propulsion control Match mechanical or electric propulsion commands to the available machinery.":
+      - strong: Propulsion control
+      - generic: Match mechanical or electric propulsion commands to the available machinery.
+      - generic: +
+  - region "Power generation":
+    - paragraph: APPLICATION GROUP 02
+    - heading "Power generation" [level=3]
+    - paragraph: "Start with the duty: standby during a mains failure, continuous site power, parallel generators or a specialist energy process."
+    - list "Conceptual system flow":
+      - listitem: Mains & generating sets
+      - listitem: ↓ Start/stop, synchronisation & breakers
+      - listitem: ↓ Site loads & operating priorities
+    - 'figure "Single-generator standby example · Diagram: ComAp"':
+      - 'link "Enlarge diagram: Single-generator standby example"':
+        - /url: ../assets/images/comap-application-standby.webp
+        - img "ComAp example standby system connecting utility supply and a controlled generator to a building load"
+        - generic: Enlarge diagram ↗
+      - 'link "Single-generator standby example · Diagram: ComAp"':
+        - /url: https://www.comap-control.com/application-areas/power-generation/standby/
+    - generic "Standby & automatic mains failure Start a backup generator and transfer the load when mains power fails.":
+      - strong: Standby & automatic mains failure
+      - generic: Start a backup generator and transfer the load when mains power fails.
+      - generic: +
+    - term: Typical system
+    - definition: One standby generator, mains sensing and interlocked source switching supplying a building or process.
+    - term: What ComAp controls
+    - definition: Detect a mains failure, start and supervise the engine, transfer to generator supply, then return to mains and stop after the configured recovery sequence. Remote visibility needs the appropriate communications hardware.
+    - term: Example product families
+    - definition: InteliLite AMF controllers for single-set automatic mains failure; WebSupervisor for a connected fleet.
+    - term: What to review with Araya
+    - definition: Mains limits, transfer equipment, electrical/mechanical interlocks, start delays, return sequence and essential loads.
+    - link "Single-generator control":
+      - /url: "#single-generator"
+      - text: Single-generator control
+    - link "ComAp application reference":
+      - /url: https://www.comap-control.com/application-areas/power-generation/standby/
+      - text: ComAp application reference
+    - generic "Prime power Operate a generating set as the site’s main source of electricity.":
+      - strong: Prime power
+      - generic: Operate a generating set as the site’s main source of electricity.
+      - generic: +
+    - generic "Generator synchronisation & load sharing Run two or more sets together and share the electrical demand.":
+      - strong: Generator synchronisation & load sharing
+      - generic: Run two or more sets together and share the electrical demand.
+      - generic: +
+    - generic "Hybrid power generation Combine generator sets with renewable generation and stored energy.":
+      - strong: Hybrid power generation
+      - generic: Combine generator sets with renewable generation and stored energy.
+      - generic: +
+    - generic "Mission-critical power Define backup control around essential loads and failure scenarios.":
+      - strong: Mission-critical power
+      - generic: Define backup control around essential loads and failure scenarios.
+      - generic: +
+    - generic "Datacentres Coordinate generating sets and switchgear with the facility power design.":
+      - strong: Datacentres
+      - generic: Coordinate generating sets and switchgear with the facility power design.
+      - generic: +
+    - generic "Combined heat & power (CHP) Coordinate electrical generation with useful heat recovery.":
+      - strong: Combined heat & power (CHP)
+      - generic: Coordinate electrical generation with useful heat recovery.
+      - generic: +
+    - generic "Bi-fuel & hydrogen Use specialist controls for a defined alternative-fuel engine project.":
+      - strong: Bi-fuel & hydrogen
+      - generic: Use specialist controls for a defined alternative-fuel engine project.
+      - generic: +
+    - generic "Fuel cells Coordinate the electrical output of fuel-cell generating systems.":
+      - strong: Fuel cells
+      - generic: Coordinate the electrical output of fuel-cell generating systems.
+      - generic: +
+    - generic "Rental, telecom & light towers Control distributed power equipment and see its operating status.":
+      - strong: Rental, telecom & light towers
+      - generic: Control distributed power equipment and see its operating status.
+      - generic: +
+  - region "Smart energy management":
+    - paragraph: APPLICATION GROUP 03
+    - heading "Smart energy management" [level=3]
+    - paragraph: Coordinate the whole energy system, then give operators the information they need. Energy management, battery control, SCADA and cloud monitoring have distinct roles.
+    - list "Conceptual system flow":
+      - listitem: Solar, batteries, generators & grid
+      - listitem: ↓ Energy management & source controls
+      - listitem: ↓ Site demand, dashboards & reports
+    - 'figure "Grid-connected hybrid microgrid example · Diagram: ComAp"':
+      - 'link "Enlarge diagram: Grid-connected hybrid microgrid example"':
+        - /url: ../assets/images/comap-application-hybrid.webp
+        - img "ComAp example grid-connected hybrid microgrid integrating renewable generation, batteries, generators and site loads"
+        - generic: Enlarge diagram ↗
+      - 'link "Grid-connected hybrid microgrid example · Diagram: ComAp"':
+        - /url: https://www.comap-control.com/application-areas/smart-energy-management/hybrid-energy-management/
+    - generic "Hybrid energy management Decide how the site’s available energy sources work together.":
+      - strong: Hybrid energy management
+      - generic: Decide how the site’s available energy sources work together.
+      - generic: +
+    - term: Typical system
+    - definition: An on-grid or isolated microgrid combining renewables, storage, generators and site demand.
+    - term: What ComAp controls
+    - definition: Coordinate source priorities, renewable limits, battery charging/discharging and generator dispatch. Operating strategy depends on whether the system is connected to the grid or must establish its own supply.
+    - term: Example product families
+    - definition: InteliNeo microgrid control with compatible source controllers, meters and inverter interfaces.
+    - term: What to review with Araya
+    - definition: Energy priorities, storage capacity, reserve, import/export limits, transition requirements and source communications.
+    - link "Related hybrid generation application":
+      - /url: "#hybrid-generation"
+      - text: Related hybrid generation application
+    - link "ComAp application reference":
+      - /url: https://www.comap-control.com/application-areas/smart-energy-management/hybrid-energy-management/
+      - text: ComAp application reference
+    - generic "Energy storage system control Connect battery management, power conversion and auxiliary systems.":
+      - strong: Energy storage system control
+      - generic: Connect battery management, power conversion and auxiliary systems.
+      - generic: +
+    - generic "Fleet management Review connected equipment across several sites from one platform.":
+      - strong: Fleet management
+      - generic: Review connected equipment across several sites from one platform.
+      - generic: +
+    - generic "SCADA Give site operators one view of measurements, alarms and trends.":
+      - strong: SCADA
+      - generic: Give site operators one view of measurements, alarms and trends.
+      - generic: +
+    - generic "Energy market integration Use supported market-price information as an operating input.":
+      - strong: Energy market integration
+      - generic: Use supported market-price information as an operating input.
+      - generic: +
+  - paragraph: COMAP PRODUCTS & SYSTEMS
+  - heading "From one engine to coordinated power." [level=2]:
+    - text: From one engine
+    - text: to coordinated power.
+  - paragraph: Find the product family for your application, then share your requirements. Araya confirms the right model and configuration for your project.
+  - navigation "ComAp product families":
+    - link "01 Engine control":
+      - /url: "#engine-control"
+      - generic: "01"
+      - text: Engine control
+    - link "02 Synchronisation & sharing":
+      - /url: "#generator-synchronisation"
+      - generic: "02"
+      - text: Synchronisation & sharing
+    - link "03 Marine power management":
+      - /url: "#marine-power-management"
+      - generic: "03"
+      - text: Marine power management
+    - link "04 Single generator & AMF":
+      - /url: "#single-generator"
+      - generic: "04"
+      - text: Single generator & AMF
+    - link "05 Local SCADA":
+      - /url: "#local-monitoring"
+      - generic: "05"
+      - text: Local SCADA
+    - link "06 Remote monitoring":
+      - /url: "#remote-monitoring"
+      - generic: "06"
+      - text: Remote monitoring
+  - article:
+    - generic: "01"
+    - heading "Engine control & protection" [level=3]
+    - paragraph: InteliDrive · InteliDrive 700 Marine
+    - 'figure "InteliDrive 700 Marine · Image: ComAp"':
+      - img "ComAp InteliDrive 700 Marine engine controller with colour display"
+      - 'link "InteliDrive 700 Marine · Image: ComAp"':
+        - /url: https://www.comap-control.com/products/controllers/engine-controllers/intelidrive-700-marine/intelidrive-700-marine/
+    - paragraph: InteliDrive controllers supervise engine measurements, alarms, protection, and operating commands. InteliDrive 700 Marine is a manufacturer example for propulsion, auxiliary, emergency, and harbour engine applications.
+    - term: Applications
+    - definition: Marine engine supervision and engine-control retrofit with suitable protection and interfaces.
+    - term: Selection details
+    - definition: Engine ECU or conventional signals, RPM sources, I/O, operating stations, shutdown functions, and required documentation.
+    - link "Manufacturer details & documents":
+      - /url: https://www.comap-control.com/products/controllers/engine-controllers/intelidrive-700-marine/intelidrive-700-marine/
+      - text: Manufacturer details & documents
+  - article:
+    - generic: "02"
+    - heading "Generator synchronisation & load sharing" [level=3]
+    - paragraph: InteliGen · InteliGen 500 G2
+    - 'figure "InteliGen 500 G2 · Image: ComAp"':
+      - img "ComAp InteliGen 500 G2 generator paralleling controller"
+      - 'link "InteliGen 500 G2 · Image: ComAp"':
+        - /url: https://www.comap-control.com/products/controllers/paralleling-gen-set-controllers/inteligen/inteligen-500-g2/
+    - paragraph: InteliGen 500 G2 controls diesel generator paralleling in grid-connected or island applications. It combines generator supervision with synchronisation, load/Var sharing, and power-management functions for suitable single or multiple-set arrangements.
+    - term: Applications
+    - definition: Parallel generators, automatic source operation, and sharing active and reactive demand between sets.
+    - term: Selection details
+    - definition: Generator ratings, governor and AVR interfaces, breakers, CT/VT data, operating modes, and compatibility with existing controllers.
+    - link "Manufacturer details & documents":
+      - /url: https://www.comap-control.com/products/controllers/paralleling-gen-set-controllers/inteligen/inteligen-500-g2/
+      - text: Manufacturer details & documents
+  - article:
+    - generic: "03"
+    - heading "Marine power management" [level=3]
+    - paragraph: InteliGen 1000 Marine · AC / DC applications
+    - 'figure "InteliGen 1000 Marine · Image: ComAp"':
+      - img "ComAp InteliGen 1000 Marine controller module and terminal connections"
+      - 'link "InteliGen 1000 Marine · Image: ComAp"':
+        - /url: https://www.comap-control.com/products/controllers/generator-controllers/inteligen-1000-marine/
+    - paragraph: InteliGen 1000 Marine manages onboard power sources and their cooperation. The manufacturer supports AC or DC arrangements under different software keys, including applications with generators, battery systems, or fuel cells.
+    - term: Applications
+    - definition: Vessel generating systems, load-dependent operation, and power-system retrofit discussions.
+    - term: Selection details
+    - definition: Single-line diagram, source types, bus arrangement, shore or bus-tie interfaces, load priorities, software keys, and vessel requirements.
+    - link "Manufacturer details & documents":
+      - /url: https://www.comap-control.com/products/controllers/generator-controllers/inteligen-1000-marine/
+      - text: Manufacturer details & documents
+  - article:
+    - generic: "04"
+    - heading "Single-generator & standby control" [level=3]
+    - paragraph: InteliLite · InteliLite 4 AMF 25
+    - 'figure "InteliLite 4 AMF 25 · Image: ComAp"':
+      - img "ComAp InteliLite 4 AMF 25 single-generator controller"
+      - 'link "InteliLite 4 AMF 25 · Image: ComAp"':
+        - /url: https://www.comap-control.com/products/controllers/single-gen-set-controllers/intelilite/intelilite-4-amf-25/
+    - paragraph: InteliLite 4 AMF 25 is a single-generator controller for standby and prime-power applications. Its configuration options cover generator control and monitoring, with extension and communication options selected around the installation.
+    - term: Applications
+    - definition: Automatic mains-failure and start/stop discussions for a single generating set, without generator paralleling.
+    - term: Selection details
+    - definition: Mains sensing, engine interface, generator and breaker signals, transfer sequence, I/O needs, and extension modules.
+    - link "Manufacturer details & documents":
+      - /url: https://www.comap-control.com/products/controllers/single-gen-set-controllers/intelilite/intelilite-4-amf-25/
+      - text: Manufacturer details & documents
+  - article:
+    - generic: "05"
+    - heading "Local monitoring & visualisation" [level=3]
+    - paragraph: InteliSCADA · PC monitoring
+    - 'figure "InteliSCADA example screen · Image: ComAp"':
+      - img "ComAp InteliSCADA example screen showing generator measurements and controls"
+      - 'link "InteliSCADA example screen · Image: ComAp"':
+        - /url: https://www.comap-control.com/products/software-tools/monitoring-tools/pc-monitoring-tools/inteliscada/
+    - paragraph: InteliSCADA provides a PC-based monitoring environment for simple or advanced paralleling sites. It supports configurable visualisation and historical trends for a local view of the installation.
+    - term: Applications
+    - definition: Control-room displays, site supervision, and visibility of generator-system operating data.
+    - term: Selection details
+    - definition: Supported controller versions, communication network, signals, screens, user access, and software licensing requirements.
+    - link "Manufacturer details & documents":
+      - /url: https://www.comap-control.com/products/software-tools/monitoring-tools/pc-monitoring-tools/inteliscada/
+      - text: Manufacturer details & documents
+  - article:
+    - generic: "06"
+    - heading "Remote monitoring & fleet visibility" [level=3]
+    - paragraph: WebSupervisor · Cloud-based monitoring
+    - 'figure "WebSupervisor example screens · Image: ComAp"':
+      - img "ComAp WebSupervisor monitoring interface on desktop, tablet and phone"
+      - 'link "WebSupervisor example screens · Image: ComAp"':
+        - /url: https://www.comap-control.com/products/software-tools/monitoring-tools/online-monitoring-tools/websupervisor/
+    - paragraph: WebSupervisor gives a remote view of connected ComAp and supported third-party devices. Its tools cover device status, alarm notification, data analysis, and fleet management, with features depending on connectivity and subscription.
+    - term: Applications
+    - definition: Monitoring generators across sites and reviewing operating information away from the installation.
+    - term: Selection details
+    - definition: Controller or gateway compatibility, internet access, account roles, data requirements, subscriptions, and remote-operation permissions.
+    - link "Manufacturer details & documents":
+      - /url: https://www.comap-control.com/products/software-tools/monitoring-tools/online-monitoring-tools/websupervisor/
+      - text: Manufacturer details & documents
+  - paragraph: COMAP IN INDONESIA
+  - heading "Bring your equipment. Let’s define the scope." [level=2]:
+    - text: Bring your equipment.
+    - text: Let’s define the scope.
+  - paragraph: Discuss ComAp supply, replacement, and integration requirements with PT Araya Internusa. A clear equipment brief helps us review the work around your installation.
+  - list:
+    - heading "Identify the controller" [level=3]
+    - paragraph: Existing model, firmware if known, nameplate photo, and configuration backup if available.
+    - heading "Describe the power system" [level=3]
+    - paragraph: Engine and generator ratings, number of sets, single-line diagram, breakers, governors, and AVRs.
+    - heading "Explain the operating sequence" [level=3]
+    - paragraph: Start/stop logic, grid or island operation, load sharing, priorities, alarms, and the intended change.
+    - heading "Share the project location" [level=3]
+    - paragraph: Vessel or site in Indonesia, operating constraints, required quantity, and planned shutdown window.
+  - link "Discuss ComAp on WhatsApp":
+    - /url: https://wa.me/6281326396262
+    - text: Discuss ComAp on WhatsApp
+  - link "Email your project details":
+    - /url: mailto:cs@arayainternusa.com
+    - text: Email your project details
+  - paragraph: COMMON QUESTIONS
+  - heading "Before you choose ComAp." [level=2]:
+    - text: Before you
+    - text: choose ComAp.
+  - generic "What is the difference between engine control and generator power management?"
+  - generic "Can I mix different ComAp controllers or replace an older model directly?"
+  - generic "Does every ComAp controller include load sharing or remote monitoring?"
+  - paragraph: FROM PRODUCT TO PROJECT
+  - heading "Connect the technology to the work you need." [level=2]:
+    - text: Connect the technology
+    - text: to the work you need.
+  - link "Marine project scopes Engine supervision, generator synchronisation, automatic start/stop, and onboard power management. Explore marine work":
+    - /url: ../marine/
+    - heading "Marine project scopes" [level=3]
+    - paragraph: Engine supervision, generator synchronisation, automatic start/stop, and onboard power management.
+    - text: Explore marine work
+  - link "Industrial project scopes Standby generation, parallel generators, load sharing, panels, and monitoring integration. Explore industrial work":
+    - /url: ../industrial/
+    - heading "Industrial project scopes" [level=3]
+    - paragraph: Standby generation, parallel generators, load sharing, panels, and monitoring integration.
+    - text: Explore industrial work
+  - link "Explore Noris instruments & sensors":
+    - /url: ../noris/
+    - text: Explore Noris instruments & sensors
+  - link "Back to our solutions":
+    - /url: ../index.html#brands
+- region "Let’s find the right solution.":
+  - paragraph: GET IN TOUCH
+  - heading "Let’s find the right solution." [level=2]
+  - paragraph: Send the equipment model, a nameplate photo and the problem or change you need.
+  - link "Chat on WhatsApp":
+    - /url: https://wa.me/6281326396262?text=Hello%20Araya%2C%20I%20would%20like%20to%20discuss%20a%20project.
+    - text: Chat on WhatsApp
+  - link "Email our team":
+    - /url: mailto:cs@arayainternusa.com
+    - text: Email our team
+  - img "PT Araya Internusa"
+  - paragraph: Marine, industrial and automation engineering across Indonesia since 2009.
+  - link "Visit our current website":
+    - /url: https://arayainternusa.co.id/araya/
+    - text: Visit our current website
+  - heading "Explore Araya" [level=3]
+  - link "About Us":
+    - /url: ../index.html#about
+  - link "Marine":
+    - /url: ../marine/
+  - link "Industrial":
+    - /url: ../industrial/
+  - link "Automation & Electrical":
+    - /url: ../automation/
+  - link "Noris":
+    - /url: ../noris/
+  - link "ComAp":
+    - /url: ../comap/
+  - link "Our Clients":
+    - /url: ../index.html#clients
+  - heading "Office Address" [level=3]
+  - paragraph:
+    - link "Gateway Citra Harmoni RKG 32–33 Taman, Sidoarjo Jawa Timur 61257, Indonesia":
+      - /url: https://www.google.com/maps/search/?api=1&query=Gateway%20Citra%20Harmoni%20RKG%2032-33%2C%20Taman%2C%20Sidoarjo
+      - text: Gateway Citra Harmoni RKG 32–33
+      - text: Taman, Sidoarjo
+      - text: Jawa Timur 61257, Indonesia
+  - paragraph: Mon–Sat, 08.00–17.00 WIB
+  - heading "Contact Us" [level=3]
+  - link "cs@arayainternusa.com":
+    - /url: mailto:cs@arayainternusa.com
+  - link "+62 (031) 7877990":
+    - /url: tel:+62317877990
+  - 'link "WhatsApp: +62 813 2639 6262"':
+    - /url: https://wa.me/6281326396262?text=Hello%20Araya%2C%20I%20would%20like%20to%20discuss%20a%20project.
+  - paragraph: Share your system details with our team.
+- contentinfo:
+  - generic: © 2026 PT Araya Internusa.
+  - generic: Design preview · Current website remains live

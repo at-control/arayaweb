@@ -1,0 +1,41 @@
+{
+  "localCommit": "2503995aba9878e2a84658a5597267b27c629035",
+  "desktopViewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "comapDefault": {
+    "desktopHeight": 13724,
+    "mobileHeight": 21074,
+    "details": 19,
+    "open": 3,
+    "mobileEnquiryY": 17031
+  },
+  "norisMobile": {
+    "height": 16708,
+    "enquiryY": 12771
+  },
+  "tested": {
+    "mobileMenu": true,
+    "brandDropdown": true,
+    "comapDisclosure": true,
+    "diagramZoom150": true,
+    "diagramEscapeFocusReturn": true,
+    "marqueePause": true
+  },
+  "sourceOnly": [
+    "reduced-motion rules",
+    "JavaScript unavailable animation fallback",
+    "service hover scaling"
+  ],
+  "contrast": {
+    "whiteOnBadge": 3.4,
+    "orangeOnMuted": 4.35,
+    "orangeOnWhite": 4.7
+  },
+  "sentEnquiries": false
+}

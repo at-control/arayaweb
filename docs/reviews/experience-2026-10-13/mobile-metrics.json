@@ -1,0 +1,145 @@
+[
+  {
+    "fonts": {
+      "body": "16px",
+      "h2": "32px"
+    },
+    "h": 844,
+    "h1": "Industrial machinery.\nBack in production.",
+    "headings": [
+      "Machines and equipment\nwe supply and repair.",
+      "Typical industrial project scopes.",
+      "CNC lathes & milling machines",
+      "Wire-cut & EDM machines",
+      "NC gas & plasma cutting",
+      "Hobbing, casting & moulding",
+      "Crane supply & repair",
+      "MV/LV generators",
+      "Panels & motor controls",
+      "PLC, HMI & instrumentation",
+      "Multi-brand experience.",
+      "Specialist brands,\nsupplied locally.",
+      "ComAp",
+      "Noris",
+      "What to send us."
+    ],
+    "navigationPosition": "sticky",
+    "overflow": false,
+    "pageHeight": 6931,
+    "path": "/industrial/",
+    "sections": [
+      {
+        "id": "project-scopes",
+        "y": 1637
+      },
+      {
+        "id": "equipment",
+        "y": 3581
+      }
+    ],
+    "w": 390
+  },
+  {
+    "fonts": {
+      "body": "16px",
+      "h2": "32px"
+    },
+    "h": 844,
+    "h1": "Automation & electrical.\nControl you can rely on.",
+    "headings": [
+      "Control, power\nand instrumentation.",
+      "Typical automation project scopes.",
+      "PLC & software",
+      "SCADA & HMI software",
+      "Process control & instrumentation",
+      "Panels, switchboards & MCC",
+      "Soft starters & VFDs",
+      "Electric motors",
+      "Hazardous-area apparatus",
+      "Electrical protection",
+      "Transformers, UPS & chargers",
+      "Surge protection, earthing & PFC",
+      "Generators & generating sets",
+      "Electronic card repair",
+      "Multi-brand experience.",
+      "Specialist brands,\nsupplied locally.",
+      "ComAp",
+      "Noris",
+      "What to send us."
+    ],
+    "navigationPosition": "sticky",
+    "overflow": false,
+    "pageHeight": 8350,
+    "path": "/automation/",
+    "sections": [
+      {
+        "id": "project-scopes",
+        "y": 1600
+      },
+      {
+        "id": "equipment",
+        "y": 4444
+      }
+    ],
+    "w": 390
+  },
+  {
+    "fonts": {
+      "body": "16px",
+      "h2": "32px"
+    },
+    "h": 844,
+    "h1": "ComAp engine &\npower control.",
+    "headings": [
+      "Engine supervision.\nCoordinated power.",
+      "The application defines\nthe control system.",
+      "Marine",
+      "Power generation",
+      "Smart energy management",
+      "Application diagram",
+      "From one engine\nto coordinated power.",
+      "Engine control & protection",
+      "Generator synchronisation & load sharing",
+      "Marine power management",
+      "Single-generator & standby control",
+      "Local monitoring & visualisation",
+      "Remote monitoring & fleet visibility",
+      "Bring your equipment.\nLet’s define the scope.",
+      "Identify the controller",
+      "Describe the power system",
+      "Explain the operating sequence",
+      "Share the project location",
+      "Before you\nchoose ComAp.",
+      "Connect the technology\nto the work you need.",
+      "Marine project scopes",
+      "Industrial project scopes"
+    ],
+    "navigationPosition": "static",
+    "overflow": false,
+    "pageHeight": 21074,
+    "path": "/comap/",
+    "sections": [
+      {
+        "id": "about-brand",
+        "y": 1065
+      },
+      {
+        "id": "applications",
+        "y": 2007
+      },
+      {
+        "id": "portfolio",
+        "y": 10500
+      },
+      {
+        "id": "araya-support",
+        "y": 17031
+      },
+      {
+        "id": "brand-faq",
+        "y": 18329
+      }
+    ],
+    "w": 390
+  }
+]

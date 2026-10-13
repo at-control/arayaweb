@@ -1,0 +1,190 @@
+- link "Skip to content":
+  - /url: "#main"
+- banner:
+  - link "cs@arayainternusa.com":
+    - /url: mailto:cs@arayainternusa.com
+  - link "+62 (031) 7877990":
+    - /url: tel:+62317877990
+  - link "PT Araya Internusa home":
+    - /url: ../index.html
+    - img "PT Araya Internusa"
+  - button "Menu":
+    - generic: Menu
+- main:
+  - navigation "Breadcrumb":
+    - link "Home":
+      - /url: ../index.html
+    - generic: /
+    - generic: Automation & Electrical
+  - paragraph: AUTOMATION & ELECTRICAL
+  - heading "Automation & electrical. Control you can rely on." [level=1]:
+    - text: Automation & electrical.
+    - text: Control you can rely on.
+  - paragraph: PLC and SCADA, electrical power equipment, process instrumentation and electronic card repair.
+  - link "Discuss your project":
+    - /url: https://wa.me/6281326396262?text=Hello%20Araya%2C%20I%20would%20like%20to%20discuss%20automation%20work.
+    - text: Discuss your project
+  - link "See what we handle":
+    - /url: "#project-scopes"
+    - text: See what we handle
+  - paragraph: PT ARAYA INTERNUSA
+  - heading "Control, power and instrumentation." [level=2]:
+    - text: Control, power
+    - text: and instrumentation.
+  - paragraph: We supply and repair the control, electrical power and instrumentation equipment that plants and vessels depend on.
+  - paragraph: Tell us what needs to be repaired, replaced, controlled or monitored. We agree the scope around your equipment, operating requirements and site or vessel conditions.
+  - figure "From Araya’s engineering and service photography.":
+    - img "Marine control console with alarm panels and a Noris monitoring display"
+    - generic: From Araya’s engineering and service photography.
+  - paragraph: WHAT WE DO
+  - heading "Typical automation project scopes." [level=2]
+  - article:
+    - generic: "01"
+    - heading "PLC & software" [level=3]
+    - paragraph: PLC hardware and software, and replacement of obsolete or end-of-sale controllers.
+  - article:
+    - generic: "02"
+    - heading "SCADA & HMI software" [level=3]
+    - paragraph: SCADA and HMI software for plants and onboard systems.
+  - article:
+    - generic: "03"
+    - heading "Process control & instrumentation" [level=3]
+    - paragraph: Process control and instrumentation systems, including regulators, transmitters and PV, LV and PSV valves.
+  - article:
+    - generic: "04"
+    - heading "Panels, switchboards & MCC" [level=3]
+    - paragraph: Electrical panels, MV/LV switchboards and motor-control centres, plus MV/LV power and instrument cable supply.
+  - article:
+    - generic: "05"
+    - heading "Soft starters & VFDs" [level=3]
+    - paragraph: Soft starters and variable-frequency drives.
+  - article:
+    - generic: "06"
+    - heading "Electric motors" [level=3]
+    - paragraph: Industrial and hazardous-area electric motors.
+  - article:
+    - generic: "07"
+    - heading "Hazardous-area apparatus" [level=3]
+    - paragraph: Electrical apparatus for hazardous areas.
+  - article:
+    - generic: "08"
+    - heading "Electrical protection" [level=3]
+    - paragraph: Circuit breakers, fuses, thermal overload and earth-leakage relays, plus Sepam and MiCOM protection relays.
+  - article:
+    - generic: "09"
+    - heading "Transformers, UPS & chargers" [level=3]
+    - paragraph: Transformers, UPS systems and battery chargers.
+  - article:
+    - generic: "10"
+    - heading "Surge protection, earthing & PFC" [level=3]
+    - paragraph: Lightning and surge protection, grounding and retractable grounding assemblies, and reactive-power compensation.
+  - article:
+    - generic: "11"
+    - heading "Generators & generating sets" [level=3]
+    - paragraph: MV/LV generators and generating sets.
+  - article:
+    - generic: "12"
+    - heading "Electronic card repair" [level=3]
+    - paragraph: Cloning and rebuilding circuit boards up to four layers; copying and programming EPROM, GAL, PAL, EPLD and PLCC ICs up to 64 pins.
+  - paragraph: EQUIPMENT WE WORK ON
+  - heading "Multi-brand experience." [level=2]
+  - paragraph: A selection of the manufacturers and systems our engineers supply or repair.
+  - term: PLC & control
+  - definition: Siemens · ABB · Omron · Mitsubishi · Allen-Bradley · Modicon · Honeywell
+  - term: Switchgear & MCC
+  - definition: Schneider Electric · Siemens · GE · Areva
+  - term: Drives & soft starters
+  - definition: Schneider Electric · Rockwell Automation · Allen-Bradley · ABB
+  - term: Protection relays
+  - definition: Sepam 2000 · Sepam 1000+ · Areva MiCOM
+  - term: Hazardous area
+  - definition: Stahl · Chalmit · Crouse-Hinds · CEAG · Glamox · Orga
+  - term: Motors
+  - definition: Siemens · ABB · Reliance
+  - term: Transformers, UPS & chargers
+  - definition: Unindo · Trafindo · Saft · Gutor · GE · ICA
+  - term: Generating sets
+  - definition: SDMO · Denyo · Caterpillar · Stamford · Leroy-Somer
+  - term: Cables & surge protection
+  - definition: Jembo · Kabelmetal · Pirelli · Supreme · Critec · Erico
+  - paragraph: FEATURED PARTNER TECHNOLOGY
+  - heading "Specialist brands, supplied locally." [level=2]:
+    - text: Specialist brands,
+    - text: supplied locally.
+  - link "ComAp Engine and generator controllers, power management, InteliSCADA and WebSupervisor monitoring. Explore ComAp details":
+    - /url: ../comap/
+    - heading "ComAp" [level=3]
+    - paragraph: Engine and generator controllers, power management, InteliSCADA and WebSupervisor monitoring.
+    - text: Explore ComAp details
+  - link "Noris Sensors, signal processing, limit monitoring and integrated alarm and monitoring systems. Explore Noris details":
+    - /url: ../noris/
+    - heading "Noris" [level=3]
+    - paragraph: Sensors, signal processing, limit monitoring and integrated alarm and monitoring systems.
+    - text: Explore Noris details
+  - heading "What to send us." [level=3]
+  - list:
+    - listitem: Site or vessel and its location
+    - listitem: Single-line diagram, panel drawings or I/O list
+    - listitem: PLC/HMI platform and existing program backup, if available
+    - listitem: Fault description, alarm history or the new functions required
+    - listitem: Hazardous-area classification, where relevant
+  - link "Send your project details on WhatsApp":
+    - /url: https://wa.me/6281326396262?text=Hello%20Araya%2C%20I%20would%20like%20to%20discuss%20automation%20work.
+    - text: Send your project details on WhatsApp
+  - link "Marine services":
+    - /url: ../marine/
+    - text: Marine services
+  - link "Industrial services":
+    - /url: ../industrial/
+    - text: Industrial services
+  - link "Back to our services":
+    - /url: ../index.html#services
+- region "Let’s find the right solution.":
+  - paragraph: GET IN TOUCH
+  - heading "Let’s find the right solution." [level=2]
+  - paragraph: Send the equipment model, a nameplate photo and the problem or change you need.
+  - link "Chat on WhatsApp":
+    - /url: https://wa.me/6281326396262?text=Hello%20Araya%2C%20I%20would%20like%20to%20discuss%20a%20project.
+    - text: Chat on WhatsApp
+  - link "Email our team":
+    - /url: mailto:cs@arayainternusa.com
+    - text: Email our team
+  - img "PT Araya Internusa"
+  - paragraph: Marine, industrial and automation engineering across Indonesia since 2009.
+  - link "Visit our current website":
+    - /url: https://arayainternusa.co.id/araya/
+    - text: Visit our current website
+  - heading "Explore Araya" [level=3]
+  - link "About Us":
+    - /url: ../index.html#about
+  - link "Marine":
+    - /url: ../marine/
+  - link "Industrial":
+    - /url: ../industrial/
+  - link "Automation & Electrical":
+    - /url: ../automation/
+  - link "Noris":
+    - /url: ../noris/
+  - link "ComAp":
+    - /url: ../comap/
+  - link "Our Clients":
+    - /url: ../index.html#clients
+  - heading "Office Address" [level=3]
+  - paragraph:
+    - link "Gateway Citra Harmoni RKG 32–33 Taman, Sidoarjo Jawa Timur 61257, Indonesia":
+      - /url: https://www.google.com/maps/search/?api=1&query=Gateway%20Citra%20Harmoni%20RKG%2032-33%2C%20Taman%2C%20Sidoarjo
+      - text: Gateway Citra Harmoni RKG 32–33
+      - text: Taman, Sidoarjo
+      - text: Jawa Timur 61257, Indonesia
+  - paragraph: Mon–Sat, 08.00–17.00 WIB
+  - heading "Contact Us" [level=3]
+  - link "cs@arayainternusa.com":
+    - /url: mailto:cs@arayainternusa.com
+  - link "+62 (031) 7877990":
+    - /url: tel:+62317877990
+  - 'link "WhatsApp: +62 813 2639 6262"':
+    - /url: https://wa.me/6281326396262?text=Hello%20Araya%2C%20I%20would%20like%20to%20discuss%20a%20project.
+  - paragraph: Share your system details with our team.
+- contentinfo:
+  - generic: © 2026 PT Araya Internusa.
+  - generic: Design preview · Current website remains live

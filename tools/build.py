@@ -6,6 +6,7 @@ import json
 import hashlib
 from brand_profiles import BRANDS
 from brand_pages import brand_content
+from ui_components import page_index
 from site_content import SERVICES, CLIENTS, BRAND_GROUPS, CAPABILITIES
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -55,6 +56,7 @@ def shell(title, description, content, route="", schema=()):
     brand_links = ''.join(f'<li><a href="{prefix}{key}/">{escape(data["name"])}</a></li>' for key, data in BRANDS.items())
     brand_footer_links = ''.join(f'<a href="{prefix}{key}/">{escape(data["name"])}</a>' for key, data in BRANDS.items())
     service_footer_links = ''.join(f'<a href="{prefix}{key}/">{escape(data["name"])}</a>' for key, data in SERVICES.items())
+    contact_topic = (BRANDS.get(route.strip("/")) or SERVICES.get(route.strip("/")) or {}).get("name", "a project")
     def nav(label, target):
         return f'<a href="{home}{target}">{label}</a>'
     return f'''<!doctype html>
@@ -88,18 +90,18 @@ def shell(title, description, content, route="", schema=()):
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation"><span>Menu</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
       {nav('Home', '')}{nav('About Us', '#about')}{nav('Our Services', '#services')}<details class="brand-menu"><summary>Brand Partners<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><ul class="brand-dropdown">{brand_links}</ul></details>{nav('Our Clients', '#clients')}
-      <a class="nav-contact" href="{home}#contact">Contact Us {ARROW}</a>
+      <a class="nav-contact" href="#contact">Contact Us {ARROW}</a>
     </nav>
   </div>
 </header>
 <main id="main">{content}</main>
 <section class="contact" id="contact" aria-labelledby="contact-heading">
-  <div class="container contact-intro"><div><p class="eyebrow">GET IN TOUCH</p><h2 id="contact-heading">Let’s find the right solution.</h2><p>Send the equipment model, a nameplate photo and the problem or change you need.</p></div><div class="contact-actions"><a class="button" href="{whatsapp()}">Chat on WhatsApp {ARROW}</a><a class="button button-outline" href="mailto:{EMAIL}">Email our team {ARROW}</a></div></div>
+  <div class="container contact-intro"><div><p class="eyebrow">GET IN TOUCH</p><h2 id="contact-heading">Let’s find the right solution.</h2><p>Send the equipment model, a nameplate photo and the problem or change you need.</p></div><div class="contact-actions"><a class="button" href="{whatsapp(contact_topic)}">Chat on WhatsApp {ARROW}</a><a class="button button-outline" href="mailto:{EMAIL}">Email our team {ARROW}</a></div></div>
   <div class="container footer-grid">
     <div class="footer-company"><img src="{prefix}assets/images/araya-logo-transparent.png" alt="PT Araya Internusa" width="238" height="52" loading="lazy"><p>Marine, industrial and automation engineering across Indonesia since 2009.</p><a class="text-link light" href="{PRODUCTION}">Visit our current website {ARROW}</a></div>
     <div><h3>Explore Araya</h3><a href="{home}#about">About Us</a>{service_footer_links}{brand_footer_links}<a href="{home}#clients">Our Clients</a></div>
     <div><h3>Office Address</h3><p><a href="{MAP}">Gateway Citra Harmoni RKG 32–33<br>Taman, Sidoarjo<br>Jawa Timur 61257, Indonesia</a></p><p class="contact-note">Mon–Sat, 08.00–17.00 WIB</p></div>
-    <div><h3>Contact Us</h3><a href="mailto:{EMAIL}">{EMAIL}</a><a href="tel:+62317877990">+62 (031) 7877990</a><a href="{whatsapp()}">WhatsApp: +62 813 2639 6262</a><p class="contact-note">Share your system details with our team.</p></div>
+    <div><h3>Contact Us</h3><a href="mailto:{EMAIL}">{EMAIL}</a><a href="tel:+62317877990">+62 (031) 7877990</a><a href="{whatsapp(contact_topic)}">WhatsApp: +62 813 2639 6262</a><p class="contact-note">Share your system details with our team.</p></div>
   </div>
 </section>
 <footer class="copyright"><div class="container"><span>© 2026 PT Araya Internusa.</span><span>Design preview · Current website remains live</span></div></footer>
@@ -125,7 +127,7 @@ def home():
 </section>
 <section class="section about" id="about"><div class="container about-grid">
   <div class="about-media"><img src="./assets/images/team.webp" alt="Araya technicians working together in a vessel’s engine room" width="600" height="600" loading="lazy"><div class="since"><strong>2009</strong><span>Where our story began</span></div></div>
-  <div><p class="eyebrow">ABOUT PT ARAYA INTERNUSA</p><h2>Local engineers.<br>Total solutions.</h2><p class="lead">Repair, modification, upgrade and retrofit for marine and industrial systems, delivered by an Indonesian team.</p><p>Araya was founded in 2009 as CV Araya Internusa by Arif Fatkur Rohman. Indonesia’s marine sector relied heavily on foreign expertise despite strong local talent, and Araya set out to change that.</p><p>Today our Sidoarjo-based team works across Sumatra, Jawa, Kalimantan, Sulawesi and Papua. We also extend the life of obsolete or end-of-sale equipment with practical, reliable solutions.</p><div class="scope-list"><span>Marine</span><span>Industrial</span><span>Automation &amp; electrical</span></div><p class="leaders"><strong>Leadership:</strong> Arif Fatkur Rohman, S.T., M.MT (Founder &amp; Director) · M Rosul Akbar (Manager) · Anjas Budiarso (Manager)</p></div>
+  <div><p class="eyebrow">ABOUT PT ARAYA INTERNUSA</p><h2>Professional experience.<br>International technical backing.</h2><p class="lead">Experienced engineering for marine and industrial systems, supported by standardised working practices and international technical expertise.</p><p>Founded in 2009 by Arif Fatkur Rohman, PT Araya Internusa brings together repair, modification, upgrade and retrofit experience. International technical backing includes HIT (Haven- und Industrietechnik GmbH), Noris Automation and ComAp.</p><p>Today our Sidoarjo-based team works across Sumatra, Jawa, Kalimantan, Sulawesi and Papua. We also extend the life of obsolete or end-of-sale equipment with practical, reliable solutions.</p><div class="scope-list"><span>Marine</span><span>Industrial</span><span>Automation &amp; electrical</span></div><p class="working-practice"><strong>Standardised working practices</strong><br>Equipment requirements, agreed scope and technical references guide each engineering discussion.</p><p class="leaders"><strong>Leadership:</strong> Arif Fatkur Rohman, S.T., M.MT (Founder &amp; Director) · M Rosul Akbar (Manager) · Anjas Budiarso (Manager)</p></div>
 </div></section>
 <section class="section section-muted" id="services"><div class="container">
   <div class="section-heading"><div><p class="eyebrow">WHAT WE DO</p><h2>Marine. Industrial.<br>Automation.</h2></div><p>Total solutions for engineering, automation and ship repair needs, delivered with speed, precision and professionalism.</p></div>
@@ -150,16 +152,18 @@ def home():
 
 def sector_content(key, s):
     rows = ''.join(f'<article class="scope-detail" id="{anchor}"><span class="portfolio-number">{i:02}</span><h3>{escape(title)}</h3><p>{escape(body)}</p></article>' for i, (anchor, title, body) in enumerate(s['groups'], 1))
+    scope_links = ''.join(f'<a href="#{anchor}">{escape(title)}{ARROW}</a>' for anchor, title, _ in s['groups'])
     equipment = ''.join(f'<div><dt>{escape(title)}</dt><dd>{escape(" · ".join(brands))}</dd></div>' for title, brands in s['equipment'])
     featured = ''.join(f'<a href="../{brand}/"><h3>{escape(BRANDS[brand]["name"])}</h3><p>{escape(text)}</p><span class="text-link">Explore {escape(BRANDS[brand]["name"])} details {ARROW}</span></a>' for brand, text in s['featured'])
     checklist = ''.join(f'<li>{escape(item)}</li>' for item in s['enquiry'])
     others = ''.join(f'<a class="text-link" href="../{other}/">{escape(SERVICES[other]["name"])} services {ARROW}</a>' for other in SERVICES if other != key)
     variants = f' srcset="{srcset(s["hero_variants"], "../")}" sizes="(max-width: 680px) 100vw, 45vw"' if s.get('hero_variants') else ''
     return f'''<section class="brand-hero"><div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><span>{escape(s['name'])}</span></nav><p class="eyebrow">{escape(s['label'].upper())}</p><h1>{s['heading']}</h1><p>{escape(s['intro'])}</p><div class="brand-actions"><a class="button" href="{whatsapp(s['short'] + ' work')}">Discuss your project {ARROW}</a><a class="text-link light" href="#project-scopes">See what we handle {ARROW}</a></div></div></section>
-<section class="section"><div class="container brand-overview"><div><p class="eyebrow">PT ARAYA INTERNUSA</p><h2>{s['scope_heading']}</h2><p class="lead">{escape(s['overview'])}</p><p>Tell us what needs to be repaired, replaced, controlled or monitored. We agree the scope around your equipment, operating requirements and site or vessel conditions.</p></div><figure><img src="../assets/images/{s['hero_image']}"{variants} alt="{escape(s['hero_alt'], quote=True)}" width="{s['hero_width']}" height="{s['hero_height']}" loading="lazy"><figcaption>From Araya’s engineering and service photography.</figcaption></figure></div></section>
-<section class="section section-muted" id="project-scopes"><div class="container"><p class="eyebrow">WHAT WE DO</p><h2>Typical {escape(s['short'])} project scopes.</h2><div class="scope-details">{rows}</div></div></section>
+{page_index(s["name"], [("project-scopes", "Service scopes"), ("equipment", "Equipment"), ("contact", "Enquire with Araya")])}
+<section class="section"><div class="container brand-overview"><div><p class="eyebrow">PT ARAYA INTERNUSA</p><h2>{s['scope_heading']}</h2><p class="lead">{escape(s['overview'])}</p><p>Our experienced team brings standardised working practices and international technical backing to marine and industrial engineering. Tell us what needs to be repaired, replaced, controlled or monitored. We agree the scope around your equipment, operating requirements and site or vessel conditions.</p></div><figure><img src="../assets/images/{s['hero_image']}"{variants} alt="{escape(s['hero_alt'], quote=True)}" width="{s['hero_width']}" height="{s['hero_height']}" loading="lazy"><figcaption>From Araya’s engineering and service photography.</figcaption></figure></div></section>
+<section class="section section-muted" id="project-scopes"><div class="container"><p class="eyebrow">WHAT WE DO</p><h2>Typical {escape(s['short'])} project scopes.</h2><details class="scope-finder"><summary>Find a service scope</summary><nav class="product-finder" aria-label="Service scopes">{scope_links}</nav></details><div class="scope-details">{rows}</div></div></section>
 <section class="section" id="equipment"><div class="container"><p class="eyebrow">EQUIPMENT WE WORK ON</p><h2>Multi-brand experience.</h2><p class="portfolio-intro">A selection of the manufacturers and systems our engineers supply or repair.</p><dl class="equipment-list">{equipment}</dl></div></section>
-<section class="section section-muted"><div class="container"><p class="eyebrow">FEATURED PARTNER TECHNOLOGY</p><h2>Specialist brands,<br>supplied locally.</h2><div class="connection-grid">{featured}</div><div class="equipment-note"><h3>What to send us.</h3><ul class="enquiry-checklist">{checklist}</ul><a class="text-link" href="{whatsapp(s['short'] + ' work')}">Send your project details on WhatsApp {ARROW}</a></div></div></section>
+<section class="section section-muted"><div class="container"><p class="eyebrow">FEATURED PARTNER TECHNOLOGY</p><h2>International technology.<br>Professional support.</h2><div class="connection-grid">{featured}</div><div class="equipment-note"><h3>What to send us.</h3><ul class="enquiry-checklist">{checklist}</ul><a class="text-link" href="{whatsapp(s['short'] + ' work')}">Send your project details on WhatsApp {ARROW}</a></div></div></section>
 <section class="related container"><div class="related-services">{others}</div><a href="../index.html#services">Back to our services</a></section>'''
 
 

@@ -140,3 +140,8 @@ The owner set the reference for Araya's own claims: the live site arayainternusa
 - **Added from the reference:** fire doors (cp.pdf page 6).
 - **In the reference, not yet used:** in-house R&D products (Earth Fault Monitoring, Column Light Alarm, Annunciator); CV to PT in 2012; the founder's 15 years in automation at PT PAL Indonesia; National Instruments, Lavastica and Wuxi Brightsky partnerships; the survey → quotation → approval → on-site or workshop work method. Awaiting the owner's decision.
 
+
+
+## Company positioning update — 14 October 2026
+
+Owner direction: remove local-engineer, local-talent and Indonesian-team positioning; emphasise professional experience, standardised working practices and international technical backing. The live homepage Experts block was successfully retrieved on 13 October and names HIT (Haven- und Industrietechnik GmbH), Noris Automation and ComAp as technical backup. The About copy uses that existing reference. No new authorisation, accreditation or exclusivity claim was added. The owner reports certifications but asked to skip their publication for now; exact names and scope remain pending. See IMPROVEMENTS-2026-10-14.md and repository AGENTS.md.

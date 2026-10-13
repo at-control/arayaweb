@@ -1,0 +1,29 @@
+[
+  {
+    "contact": "#contact",
+    "height": 844,
+    "index": true,
+    "overflow": false,
+    "route": "/marine/",
+    "scopeCount": 11,
+    "width": 390
+  },
+  {
+    "contact": "#contact",
+    "height": 844,
+    "index": true,
+    "overflow": false,
+    "route": "/industrial/",
+    "scopeCount": 8,
+    "width": 390
+  },
+  {
+    "contact": "#contact",
+    "height": 844,
+    "index": true,
+    "overflow": false,
+    "route": "/automation/",
+    "scopeCount": 12,
+    "width": 390
+  }
+]

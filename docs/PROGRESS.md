@@ -1,5 +1,9 @@
 # Progress and release record
 
+## Experience improvements — 14 October 2026
+
+Implemented and verified professional company positioning, persistent inner-page navigation, contextual enquiries, contrast/type/disclosure fixes and additional motion. Certifications omitted at the owner’s request. Full change and evidence record: [Implemented improvements](IMPROVEMENTS-2026-10-14.md). Publication pending final Pages verification.
+
 ## Initial NORINET research — 9 October 2026 (historical)
 
 Read and rendered both pages of the owner's supplied brochure; explained the onboard gateway, cloud monitoring, vessel/fleet dashboards, reports and integration. Recorded the printed V01.02 / October 2019 revision, compared it with the current manufacturer noriNet page, and saved suggested website wording and limits in [NORINET research](NORINET-RESEARCH.md). That initial research commit was documentation only. It is superseded by the implemented NORINET section recorded below.
@@ -35,7 +39,7 @@ Owner direction: keep the existing design, change content only; English only; sh
 - **Client logo strip (follow-up):** seven client logos from higher-quality sources scroll continuously, pause on hover, and have a Pause/Play button (WCAG 2.2.2). A static, wrapped row is shown when the visitor prefers reduced motion. All 14 logo images (two copies for seamless looping) load at 1440px and 390px; logos are not lazy-loaded because sideways-clipped images would not load. See CONTENT-SOURCES.md for sources.
 - **Still open from the audit (design decisions deferred):** 9–11px text, orange-on-grey contrast and the "2009" badge contrast.
 
-## Current release
+## Published baseline before 14 October improvements
 
 - **Preview:** https://hakiimm8.github.io/arayaweb/
 - **Website-content commit:** [`541345c62dee0caf8a15f0d7c3ae8ede2b389291`](https://github.com/hakiimm8/arayaweb/commit/541345c62dee0caf8a15f0d7c3ae8ede2b389291).
@@ -44,9 +48,11 @@ Owner direction: keep the existing design, change content only; English only; sh
 - **Design:** original Araya artwork and orange/charcoal/white Space Grotesk styling.
 - **Publication:** only `public/`; all six pages intentionally `noindex, nofollow`.
 
+The scope table below reflects the current local implementation; the historical published baseline above had twelve Marine scopes. The new release carries the reference-only eleven-scope version.
+
 | Page | Implemented scope |
 | --- | --- |
-| [Home](https://hakiimm8.github.io/arayaweb/) | WhatsApp-first hero, founding story and leadership, three service cards with 12 common-request links, scrolling client logos (7 clients), owner-supplied 1,500+ total and Indonesian regions, featured partners plus multi-brand equipment list, contacts. |
+| [Home](https://hakiimm8.github.io/arayaweb/) | WhatsApp-first hero, founding story and leadership, three service cards with 12 common-request links, client logos (7 clients; desktop motion/mobile grid), owner-supplied 1,500+ total and Indonesian regions, featured partners plus multi-brand equipment list, contacts. |
 | [Marine](https://hakiimm8.github.io/arayaweb/marine/) | 11 scope areas: alarms, safety, engines, generators, propulsion, navigation, automation, cranes, HVAC/refrigeration, retrofit and test facilities. Equipment list, featured partners, enquiry checklist. |
 | [Industrial](https://hakiimm8.github.io/arayaweb/industrial/) | 8 scope areas: machinery, wire-cut/EDM, cutting, production machines, cranes, generators, electrical and automation. Equipment list, featured partners, enquiry checklist. |
 | [Automation & Electrical](https://hakiimm8.github.io/arayaweb/automation/) | 12 scope areas: PLC, SCADA, instrumentation, panels, drives, motors, hazardous area, protection, power, earthing, gensets and electronics. Nine equipment groups, featured partners, enquiry checklist. |

@@ -119,4 +119,100 @@ if (marqueeToggle && marquee) {
     marqueeToggle.setAttribute('aria-pressed', String(paused));
     marqueeToggle.textContent = paused ? 'Play logos' : 'Pause logos';
   });
+  marquee.classList.add('marquee-ready');
+}
+
+// Keep section navigation available, accounting for the actual shared header height.
+const pageIndex = document.querySelector('.page-index');
+const siteHeader = document.querySelector('.site-header');
+if (pageIndex && siteHeader) {
+  const toggle = pageIndex.querySelector('.page-index-toggle');
+  const links = [...pageIndex.querySelectorAll('.page-index-links a')];
+  const sections = links.map(link => document.getElementById(link.hash.slice(1)));
+  const closeIndex = () => {
+    pageIndex.dataset.open = 'false';
+    toggle.setAttribute('aria-expanded', 'false');
+  };
+  toggle.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') !== 'true';
+    pageIndex.dataset.open = String(open);
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+  links.forEach((link, i) => link.addEventListener('click', () => {
+    closeIndex();
+    // A mobile index link is hidden after selection; move keyboard focus to its destination.
+    const target = sections[i];
+    if (target) {
+      const temporaryTabIndex = !target.hasAttribute('tabindex');
+      if (temporaryTabIndex) target.setAttribute('tabindex', '-1');
+      target.focus({preventScroll:true});
+      if (temporaryTabIndex) target.addEventListener('blur', () => target.removeAttribute('tabindex'), {once:true});
+    }
+  }));
+  pageIndex.addEventListener('keydown', event => {
+    if (event.key === 'Escape') { closeIndex(); toggle.focus(); }
+  });
+  document.addEventListener('click', event => {
+    if (!pageIndex.contains(event.target)) closeIndex();
+  });
+  let pending = false;
+  const updateIndex = () => {
+    pending = false;
+    const headerEdge = Math.max(0, siteHeader.getBoundingClientRect().bottom);
+    const compact = window.matchMedia('(max-width:680px)').matches;
+    const indexHeight = compact ? toggle.offsetHeight : pageIndex.offsetHeight;
+    document.documentElement.style.setProperty('--header-edge', `${headerEdge}px`);
+    document.documentElement.style.setProperty('--index-height', `${indexHeight}px`);
+    // Anchor offsets may include the utility row before the header compacts on scroll.
+    const utilityHeight = siteHeader.querySelector('.utility')?.offsetHeight || 0;
+    const threshold = headerEdge + indexHeight + utilityHeight + 40;
+    let active = -1;
+    sections.forEach((section, i) => {
+      if (section && section.getBoundingClientRect().top <= threshold) active = i;
+    });
+    links.forEach((link, i) => {
+      if (i === active) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+    pageIndex.querySelector('.page-index-current').textContent = active >= 0 ? links[active].textContent : 'Explore sections';
+  };
+  const scheduleIndex = () => {
+    if (!pending) { pending = true; requestAnimationFrame(updateIndex); }
+  };
+  pageIndex.classList.add('is-ready');
+  window.addEventListener('scroll', scheduleIndex, {passive:true});
+  window.addEventListener('resize', () => { closeIndex(); scheduleIndex(); });
+  if ('ResizeObserver' in window) new ResizeObserver(scheduleIndex).observe(siteHeader);
+  updateIndex();
+}
+
+// Page identity is separate from the changing section selection.
+const normalizedPath = value => value.replace(/index\.html$/, '').replace(/\/$/, '');
+document.querySelectorAll('.main-nav a').forEach(link => {
+  if (!link.hash && normalizedPath(link.pathname) === normalizedPath(location.pathname)) {
+    link.setAttribute('aria-current', 'page');
+  }
+});
+
+// One gentle entrance per section/card. Content stays visible if scripts or APIs fail.
+const motionPreference = window.matchMedia('(prefers-reduced-motion:reduce)');
+if ('IntersectionObserver' in window && typeof Element.prototype.animate === 'function') {
+  const running = new Set();
+  const entranceObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entranceObserver.unobserve(entry.target);
+      if (motionPreference.matches) return;
+      const animation = entry.target.animate(
+        [{opacity:.82, transform:'translateY(12px)'}, {opacity:1, transform:'translateY(0)'}],
+        {duration:450, easing:'cubic-bezier(.2,.7,.3,1)'});
+      running.add(animation);
+      animation.finished.catch(() => {}).finally(() => running.delete(animation));
+    });
+  }, {threshold:.12});
+  document.querySelectorAll('.section-heading,.service-card,.brand-profile,.application-group-intro,.connection-grid>a')
+    .forEach(element => entranceObserver.observe(element));
+  motionPreference.addEventListener('change', () => {
+    if (motionPreference.matches) running.forEach(animation => animation.cancel());
+  });
 }
