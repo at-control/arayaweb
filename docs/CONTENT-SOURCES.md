@@ -145,3 +145,8 @@ The owner set the reference for Araya's own claims: the live site arayainternusa
 ## Company positioning update — 14 October 2026
 
 Owner direction: remove local-engineer, local-talent and Indonesian-team positioning; emphasise professional experience, standardised working practices and international technical backing. The live homepage Experts block was successfully retrieved on 13 October and names HIT (Haven- und Industrietechnik GmbH), Noris Automation and ComAp as technical backup. The About copy uses that existing reference. No new authorisation, accreditation or exclusivity claim was added. The owner reports certifications but asked to skip their publication for now; exact names and scope remain pending. See IMPROVEMENTS-2026-10-14.md and repository AGENTS.md.
+
+
+## Branch offices and company voice — 14 October 2026
+
+Owner correction: do not describe Araya as a Sidoarjo-based team or Sidoarjo backup team. The owner confirms branch offices in Sidoarjo and Jakarta, with Jakarta at Townhouse PIK. Retained the existing Sidoarjo contact address. Added Jakarta as supplied, without inventing a unit number, street address or postal code; its map link is a place-name search. Shared header/footer, About text and structured locations reflect both offices. Professional/international positioning remains.

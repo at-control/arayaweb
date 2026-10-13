@@ -1,5 +1,9 @@
 # Progress and release record
 
+## Branch office correction — 14 October 2026
+
+Removed Sidoarjo-based team wording. Added the owner-confirmed Sidoarjo and Jakarta (Townhouse PIK) branch offices to the shared contact details, About copy and structured locations. Exact Jakarta unit/street/postal details were not supplied. Publication verification pending.
+
 ## Experience improvements — 14 October 2026
 
 Implemented and verified professional company positioning, persistent inner-page navigation, contextual enquiries, contrast/type/disclosure fixes and additional motion. Certifications omitted at the owner’s request. Full change and evidence record: [Implemented improvements](IMPROVEMENTS-2026-10-14.md). Website-content release [921909b](https://github.com/hakiimm8/arayaweb/commit/921909bf355c1ec6454f63127ea26a12e378daa1) deployed successfully in [Pages run 38473028516](https://github.com/hakiimm8/arayaweb/actions/runs/38473028516). All six HTML routes and both shared assets return 200 and match local verified bytes. Hosted browser re-opening failed; visual/interaction evidence is local.
