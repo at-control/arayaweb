@@ -2,7 +2,7 @@
 
 ## Branch office correction — 14 October 2026
 
-Removed Sidoarjo-based team wording. Added the owner-confirmed Sidoarjo and Jakarta (Townhouse PIK) branch offices to the shared contact details, About copy and structured locations. Exact Jakarta unit/street/postal details were not supplied. Publication verification pending.
+Removed Sidoarjo-based team wording. Added the owner-confirmed Sidoarjo and Jakarta (Townhouse PIK) branch offices to the shared contact details, About copy and structured locations. Exact Jakarta unit/street/postal details were not supplied. Release [ff94e52](https://github.com/hakiimm8/arayaweb/commit/ff94e522261fed5e63a1df2cd14d43ab4f5fd064) deployed successfully in [Pages run 38473939229](https://github.com/hakiimm8/arayaweb/actions/runs/38473939229). Published homepage returns 200, includes Townhouse PIK and omits the old team wording. Local six-page checks and structured-location assertions passed.
 
 ## Experience improvements — 14 October 2026
 

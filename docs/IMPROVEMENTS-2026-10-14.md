@@ -60,3 +60,10 @@ Website-content commit: [921909b](https://github.com/hakiimm8/arayaweb/commit/92
 The hosted preview could not be reopened in the in-app browser because the new webview failed to attach twice. Published verification therefore confirms identical deployed files; visual/interaction evidence is from the local build. No fresh hosted-browser visual claim is made. The user's existing local browser tab was preserved.
 
 The full improvement, source and prior review documentation is committed to main. Only public is deployed. Production WordPress is unchanged.
+
+
+## Branch office correction
+
+Owner correction: removed Sidoarjo-based team wording; Sidoarjo and Jakarta (Townhouse PIK) are branch offices. Shared contact details, About wording and structured locations were updated. Release [ff94e52](https://github.com/hakiimm8/arayaweb/commit/ff94e522261fed5e63a1df2cd14d43ab4f5fd064) deployed successfully in [Pages run 38473939229](https://github.com/hakiimm8/arayaweb/actions/runs/38473939229); published homepage returns 200 and contains the new branch details. Six-page static/experience checks and both structured locations passed.
+
+![Branch-office contact layout](reviews/improvements-2026-10-14/07-branch-offices-desktop.png)
