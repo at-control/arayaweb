@@ -43,7 +43,7 @@ Brand flow: hero → simple contents/product groups → brand background → app
 
 ## Publication
 
-Local implementation verified. Release and deployed-file verification will be recorded after publishing to the GitHub Pages preview. Production WordPress is separate.
+Published website-content release [b54d1fa](https://github.com/hakiimm8/arayaweb/commit/b54d1faeef1f1fa868c08ed2fc93f2f6989083f5); [Pages deployment](https://github.com/hakiimm8/arayaweb/actions/runs/38506164232) succeeded. All eleven published HTML/sitemap/style/script files return HTTP 200 and match the local verified artifact after line-ending normalization. Visual evidence was captured locally. The preview retains noindex,nofollow; production WordPress is separate.
 
 ## Selected visual evidence
 
