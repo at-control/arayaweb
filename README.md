@@ -6,7 +6,7 @@ Preview: https://hakiimm8.github.io/arayaweb/
 
 Saved audit findings, design decisions, verification results and next steps: [Project notes](docs/PROJECT-NOTES.md).
 
-Start with the [documentation index](docs/README.md), [progress/release record](docs/PROGRESS.md) and [content sources](docs/CONTENT-SOURCES.md). Latest website-content release: [c7c4095](https://github.com/hakiimm8/arayaweb/commit/c7c40952c25536a969d150b5ff27a63e4178d51d). Photo-led services and owner photography: [implementation notes](docs/WORK-PHOTOS-2026-10-14.md). Hierarchy/mobile fixes and verification: [implementation notes](docs/HIERARCHY-FIXES-2026-10-14.md). The 14 October experience improvements are recorded in [implementation notes](docs/IMPROVEMENTS-2026-10-14.md); current deployment status is in the progress/release record.
+Start with the [documentation index](docs/README.md), [progress/release record](docs/PROGRESS.md) and [content sources](docs/CONTENT-SOURCES.md). Latest website-content release: [f8f68f8](https://github.com/hakiimm8/arayaweb/commit/f8f68f8baf465c61b6b6849b390335f0bc085a49). Leadership and balanced service photography: [implementation notes](docs/LEADERSHIP-AND-SERVICE-BALANCE-2026-10-14.md). Photo-led services and owner photography: [implementation notes](docs/WORK-PHOTOS-2026-10-14.md). Hierarchy/mobile fixes and verification: [implementation notes](docs/HIERARCHY-FIXES-2026-10-14.md). The 14 October experience improvements are recorded in [implementation notes](docs/IMPROVEMENTS-2026-10-14.md); current deployment status is in the progress/release record.
 
 ## Files
 
