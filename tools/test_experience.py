@@ -63,6 +63,21 @@ class ExperienceTests(unittest.TestCase):
         sitemap = (PUBLIC / 'sitemap.xml').read_text(encoding='utf-8')
         self.assertEqual(sitemap.count('<url>'), 3)
 
+    def test_service_sectors_contain_scopes_without_repeated_promotions(self):
+        import re
+        from site_content import SERVICES
+        html = (PUBLIC / 'index.html').read_text(encoding='utf-8')
+        for key, service in SERVICES.items():
+            with self.subTest(sector=key):
+                block = re.search(rf'<details class="service-detail" id="{key}-services">.*?</details>', html, re.S).group()
+                self.assertEqual(Links(html=block).links, [])
+                self.assertNotIn('What to send us', block)
+                self.assertNotIn('service-brand-links', block)
+                self.assertEqual(block.count('class="scope-detail"'), len(service['groups']))
+                self.assertIn(f'id="{key}-equipment"', block)
+        self.assertEqual(html.count('class="brand-panel"'), 2)
+        self.assertEqual(html.count('id="contact"'), 1)
+
     def test_brand_contents_and_reading_flow(self):
         from brand_profiles import BRANDS
         import re

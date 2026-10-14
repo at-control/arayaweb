@@ -131,7 +131,7 @@ def srcset(variants, prefix="./"):
 
 def home():
     cards = ''.join(f'''<a class="service-card" href="#{key}-services"><img src="./assets/images/{s['card_image']}"{f' srcset="{srcset(s["card_variants"])}" sizes="(max-width: 680px) 100vw, 33vw"' if s.get('card_variants') else ''} alt="{escape(s['card_alt'], quote=True)}" width="{s['card_width']}" height="{s['card_height']}" loading="eager" fetchpriority="low" decoding="async"><div class="service-body"><span class="service-number">0{i}</span><h3>{escape(s['name'])}</h3><p>{escape(s['summary'])}</p><span class="card-link">Explore {escape(s['short'])} services {ARROW}</span></div></a>''' for i, (key, s) in enumerate(SERVICES.items(), 1))
-    service_sections = ''.join(service_details(key, service, ARROW, BRANDS) for key, service in SERVICES.items())
+    service_sections = ''.join(service_details(key, service) for key, service in SERVICES.items())
     # Not lazy-loaded: logos clipped sideways inside the scrolling strip would never load.
     clients = ''.join(f'<li><img{' class="is-emblem"' if c.get("emblem") else ''} src="./assets/images/{c["logo"]}" alt="{escape(c["name"], quote=True)}" width="{c["width"]}" height="{c["height"]}" fetchpriority="low" decoding="async"></li>' for c in CLIENTS)
     groups = ''.join(f'<div><h3>{escape(title)}</h3><p>{escape(" · ".join(brands))}</p></div>' for title, brands in BRAND_GROUPS)

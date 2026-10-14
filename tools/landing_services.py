@@ -1,19 +1,13 @@
 """Engineering services live on the company landing page."""
 from html import escape
-from ui_components import enquiry_url
 
 
-def service_details(key, service, arrow, brands):
+def service_details(key, service):
     rows = ''.join(f'''<article class="scope-detail" id="{key}-{anchor}"><h4>{escape(title)}</h4><p>{escape(body)}</p></article>'''
                    for anchor, title, body in service['groups'])
-    checklist = ''.join(f'<li>{escape(item)}</li>' for item in service['enquiry'])
-    featured = ''.join(f'<a href="./{brand}/"><strong>{escape(brands[brand]["name"])}</strong><p>{escape(description)}</p><span class="text-link">Explore {escape(brands[brand]["name"])} {arrow}</span></a>'
-                       for brand, description in service['featured'])
     return f'''<details class="service-detail" id="{key}-services">
     <summary><span><strong>{escape(service['name'])} services</strong><span>{escape(service['intro'])}</span></span><span class="application-expand" aria-hidden="true">+</span></summary>
     <div class="service-detail-body"><p class="service-overview" id="{key}-equipment">{escape(service['overview'])}</p><div class="scope-details">{rows}</div>
-    <div class="service-brand-links">{featured}</div>
-    <div class="equipment-note"><h4>What to send us</h4><ul class="enquiry-checklist">{checklist}</ul><a class="button" href="{enquiry_url(service['short'] + ' work')}">Discuss {escape(service['short'])} work {arrow}</a></div>
     </div></details>'''
 
 
