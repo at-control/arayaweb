@@ -2,7 +2,8 @@
 
 Updated 14 October 2026, Asia/Jakarta.
 
-- [Production deployment preparation](PRODUCTION-DEPLOYMENT.md): verified root redirect, target-aware build/CI package, working Terminal/SSH handshake, verified offsite backups and manual private staging of all 65 production files. SSH key authorization and live cutover remain pending; production has not been switched.
+- [Production deployment preparation](PRODUCTION-DEPLOYMENT.md): verified backups, build/package provenance, authorized SSH access and main-restricted GitHub production environment. Private staging is separate from live cutover; production has not been switched.
+- [GitHub SSH staging plan and verification](PRODUCTION-SSH-PLAN-2026-10-14.md): manual artifact validation, pinned-host transfer, tests, independent review and staging-run evidence.
 
 - [Service-sector repetition cleanup](SERVICE-SECTOR-CLEANUP-2026-10-14.md): remove repeated brand promotions, checklists and CTA buttons from all three sectors.
 - [Loading, counters and original branding](LOADING-COUNTERS-AND-BRANDING-2026-10-14.md): image discovery, lighter entrances, counting/New Year behavior, original logo provenance and tab branding.

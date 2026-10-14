@@ -31,6 +31,7 @@ jobs:
           python tools/check.py
           python tools/test_experience.py
           python tools/test_loading.py
+          python tools/test_release_candidate.py
           node --check public/assets/site.js
           node tools/test_counters.cjs
           node tools/test_company_dates.cjs
