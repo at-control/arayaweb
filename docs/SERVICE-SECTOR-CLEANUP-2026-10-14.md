@@ -12,4 +12,4 @@ Verification:
 - Build, six-document fragment/asset/metadata checks, JavaScript syntax and whitespace checks pass.
 - Visual evidence: [automation section ending](reviews/sector-cleanup-2026-10-14/01-automation-end.png).
 
-Publication verification pending. The GitHub Pages preview and production WordPress remain separate.
+Published release [3aecf59](https://github.com/hakiimm8/arayaweb/commit/3aecf59c63a5e53bf56404fab648a031f1c11958); [Pages deployment](https://github.com/hakiimm8/arayaweb/actions/runs/38511742944) succeeded. The published homepage returns HTTP 200, matches the verified artifact and was checked again for absent duplicate blocks in all three sectors. The GitHub Pages preview and production WordPress remain separate.

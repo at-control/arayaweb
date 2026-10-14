@@ -1,6 +1,6 @@
 # Araya project notes
 
-Latest release: [fe80362](https://github.com/hakiimm8/arayaweb/commit/fe80362574d96b1ec99cc1d8cae81e9f760cea15), earlier picture discovery, lighter text motion, finite metric counters, scalable original logo/tab branding and Leadership removal. See [diagnosis and verification](LOADING-COUNTERS-AND-BRANDING-2026-10-14.md). Earlier release labels below are historical.
+Latest release: [3aecf59](https://github.com/hakiimm8/arayaweb/commit/3aecf59c63a5e53bf56404fab648a031f1c11958), removed repeated brand promotions, checklists and enquiry buttons from all service sectors. [Verification](SERVICE-SECTOR-CLEANUP-2026-10-14.md). Earlier release labels below are historical.
 
 Current release: [921909b](https://github.com/hakiimm8/arayaweb/commit/921909bf355c1ec6454f63127ea26a12e378daa1), 14 October 2026. Professional positioning, navigation/enquiry improvements and motion are recorded in [implementation notes](IMPROVEMENTS-2026-10-14.md). The earlier release notes below are historical.
 
