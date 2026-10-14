@@ -1,5 +1,9 @@
 # Progress and release record
 
+## Brand content flow and Contents — 14 October 2026
+
+Reviewed both long guides; added grouped detailed Contents and persistent return access. Noris task choices now precede the catalogue. All 18 ComAp applications, 14 total product families, diagrams and contextual enquiries retained. Local build, checks, five experience tests, automatic-year tests and independent review passed. See [findings and evidence](BRAND-CONTENTS-2026-10-14.md). Publication verification pending the content release.
+
 ## Single landing page and automatic years — 14 October 2026
 
 Implemented one Araya landing page plus dedicated Noris/ComAp guides. Common requests removed; full services and enquiries are on the homepage. Legacy service bookmarks redirect to their matching anchors. Automatic company age/copyright follow Jakarta time, including New Year and resumed tabs. Company labels are Noris Group GmbH and ComAp a.s. Local/static/clock tests and independent review passed; see [implementation record](LANDING-AND-DATES-2026-10-14.md). Published release [dac0b92](https://github.com/hakiimm8/arayaweb/commit/dac0b92eac714fead13f1d2957faa0487d1b5b53); [Pages deployment](https://github.com/hakiimm8/arayaweb/actions/runs/38477724617) succeeded. All eleven published HTML/sitemap/script/style files checked return 200 and match the verified artifact. Earlier six-page content architecture below is historical.

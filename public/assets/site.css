@@ -103,6 +103,23 @@
 .page-index-links{display:flex;flex-wrap:wrap;gap:6px 28px;padding-block:12px}.page-index-links a{padding:9px 0;font-size:14px;font-weight:600;color:var(--ink);border-bottom:2px solid transparent}
 .page-index-links a:hover,.page-index-links a[aria-current="location"]{color:var(--orange-readable);border-color:var(--orange-readable)}
 .page-index-toggle{display:none}.main-nav a[aria-current="page"]{color:#ff7a24}
+/* Detailed brand contents: native disclosures keep long guides easy to scan. */
+.brand-toc{padding-block:52px;background:var(--muted);border-bottom:1px solid var(--line)}
+.brand-toc-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:26px}
+.brand-toc-heading h2{font-size:36px}.brand-toc-heading p:not(.eyebrow){max-width:570px;font-size:15px}
+.brand-toc-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.brand-toc-group{background:#fff;border:1px solid var(--line)}
+.brand-toc-group summary{display:flex;justify-content:space-between;align-items:center;gap:20px;list-style:none;padding:20px 24px;cursor:pointer;font-size:18px;font-weight:600;color:var(--ink)}
+.brand-toc-group summary::-webkit-details-marker{display:none}.brand-toc-group summary::marker{content:''}
+.brand-toc-group small{display:block;font-size:12px;font-weight:400;color:var(--text);margin-top:4px}
+.brand-toc-group .application-expand{font-size:28px;line-height:1;color:var(--orange-readable);transition:transform var(--motion-fast)}
+.brand-toc-group[open]>summary .application-expand{transform:rotate(45deg)}
+.brand-toc-group ul{list-style:none;margin:0;padding:0 24px 16px}.brand-toc-group li{border-top:1px solid var(--line)}
+.brand-toc-group a{display:block;font-size:15px;line-height:1.5;padding:12px 0;color:var(--ink)}
+.brand-toc a:hover{color:var(--orange-readable);text-decoration:underline;text-underline-offset:4px}
+.brand-toc summary:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.brand-toc-quick{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:20px}.brand-toc-quick a{font-size:14px;font-weight:600;padding-block:10px;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:680px){.brand-toc{padding-block:36px}.brand-toc-heading{display:block}.brand-toc-heading h2{font-size:30px;margin-bottom:14px}.brand-toc-groups{grid-template-columns:1fr;gap:12px}.brand-toc-group summary{padding:17px 20px;font-size:17px}.brand-toc-group ul{padding-inline:20px}.brand-toc-quick{gap:0 22px}}
 @media(max-width:980px){.page-index-links{gap:4px 20px}}
 @media(max-width:680px){
  :root{--header-edge:78px;--space-section:65px}

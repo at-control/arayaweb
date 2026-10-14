@@ -2,6 +2,7 @@
 
 Updated 14 October 2026, Asia/Jakarta.
 
+- [Brand content flow and Contents](BRAND-CONTENTS-2026-10-14.md): review findings, grouped topic lists, application-first flow and desktop/mobile verification.
 - [Single landing page and automatic years](LANDING-AND-DATES-2026-10-14.md): three content routes, old-link compatibility, company labels and Jakarta New Year updates.
 - [Approved content decisions](CONTENT-DECISIONS-2026-10-14.md): owner choices, certification wording, age, hidden/removed services and simplified copy.
 - [Progress and releases](PROGRESS.md): current three-page site and legacy service redirects, deployed commits, verification and remaining work.

@@ -9,6 +9,10 @@ CC = COMAP + '/products/controllers'
 BRANDS = {
     'noris': {
         'name': 'Noris', 'legal_name': 'Noris Group GmbH', 'label': 'Noris Group GmbH · INDONESIA',
+        'contents_product_groups': [
+            ('Measurement & instruments', ['speed-sensors', 'temperature-sensors', 'pressure-sensors', 'instruments', 'signal-processing']),
+            ('Marine systems', ['alarm-monitoring', 'propulsion-control', 'norinet']),
+        ],
         'title': 'Noris Distributor Indonesia: Sensors & Marine AMS | Araya',
         'menu_note': 'Sensors, instruments & marine automation',
         'home_summary': 'Speed, temperature and pressure sensors, analogue indicators, signal processing, noriMos alarm monitoring, noriStar propulsion control and noriNet remote monitoring.',

@@ -31,7 +31,7 @@ Each product entry can include an optional `image` dictionary: `file`, actual `w
 
 ## Detailed application guides
 
-ComAp uses optional `application_groups` from `tools/comap_applications.py`. Each group contains a stable anchor, title, introduction, conceptual flow, credited diagram and application entries. Entries have purpose, typical system, control functions, example families, selection inputs, related anchors and manufacturer source. The shared `application_guide` renderer in `brand_pages.py` places this before products when the field exists. The first item in each group is open; other items use native details/summary. JavaScript opens an entry referenced by a hash or related link. Retest keyboard, direct hashes, related links, mobile widths and the no-JavaScript path after changes. Validate region-specific availability against current manufacturer sources.
+ComAp uses optional `application_groups` from `tools/comap_applications.py`. Each group contains a stable anchor, title, introduction, conceptual flow, credited diagram and application entries. Entries have purpose, typical system, control functions, example families, selection inputs, related anchors and manufacturer source. The shared `application_guide` renderer in `brand_pages.py` places this before products when the field exists. All application entries are closed initially and use native details/summary. JavaScript opens an entry referenced by a hash or related link. Retest keyboard, direct hashes, related links, mobile widths and the no-JavaScript path after changes. Validate region-specific availability against current manufacturer sources.
 
 
 ### Diagrams and enlarged view
@@ -43,4 +43,9 @@ Application entries can have a `diagrams` list; current assignments are in APPLI
 
 A product may also include `diagram` (file, actual width/height, alt, caption), `flow` (ordered explanation steps) and `diagram_note` (interface or operating context). The shared portfolio renderer places this below both product columns at full row width; noriNet is the first example. The product `source` supplies its diagram credit. `diagram_figure` accepts a brand argument, defaulting to ComAp for application guides; product diagrams use the product page's brand. JavaScript updates the modal source label as well as its URL. Keep only one dialog per page and verify both brand credits when changing shared viewer code.
 
-Company content outside the brand guides lives in `tools/site_content.py`: homepage clients, common requests, multi-brand equipment and service pages. Adding a service page there adds it to the footer, the sitemap and the homepage service cards.
+Company content outside the brand guides lives in `tools/site_content.py`: clients, multi-brand equipment and services rendered on the single homepage. Service details are rendered by `tools/landing_services.py`; do not add standalone service routes.
+
+
+## Detailed Contents and reading order
+
+Every brand guide has a grouped Contents section at `#contents`, reachable from its persistent page menu. The shared renderer derives application topics from `application_groups` or task rows from `applications`. Products default to a single group; `contents_product_groups` can list `(title, [product IDs])` pairs, as Noris does for Measurement & instruments and Marine systems. Reference every product exactly once and retain stable IDs. `tools/test_experience.py` verifies full topic coverage and the common About → Applications → Products → Enquiry → FAQ order. Run that check after changing brand data, as well as `tools/check.py`. Test deep links, keyboard disclosure opening, mobile sticky menu return and no-JavaScript use. See [review and implementation](BRAND-CONTENTS-2026-10-14.md).

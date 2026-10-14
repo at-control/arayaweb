@@ -8,10 +8,10 @@ PUBLIC = Path(__file__).resolve().parents[1] / 'public'
 
 
 class Links(HTMLParser):
-    def __init__(self, path):
+    def __init__(self, path=None, *, html=None):
         super().__init__()
         self.links = []
-        self.feed(path.read_text(encoding='utf-8'))
+        self.feed(html if html is not None else path.read_text(encoding='utf-8'))
 
     def handle_starttag(self, tag, attrs):
         if tag == 'a':
@@ -58,6 +58,29 @@ class ExperienceTests(unittest.TestCase):
                 self.assertNotIn(f'href="../{service}/"', (PUBLIC / page).read_text(encoding='utf-8'))
         sitemap = (PUBLIC / 'sitemap.xml').read_text(encoding='utf-8')
         self.assertEqual(sitemap.count('<url>'), 3)
+
+    def test_brand_contents_covers_all_topics_and_application_first_flow(self):
+        from brand_profiles import BRANDS
+        import re
+        for brand, data in BRANDS.items():
+            html = (PUBLIC / brand / 'index.html').read_text(encoding='utf-8')
+            # Limit links to the Contents component so unrelated product links
+            # cannot mask a missing index entry.
+            contents = re.search(r'<section class="brand-toc".*?</section>', html, re.S).group()
+            links = Links(html=contents)
+            anchors = {a['href'][1:] for a in links.links}
+            expected = {p['id'] for p in data['products']}
+            for group in data.get('application_groups', []):
+                expected.update(item['id'] for item in group['items'])
+            if not data.get('application_groups'):
+                expected.update(f'choose-{anchor}' for _, _, anchor, _ in data['applications'])
+            expected.update(['about-brand', 'araya-support', 'brand-faq'])
+            self.assertEqual(anchors, expected, brand)
+            positions = [html.index(f'id="{anchor}"') for anchor in
+                         ['contents', 'about-brand', 'applications', 'portfolio', 'araya-support', 'brand-faq']]
+            self.assertEqual(positions, sorted(positions), brand)
+            for anchor in anchors:
+                self.assertIn(f'id="{anchor}"', html, brand)
 
 
 if __name__ == '__main__':

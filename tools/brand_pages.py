@@ -39,28 +39,47 @@ def application_guide(groups, arrow):
             related = ''.join(f'<a class="text-link" href="#{target}">{escape(label)}{arrow}</a>' for label, target in item['related'])
             diagrams = ''.join(diagram_figure(picture, item['source']) for picture in item.get('diagrams', []))
             gallery = f'<div class="application-diagrams">{diagrams}</div>' if diagrams else ''
-            items.append(f'''<details class="application-detail" id="{item['id']}"><summary><span><strong>{escape(item['title'])}</strong><span>{escape(item['summary'])}</span></span><span class="application-expand" aria-hidden="true">+</span></summary><div class="application-body">{gallery}<dl>{fields}</dl><div class="application-links"><a class="button context-enquiry" href="{enquiry_url("ComAp " + item["title"])}">Discuss this application {arrow}</a>{related}<a class="application-source" href="{escape(item['source'], quote=True)}">ComAp application reference {arrow}</a><a class="application-source" href="#applications">Back to applications ↑</a></div></div></details>''')
+            items.append(f'''<details class="application-detail" id="{item['id']}"><summary><span><strong>{escape(item['title'])}</strong><span>{escape(item['summary'])}</span></span><span class="application-expand" aria-hidden="true">+</span></summary><div class="application-body">{gallery}<dl>{fields}</dl><div class="application-links"><a class="button context-enquiry" href="{enquiry_url("ComAp " + item["title"])}">Discuss this application {arrow}</a>{related}<a class="application-source" href="{escape(item['source'], quote=True)}">ComAp application reference {arrow}</a><a class="application-source" href="#contents">Back to contents ↑</a></div></div></details>''')
         rendered.append(f'''<section class="application-group" id="{group['id']}" aria-labelledby="{group['id']}-heading"><div class="application-group-intro"><div><p class="eyebrow">APPLICATION GROUP 0{i}</p><h3 id="{group['id']}-heading">{escape(group['title'])}</h3><p>{escape(group['intro'])}</p><ol class="application-flow" aria-label="Conceptual system flow">{flow}</ol></div>{diagram_figure(diagram)}</div><div class="application-details">{''.join(items)}</div></section>''')
     return f'''<section class="section application-guide" id="applications"><div class="container"><p class="eyebrow">COMAP APPLICATIONS</p><h2>The application defines<br>the control system.</h2><p class="lead application-guide-intro">Start with what your engine, vessel or power system needs to do. Then select the controller family, interfaces and operating logic.</p><p class="application-scope">Explore the manufacturer application examples below. Araya confirms the controller, configuration and scope for your project.</p><nav class="application-index" aria-label="ComAp application groups">{navigation}</nav><p class="application-hint">Select an application to see its system, control functions and diagrams. Select a diagram to enlarge it.</p>{''.join(rendered)}</div></section>{diagram_viewer()}'''
 
 
+def brand_contents(data):
+    """A compact, no-JS topic index generated from the guide's own content."""
+    groups = []
+    if data.get('application_groups'):
+        groups.extend((group['title'], [(item['id'], item['title']) for item in group['items']])
+                      for group in data['application_groups'])
+        groups.append(('Products & systems', [(p['id'], p['short']) for p in data['products']]))
+    else:
+        groups.append(('Choose by task', [(f'choose-{anchor}', title) for title, _, anchor, _ in data['applications']]))
+        products = {p['id']: p for p in data['products']}
+        product_groups = data.get('contents_product_groups', [('Products & systems', list(products))])
+        groups.extend((title, [(anchor, products[anchor]['short']) for anchor in anchors])
+                      for title, anchors in product_groups)
+    rendered = []
+    for title, links in groups:
+        items = ''.join(f'<li><a href="#{escape(anchor, quote=True)}">{escape(label)}</a></li>' for anchor, label in links)
+        rendered.append(f'<details class="brand-toc-group"><summary><span>{escape(title)}<small>{len(links)} topics</small></span><span class="application-expand" aria-hidden="true">+</span></summary><ul>{items}</ul></details>')
+    return f'''<section class="brand-toc" id="contents" aria-labelledby="contents-heading"><div class="container"><div class="brand-toc-heading"><div><p class="eyebrow">EXPLORE {escape(data['name'].upper())}</p><h2 id="contents-heading">Contents</h2></div><p>Choose a group, then jump to an application or product. You can return here from the page menu at any time.</p></div><nav aria-label="{escape(data['name'], quote=True)} detailed contents"><div class="brand-toc-groups">{''.join(rendered)}</div><div class="brand-toc-quick"><a href="#about-brand">About the brand</a><a href="#araya-support">Enquire with Araya</a><a href="#brand-faq">FAQs</a></div></nav></div></section>'''
+
+
 def brand_content(key, data, arrow):
     name = escape(data['name'])
-    sections = [('about-brand', 'About the brand'), ('portfolio', 'Products & systems'),
-                ('applications', 'Applications'), ('araya-support', 'Enquire with Araya'), ('brand-faq', 'FAQs')]
+    sections = [('contents', 'Contents'), ('about-brand', 'About the brand'),
+                ('applications', 'Applications'), ('portfolio', 'Products & systems'),
+                ('araya-support', 'Enquire with Araya'), ('brand-faq', 'FAQs')]
     has_guide = bool(data.get('application_groups'))
-    if has_guide:
-        sections[1], sections[2] = sections[2], sections[1]
     facts = ''.join(f'<div><dt>{escape(label)}</dt><dd>{escape(value)}</dd></div>' for label, value in data['facts'])
     finder = ''.join(f'<a href="#{product["id"]}"><span>{i:02}</span>{escape(product["short"])}{arrow}</a>' for i, product in enumerate(data['products'], 1))
     portfolio = ''.join(f'''<article class="portfolio-row" id="{product['id']}">
       <div><span class="portfolio-number">{i:02}</span><h3>{escape(product['title'])}</h3><p class="family-name">{escape(product['family'])}</p>{portfolio_image(product, data['name'])}</div>
-      <div><p>{escape(product['body'])}</p><dl><div><dt>Applications</dt><dd>{escape(product['application'])}</dd></div><div><dt>Selection details</dt><dd>{escape(product['selection'])}</dd></div></dl><div class="product-actions"><a class="button context-enquiry" href="{enquiry_url(data["name"] + " " + product["title"])}">Enquire about this product {arrow}</a><a class="text-link" href="{escape(product['source'], quote=True)}">Manufacturer details &amp; documents {arrow}</a><a class="application-source" href="#portfolio">Back to products ↑</a></div></div>
+      <div><p>{escape(product['body'])}</p><dl><div><dt>Applications</dt><dd>{escape(product['application'])}</dd></div><div><dt>Selection details</dt><dd>{escape(product['selection'])}</dd></div></dl><div class="product-actions"><a class="button context-enquiry" href="{enquiry_url(data["name"] + " " + product["title"])}">Enquire about this product {arrow}</a><a class="text-link" href="{escape(product['source'], quote=True)}">Manufacturer details &amp; documents {arrow}</a><a class="application-source" href="#contents">Back to contents ↑</a></div></div>
 {portfolio_system(product, data['name'])}
     </article>''' for i, product in enumerate(data['products'], 1))
-    applications = ''.join(f'''<article class="application-row"><span>{i:02}</span><h3>{escape(title)}</h3><div><p>{escape(body)}</p><a class="text-link" href="#{anchor}">{escape(label)} {arrow}</a></div></article>''' for i, (title, body, anchor, label) in enumerate(data['applications'], 1))
+    applications = ''.join(f'''<article class="application-row" id="choose-{anchor}"><span>{i:02}</span><h3>{escape(title)}</h3><div><p>{escape(body)}</p><a class="text-link" href="#{anchor}">{escape(label)} {arrow}</a></div></article>''' for i, (title, body, anchor, label) in enumerate(data['applications'], 1))
     application_section = application_guide(data['application_groups'], arrow) if has_guide else f'''<section class="section" id="applications"><div class="container"><p class="eyebrow">START WITH YOUR APPLICATION</p><h2>What does your system need?</h2><div class="application-list">{applications}</div></div></section>'''
-    primary_action = f'<a class="button" href="#applications">Explore {name} applications {arrow}</a><a class="text-link light" href="#portfolio">View products {arrow}</a>' if has_guide else f'<a class="button" href="#portfolio">Explore {name} products {arrow}</a>'
+    primary_action = f'<a class="button" href="#applications">Explore {name} applications {arrow}</a><a class="text-link light" href="#portfolio">View products {arrow}</a>' if has_guide else f'<a class="button" href="#portfolio">Explore {name} products {arrow}</a><a class="text-link light" href="#applications">Choose an application {arrow}</a>'
     enquiry = ''.join(f'<li><h3>{escape(title)}</h3><p>{escape(body)}</p></li>' for title, body in data['enquiry'])
     faqs = ''.join(f'<details><summary><span>{escape(question)}</span><span class="application-expand" aria-hidden="true">+</span></summary><p>{escape(answer)}</p></details>' for question, answer in data['faqs'])
     return f'''<section class="brand-hero brand-landing"><div class="container">
@@ -69,10 +88,10 @@ def brand_content(key, data, arrow):
       <figure class="product-figure hero-product"><img src="../assets/images/{data['image']}" alt="{escape(data['alt'], quote=True)}" width="{data['image_width']}" height="{data['image_height']}" fetchpriority="high"><figcaption><a href="{escape(data['image_source'], quote=True)}">{escape(data['image_caption'])}</a></figcaption></figure></div>
     </div></section>
     {page_index(data["name"], sections)}
+    {brand_contents(data)}
     <section class="section" id="about-brand"><div class="container"><div class="brand-profile"><div><p class="eyebrow">ABOUT {name.upper()}</p><h2>{data['profile_heading']}</h2><a class="text-link" href="{escape(data['profile_source'], quote=True)}">Manufacturer background {arrow}</a></div><div><p class="lead">{escape(data['profile'])}</p><p>{escape(data['local'])}</p><p>Professional engineering experience, certification and international technical backing support your project discussion with Araya.</p></div></div><dl class="brand-facts">{facts}</dl></div></section>
-{application_section if has_guide else ''}
+{application_section}
     <section class="section section-muted" id="portfolio"><div class="container"><p class="eyebrow">{name.upper()} PRODUCTS &amp; SYSTEMS</p><h2>{data['portfolio_heading']}</h2><p class="portfolio-intro">Find the product family for your application, then share your requirements. Araya confirms the right model and configuration for your project.</p><nav class="product-finder" aria-label="{name} product families">{finder}</nav><div class="portfolio-list">{portfolio}</div></div></section>
-{'' if has_guide else application_section}
 {diagram_viewer(next(product['source'] for product in data['products'] if 'diagram' in product)) if not has_guide and any('diagram' in product for product in data['products']) else ''}
     <section class="section brand-enquiry" id="araya-support"><div class="container"><div class="section-heading"><div><p class="eyebrow">{name.upper()} IN INDONESIA</p><h2>Share your equipment details.<br>Let’s define the scope.</h2></div><p>Discuss {name} supply, replacement, and integration requirements with PT Araya Internusa. A clear equipment brief helps us review the work around your installation.</p></div><ol class="enquiry-list">{enquiry}</ol><div class="brand-actions"><a class="button" href="{enquiry_url(data["name"] + " products and systems")}">Discuss {name} on WhatsApp {arrow}</a><a class="text-link" href="mailto:cs@arayainternusa.com">Email your project details {arrow}</a></div></div></section>
     <section class="section" id="brand-faq"><div class="container brand-faq"><div><p class="eyebrow">COMMON QUESTIONS</p><h2>Before you<br>choose {name}.</h2></div><div class="faq-list">{faqs}</div></div></section>
