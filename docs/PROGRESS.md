@@ -1,5 +1,13 @@
 # Progress and release record
 
+## Hierarchy, mobile and navbar audit — completed 14 October 2026
+
+Resumed at the owner's request and completed the remaining desktop navigation, brand mobile profile/FAQ/brief, service-sector and detailed-anchor checks. Confirmed narrow-mobile overlap on Industrial/Automation and ComAp application titles at 355 CSS pixels; comparison at 390px clears the ComAp title. Header height updating is incorrectly conditional on the removed page-index component. Settled desktop Services and cross-page Clients navigation pass, resolving the provisional readings. Documented prioritised hierarchy, grouping, copy-density, mobile-logo and active-nav issues plus a shared type/spacing specification. All 21 navbar destination IDs are valid; representative browser journeys and mobile Escape/menu behavior pass. Screenshots and JSON retained locally; no UI or production changes. [Completed review and proposed hierarchy](HIERARCHY-REVIEW-2026-10-14.md).
+
+## Hierarchy, mobile and navbar audit — paused 14 October 2026
+
+Owner requested a complete review of section hierarchy across Home, Noris and ComAp, then added mobile client-logo layout and navbar correctness. Captured desktop/narrow-mobile/390px evidence; inspected heading sizes, semantic structure and grouping. Confirmed equal Noris group/product heading sizes on mobile, repeated homepage service layers, dense ComAp introductions, irregular client-logo wrapping and missing persistent main-nav section tracking. All 21 navbar href/page/fragment destinations pass static validation; representative mobile/cross-page navigation and Escape behavior pass. Some desktop scroll-position and detailed-anchor clearance checks remain provisional. Owner explicitly paused work before review completion. No UI changes made; audit notes are local, uncommitted and unpushed. [Findings, evidence and resume checklist](HIERARCHY-AUDIT-IN-PROGRESS-2026-10-14.md).
+
 ## Approved GitHub SSH staging setup — 14 October 2026
 
 Authorized the dedicated public key through cPanel and verified pinned-host SSH login. Created the GitHub `production` environment with a main-only branch policy and five SSH connection secrets; readback confirms their names and policy. Added a manually dispatched workflow that validates the selected successful main build, provenance, safe ZIP contents and hashes before transferring ZIP/manifest into a fresh private staging directory. Six regression tests and Bash syntax pass; independent critical review found no blocking or major issues. No PR triggers or live activation were added. [Implementation and verification](PRODUCTION-SSH-PLAN-2026-10-14.md).

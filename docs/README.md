@@ -2,6 +2,9 @@
 
 Updated 14 October 2026, Asia/Jakarta.
 
+- [Completed hierarchy, mobile and navbar review](HIERARCHY-REVIEW-2026-10-14.md): findings across all three pages, confirmed narrow-mobile anchor overlap, irregular client logos, heading measurements, navbar validation and a proposed shared hierarchy. Review complete; UI fixes not implemented.
+- [Audit pause/resume record](HIERARCHY-AUDIT-IN-PROGRESS-2026-10-14.md): original observations and continuation checklist, superseded by the completed review.
+
 - [Production deployment preparation](PRODUCTION-DEPLOYMENT.md): verified backups, build/package provenance, authorized SSH access and main-restricted GitHub production environment. Private staging is separate from live cutover; production has not been switched.
 - [GitHub SSH staging plan and verification](PRODUCTION-SSH-PLAN-2026-10-14.md): manual artifact validation, pinned-host transfer, tests, independent review and staging-run evidence.
 
