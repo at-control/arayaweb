@@ -14,6 +14,14 @@ CLIENTS = [
     {'name': 'PT Armada Cakrawala Esa', 'logo': 'client-armada-cakrawala-esa.webp', 'width': 179, 'height': 53},
 ]
 
+# Names and roles from the owner's reference; portraits from the original site.
+LEADERSHIP = [
+    {'name': 'Arif Fatkur Rohman, S.T., M.MT.', 'role': 'Director', 'image': 'leadership-arif', 'height': 870},
+    {'name': 'M Rosul Akbar', 'role': 'Manager', 'image': 'leadership-rosul', 'height': 708},
+    {'name': 'Anjas Budiarso', 'role': 'Manager', 'image': 'leadership-anjas', 'height': 960},
+]
+
+# Work gallery paused at the owner's request; keep these photos for later reuse.
 # Owner-provided photos, 14 October 2026. Captions describe the visible work;
 # project/vessel names and exact job scope have not been supplied.
 WORK_PHOTOS = [

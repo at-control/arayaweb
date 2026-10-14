@@ -1,5 +1,7 @@
 # Araya website conventions
 
+- Later owner correction, 14 October: service photographs were too big. Keep their inset row proportion around 32% and restrained height, orange copy rule and subtle card depth. Araya at Work gallery is removed for now. A separate Leadership & management section belongs between About and Services, using original portraits and owner-supplied names/roles (Director plus two Managers); this supersedes the prior inline leadership removal. Do not use cached theme placeholder people or biographies.
+
 - Photo-led landing update, 14 October: service photos and short introductions remain visible; full scopes are collapsed native details below. Preserve all scope/equipment IDs and deep-link expansion. Owner work photos use responsive WebP variants; keep originals outside Git and captions factual. Do not restore small service thumbnails beside long visible lists.
 
 - Preserve the established orange, charcoal and white design, Space Grotesk typography, original Araya logo and engineering photography.

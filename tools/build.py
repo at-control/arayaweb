@@ -9,7 +9,7 @@ import shutil
 from datetime import datetime, timezone, timedelta
 from brand_profiles import BRANDS
 from brand_pages import brand_content
-from site_content import SERVICES, CLIENTS, BRAND_GROUPS, WORK_PHOTOS
+from site_content import SERVICES, CLIENTS, BRAND_GROUPS, LEADERSHIP
 from landing_services import service_details, legacy_targets
 from ui_components import srcset
 
@@ -131,7 +131,7 @@ def shell(title, description, content, route="", schema=()):
 
 def home():
     service_sections = ''.join(service_details(key, service) for key, service in SERVICES.items())
-    work_photos = ''.join(f'''<figure class="work-photo"><img src="./assets/images/{photo['stem']}-1280.webp" srcset="{srcset(((photo['stem'] + '-800.webp', 800), (photo['stem'] + '-1280.webp', 1280)))}" sizes="(max-width: 680px) calc(100vw - 40px), (max-width: 1200px) calc((100vw - 92px) / 2), 604px" alt="{escape(photo['alt'], quote=True)}" width="{photo['width']}" height="{photo['height']}" loading="lazy" fetchpriority="low" decoding="async"><figcaption><h4>{escape(photo['title'])}</h4><p>{escape(photo['caption'])}</p></figcaption></figure>''' for photo in WORK_PHOTOS)
+    leadership = ''.join(f'<figure class="leadership-card"><img src="./assets/images/{person["image"]}-720.webp" srcset="{srcset(((person["image"] + "-400.webp", 400), (person["image"] + "-720.webp", 720)))}" sizes="(max-width: 680px) calc(100vw - 40px), (max-width: 1200px) calc((100vw - 116px) / 3), 341px" alt="{escape(person["name"], quote=True)}" width="720" height="{person["height"]}" loading="lazy" fetchpriority="low" decoding="async"><figcaption><h3>{escape(person["name"])}</h3><p>{escape(person["role"])}</p></figcaption></figure>' for person in LEADERSHIP)
     # Not lazy-loaded: logos clipped sideways inside the scrolling strip would never load.
     clients = ''.join(f'<li><img{' class="is-emblem"' if c.get("emblem") else ''} src="./assets/images/{c["logo"]}" alt="{escape(c["name"], quote=True)}" width="{c["width"]}" height="{c["height"]}" fetchpriority="low" decoding="async"></li>' for c in CLIENTS)
     groups = ''.join(f'<div><h4>{escape(title)}</h4><p>{escape(" · ".join(brands))}</p></div>' for title, brands in BRAND_GROUPS)
@@ -147,10 +147,11 @@ def home():
   <div class="about-media"><img src="./assets/images/team.webp" alt="Araya technicians working together in a vessel’s engine room" width="600" height="600" loading="eager" fetchpriority="low" decoding="async"><div class="since"><strong>2009</strong><span>Where our story began</span></div></div>
   <div class="about-copy"><p class="lead">Professional engineering for marine and industrial systems, backed by certification and international technical expertise.</p><p>Founded in 2009 by Arif Fatkur Rohman, PT Araya Internusa brings together repair, modification, upgrade and retrofit experience. International technical backing includes HIT (Haven- und Industrietechnik GmbH), Noris Automation and ComAp.</p><p>Araya serves projects across Sumatra, Jawa, Kalimantan, Sulawesi and Papua, with branch offices in Sidoarjo and Jakarta. We also extend the life of obsolete or end-of-sale equipment with practical, reliable solutions.</p><div class="scope-list"><span>Marine</span><span>Industrial</span><span>Automation &amp; electrical</span></div><p class="working-practice"><strong>Certified &amp; experienced</strong><br>Professional engineering experience, backed by certification and international technical support.</p></div>
 </div></section>
+<section class="section leadership" id="leadership" aria-labelledby="leadership-heading"><div class="container"><div class="section-heading"><div><p class="eyebrow">OUR PEOPLE</p><h2 id="leadership-heading">Leadership &amp; management.</h2></div></div><div class="leadership-grid">{leadership}</div></div></section>
 <section class="section section-muted" id="services"><div class="container">
   <div class="section-heading"><div><p class="eyebrow">WHAT WE DO</p><h2>Our services</h2></div><p>Supply, repair, upgrade and retrofit for marine and industrial systems.</p></div>
   <div class="landing-services">{service_sections}</div>
-  <div class="work-gallery" id="engineering-work"><div class="section-heading"><div><p class="eyebrow">ARAYA AT WORK</p><h3>Engineering in action</h3></div><p>A closer look at our work on machinery and electrical systems.</p></div><div class="work-photo-grid">{work_photos}</div></div>
+
 </div></section>
 <section class="section projects" id="clients"><div class="container">
   <div class="section-heading"><div><p class="eyebrow">OUR CLIENTS</p><h2>Clients who<br>trust Araya.</h2></div><p>Organisations that trust PT Araya Internusa with their engineering and automation work.</p></div>

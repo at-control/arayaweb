@@ -2,6 +2,8 @@
 
 Updated 14 October 2026, Asia/Jakarta.
 
+- [Leadership and service-photo balance](LEADERSHIP-AND-SERVICE-BALANCE-2026-10-14.md): dedicated director/managers section, moderated service photos, visual depth and removal of the temporary work gallery. Supersedes the initial photo-led arrangement below.
+
 - [Photo-led landing page](WORK-PHOTOS-2026-10-14.md): larger service pictures, collapsed full scopes, two owner work-photo cards, responsive WebP preparation and desktop/mobile verification.
 
 - [Implemented hierarchy, mobile and navbar fixes](HIERARCHY-FIXES-2026-10-14.md): shared section/group/item styles, consolidated service sections, direct brand section names, mobile logo grid, compact header and current-section tracking; regression and browser evidence.

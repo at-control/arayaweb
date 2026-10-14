@@ -1,5 +1,9 @@
 # Project scopes and brand details
 
+## Director and managers — 14 October 2026
+
+Owner explicitly requested a dedicated section using the earlier screenshot's three portraits, names and roles: Arif Fatkur Rohman, S.T., M.MT. (Director), M Rosul Akbar (Manager), Anjas Budiarso (Manager). Original WordPress portraits were recovered from the owner's uploads copy, visually matched and encoded as responsive WebP. Old cached theme placeholder staff names are not used. The two work photographs are retained for later; their gallery is now removed at the owner's request. [Provenance and verification](LEADERSHIP-AND-SERVICE-BALANCE-2026-10-14.md).
+
 ## Owner work photographs — 14 October 2026
 
 Owner supplied `003.jpg` and `IMG_3859.JPG` for the landing page. They show engine-room machinery work and onboard electrical switchboard review. Published as responsive WebP derivatives with factual captions; no vessel, customer or project-date claims. Original files are retained outside Git. The existing marine, industrial and control-room photographs now lead large service features, with detailed scope text available below. [Asset provenance, sizes and verification](WORK-PHOTOS-2026-10-14.md).

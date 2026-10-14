@@ -203,13 +203,13 @@ h2{font-size:var(--type-section)}
 .about-heading{grid-area:heading}.about-copy{grid-area:copy}.about-media{grid-area:media;align-self:center}
 .about-copy>.lead{margin-top:0}.about .working-practice{margin-top:24px}
 .landing-services{margin-top:0}
-.service-feature{margin-top:32px;background:#fff;border:1px solid var(--line)}
+.service-feature{margin-top:28px;background:#fff;border:1px solid var(--line);box-shadow:0 8px 24px #1e202308}
 .service-feature:first-child{margin-top:0}
-.service-feature-intro{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);align-items:center}
-.service-feature-copy{padding:40px}
-.service-feature-copy h3{font-size:var(--type-group);line-height:1.3;margin-bottom:18px}
-.service-feature-copy p{font-size:18px;line-height:1.7}
-.service-feature .service-photo img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover}
+.service-feature-intro{display:grid;grid-template-columns:minmax(0,32%) minmax(0,1fr);align-items:center;gap:32px;padding:24px;background:#fcfcfb}
+.service-feature-copy{padding:24px 16px;border-left:3px solid var(--orange)}
+.service-feature-copy h3{font-size:var(--type-group);line-height:1.3;margin-bottom:14px}
+.service-feature-copy p{font-size:17px;line-height:1.7;max-width:600px}
+.service-feature .service-photo img{display:block;width:100%;height:260px;object-fit:cover}
 #marine-services .service-photo img,#industrial-services .service-photo img{object-position:center top}
 .service-detail{margin:0;background:#fff;border:0;border-top:1px solid var(--line)}
 .service-detail:last-child{border-bottom:1px solid var(--line)}
@@ -275,7 +275,9 @@ details[open]>summary .disclosure-chevron{transform:rotate(180deg)}
 .equipment-brand-grid h4{font-size:14px;line-height:1.4;letter-spacing:.06em;text-transform:uppercase;color:var(--orange-readable);margin-bottom:10px}
 .main-nav a[aria-current="location"],.brand-menu summary[aria-current="location"],.brand-menu summary[data-current="page"]{color:#ff7a24}
 @media(max-width:980px){
- .service-feature-copy{padding:28px}
+ .service-feature-intro{gap:24px}
+ .service-feature .service-photo img{height:230px}
+ .service-feature-copy{padding:16px}
  .service-feature-copy p{font-size:16px}
  .service-detail-body .scope-details{column-count:1}
 }
@@ -298,9 +300,9 @@ details[open]>summary .disclosure-chevron{transform:rotate(180deg)}
  .service-detail>summary h3{font-size:var(--type-group)}
  .disclosure-description{font-size:15px}
  .service-feature{margin-top:24px}
- .service-feature-intro{grid-template-columns:1fr}
- .service-feature .service-photo img{aspect-ratio:4/3}
- .service-feature-copy{padding:24px 20px}
+ .service-feature-intro{grid-template-columns:1fr;padding:16px;gap:20px}
+ .service-feature .service-photo img{height:210px}
+ .service-feature-copy{padding:4px 0 4px 16px}
  .service-feature-copy h3{margin-bottom:12px}
  .service-feature .service-detail>summary{padding:18px 20px;font-size:15px;padding-right:54px}
  .service-feature .service-detail>summary .disclosure-chevron{right:20px;top:18px}
@@ -342,21 +344,22 @@ details[open]>summary .disclosure-chevron{transform:rotate(180deg)}
 }
 @media(prefers-reduced-motion:reduce){.disclosure-chevron{transition:none}}
 
-/* Owner work photos: image cards and overlapping captions from the supplied reference. */
-.work-gallery{margin-top:56px;padding-top:40px;border-top:1px solid var(--line)}
-.work-gallery h3{font-size:var(--type-group);line-height:1.3}
-.work-photo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
-.work-photo{position:relative;min-width:0}
-.work-photo>img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center;background:var(--ink)}
-.work-photo:after{content:"";position:absolute;right:0;top:48px;width:4px;height:56px;background:var(--orange)}
-.work-photo figcaption{position:relative;z-index:1;background:#fff;margin:-40px 24px 0;padding:24px;min-height:128px;border-bottom:2px solid var(--line)}
-.work-photo h4{font-size:var(--type-item);line-height:1.3;margin-bottom:10px}
-.work-photo p{font-size:16px;line-height:1.6}
+/* Leadership portraits from the original company website. */
+.leadership{padding-top:40px;background:#fff}
+.leadership-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;max-width:1080px;margin-inline:auto}
+.leadership-card{position:relative;min-width:0;padding-bottom:4px}
+.leadership-card>img{width:100%;aspect-ratio:1/1.1;object-fit:cover;object-position:center 20%;background:var(--muted)}
+.leadership-card:after{content:"";position:absolute;right:0;top:32px;width:4px;height:48px;background:var(--orange)}
+.leadership-card figcaption{position:relative;margin:-24px 16px 0;background:#fff;padding:22px 18px;text-align:center;border-bottom:3px solid var(--orange);box-shadow:0 8px 24px #1e202310;min-height:138px}
+.leadership-card h3{font-size:20px;line-height:1.4;letter-spacing:-.02em;margin-bottom:8px}
+.leadership-card p{font-size:15px;color:var(--text)}
+@media(max-width:980px) and (min-width:681px){
+ .leadership-card figcaption{margin-inline:8px;padding:18px 12px;min-height:146px}
+ .leadership-card h3{font-size:18px}
+}
 @media(max-width:680px){
- .work-gallery{margin-top:36px;padding-top:28px}
- .work-photo-grid{grid-template-columns:1fr;gap:28px}
- .work-photo figcaption{margin:-28px 16px 0;padding:20px;min-height:0}
- .work-photo:after{top:32px;height:40px}
- .work-photo h4{font-size:20px}
- .work-photo p{font-size:15px}
+ .leadership{padding-top:24px}
+ .leadership-grid{grid-template-columns:1fr;gap:28px;max-width:380px}
+ .leadership-card>img{aspect-ratio:1/1.05}
+ .leadership-card figcaption{min-height:0}
 }

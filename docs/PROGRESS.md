@@ -1,5 +1,9 @@
 # Progress and release record
 
+## Leadership section and service-photo correction — 14 October 2026
+
+Owner requested smaller, better-proportioned service photos, more visual depth, removal of Araya at Work and a dedicated director/managers section. Reduced photos to 32% of the inset service row with restrained height, added orange rules/subtle shadows, removed the work gallery and added three original portrait cards between About and Services. Names/roles match the owner reference. All scopes, bookmarks and final contact actions remain. Desktop/mobile/narrow-mobile checks and local validation pass. [Sources, assets, decisions and evidence](LEADERSHIP-AND-SERVICE-BALANCE-2026-10-14.md). Preview publication pending; production unchanged.
+
 ## Photo-led landing page — 14 October 2026
 
 Owner requested larger service photographs and more pictures than text on the landing page. Services now have large visible pictures and brief introductions, with all 30 scope descriptions retained in collapsed native disclosures. Added the two owner-supplied engine-room/switchboard photographs in matching orange-accented cards. Responsive WebP variants total about 102KB for the two smaller candidates, with lazy loading. Desktop, 390px and 355px browser checks confirm contained layouts, loaded pictures, keyboard disclosure and preserved deep links. Local validation and regression checks pass. [Sources, asset sizes, layout and evidence](WORK-PHOTOS-2026-10-14.md). Release [c7c4095](https://github.com/hakiimm8/arayaweb/commit/c7c40952c25536a969d150b5ff27a63e4178d51d) is on main. [Actions/Pages run 38585027614](https://github.com/hakiimm8/arayaweb/actions/runs/38585027614) succeeded. Published browser check confirms three photo-led service features and two work-photo cards. Homepage/style contents match after normalising Windows/Linux line endings; all four published WebP files match byte-for-byte. Production unchanged.

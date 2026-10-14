@@ -1,5 +1,7 @@
 # Photo-led landing page — 14 October 2026
 
+Historical first arrangement: superseded by [Leadership and service-photo balance](LEADERSHIP-AND-SERVICE-BALANCE-2026-10-14.md). The owner requested smaller service pictures and removal of the work gallery for now.
+
 ## Owner direction and implementation
 
 The owner supplied two work photographs, asked for larger service pictures, and requested more photography than text on the landing page. The orange, charcoal and white style remains.
