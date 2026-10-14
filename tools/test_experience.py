@@ -56,7 +56,8 @@ class ExperienceTests(unittest.TestCase):
         self.assertNotIn('Common requests', html)
         for service in ['marine', 'industrial', 'automation']:
             self.assertIn(f'id="{service}-services"', html)
-            self.assertIn(f'href="#{service}-services"', html)
+            self.assertTrue(any(urlsplit(link['href']).fragment == f'{service}-services'
+                                for link in Links(html=html).links))
             for page in ['index.html', 'noris/index.html', 'comap/index.html']:
                 self.assertNotIn(f'href="./{service}/"', (PUBLIC / page).read_text(encoding='utf-8'))
                 self.assertNotIn(f'href="../{service}/"', (PUBLIC / page).read_text(encoding='utf-8'))
@@ -93,7 +94,7 @@ class ExperienceTests(unittest.TestCase):
             if data.get('application_groups'):
                 self.assertEqual(html.count('class="application-detail"'), 18)
                 self.assertEqual(html.count('class="portfolio-row"'), 6)
-            order = ['contents', 'about-brand', 'portfolio', 'brand-faq', 'araya-support']
+            order = ['about-brand', 'contents', 'portfolio', 'brand-faq', 'araya-support']
             if data.get('application_groups'):
                 order.insert(2, 'applications')
             else:

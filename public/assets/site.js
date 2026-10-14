@@ -101,6 +101,7 @@ if (menuButton && navigation) {
     navigation.dataset.open = String(open);
     menuButton.querySelector('span').textContent = open ? 'Close' : 'Menu';
     if (!open && brandMenu) brandMenu.open = false;
+    document.dispatchEvent(new Event('navigation-layout'));
   };
   menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
   navigation.addEventListener('click', (event) => {
@@ -118,77 +119,52 @@ if (menuButton && navigation) {
   });
   window.matchMedia('(min-width: 981px)').addEventListener('change', () => setMenu(false));
 }
-// Keep section navigation available, accounting for the actual shared header height.
-const pageIndex = document.querySelector('.page-index');
-const siteHeader = document.querySelector('.site-header');
-if (pageIndex && siteHeader) {
-  const toggle = pageIndex.querySelector('.page-index-toggle');
-  const links = [...pageIndex.querySelectorAll('.page-index-links a')];
-  const sections = links.map(link => document.getElementById(link.hash.slice(1)));
-  const closeIndex = () => {
-    pageIndex.dataset.open = 'false';
-    toggle.setAttribute('aria-expanded', 'false');
-  };
-  toggle.addEventListener('click', () => {
-    const open = toggle.getAttribute('aria-expanded') !== 'true';
-    pageIndex.dataset.open = String(open);
-    toggle.setAttribute('aria-expanded', String(open));
-  });
-  links.forEach((link, i) => link.addEventListener('click', () => {
-    closeIndex();
-    // A mobile index link is hidden after selection; move keyboard focus to its destination.
-    const target = sections[i];
-    if (target) {
-      const temporaryTabIndex = !target.hasAttribute('tabindex');
-      if (temporaryTabIndex) target.setAttribute('tabindex', '-1');
-      target.focus({preventScroll:true});
-      if (temporaryTabIndex) target.addEventListener('blur', () => target.removeAttribute('tabindex'), {once:true});
-    }
-  }));
-  pageIndex.addEventListener('keydown', event => {
-    if (event.key === 'Escape') { closeIndex(); toggle.focus(); }
-  });
-  document.addEventListener('click', event => {
-    if (!pageIndex.contains(event.target)) closeIndex();
-  });
+// Shared header and main navigation. Independent of optional contents components.
+(() => {
+  const header = document.querySelector('.site-header');
+  const nav = document.querySelector('#main-navigation');
+  if (!header || !nav) return;
+  const normalize = path => path.replace(/index\.html$/, '').replace(/\/$/, '');
+  const path = normalize(location.pathname);
+  const links = [...nav.querySelectorAll('a')];
+  const pageLink = links.find(link => !link.hash && normalize(link.pathname) === path);
+  const brandSummary = document.querySelector('.brand-menu summary');
+  const brandPage = Boolean(pageLink?.closest('.brand-menu'));
+  const sections = links.filter(link => link.hash && normalize(link.pathname) === path)
+    .map(link => ({control:link, target:document.getElementById(link.hash.slice(1))}))
+    .filter(item => item.target);
+  const brands = document.getElementById('brands');
+  if (brands && brandSummary) sections.push({control:brandSummary, target:brands});
   let pending = false;
-  const updateIndex = () => {
+  const update = () => {
     pending = false;
-    const headerEdge = Math.max(0, siteHeader.getBoundingClientRect().bottom);
-    const compact = window.matchMedia('(max-width:680px)').matches;
-    const indexHeight = compact ? toggle.offsetHeight : pageIndex.offsetHeight;
-    document.documentElement.style.setProperty('--header-edge', `${headerEdge}px`);
-    document.documentElement.style.setProperty('--index-height', `${indexHeight}px`);
-    // Anchor offsets may include the utility row before the header compacts on scroll.
-    const utilityHeight = siteHeader.querySelector('.utility')?.offsetHeight || 0;
-    const threshold = headerEdge + indexHeight + utilityHeight + 40;
-    let active = -1;
-    sections.forEach((section, i) => {
-      if (section && section.getBoundingClientRect().top <= threshold) active = i;
-    });
-    links.forEach((link, i) => {
-      if (i === active) link.setAttribute('aria-current', 'location');
-      else link.removeAttribute('aria-current');
-    });
-    pageIndex.querySelector('.page-index-current').textContent = active >= 0 ? links[active].textContent : 'Explore sections';
+    const edge = Math.max(0, header.getBoundingClientRect().bottom);
+    document.documentElement.style.setProperty('--header-edge', `${edge}px`);
+    document.documentElement.style.setProperty('--index-height', '0px');
+    // Include the upper reading area, not only the exact sticky-header boundary.
+    const threshold = edge + Math.min(180, Math.max(0, (window.innerHeight - edge) / 3));
+    const reached = sections.filter(item => item.target.getBoundingClientRect().top <= threshold);
+    reached.sort((a, b) => a.target.getBoundingClientRect().top - b.target.getBoundingClientRect().top);
+    let current = reached[reached.length - 1]?.control;
+    const atEnd = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4;
+    const contact = sections.find(item => item.control.hash === '#contact');
+    if (atEnd && contact && contact.target.getBoundingClientRect().top < window.innerHeight) current = contact.control;
+    links.forEach(link => link.removeAttribute('aria-current'));
+    brandSummary?.removeAttribute('aria-current');
+    if (current) current.setAttribute('aria-current', 'location');
+    else pageLink?.setAttribute('aria-current', 'page');
+    if (brandSummary) brandSummary.dataset.current = brandPage ? 'page' : '';
   };
-  const scheduleIndex = () => {
-    if (!pending) { pending = true; requestAnimationFrame(updateIndex); }
+  const schedule = () => {
+    if (!pending) { pending = true; requestAnimationFrame(update); }
   };
-  pageIndex.classList.add('is-ready');
-  window.addEventListener('scroll', scheduleIndex, {passive:true});
-  window.addEventListener('resize', () => { closeIndex(); scheduleIndex(); });
-  if ('ResizeObserver' in window) new ResizeObserver(scheduleIndex).observe(siteHeader);
-  updateIndex();
-}
-
-// Page identity is separate from the changing section selection.
-const normalizedPath = value => value.replace(/index\.html$/, '').replace(/\/$/, '');
-document.querySelectorAll('.main-nav a').forEach(link => {
-  if (!link.hash && normalizedPath(link.pathname) === normalizedPath(location.pathname)) {
-    link.setAttribute('aria-current', 'page');
-  }
-});
+  window.addEventListener('scroll', schedule, {passive:true});
+  ['resize', 'hashchange', 'popstate', 'load'].forEach(event => window.addEventListener(event, schedule));
+  // Menu collapse must publish its smaller offset before the browser follows an anchor.
+  document.addEventListener('navigation-layout', update);
+  if ('ResizeObserver' in window || typeof ResizeObserver !== 'undefined') new ResizeObserver(schedule).observe(header);
+  update();
+})();
 
 // Short text-only entrances: pictures and large sections never wait for a fade.
 const motionPreference = window.matchMedia('(prefers-reduced-motion:reduce)');

@@ -1,5 +1,6 @@
 """Shared layout for Araya's dedicated manufacturer guides."""
 from html import escape
+from ui_components import disclosure_summary
 
 
 
@@ -37,9 +38,9 @@ def application_guide(groups, arrow):
             fields = ''.join(f'<div><dt>{label}</dt><dd>{escape(item[key])}</dd></div>' for label, key in [('Typical system', 'system'), ('What ComAp controls', 'control'), ('Example product families', 'families'), ('What to review with Araya', 'review')])
             diagrams = ''.join(diagram_figure(picture, item['source']) for picture in item.get('diagrams', []))
             gallery = f'<div class="application-diagrams">{diagrams}</div>' if diagrams else ''
-            items.append(f'''<details class="application-detail" id="{item['id']}"><summary><span><strong>{escape(item['title'])}</strong><span>{escape(item['summary'])}</span></span><span class="application-expand" aria-hidden="true">+</span></summary><div class="application-body">{gallery}<dl>{fields}</dl></div></details>''')
+            items.append(f'''<details class="application-detail" id="{item['id']}">{disclosure_summary(item['title'], item['summary'], 'h4')}<div class="application-body"><dl>{fields}</dl>{gallery}</div></details>''')
         rendered.append(f'''<section class="application-group" id="{group['id']}" aria-labelledby="{group['id']}-heading"><div class="application-group-intro"><div><p class="eyebrow">APPLICATION GROUP 0{i}</p><h3 id="{group['id']}-heading">{escape(group['title'])}</h3><p>{escape(group['intro'])}</p><ol class="application-flow" aria-label="Conceptual system flow">{flow}</ol></div>{diagram_figure(diagram, defer=False)}</div><div class="application-details">{''.join(items)}</div></section>''')
-    return f'''<section class="section application-guide" id="applications"><div class="container"><p class="eyebrow">COMAP APPLICATIONS</p><h2>The application defines<br>the control system.</h2><p class="lead application-guide-intro">Start with what your engine, vessel or power system needs to do. Then select the controller family, interfaces and operating logic.</p><p class="application-scope">Explore the manufacturer application examples below. Araya confirms the controller, configuration and scope for your project.</p><p class="application-hint">Select an application to see its system, control functions and diagrams. Select a diagram to enlarge it.</p>{''.join(rendered)}</div></section>{diagram_viewer()}'''
+    return f'''<section class="section application-guide" id="applications"><div class="container"><p class="eyebrow">COMAP APPLICATIONS</p><h2>Applications</h2><p class="lead application-guide-intro">Engine and power control for marine, power generation and smart energy systems. Open an application for its control functions and system diagrams; the final configuration depends on your project.</p>{''.join(rendered)}</div></section>{diagram_viewer()}'''
 
 
 def brand_contents(data):
@@ -70,16 +71,16 @@ def brand_content(key, data, arrow):
         portfolio = ''.join(f'<section class="portfolio-group" aria-label="{escape(title, quote=True)}"><h3 class="portfolio-group-title">{escape(title)}</h3>{"".join(portfolio_rows[anchor] for anchor in anchors)}</section>' for title, anchors in data['contents_product_groups'])
     application_section = application_guide(data['application_groups'], arrow) if has_guide else ''
     enquiry = ''.join(f'<li><h3>{escape(title)}</h3><p>{escape(body)}</p></li>' for title, body in data['enquiry'])
-    faqs = ''.join(f'<details><summary><span>{escape(question)}</span><span class="application-expand" aria-hidden="true">+</span></summary><p>{escape(answer)}</p></details>' for question, answer in data['faqs'])
+    faqs = ''.join(f'<details>{disclosure_summary(question)}<p>{escape(answer)}</p></details>' for question, answer in data['faqs'])
     return f'''<section class="brand-hero brand-landing"><div class="container">
       <div class="brand-landing-grid"><div><p class="eyebrow">{escape(data['label'])}</p><h1>{data['heading']}</h1><p class="brand-intro">{escape(data['intro'])}</p></div>
       <figure class="product-figure hero-product"><img src="../assets/images/{data['image']}" alt="{escape(data['alt'], quote=True)}" width="{data['image_width']}" height="{data['image_height']}" fetchpriority="high"><figcaption>{escape(data['image_caption'])}</figcaption></figure></div>
     </div></section>
+    <section class="section section-compact" id="about-brand"><div class="container"><div class="brand-profile"><div><p class="eyebrow">THE MANUFACTURER</p><h2>About {name}</h2></div><div><p>{escape(data['profile'])}</p><p>PT Araya Internusa distributes {name} products, with professional engineering experience, certification and international technical backing.</p></div></div><dl class="brand-facts">{facts}</dl></div></section>
     {brand_contents(data)}
-    <section class="section" id="about-brand"><div class="container"><div class="brand-profile"><div><p class="eyebrow">ABOUT {name.upper()}</p><h2>{data['profile_heading']}</h2></div><div><p class="lead">{escape(data['profile'])}</p><p>{escape(data['local'])}</p><p>Professional engineering experience, certification and international technical backing support your project discussion with Araya.</p></div></div><dl class="brand-facts">{facts}</dl></div></section>
 {application_section}
-    <section class="section section-muted" id="portfolio"><div class="container"><p class="eyebrow">{name.upper()} PRODUCTS &amp; SYSTEMS</p><h2>{data['portfolio_heading']}</h2><p class="portfolio-intro">Find the product family for your application, then share your requirements. Araya confirms the right model and configuration for your project.</p><div class="portfolio-list">{portfolio}</div></div></section>
+    <section class="section section-muted" id="portfolio"><div class="container"><p class="eyebrow">{name.upper()} TECHNOLOGY</p><h2>Products{' &amp; systems' if key == 'noris' else ''}</h2><p class="portfolio-intro">Product families and example models. Selection depends on the operating requirements, interfaces and installation.</p><div class="portfolio-list">{portfolio}</div></div></section>
 {diagram_viewer(next(product['source'] for product in data['products'] if 'diagram' in product)) if not has_guide and any('diagram' in product for product in data['products']) else ''}
-    <section class="section" id="brand-faq"><div class="container brand-faq"><div><p class="eyebrow">COMMON QUESTIONS</p><h2>Before you<br>choose {name}.</h2></div><div class="faq-list">{faqs}</div></div></section>
-    <section class="section brand-enquiry" id="araya-support"><div class="container"><div class="section-heading"><div><p class="eyebrow">{name.upper()} IN INDONESIA</p><h2>Share your equipment details.<br>Let’s define the scope.</h2></div><p>Discuss {name} supply, replacement, and integration requirements with PT Araya Internusa. A clear equipment brief helps us review the work around your installation.</p></div><ol class="enquiry-list">{enquiry}</ol></div></section>
+    <section class="section section-compact" id="brand-faq"><div class="container brand-faq"><div><p class="eyebrow">{name.upper()} GUIDE</p><h2>Common questions</h2></div><div class="faq-list">{faqs}</div></div></section>
+    <section class="section section-compact brand-enquiry" id="araya-support"><div class="container"><div class="section-heading"><div><p class="eyebrow">BEFORE YOU CONTACT US</p><h2>Equipment details</h2></div><p>These details help us assess {name} supply, replacement or integration requirements.</p></div><ol class="enquiry-list">{enquiry}</ol></div></section>
 '''

@@ -11,6 +11,7 @@ from brand_profiles import BRANDS
 from brand_pages import brand_content
 from site_content import SERVICES, CLIENTS, BRAND_GROUPS
 from landing_services import service_details, legacy_targets
+from ui_components import srcset
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
@@ -128,16 +129,11 @@ def shell(title, description, content, route="", schema=()):
 </body></html>'''
 
 
-def srcset(variants, prefix="./"):
-    return ', '.join(f'{prefix}assets/images/{name} {width}w' for name, width in variants)
-
-
 def home():
-    cards = ''.join(f'''<a class="service-card" href="#{key}-services"><img src="./assets/images/{s['card_image']}"{f' srcset="{srcset(s["card_variants"])}" sizes="(max-width: 680px) 100vw, 33vw"' if s.get('card_variants') else ''} alt="{escape(s['card_alt'], quote=True)}" width="{s['card_width']}" height="{s['card_height']}" loading="eager" fetchpriority="low" decoding="async"><div class="service-body"><span class="service-number">0{i}</span><h3>{escape(s['name'])}</h3><p>{escape(s['summary'])}</p><span class="card-link">Explore {escape(s['short'])} services {ARROW}</span></div></a>''' for i, (key, s) in enumerate(SERVICES.items(), 1))
     service_sections = ''.join(service_details(key, service) for key, service in SERVICES.items())
     # Not lazy-loaded: logos clipped sideways inside the scrolling strip would never load.
     clients = ''.join(f'<li><img{' class="is-emblem"' if c.get("emblem") else ''} src="./assets/images/{c["logo"]}" alt="{escape(c["name"], quote=True)}" width="{c["width"]}" height="{c["height"]}" fetchpriority="low" decoding="async"></li>' for c in CLIENTS)
-    groups = ''.join(f'<div><h3>{escape(title)}</h3><p>{escape(" · ".join(brands))}</p></div>' for title, brands in BRAND_GROUPS)
+    groups = ''.join(f'<div><h4>{escape(title)}</h4><p>{escape(" · ".join(brands))}</p></div>' for title, brands in BRAND_GROUPS)
     return f'''
 <section class="hero" aria-labelledby="hero-heading">
   <img class="hero-photo" src="./assets/images/ship-1400.webp" srcset="{srcset((("ship-800.webp", 800), ("ship-1400.webp", 1400)))}" sizes="100vw" alt="PELNI passenger vessel alongside a quay, from Araya’s marine project photographs" width="1400" height="784" fetchpriority="high">
@@ -146,13 +142,13 @@ def home():
   <div class="hero-index" aria-hidden="true"><span data-count="1500" data-count-suffix="+">1,500+</span> / PROJECTS <span class="company-age-copy">OVER <span class="company-age" data-count data-company-age>{COMPANY_AGE}</span> YEARS</span></div>
 </section>
 <section class="section about" id="about"><div class="container about-grid">
+  <div class="about-heading"><p class="eyebrow">ABOUT PT ARAYA INTERNUSA</p><h2><span class="company-age-copy"><span data-count data-company-age>{COMPANY_AGE}</span> years of<br></span>professional engineering.</h2></div>
   <div class="about-media"><img src="./assets/images/team.webp" alt="Araya technicians working together in a vessel’s engine room" width="600" height="600" loading="eager" fetchpriority="low" decoding="async"><div class="since"><strong>2009</strong><span>Where our story began</span></div></div>
-  <div><p class="eyebrow">ABOUT PT ARAYA INTERNUSA</p><h2><span class="company-age-copy"><span data-count data-company-age>{COMPANY_AGE}</span> years of<br></span>professional engineering.</h2><p class="lead">Professional engineering for marine and industrial systems, backed by certification and international technical expertise.</p><p>Founded in 2009 by Arif Fatkur Rohman, PT Araya Internusa brings together repair, modification, upgrade and retrofit experience. International technical backing includes HIT (Haven- und Industrietechnik GmbH), Noris Automation and ComAp.</p><p>Araya serves projects across Sumatra, Jawa, Kalimantan, Sulawesi and Papua, with branch offices in Sidoarjo and Jakarta. We also extend the life of obsolete or end-of-sale equipment with practical, reliable solutions.</p><div class="scope-list"><span>Marine</span><span>Industrial</span><span>Automation &amp; electrical</span></div><p class="working-practice"><strong>Certified &amp; experienced</strong><br>Professional engineering experience, backed by certification and international technical support.</p></div>
+  <div class="about-copy"><p class="lead">Professional engineering for marine and industrial systems, backed by certification and international technical expertise.</p><p>Founded in 2009 by Arif Fatkur Rohman, PT Araya Internusa brings together repair, modification, upgrade and retrofit experience. International technical backing includes HIT (Haven- und Industrietechnik GmbH), Noris Automation and ComAp.</p><p>Araya serves projects across Sumatra, Jawa, Kalimantan, Sulawesi and Papua, with branch offices in Sidoarjo and Jakarta. We also extend the life of obsolete or end-of-sale equipment with practical, reliable solutions.</p><div class="scope-list"><span>Marine</span><span>Industrial</span><span>Automation &amp; electrical</span></div><p class="working-practice"><strong>Certified &amp; experienced</strong><br>Professional engineering experience, backed by certification and international technical support.</p></div>
 </div></section>
 <section class="section section-muted" id="services"><div class="container">
-  <div class="section-heading"><div><p class="eyebrow">WHAT WE DO</p><h2>Marine. Industrial.<br>Automation.</h2></div><p>Supply, repair, upgrade and retrofit for marine and industrial systems.</p></div>
-  <div class="service-grid">{cards}</div>
-  <div class="landing-services"><h3>Explore our services</h3><p>Select a service to see the systems we handle and discuss your requirements.</p>{service_sections}</div>
+  <div class="section-heading"><div><p class="eyebrow">WHAT WE DO</p><h2>Our services</h2></div><p>Supply, repair, upgrade and retrofit for marine and industrial systems.</p></div>
+  <div class="landing-services">{service_sections}</div>
 </div></section>
 <section class="section projects" id="clients"><div class="container">
   <div class="section-heading"><div><p class="eyebrow">OUR CLIENTS</p><h2>Clients who<br>trust Araya.</h2></div><p>Organisations that trust PT Araya Internusa with their engineering and automation work.</p></div>

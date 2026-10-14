@@ -2,6 +2,8 @@
 
 Updated 14 October 2026, Asia/Jakarta.
 
+- [Implemented hierarchy, mobile and navbar fixes](HIERARCHY-FIXES-2026-10-14.md): shared section/group/item styles, consolidated service sections, direct brand section names, mobile logo grid, compact header and current-section tracking; regression and browser evidence.
+
 - [Completed hierarchy, mobile and navbar review](HIERARCHY-REVIEW-2026-10-14.md): findings across all three pages, confirmed narrow-mobile anchor overlap, irregular client logos, heading measurements, navbar validation and a proposed shared hierarchy. Review complete; UI fixes not implemented.
 - [Audit pause/resume record](HIERARCHY-AUDIT-IN-PROGRESS-2026-10-14.md): original observations and continuation checklist, superseded by the completed review.
 

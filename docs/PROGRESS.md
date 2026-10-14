@@ -1,5 +1,9 @@
 # Progress and release record
 
+## Hierarchy, mobile and navbar fixes — 14 October 2026
+
+Owner approved implementation of the complete review. Consolidated service entry layers into three photo-illustrated disclosures, retained all 30 scopes/legacy anchors, added semantic headings and consistent chevrons, and moved About's title before its photo. Brand profiles now precede Contents; Applications/Products headings are direct, Noris group/product levels are distinct, explanations precede diagrams and equipment briefs are compact. Mobile logo grid is regular; header stays in one row and its measured offset is independent of page-index. Navbar tracks current section, page-end Contact and current/future brand identity. Local regression suite and desktop/mobile/narrow-mobile browser checks pass. Independent review findings fixed and covered by tests; no deferred findings. Preview publication pending main push; live WordPress unchanged. [Implementation, checks and evidence](HIERARCHY-FIXES-2026-10-14.md).
+
 ## Hierarchy, mobile and navbar audit — completed 14 October 2026
 
 Resumed at the owner's request and completed the remaining desktop navigation, brand mobile profile/FAQ/brief, service-sector and detailed-anchor checks. Confirmed narrow-mobile overlap on Industrial/Automation and ComAp application titles at 355 CSS pixels; comparison at 390px clears the ComAp title. Header height updating is incorrectly conditional on the removed page-index component. Settled desktop Services and cross-page Clients navigation pass, resolving the provisional readings. Documented prioritised hierarchy, grouping, copy-density, mobile-logo and active-nav issues plus a shared type/spacing specification. All 21 navbar destination IDs are valid; representative browser journeys and mobile Escape/menu behavior pass. Screenshots and JSON retained locally; no UI or production changes. [Completed review and proposed hierarchy](HIERARCHY-REVIEW-2026-10-14.md).
