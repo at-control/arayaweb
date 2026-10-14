@@ -2,7 +2,7 @@
 
 ## Leadership placement — 14 October 2026
 
-Owner requested Leadership & management immediately before Get in Touch. Moved the existing three-portrait section after Brand Partners & Equipment, as the final homepage section before Contact. Names, roles, portrait styling and service content remain as verified. Source/build order checks and preview validation pass.
+Owner requested Leadership & management immediately before Get in Touch. Moved the existing three-portrait section after Brand Partners & Equipment, as the final homepage section before Contact. Names, roles, portrait styling and service content remain as verified. Source/build order checks and preview validation pass. Release [d6235ea](https://github.com/hakiimm8/arayaweb/commit/d6235ea55cc47da45480dd9dc3d75008eb426484) deployed successfully in [Pages run 38592995060](https://github.com/hakiimm8/arayaweb/actions/runs/38592995060), after a deployment delay. Published homepage matches the release and browser confirms leadership is the final main section immediately before Contact. Screenshot saved in the existing leadership evidence folder. Production unchanged.
 
 ## Leadership section and service-photo correction — 14 October 2026
 
