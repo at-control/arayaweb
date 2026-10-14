@@ -135,7 +135,7 @@
 .button:hover svg,.text-link:hover svg,.service-card:hover .card-link svg{transform:translateX(4px)}
 .connection-grid>a,.brand-panel{transition:background var(--motion-fast)}.connection-grid>a:hover{background:#f6f6f6}
 @media(prefers-reduced-motion:no-preference){
- .application-detail[open] .application-body,.faq-list details[open]>p{animation:detail-enter 220ms ease-out}
+ .application-detail[open]>summary>span:first-child,.faq-list details[open]>p{animation:detail-enter 220ms ease-out}
  .diagram-viewer[open]{animation:detail-enter 180ms ease-out}
  .brand-toc-group[open]>ul{animation:detail-enter 280ms ease-out}
  .hero{overflow:hidden}.hero-photo{animation:hero-drift 24s ease-in-out infinite alternate;transform-origin:60% 50%}
@@ -164,7 +164,7 @@
 .service-equipment>summary:after{content:"+";color:var(--orange-readable);font-size:24px;line-height:1}.service-equipment[open]>summary:after{content:"−"}
 .service-equipment .equipment-list{margin-top:0;border:0}.service-detail-body .equipment-note h4{font-size:22px;margin-bottom:16px}
 @media(max-width:680px){.service-detail>summary{padding-block:23px;gap:18px}.service-detail>summary strong{font-size:23px}.service-detail>summary>span>span{font-size:15px}.service-detail-body .scope-detail h4{font-size:21px}.service-detail-body .button{font-size:14px;gap:14px;padding-inline:18px}}
-@media(prefers-reduced-motion:no-preference){.service-detail[open]>.service-detail-body{animation:detail-enter 220ms ease-out}}
+@media(prefers-reduced-motion:no-preference){.service-detail[open]>summary>span:first-child{animation:detail-enter 220ms ease-out}}
 
 .company-age-copy{display:none}.dates-ready .company-age-copy{display:inline}.hero-index .company-age-copy{font:inherit}
 .service-brand-links{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:30px}.service-brand-links>a{border-top:1px solid var(--line);padding-top:24px}.service-brand-links strong{font-size:22px;color:var(--ink)}.service-brand-links p{font-size:15px;margin:12px 0 20px}@media(max-width:680px){.service-brand-links{grid-template-columns:1fr}}
@@ -187,3 +187,6 @@
 @media(max-width:680px){.scope-details,.application-body dl,.enquiry-list,.product-finder,.equipment-brand-grid{column-count:1}.brand-outline{grid-template-columns:1fr}}
 
 .equipment-more{font-size:16px;color:var(--text);margin-top:12px}
+
+[data-count]{font-variant-numeric:tabular-nums;display:inline-block;min-width:2ch}
+[data-count="1500"]{min-width:5.5ch}

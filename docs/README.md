@@ -2,6 +2,7 @@
 
 Updated 14 October 2026, Asia/Jakarta.
 
+- [Loading, counters and original branding](LOADING-COUNTERS-AND-BRANDING-2026-10-14.md): image discovery, lighter entrances, counting/New Year behavior, original logo provenance and tab branding.
 - [Simplified brand pages, motion and owner corrections](BRAND-SIMPLIFICATION-AND-MOTION-2026-10-14.md): current product grouping, two-part ComAp guide, final-section CTA, column order and animation.
 - [Brand content flow and Contents](BRAND-CONTENTS-2026-10-14.md): review findings, grouped topic lists, application-first flow and desktop/mobile verification.
 - [Single landing page and automatic years](LANDING-AND-DATES-2026-10-14.md): three content routes, old-link compatibility, company labels and Jakarta New Year updates.

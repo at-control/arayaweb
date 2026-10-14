@@ -190,25 +190,76 @@ document.querySelectorAll('.main-nav a').forEach(link => {
   }
 });
 
-// Staggered, once-only entrances for hero copy and engineering content. Content stays visible if scripts or APIs fail.
+// Short text-only entrances: pictures and large sections never wait for a fade.
 const motionPreference = window.matchMedia('(prefers-reduced-motion:reduce)');
 if ('IntersectionObserver' in window && typeof Element.prototype.animate === 'function') {
   const running = new Set();
   const entranceObserver = new IntersectionObserver(entries => {
-    entries.forEach((entry, index) => {
+    entries.forEach(entry => {
       if (!entry.isIntersecting) return;
       entranceObserver.unobserve(entry.target);
       if (motionPreference.matches) return;
       const animation = entry.target.animate(
-        [{opacity:.65, transform:'translateY(20px)'}, {opacity:1, transform:'translateY(0)'}],
-        {duration:600, delay:Math.min(index, 3) * 70, easing:'cubic-bezier(.2,.7,.3,1)', fill:'backwards'});
+        [{transform:'translateY(8px)'}, {transform:'translateY(0)'}],
+        {duration:280, easing:'cubic-bezier(.2,.7,.3,1)'});
       running.add(animation);
       animation.finished.catch(() => {}).finally(() => running.delete(animation));
     });
   }, {threshold:.12});
-  document.querySelectorAll('.hero-content>*,.brand-landing-grid>div>*,.hero-product,.about-media,.section-heading,.service-card,.brand-panel,.brand-profile,.brand-toc-heading,.brand-toc-group,.application-group-intro,.portfolio-row,.application-row,.enquiry-list>li,.connection-grid>a,.contact-intro')
+  document.querySelectorAll('.hero-content>.eyebrow,.hero-content>h1,.hero-description,.brand-landing-grid>div>.eyebrow,.brand-landing-grid>div>h1,.brand-intro,.section-heading,.service-body>h3,.brand-panel>h3,.brand-toc-heading,.portfolio-group-title,.application-group-intro h3,.enquiry-list h3')
     .forEach(element => entranceObserver.observe(element));
   motionPreference.addEventListener('change', () => {
     if (motionPreference.matches) running.forEach(animation => animation.cancel());
   });
 }
+
+// Metric counters: text only, once per metric, with no extra network request.
+(() => {
+  const metrics = [...document.querySelectorAll('[data-count]')];
+  if (!metrics.length) return;
+  const preference = window.matchMedia('(prefers-reduced-motion:reduce)');
+  if (preference.matches || !('IntersectionObserver' in window)) return;
+  const format = new Intl.NumberFormat('en-US');
+  const active = new Map();
+  const counted = new WeakSet();
+  const finish = (element, state) => {
+    cancelAnimationFrame(state.frame);
+    element.textContent = format.format(state.target) + state.suffix;
+    active.delete(element);
+  };
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const element = entry.target;
+      observer.unobserve(element);
+      if (counted.has(element)) return;
+      counted.add(element);
+      if (preference.matches) return;
+      const target = Number(element.dataset.count || element.textContent.replace(/[^0-9]/g, ''));
+      if (!Number.isFinite(target) || target < 0) return;
+      const state = {target, suffix:element.dataset.countSuffix || '', start:null, frame:0};
+      const step = now => {
+        if (!active.has(element)) return;
+        if (state.start === null) state.start = now;
+        const progress = Math.min(1, (now - state.start) / 800);
+        element.textContent = format.format(Math.round(target * (1 - (1 - progress) ** 3))) + state.suffix;
+        if (progress < 1) state.frame = requestAnimationFrame(step);
+        else finish(element, state);
+      };
+      active.set(element, state);
+      state.frame = requestAnimationFrame(step);
+    });
+  }, {threshold:0.4});
+  metrics.forEach(element => observer.observe(element));
+  const finishAll = () => active.forEach((state, element) => finish(element, state));
+  preference.addEventListener('change', () => { if (preference.matches) finishAll(); });
+  document.addEventListener('visibilitychange', () => { if (document.hidden) finishAll(); });
+  document.addEventListener('company-date-updated', event => {
+    active.forEach((state, element) => {
+      if (element.hasAttribute('data-company-age')) {
+        state.target = event.detail.age;
+        finish(element, state);
+      }
+    });
+  });
+})();

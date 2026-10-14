@@ -8,19 +8,19 @@ def portfolio_image(product, brand):
     if 'image' not in product:
         return ''
     picture = product['image']
-    return f'''<figure class="portfolio-picture"><img src="../assets/images/{escape(picture['file'], quote=True)}" alt="{escape(picture['alt'], quote=True)}" width="{picture['width']}" height="{picture['height']}" loading="lazy" decoding="async"><figcaption>{escape(picture['caption'])} · Image: {escape(brand)}</figcaption></figure>'''
+    return f'''<figure class="portfolio-picture"><img src="../assets/images/{escape(picture['file'], quote=True)}" alt="{escape(picture['alt'], quote=True)}" width="{picture['width']}" height="{picture['height']}" loading="eager" fetchpriority="low" decoding="async"><figcaption>{escape(picture['caption'])} · Image: {escape(brand)}</figcaption></figure>'''
 
 
-def diagram_figure(diagram, source=None, brand='ComAp'):
-    credit = source or diagram['source']
-    return f'''<figure class="application-diagram"><a class="diagram-trigger" href="../assets/images/{diagram['file']}" target="_blank" rel="noopener" aria-label="Enlarge diagram: {escape(diagram['caption'], quote=True)}" data-diagram-caption="{escape(diagram['caption'], quote=True)}" data-diagram-brand="{escape(brand, quote=True)}"><img src="../assets/images/{diagram['file']}" alt="{escape(diagram['alt'], quote=True)}" width="{diagram['width']}" height="{diagram['height']}" loading="lazy" decoding="async"><span class="diagram-enlarge" aria-hidden="true">Enlarge diagram ↗</span></a><figcaption>{escape(diagram['caption'])} · Diagram: {escape(brand)}</figcaption></figure>'''
+def diagram_figure(diagram, source=None, brand='ComAp', *, defer=True):
+    loading = 'lazy' if defer else 'eager'
+    return f'''<figure class="application-diagram"><a class="diagram-trigger" href="../assets/images/{diagram['file']}" target="_blank" rel="noopener" aria-label="Enlarge diagram: {escape(diagram['caption'], quote=True)}" data-diagram-caption="{escape(diagram['caption'], quote=True)}" data-diagram-brand="{escape(brand, quote=True)}"><img src="../assets/images/{diagram['file']}" alt="{escape(diagram['alt'], quote=True)}" width="{diagram['width']}" height="{diagram['height']}" loading="{loading}" fetchpriority="low" decoding="async"><span class="diagram-enlarge" aria-hidden="true">Enlarge diagram ↗</span></a><figcaption>{escape(diagram['caption'])} · Diagram: {escape(brand)}</figcaption></figure>'''
 
 
 def portfolio_system(product, brand, heading="h4"):
     if 'diagram' not in product:
         return ''
     flow = ''.join(f'<li>{escape(step)}</li>' for step in product.get('flow', []))
-    return f'''<div class="portfolio-system"><{heading}>How the system connects</{heading}><ol class="application-flow" aria-label="Conceptual system flow">{flow}</ol>{diagram_figure(product['diagram'], product['source'], brand)}<p class="system-note">{escape(product['diagram_note'])}</p></div>'''
+    return f'''<div class="portfolio-system"><{heading}>How the system connects</{heading}><ol class="application-flow" aria-label="Conceptual system flow">{flow}</ol>{diagram_figure(product['diagram'], product['source'], brand, defer=False)}<p class="system-note">{escape(product['diagram_note'])}</p></div>'''
 
 
 def diagram_viewer(source='https://www.comap-control.com/application-areas/'):
@@ -38,7 +38,7 @@ def application_guide(groups, arrow):
             diagrams = ''.join(diagram_figure(picture, item['source']) for picture in item.get('diagrams', []))
             gallery = f'<div class="application-diagrams">{diagrams}</div>' if diagrams else ''
             items.append(f'''<details class="application-detail" id="{item['id']}"><summary><span><strong>{escape(item['title'])}</strong><span>{escape(item['summary'])}</span></span><span class="application-expand" aria-hidden="true">+</span></summary><div class="application-body">{gallery}<dl>{fields}</dl></div></details>''')
-        rendered.append(f'''<section class="application-group" id="{group['id']}" aria-labelledby="{group['id']}-heading"><div class="application-group-intro"><div><p class="eyebrow">APPLICATION GROUP 0{i}</p><h3 id="{group['id']}-heading">{escape(group['title'])}</h3><p>{escape(group['intro'])}</p><ol class="application-flow" aria-label="Conceptual system flow">{flow}</ol></div>{diagram_figure(diagram)}</div><div class="application-details">{''.join(items)}</div></section>''')
+        rendered.append(f'''<section class="application-group" id="{group['id']}" aria-labelledby="{group['id']}-heading"><div class="application-group-intro"><div><p class="eyebrow">APPLICATION GROUP 0{i}</p><h3 id="{group['id']}-heading">{escape(group['title'])}</h3><p>{escape(group['intro'])}</p><ol class="application-flow" aria-label="Conceptual system flow">{flow}</ol></div>{diagram_figure(diagram, defer=False)}</div><div class="application-details">{''.join(items)}</div></section>''')
     return f'''<section class="section application-guide" id="applications"><div class="container"><p class="eyebrow">COMAP APPLICATIONS</p><h2>The application defines<br>the control system.</h2><p class="lead application-guide-intro">Start with what your engine, vessel or power system needs to do. Then select the controller family, interfaces and operating logic.</p><p class="application-scope">Explore the manufacturer application examples below. Araya confirms the controller, configuration and scope for your project.</p><p class="application-hint">Select an application to see its system, control functions and diagrams. Select a diagram to enlarge it.</p>{''.join(rendered)}</div></section>{diagram_viewer()}'''
 
 

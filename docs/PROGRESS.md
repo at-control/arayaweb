@@ -1,5 +1,9 @@
 # Progress and release record
 
+## Loading, counters and original branding — 14 October 2026
+
+Investigated late pictures and recent animation delays. Added matching hero preloads/early low-priority small images; removed large-wrapper fades/delays. Added finite project/age counters, preserved Jakarta rollover, removed Leadership and changed tab branding. Traced owner company-profile artwork into sharp header/tab SVGs. Tests and independent review pass. See [diagnosis, decisions and verification](LOADING-COUNTERS-AND-BRANDING-2026-10-14.md). Publication verification pending.
+
 ## Simplified brand guides and motion — 14 October 2026
 
 Owner-directed simplification removes repeated actions, task layers, cross-page promotion and extra menu choices. Noris has two visible product groups; ComAp Contents has Applications and Products. Added motion, removed logo pause controls, corrected labels/nav/office sentence, removed duplicate service equipment lists and added and many more. See [current decisions and verification](BRAND-SIMPLIFICATION-AND-MOTION-2026-10-14.md). Published release [b54d1fa](https://github.com/hakiimm8/arayaweb/commit/b54d1faeef1f1fa868c08ed2fc93f2f6989083f5); [Pages deployment](https://github.com/hakiimm8/arayaweb/actions/runs/38506164232) succeeded. All eleven deployed HTML/sitemap/style/script files return 200 and match the verified artifact. Earlier navigation descriptions below are historical.

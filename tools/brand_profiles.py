@@ -13,7 +13,7 @@ BRANDS = {
             ('Measurement & instruments', ['speed-sensors', 'temperature-sensors', 'pressure-sensors', 'instruments', 'signal-processing']),
             ('Marine systems', ['alarm-monitoring', 'propulsion-control', 'norinet']),
         ],
-        'title': 'Noris Distributor Indonesia: Sensors & Marine AMS | Araya',
+        'title': 'Noris - PT Araya Internusa',
         'menu_note': 'Sensors, instruments & marine automation',
         'home_summary': 'Speed, temperature and pressure sensors, analogue indicators, signal processing, noriMos alarm monitoring, noriStar propulsion control and noriNet remote monitoring.',
         'other_summary': 'Engine control, generator synchronisation, load sharing and marine power management.',
@@ -105,7 +105,7 @@ BRANDS = {
     'comap': {
         'application_groups': COMAP_APPLICATIONS,
         'name': 'ComAp', 'legal_name': 'ComAp a.s.', 'label': 'ComAp a.s.',
-        'title': 'ComAp Distributor Indonesia: Engine & Genset Control | Araya',
+        'title': 'ComAp - PT Araya Internusa',
         'menu_note': 'Engine, generator & power control',
         'home_summary': 'Engine controllers, generator synchronisation and load sharing, marine power management, standby generator control, SCADA and remote fleet monitoring.',
         'other_summary': 'Sensors, indicators, signal processing, noriMos AMS and noriStar propulsion control.',

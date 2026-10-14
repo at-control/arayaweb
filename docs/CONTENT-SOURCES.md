@@ -160,3 +160,8 @@ Owner selected the twelve content decisions in CONTENT-DECISIONS-2026-10-14.md: 
 ## Single landing page and company labels — 14 October 2026
 
 Owner direction: services live on one Araya landing page, with only Noris and ComAp as separate content pages. Common requests removed. Approved service content, equipment and six partner technology descriptions retained in three disclosures. Old service URLs are compatibility redirects. Owner supplied exact ComAp a.s. label, shown consistently with Noris Group GmbH. Automatic age uses founding year 2009 and Jakarta calendar year; no numeric age is hardcoded into metadata. See LANDING-AND-DATES-2026-10-14.md for verification and fallback.
+
+
+## Original high-resolution Araya logo — 14 October 2026
+
+Owner WordPress copy `download/cp.pdf`, first-page embedded 4165 × 961 RGBA image, supplied the original emblem and lettering for `araya-logo.svg` and `araya-icon.svg`. `tools/trace_original_logo.py` records extraction, selection of the emblem/wordmark and vector tracing; no replacement font or AI artwork. Header lettering uses white on the existing dark/orange background. PNG favicon fallback copied from the owner’s `wp-content/uploads/2026/05/favicon.png` (64 × 64). See [verification](LOADING-COUNTERS-AND-BRANDING-2026-10-14.md).

@@ -8,14 +8,17 @@
   if (typeof module !== 'undefined' && module.exports) module.exports = {companyDate};
   if (typeof document === 'undefined') return;
 
-  let nextUpdate;
+  let nextUpdate, displayedYear;
   const refreshDates = () => {
     clearTimeout(nextUpdate);
     const now = new Date();
     const {year, age, nextYear} = companyDate(now);
+    const changed = displayedYear !== year;
+    displayedYear = year;
     document.querySelectorAll('[data-company-age]').forEach(element => { element.textContent = age; });
     document.querySelectorAll('[data-current-year]').forEach(element => { element.textContent = year; });
     document.documentElement.classList.add('dates-ready');
+    if (changed) document.dispatchEvent?.(new CustomEvent('company-date-updated', {detail:{age}}));
     // Browser timers have a maximum delay; long waits are split safely.
     nextUpdate = setTimeout(refreshDates, Math.min(nextYear - now.getTime() + 100, 2147483647));
   };

@@ -53,3 +53,6 @@ Noris includes noriNet remote vessel monitoring, a manufacturer dashboard pictur
 
 
 Noris presents two visible product groups. ComAp has two Contents choices: Applications and Products, with application explanations first. Per-entry actions and related-page promotions are removed. See [current owner decisions and verification](docs/BRAND-SIMPLIFICATION-AND-MOTION-2026-10-14.md).
+
+
+Image discovery, lighter motion, finite metric counters and profile-derived SVG branding: [implementation and verification](docs/LOADING-COUNTERS-AND-BRANDING-2026-10-14.md). Run `python tools/test_loading.py` and `node tools/test_counters.cjs` after relevant changes.

@@ -65,6 +65,12 @@ def shell(title, description, content, route="", schema=()):
     brand_footer_links = ''.join(f'<a href="{prefix}{key}/">{escape(data["name"])}</a>' for key, data in BRANDS.items())
     service_footer_links = ''.join(f'<a href="{home}#{key}-services">{escape(data["name"])}</a>' for key, data in SERVICES.items())
     contact_topic = (BRANDS.get(route.strip("/")) or SERVICES.get(route.strip("/")) or {}).get("name", "a project")
+    hero_brand = BRANDS.get(route.strip('/'))
+    image_preload = ''
+    if hero_brand:
+        image_preload = f'<link rel="preload" as="image" href="{prefix}assets/images/{hero_brand["image"]}" fetchpriority="high">'
+    elif not route:
+        image_preload = f'<link rel="preload" as="image" href="./assets/images/ship-1400.webp" imagesrcset="{srcset((("ship-800.webp", 800), ("ship-1400.webp", 1400)))}" imagesizes="100vw" fetchpriority="high">'
     def nav(label, target):
         return f'<a href="{home}{target}">{label}</a>'
     return f'''<!doctype html>
@@ -83,8 +89,10 @@ def shell(title, description, content, route="", schema=()):
   <meta property="og:type" content="website"><meta property="og:url" content="{BASE}{route}">
   <meta property="og:image" content="{BASE}assets/images/og-araya.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="{prefix}assets/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="{prefix}assets/images/favicon.png?v={asset_version("images/favicon.png")}">
+  <link rel="icon" type="image/svg+xml" sizes="any" href="{prefix}assets/images/araya-icon.svg?v={asset_version("images/araya-icon.svg")}">
   <link rel="preload" href="{prefix}assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+{"  " + image_preload if image_preload else ""}
   <link rel="stylesheet" href="{prefix}assets/site.css?v={CSS_VERSION}">
   <script src="{prefix}assets/company-date.js?v={DATE_VERSION}" defer></script>
   <script src="{prefix}assets/site.js?v={JS_VERSION}" defer></script>
@@ -95,7 +103,7 @@ def shell(title, description, content, route="", schema=()):
 <header class="site-header">
   <div class="utility"><div class="container utility-inner"><span>Sidoarjo &amp; Jakarta · Indonesia · Mon–Sat 08.00–17.00</span><a href="mailto:{EMAIL}">{EMAIL}</a><a href="tel:+62317877990">+62 (031) 7877990</a></div></div>
   <div class="container navigation">
-    <a class="brand" href="{home}" aria-label="PT Araya Internusa home"><img src="{prefix}assets/images/araya-logo-transparent.png" alt="PT Araya Internusa" width="238" height="52"></a>
+    <a class="brand" href="{home}" aria-label="PT Araya Internusa home"><img src="{prefix}assets/images/araya-logo.svg" alt="PT Araya Internusa" width="4165" height="961"></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation"><span>Menu</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
       {nav('Home', '')}{nav('About Us', '#about')}{nav('Our Services', '#services')}{nav('Our Clients', '#clients')}<details class="brand-menu"><summary>Brand Partners<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><ul class="brand-dropdown">{brand_links}</ul></details>
@@ -107,7 +115,7 @@ def shell(title, description, content, route="", schema=()):
 <section class="contact" id="contact" aria-labelledby="contact-heading">
   <div class="container contact-intro"><div><p class="eyebrow">GET IN TOUCH</p><h2 id="contact-heading">Let’s find the right solution.</h2><p>Send the equipment model, a nameplate photo and the problem or change you need.</p></div><div class="contact-actions"><a class="button" href="{whatsapp(contact_topic)}">Chat on WhatsApp {ARROW}</a><a class="button button-outline" href="mailto:{EMAIL}">Email our team {ARROW}</a></div></div>
   <div class="container footer-grid">
-    <div class="footer-company"><img src="{prefix}assets/images/araya-logo-transparent.png" alt="PT Araya Internusa" width="238" height="52" loading="lazy"><p><span class="company-age-copy"><span data-company-age>{COMPANY_AGE}</span> years of </span>marine, industrial and automation engineering across Indonesia.</p></div>
+    <div class="footer-company"><img src="{prefix}assets/images/araya-logo.svg" alt="PT Araya Internusa" width="4165" height="961" loading="lazy"><p><span class="company-age-copy"><span data-company-age>{COMPANY_AGE}</span> years of </span>marine, industrial and automation engineering across Indonesia.</p></div>
     <div><h3>Explore Araya</h3><a href="{home}#about">About Us</a>{service_footer_links}{brand_footer_links}<a href="{home}#clients">Our Clients</a></div>
     <div><h3>Branch Offices</h3><p><strong>Sidoarjo</strong><a href="{MAP}">Gateway Citra Harmoni RKG 32–33<br>Taman, Sidoarjo<br>Jawa Timur 61257, Indonesia</a></p><p><strong>Jakarta</strong><a href="{JAKARTA_MAP}">Townhouse PIK<br>Jakarta, Indonesia</a></p><p class="contact-note">Mon–Sat, 08.00–17.00 WIB</p></div>
     <div><h3>Contact Us</h3><a href="mailto:{EMAIL}">{EMAIL}</a><a href="tel:+62317877990">+62 (031) 7877990</a><a href="{whatsapp(contact_topic)}">WhatsApp: +62 813 2639 6262</a><p class="contact-note">Share your system details with our team.</p></div>
@@ -122,7 +130,7 @@ def srcset(variants, prefix="./"):
 
 
 def home():
-    cards = ''.join(f'''<a class="service-card" href="#{key}-services"><img src="./assets/images/{s['card_image']}"{f' srcset="{srcset(s["card_variants"])}" sizes="(max-width: 680px) 100vw, 33vw"' if s.get('card_variants') else ''} alt="{escape(s['card_alt'], quote=True)}" width="{s['card_width']}" height="{s['card_height']}" loading="lazy"><div class="service-body"><span class="service-number">0{i}</span><h3>{escape(s['name'])}</h3><p>{escape(s['summary'])}</p><span class="card-link">Explore {escape(s['short'])} services {ARROW}</span></div></a>''' for i, (key, s) in enumerate(SERVICES.items(), 1))
+    cards = ''.join(f'''<a class="service-card" href="#{key}-services"><img src="./assets/images/{s['card_image']}"{f' srcset="{srcset(s["card_variants"])}" sizes="(max-width: 680px) 100vw, 33vw"' if s.get('card_variants') else ''} alt="{escape(s['card_alt'], quote=True)}" width="{s['card_width']}" height="{s['card_height']}" loading="eager" fetchpriority="low" decoding="async"><div class="service-body"><span class="service-number">0{i}</span><h3>{escape(s['name'])}</h3><p>{escape(s['summary'])}</p><span class="card-link">Explore {escape(s['short'])} services {ARROW}</span></div></a>''' for i, (key, s) in enumerate(SERVICES.items(), 1))
     service_sections = ''.join(service_details(key, service, ARROW, BRANDS) for key, service in SERVICES.items())
     # Not lazy-loaded: logos clipped sideways inside the scrolling strip would never load.
     clients = ''.join(f'<li><img{' class="is-emblem"' if c.get("emblem") else ''} src="./assets/images/{c["logo"]}" alt="{escape(c["name"], quote=True)}" width="{c["width"]}" height="{c["height"]}" fetchpriority="low" decoding="async"></li>' for c in CLIENTS)
@@ -132,11 +140,11 @@ def home():
   <img class="hero-photo" src="./assets/images/ship-1400.webp" srcset="{srcset((("ship-800.webp", 800), ("ship-1400.webp", 1400)))}" sizes="100vw" alt="PELNI passenger vessel alongside a quay, from Araya’s marine project photographs" width="1400" height="784" fetchpriority="high">
   <div class="hero-shade"></div>
   <div class="container hero-content"><p class="eyebrow">PT ARAYA INTERNUSA</p><h1 id="hero-heading">Marine, industrial &amp;<br>automation engineering<br><span>across Indonesia.</span></h1><p class="hero-description">Supply, repair, modification, upgrade and retrofit for marine equipment, industrial systems and automation.</p><div class="hero-actions"><a class="button" href="{whatsapp()}">Discuss your project {ARROW}</a><a class="button button-outline" href="#services">Our services {ARROW}</a></div></div>
-  <div class="hero-index" aria-hidden="true"><span>1,500+</span> / PROJECTS <span class="company-age-copy">OVER <span class="company-age" data-company-age>{COMPANY_AGE}</span> YEARS</span></div>
+  <div class="hero-index" aria-hidden="true"><span data-count="1500" data-count-suffix="+">1,500+</span> / PROJECTS <span class="company-age-copy">OVER <span class="company-age" data-count data-company-age>{COMPANY_AGE}</span> YEARS</span></div>
 </section>
 <section class="section about" id="about"><div class="container about-grid">
-  <div class="about-media"><img src="./assets/images/team.webp" alt="Araya technicians working together in a vessel’s engine room" width="600" height="600" loading="lazy"><div class="since"><strong>2009</strong><span>Where our story began</span></div></div>
-  <div><p class="eyebrow">ABOUT PT ARAYA INTERNUSA</p><h2><span class="company-age-copy"><span data-company-age>{COMPANY_AGE}</span> years of<br></span>professional engineering.</h2><p class="lead">Professional engineering for marine and industrial systems, backed by certification and international technical expertise.</p><p>Founded in 2009 by Arif Fatkur Rohman, PT Araya Internusa brings together repair, modification, upgrade and retrofit experience. International technical backing includes HIT (Haven- und Industrietechnik GmbH), Noris Automation and ComAp.</p><p>Araya serves projects across Sumatra, Jawa, Kalimantan, Sulawesi and Papua, with branch offices in Sidoarjo and Jakarta. We also extend the life of obsolete or end-of-sale equipment with practical, reliable solutions.</p><div class="scope-list"><span>Marine</span><span>Industrial</span><span>Automation &amp; electrical</span></div><p class="working-practice"><strong>Certified &amp; experienced</strong><br>Professional engineering experience, backed by certification and international technical support.</p><p class="leaders"><strong>Leadership:</strong> Arif Fatkur Rohman, S.T., M.MT (Founder &amp; Director) · M Rosul Akbar (Manager) · Anjas Budiarso (Manager)</p></div>
+  <div class="about-media"><img src="./assets/images/team.webp" alt="Araya technicians working together in a vessel’s engine room" width="600" height="600" loading="eager" fetchpriority="low" decoding="async"><div class="since"><strong>2009</strong><span>Where our story began</span></div></div>
+  <div><p class="eyebrow">ABOUT PT ARAYA INTERNUSA</p><h2><span class="company-age-copy"><span data-count data-company-age>{COMPANY_AGE}</span> years of<br></span>professional engineering.</h2><p class="lead">Professional engineering for marine and industrial systems, backed by certification and international technical expertise.</p><p>Founded in 2009 by Arif Fatkur Rohman, PT Araya Internusa brings together repair, modification, upgrade and retrofit experience. International technical backing includes HIT (Haven- und Industrietechnik GmbH), Noris Automation and ComAp.</p><p>Araya serves projects across Sumatra, Jawa, Kalimantan, Sulawesi and Papua, with branch offices in Sidoarjo and Jakarta. We also extend the life of obsolete or end-of-sale equipment with practical, reliable solutions.</p><div class="scope-list"><span>Marine</span><span>Industrial</span><span>Automation &amp; electrical</span></div><p class="working-practice"><strong>Certified &amp; experienced</strong><br>Professional engineering experience, backed by certification and international technical support.</p></div>
 </div></section>
 <section class="section section-muted" id="services"><div class="container">
   <div class="section-heading"><div><p class="eyebrow">WHAT WE DO</p><h2>Marine. Industrial.<br>Automation.</h2></div><p>Supply, repair, upgrade and retrofit for marine and industrial systems.</p></div>
@@ -145,7 +153,7 @@ def home():
 </div></section>
 <section class="section projects" id="clients"><div class="container">
   <div class="section-heading"><div><p class="eyebrow">OUR CLIENTS</p><h2>Clients who<br>trust Araya.</h2></div><p>Organisations that trust PT Araya Internusa with their engineering and automation work.</p></div>
-  <div class="project-reach"><div class="project-total"><strong>1,500+</strong><span>projects across Indonesia</span></div><div class="project-coverage"><h3>Across the archipelago</h3><ul><li>Sumatra</li><li>Jawa</li><li>Kalimantan</li><li>Sulawesi</li><li>Papua</li></ul></div></div>
+  <div class="project-reach"><div class="project-total"><strong data-count="1500" data-count-suffix="+">1,500+</strong><span>projects across Indonesia</span></div><div class="project-coverage"><h3>Across the archipelago</h3><ul><li>Sumatra</li><li>Jawa</li><li>Kalimantan</li><li>Sulawesi</li><li>Papua</li></ul></div></div>
   <div class="client-marquee"><ul class="client-track" aria-label="Selected clients">{clients}</ul><ul class="client-track" aria-hidden="true">{clients}</ul></div>
 </div></section>
 <section class="section" id="brands"><div class="container">
@@ -177,7 +185,7 @@ def main():
     routes = [""]
     website = {"@type": "WebSite", "@id": BASE + "#website", "name": "PT Araya Internusa", "url": BASE, "publisher": {"@id": BASE + "#organization"}}
     service_schema = [{"@type": "Service", "name": service["name"] + " engineering services", "serviceType": service["name"], "url": BASE + "#" + key + "-services", "provider": {"@id": BASE + "#organization"}, "areaServed": {"@type": "Country", "name": "Indonesia"}, "description": service["description"]} for key, service in SERVICES.items()]
-    write("", shell("Marine & Industrial Automation Engineering | Araya Internusa",
+    write("", shell("Home - PT Araya Internusa",
                     "Marine, industrial and automation engineering in Indonesia: ship systems, generators, cranes and machinery. Noris and ComAp partner.",
                     home(), schema=[website, *service_schema]))
     for key, service in SERVICES.items():
