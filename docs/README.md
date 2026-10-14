@@ -28,6 +28,6 @@ Updated 14 October 2026, Asia/Jakarta.
 - [ComAp applications](COMAP-APPLICATIONS.md): application explanations, system diagrams, manufacturer references and regional scope.
 - [NORINET research](NORINET-RESEARCH.md): owner-supplied brochure explanation, current manufacturer cross-check, implemented section and system-diagram provenance.
 
-The latest website-content release is 3aecf59, deployed successfully on 14 October 2026. Verification and release details are in [Progress and releases](PROGRESS.md). Production WordPress remains unchanged; the public preview intentionally uses `noindex, nofollow`.
+The latest website-content release is 7f8b5aa, deployed successfully on 14 October 2026. Verification and release details are in [Progress and releases](PROGRESS.md). Production WordPress remains unchanged; the public preview intentionally uses `noindex, nofollow`.
 
 Full hosting/local-copy findings, handoff, QA scripts and screenshots are retained in the owner's local workspace. They are not part of the deployed `public/` artifact. No credentials, databases or backups belong in these public documents.

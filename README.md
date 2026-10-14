@@ -6,7 +6,7 @@ Preview: https://hakiimm8.github.io/arayaweb/
 
 Saved audit findings, design decisions, verification results and next steps: [Project notes](docs/PROJECT-NOTES.md).
 
-Start with the [documentation index](docs/README.md), [progress/release record](docs/PROGRESS.md) and [content sources](docs/CONTENT-SOURCES.md). Latest website-content release: [3aecf59](https://github.com/hakiimm8/arayaweb/commit/3aecf59c63a5e53bf56404fab648a031f1c11958). The 14 October experience improvements are recorded in [implementation notes](docs/IMPROVEMENTS-2026-10-14.md); current deployment status is in the progress/release record.
+Start with the [documentation index](docs/README.md), [progress/release record](docs/PROGRESS.md) and [content sources](docs/CONTENT-SOURCES.md). Latest website-content release: [7f8b5aa](https://github.com/hakiimm8/arayaweb/commit/7f8b5aad13a08f3d925e21802d5aef511bcd6a24). Hierarchy/mobile fixes and verification: [implementation notes](docs/HIERARCHY-FIXES-2026-10-14.md). The 14 October experience improvements are recorded in [implementation notes](docs/IMPROVEMENTS-2026-10-14.md); current deployment status is in the progress/release record.
 
 ## Files
 
