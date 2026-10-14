@@ -27,18 +27,22 @@ class ExperienceTests(unittest.TestCase):
                 link = next(a for a in Links(path).links if a.get('class') == 'nav-contact')
                 self.assertEqual(link['href'], '#contact')
 
-    def test_every_product_and_application_has_contextual_enquiry(self):
-        for brand, expected in [('Noris', 8), ('ComAp', 24)]:
-            links = [a for a in Links(PUBLIC / brand.lower() / 'index.html').links
-                     if 'context-enquiry' in a.get('class', '').split()]
-            self.assertEqual(len(links), expected)
-            for link in links:
-                url = urlsplit(link['href'])
-                self.assertEqual(url.netloc, 'wa.me')
-                self.assertEqual(url.path, '/6281326396262')
-                draft = parse_qs(url.query)['text'][0]
-                self.assertIn(brand, draft)
-                self.assertGreater(len(draft), len('Hello Araya, I would like to discuss ' + brand + '.'))
+    def test_brand_actions_only_in_final_contact(self):
+        for brand in ['noris', 'comap']:
+            html = (PUBLIC / brand / 'index.html').read_text(encoding='utf-8')
+            body = html.split('<main id="main">', 1)[1].split('</main>', 1)[0]
+            for link in Links(html=body).links:
+                href = link['href']
+                self.assertTrue(href.startswith('#') or href.startswith('../assets/images/'), href)
+                self.assertNotIn('button', link.get('class', '').split())
+            self.assertNotIn('product-actions', body)
+            self.assertNotIn('application-links', body)
+            self.assertNotIn('project-connections', body)
+            self.assertNotIn('brand-actions', body)
+            contact = html.split('<section class="contact"', 1)[1]
+            whatsapp = next(a for a in Links(html=contact).links if a.get('class') == 'button')
+            draft = parse_qs(urlsplit(whatsapp['href']).query)['text'][0]
+            self.assertIn(brand.lower(), draft.lower())
 
     def test_company_positioning(self):
         html = (PUBLIC / 'index.html').read_text(encoding='utf-8')
@@ -59,7 +63,7 @@ class ExperienceTests(unittest.TestCase):
         sitemap = (PUBLIC / 'sitemap.xml').read_text(encoding='utf-8')
         self.assertEqual(sitemap.count('<url>'), 3)
 
-    def test_brand_contents_covers_all_topics_and_application_first_flow(self):
+    def test_brand_contents_and_reading_flow(self):
         from brand_profiles import BRANDS
         import re
         for brand, data in BRANDS.items():
@@ -69,15 +73,21 @@ class ExperienceTests(unittest.TestCase):
             contents = re.search(r'<section class="brand-toc".*?</section>', html, re.S).group()
             links = Links(html=contents)
             anchors = {a['href'][1:] for a in links.links}
-            expected = {p['id'] for p in data['products']}
-            for group in data.get('application_groups', []):
-                expected.update(item['id'] for item in group['items'])
-            if not data.get('application_groups'):
-                expected.update(f'choose-{anchor}' for _, _, anchor, _ in data['applications'])
-            expected.update(['about-brand', 'araya-support', 'brand-faq'])
+            expected = {'applications', 'portfolio'} if data.get('application_groups') else {p['id'] for p in data['products']}
             self.assertEqual(anchors, expected, brand)
-            positions = [html.index(f'id="{anchor}"') for anchor in
-                         ['contents', 'about-brand', 'applications', 'portfolio', 'araya-support', 'brand-faq']]
+            if data.get('application_groups'):
+                self.assertEqual(html.count('class="application-detail"'), 18)
+                self.assertEqual(html.count('class="portfolio-row"'), 6)
+            order = ['contents', 'about-brand', 'portfolio', 'brand-faq', 'araya-support']
+            if data.get('application_groups'):
+                order.insert(2, 'applications')
+            else:
+                self.assertNotIn('Choose by task', html)
+                self.assertNotIn('Choose an application', html)
+                self.assertIn('class="brand-toc-group brand-product-group"', contents)
+                self.assertNotIn('<details', contents)
+                self.assertEqual(html.count('class="portfolio-row"'), 8)
+            positions = [html.index(f'id="{anchor}"') for anchor in order]
             self.assertEqual(positions, sorted(positions), brand)
             for anchor in anchors:
                 self.assertIn(f'id="{anchor}"', html, brand)

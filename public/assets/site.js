@@ -45,8 +45,7 @@ if (diagramViewer && typeof diagramViewer.showModal === 'function') {
       imageWidth = Number(thumbnail.getAttribute('width'));
       imageHeight = Number(thumbnail.getAttribute('height'));
       diagramViewer.querySelector('#diagram-viewer-title').textContent = link.dataset.diagramCaption;
-      diagramViewer.querySelector('.diagram-viewer-source').href = link.closest('figure').querySelector('figcaption a').href;
-      diagramViewer.querySelector('.diagram-viewer-source').textContent = `Manufacturer source · ${link.dataset.diagramBrand}`;
+      diagramViewer.querySelector('.diagram-viewer-source').textContent = `Diagram: ${link.dataset.diagramBrand}`;
       zoom = 1;
       diagramViewer.showModal();
       document.body.classList.add('diagram-view-open');
@@ -119,18 +118,6 @@ if (menuButton && navigation) {
   });
   window.matchMedia('(min-width: 981px)').addEventListener('change', () => setMenu(false));
 }
-// The client logo strip scrolls continuously; this button lets visitors pause it (WCAG 2.2.2).
-const marqueeToggle = document.querySelector('.marquee-toggle');
-const marquee = document.querySelector('.client-marquee');
-if (marqueeToggle && marquee) {
-  marqueeToggle.addEventListener('click', () => {
-    const paused = marquee.classList.toggle('is-paused');
-    marqueeToggle.setAttribute('aria-pressed', String(paused));
-    marqueeToggle.textContent = paused ? 'Play logos' : 'Pause logos';
-  });
-  marquee.classList.add('marquee-ready');
-}
-
 // Keep section navigation available, accounting for the actual shared header height.
 const pageIndex = document.querySelector('.page-index');
 const siteHeader = document.querySelector('.site-header');
@@ -203,23 +190,23 @@ document.querySelectorAll('.main-nav a').forEach(link => {
   }
 });
 
-// One gentle entrance per section/card. Content stays visible if scripts or APIs fail.
+// Staggered, once-only entrances for hero copy and engineering content. Content stays visible if scripts or APIs fail.
 const motionPreference = window.matchMedia('(prefers-reduced-motion:reduce)');
 if ('IntersectionObserver' in window && typeof Element.prototype.animate === 'function') {
   const running = new Set();
   const entranceObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
+    entries.forEach((entry, index) => {
       if (!entry.isIntersecting) return;
       entranceObserver.unobserve(entry.target);
       if (motionPreference.matches) return;
       const animation = entry.target.animate(
-        [{opacity:.82, transform:'translateY(12px)'}, {opacity:1, transform:'translateY(0)'}],
-        {duration:450, easing:'cubic-bezier(.2,.7,.3,1)'});
+        [{opacity:.65, transform:'translateY(20px)'}, {opacity:1, transform:'translateY(0)'}],
+        {duration:600, delay:Math.min(index, 3) * 70, easing:'cubic-bezier(.2,.7,.3,1)', fill:'backwards'});
       running.add(animation);
       animation.finished.catch(() => {}).finally(() => running.delete(animation));
     });
   }, {threshold:.12});
-  document.querySelectorAll('.section-heading,.service-card,.brand-profile,.application-group-intro,.connection-grid>a')
+  document.querySelectorAll('.hero-content>*,.brand-landing-grid>div>*,.hero-product,.about-media,.section-heading,.service-card,.brand-panel,.brand-profile,.brand-toc-heading,.brand-toc-group,.application-group-intro,.portfolio-row,.application-row,.enquiry-list>li,.connection-grid>a,.contact-intro')
     .forEach(element => entranceObserver.observe(element));
   motionPreference.addEventListener('change', () => {
     if (motionPreference.matches) running.forEach(animation => animation.cancel());

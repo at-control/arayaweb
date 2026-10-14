@@ -34,7 +34,7 @@ Existing Araya logo, engineering photographs, company history, and displayed bus
 
 Marine and industrial sections describe project scopes provided by the owner and the existing service pages. They are capability descriptions, not invented named case studies. Product families, example models, and 14 manufacturer product images have source attribution in [Content sources](docs/CONTENT-SOURCES.md). Model availability and project suitability require discussion with Araya.
 
-Dedicated Noris and ComAp guides include manufacturer background, a product-family index, application guidance, an Araya enquiry brief and accessible expandable FAQs. Noris covers eight product areas; ComAp covers six. These are Araya's brand guides for Indonesia; manufacturer links lead to current product details and documents.
+Dedicated Noris and ComAp guides include manufacturer background, grouped product information, an informational equipment brief and expandable FAQs. Only the final shared contact section has enquiry CTA buttons. Noris covers eight product areas; ComAp covers six. These are Araya's brand guides for Indonesia; manufacturer links lead to current product details and documents.
 
 The owner states that Araya distributes Noris and ComAp in Indonesia. Authorization, exclusivity, specific product availability and warranties are not asserted. General certification wording is owner-approved; specific certification names, issuers and scope have not been provided.
 
@@ -52,4 +52,4 @@ ComAp now leads with an expandable application guide and real manufacturer syste
 Noris includes noriNet remote vessel monitoring, a manufacturer dashboard picture and a zoomable vessel-to-shore system diagram. See [NORINET research and implementation](docs/NORINET-RESEARCH.md).
 
 
-Both guides now include detailed grouped Contents and application-first reading order. See [brand flow review and verification](docs/BRAND-CONTENTS-2026-10-14.md).
+Noris presents two visible product groups. ComAp has two Contents choices: Applications and Products, with application explanations first. Per-entry actions and related-page promotions are removed. See [current owner decisions and verification](docs/BRAND-SIMPLIFICATION-AND-MOTION-2026-10-14.md).

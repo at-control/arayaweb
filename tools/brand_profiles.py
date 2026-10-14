@@ -8,7 +8,7 @@ CC = COMAP + '/products/controllers'
 
 BRANDS = {
     'noris': {
-        'name': 'Noris', 'legal_name': 'Noris Group GmbH', 'label': 'Noris Group GmbH · INDONESIA',
+        'name': 'Noris', 'legal_name': 'Noris Group GmbH', 'label': 'Noris Group GmbH',
         'contents_product_groups': [
             ('Measurement & instruments', ['speed-sensors', 'temperature-sensors', 'pressure-sensors', 'instruments', 'signal-processing']),
             ('Marine systems', ['alarm-monitoring', 'propulsion-control', 'norinet']),
@@ -50,7 +50,7 @@ BRANDS = {
              'selection': 'Absolute or gauge pressure, measuring range, medium compatibility, process connection, electrical output, and supply.',
              'source': NS + '/sensors/pressure-sensors'},
             {'id': 'instruments', 'image': {'file': 'noris-norimeter.webp', 'width': 768, 'height': 576, 'alt': 'Noris noriMeter NIQ3 square analogue RPM indicator', 'caption': 'noriMeter NIQ3 indicator'},
-              'short': 'Instruments', 'title': 'Instruments & analogue indicators', 'family': 'noriMeter · NIR3 / NIQ3 · NIQ31 · SIR3 / SIQ3',
+              'short': 'noriMeter instruments', 'title': 'Instruments & analogue indicators', 'family': 'noriMeter · NIR3 / NIQ3 · NIQ31 · SIR3 / SIQ3',
              'body': 'Noris indicators make speed, temperature, pressure, and position readable at the panel. noriMeter instruments use stepper motors; SIR3 and SIQ3 use moving-coil movements. Round and square formats suit different consoles.',
              'application': 'Local gauges, engine-room consoles, bridge indication, and instrument-panel replacement.',
              'selection': 'Input signal, display scale, panel cut-out, housing format, illumination, and any limit-switch functions.',
@@ -62,13 +62,13 @@ BRANDS = {
              'selection': 'Input and output types, supply voltage, isolation, switching thresholds, and the receiving equipment.',
              'source': NS + '/signal-processing'},
             {'id': 'alarm-monitoring', 'image': {'file': 'noris-norimos.webp', 'width': 768, 'height': 432, 'alt': 'Noris touchscreen displaying a noriMos machinery monitoring interface', 'caption': 'noriMos visualisation example'},
-              'short': 'Alarm & monitoring', 'title': 'Marine alarm, monitoring & control', 'family': 'noriMos 4 · noriMos 3500 · IAMCS',
+              'short': 'noriMos alarm & monitoring', 'title': 'Marine alarm, monitoring & control', 'family': 'noriMos 4 · noriMos 3500 · IAMCS',
              'body': 'noriMos brings onboard alarms, operating data, visualisation, and control into an integrated system. Noris offers different architectures, from local data acquisition to larger vessel automation with several operating stations.',
              'application': 'Engine-room AMS, machinery monitoring, onboard alarm visibility, and monitoring-system retrofit.',
              'selection': 'Signal list and I/O count, operator stations, existing interfaces, redundancy, alarm philosophy, and vessel requirements.',
              'source': NS + '/maritime-system-solutions/alarm-monitoring-and-control'},
             {'id': 'propulsion-control', 'image': {'file': 'noris-noristar.webp', 'width': 768, 'height': 512, 'alt': 'Noris noriStar propulsion control lever and operating panel', 'caption': 'noriStar propulsion controls'},
-              'short': 'Propulsion control', 'title': 'Propulsion remote control', 'family': 'noriStar · Bridge & local control stations',
+              'short': 'noriStar propulsion control', 'title': 'Propulsion remote control', 'family': 'noriStar · Bridge & local control stations',
              'body': 'noriStar coordinates propulsion components from the bridge and other control stations. Manufacturer applications include fixed- and controllable-pitch propellers, azimuth propulsion, waterjets, and bow or stern thrusters, with project-specific configuration.',
              'application': 'Propulsion-control and manoeuvring upgrades, including coordination of engines, gearboxes, and propellers.',
              'selection': 'Propulsion arrangement, control stations, engine/gearbox interfaces, feedback signals, interlocks, and vessel requirements.',
@@ -104,7 +104,7 @@ BRANDS = {
     },
     'comap': {
         'application_groups': COMAP_APPLICATIONS,
-        'name': 'ComAp', 'legal_name': 'ComAp a.s.', 'label': 'ComAp a.s. · INDONESIA',
+        'name': 'ComAp', 'legal_name': 'ComAp a.s.', 'label': 'ComAp a.s.',
         'title': 'ComAp Distributor Indonesia: Engine & Genset Control | Araya',
         'menu_note': 'Engine, generator & power control',
         'home_summary': 'Engine controllers, generator synchronisation and load sharing, marine power management, standby generator control, SCADA and remote fleet monitoring.',

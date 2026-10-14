@@ -1,5 +1,9 @@
 # Progress and release record
 
+## Simplified brand guides and motion — 14 October 2026
+
+Owner-directed simplification removes repeated actions, task layers, cross-page promotion and extra menu choices. Noris has two visible product groups; ComAp Contents has Applications and Products. Added motion, removed logo pause controls, corrected labels/nav/office sentence, removed duplicate service equipment lists and added and many more. See [current decisions and verification](BRAND-SIMPLIFICATION-AND-MOTION-2026-10-14.md). Publication verification pending. Earlier navigation descriptions below are historical.
+
 ## Brand content flow and Contents — 14 October 2026
 
 Reviewed both long guides; added grouped detailed Contents and persistent return access. Noris task choices now precede the catalogue. All 18 ComAp applications, 14 total product families, diagrams and contextual enquiries retained. Local build, checks, five experience tests, automatic-year tests and independent review passed. See [findings and evidence](BRAND-CONTENTS-2026-10-14.md). Published release [612181c](https://github.com/hakiimm8/arayaweb/commit/612181cb62b6a613146359a656194f44c303252d); [Pages deployment](https://github.com/hakiimm8/arayaweb/actions/runs/38499051427) succeeded. All eleven published HTML/sitemap/style/script files return HTTP 200 and match the verified artifact.

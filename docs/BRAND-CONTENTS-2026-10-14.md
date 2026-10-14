@@ -1,5 +1,7 @@
 # Brand content flow and Contents — 14 October 2026
 
+> Superseded in part by the owner’s later simplification: [current implementation](BRAND-SIMPLIFICATION-AND-MOTION-2026-10-14.md). Noris tasks, per-entry actions and the persistent multi-section menu are removed; ComAp Contents now has only Applications and Products. This document preserves historical findings and verification.
+
 ## Review findings
 
 Reviewed the current generated ComAp and Noris guides against the owner’s request for clearer organization and a daftar isi. Fresh desktop baselines are saved under [review evidence](reviews/brand-contents-2026-10-14/).

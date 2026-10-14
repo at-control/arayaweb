@@ -98,7 +98,7 @@ def shell(title, description, content, route="", schema=()):
     <a class="brand" href="{home}" aria-label="PT Araya Internusa home"><img src="{prefix}assets/images/araya-logo-transparent.png" alt="PT Araya Internusa" width="238" height="52"></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation"><span>Menu</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
-      {nav('Home', '')}{nav('About Us', '#about')}{nav('Our Services', '#services')}<details class="brand-menu"><summary>Brand Partners<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><ul class="brand-dropdown">{brand_links}</ul></details>{nav('Our Clients', '#clients')}
+      {nav('Home', '')}{nav('About Us', '#about')}{nav('Our Services', '#services')}{nav('Our Clients', '#clients')}<details class="brand-menu"><summary>Brand Partners<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><ul class="brand-dropdown">{brand_links}</ul></details>
       <a class="nav-contact" href="#contact">Contact Us {ARROW}</a>
     </nav>
   </div>
@@ -136,7 +136,7 @@ def home():
 </section>
 <section class="section about" id="about"><div class="container about-grid">
   <div class="about-media"><img src="./assets/images/team.webp" alt="Araya technicians working together in a vessel’s engine room" width="600" height="600" loading="lazy"><div class="since"><strong>2009</strong><span>Where our story began</span></div></div>
-  <div><p class="eyebrow">ABOUT PT ARAYA INTERNUSA</p><h2><span class="company-age-copy"><span data-company-age>{COMPANY_AGE}</span> years of<br></span>professional engineering.</h2><p class="lead">Professional engineering for marine and industrial systems, backed by certification and international technical expertise.</p><p>Founded in 2009 by Arif Fatkur Rohman, PT Araya Internusa brings together repair, modification, upgrade and retrofit experience. International technical backing includes HIT (Haven- und Industrietechnik GmbH), Noris Automation and ComAp.</p><p>Araya serves projects across Sumatra, Jawa, Kalimantan, Sulawesi and Papua, with branch offices in Sidoarjo and Jakarta (Townhouse PIK). We also extend the life of obsolete or end-of-sale equipment with practical, reliable solutions.</p><div class="scope-list"><span>Marine</span><span>Industrial</span><span>Automation &amp; electrical</span></div><p class="working-practice"><strong>Certified &amp; experienced</strong><br>Professional engineering experience, backed by certification and international technical support.</p><p class="leaders"><strong>Leadership:</strong> Arif Fatkur Rohman, S.T., M.MT (Founder &amp; Director) · M Rosul Akbar (Manager) · Anjas Budiarso (Manager)</p></div>
+  <div><p class="eyebrow">ABOUT PT ARAYA INTERNUSA</p><h2><span class="company-age-copy"><span data-company-age>{COMPANY_AGE}</span> years of<br></span>professional engineering.</h2><p class="lead">Professional engineering for marine and industrial systems, backed by certification and international technical expertise.</p><p>Founded in 2009 by Arif Fatkur Rohman, PT Araya Internusa brings together repair, modification, upgrade and retrofit experience. International technical backing includes HIT (Haven- und Industrietechnik GmbH), Noris Automation and ComAp.</p><p>Araya serves projects across Sumatra, Jawa, Kalimantan, Sulawesi and Papua, with branch offices in Sidoarjo and Jakarta. We also extend the life of obsolete or end-of-sale equipment with practical, reliable solutions.</p><div class="scope-list"><span>Marine</span><span>Industrial</span><span>Automation &amp; electrical</span></div><p class="working-practice"><strong>Certified &amp; experienced</strong><br>Professional engineering experience, backed by certification and international technical support.</p><p class="leaders"><strong>Leadership:</strong> Arif Fatkur Rohman, S.T., M.MT (Founder &amp; Director) · M Rosul Akbar (Manager) · Anjas Budiarso (Manager)</p></div>
 </div></section>
 <section class="section section-muted" id="services"><div class="container">
   <div class="section-heading"><div><p class="eyebrow">WHAT WE DO</p><h2>Marine. Industrial.<br>Automation.</h2></div><p>Supply, repair, upgrade and retrofit for marine and industrial systems.</p></div>
@@ -147,7 +147,6 @@ def home():
   <div class="section-heading"><div><p class="eyebrow">OUR CLIENTS</p><h2>Clients who<br>trust Araya.</h2></div><p>Organisations that trust PT Araya Internusa with their engineering and automation work.</p></div>
   <div class="project-reach"><div class="project-total"><strong>1,500+</strong><span>projects across Indonesia</span></div><div class="project-coverage"><h3>Across the archipelago</h3><ul><li>Sumatra</li><li>Jawa</li><li>Kalimantan</li><li>Sulawesi</li><li>Papua</li></ul></div></div>
   <div class="client-marquee"><ul class="client-track" aria-label="Selected clients">{clients}</ul><ul class="client-track" aria-hidden="true">{clients}</ul></div>
-  <div class="client-footer"><button class="marquee-toggle" type="button" aria-pressed="false">Pause logos</button></div>
 </div></section>
 <section class="section" id="brands"><div class="container">
   <div class="section-heading"><div><p class="eyebrow">BRAND PARTNERS &amp; EQUIPMENT</p><h2>Specialist partners.<br>Multi-brand expertise.</h2></div><p>PT Araya Internusa distributes Noris and ComAp in Indonesia, and works on equipment from many other manufacturers.</p></div>
@@ -155,7 +154,7 @@ def home():
     <article class="brand-panel"><div class="brand-name">NORIS<span>{escape(BRANDS["noris"]["legal_name"])}</span></div><h3>Instruments &amp; sensors.<br>Marine automation.</h3><p>{escape(BRANDS['noris']['home_summary'])}</p><a class="text-link" href="./noris/">Explore Noris in Indonesia {ARROW}</a></article>
     <article class="brand-panel"><div class="brand-name">ComAp<span>{escape(BRANDS["comap"]["legal_name"])}</span></div><h3>Engine control.<br>Power management.<br>Load sharing.</h3><p>{escape(BRANDS['comap']['home_summary'])}</p><a class="text-link" href="./comap/">Explore ComAp in Indonesia {ARROW}</a></article>
   </div>
-  <div class="equipment-brands"><h3>We also work on equipment from</h3><div class="equipment-brand-grid">{groups}</div></div>
+  <div class="equipment-brands"><h3>We also work on equipment from</h3><div class="equipment-brand-grid">{groups}</div><p class="equipment-more">and many more...</p></div>
 </div></section>'''
 
 
