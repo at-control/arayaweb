@@ -22,6 +22,8 @@ Private paths, backup manifests, URL inventory, deployment key and administrativ
 
 ## Recommended workflow
 
+The [15 October legacy URL map](LEGACY-URL-MAP-2026-10-15.csv) now records all 65 observed published URLs. Ten have equivalent new-content targets; 55 need review before preservation or retirement decisions. This is planning data only; permanent server redirects and live activation remain pending.
+
 1. Edit templates/assets and commit to `main`.
 2. GitHub Actions builds and checks the noindex preview, runs content/loading/counter/date regressions, builds an isolated production target and checks its SEO metadata and file safety.
 3. The same run retains `araya-production-<commit SHA>` containing a ZIP and SHA-256/provenance manifest, then publishes the preview to GitHub Pages.

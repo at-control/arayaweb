@@ -1,5 +1,7 @@
 # Adding a brand partner
 
+Current relationship wording is explicit in each brand's `intro`, `description`, `title` and `local` fields. `local` supplies the Araya relationship paragraph in the manufacturer profile. Noris and ComAp use the owner's 15 October approved **authorised distributor** designation; a new brand must use its own confirmed relationship. Do not infer authorisation, exclusivity or named credentials from the shared renderer.
+
 The shared header uses a **Brand Partners** dropdown with separate Noris and ComAp links. Dropdown links, footer brand links and generated brand routes come from `BRANDS` in `tools/brand_profiles.py`. The homepage keeps separate Explore Noris / Explore ComAp buttons.
 
 ## Add a confirmed future partner

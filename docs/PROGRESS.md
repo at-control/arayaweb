@@ -1,5 +1,9 @@
 # Progress and release record
 
+## Authorised-distributor wording and SEO improvements — 15 October 2026
+
+Owner selected authorised distributor and approved the other SEO improvements. Updated homepage/brand metadata, visible distributor propositions and per-brand relationship data. Expanded all 30 existing scope descriptions and added owner-mentioned water-level/cargo monitoring (32 scopes total), with explicit AMS, overhaul, steering and generator-control coverage. Preserved design, native disclosures, all prior anchors, brand product/application counts and leadership-before-contact order. Company schema uses the sharp original emblem and relevant service topics; visible FAQs remain with retired FAQPage markup removed. Prepared a 65-URL migration CSV with ten equivalent-content targets and 55 pages marked for review. Local validation and desktop/mobile checks pass; preview publication pending. [Implementation, verification and remaining inputs](SEO-IMPROVEMENTS-2026-10-15.md). Production unchanged.
+
 ## SEO analysis — 14 October 2026
 
 Reviewed the published new homepage/Noris/ComAp pages, source and freshly built production candidate, current WordPress homepage, manufacturer partner/contact sources and current Google guidance. Documented technical, metadata, content, images, local identity, migration and commercial-intent findings, manual readiness ratings and keyword themes for all 30 scopes. Confirmed intentional preview noindex; new design is not live at the company domain. Manufacturer sources checked do not independently establish Araya's current authorised appointment; absence is not evidence of non-authorisation. PageSpeed API returned 429, so no new performance score is asserted. [Full audit and recommendations](SEO-REVIEW-2026-10-14.md). Raw evidence retained privately; no website/hosting changes.

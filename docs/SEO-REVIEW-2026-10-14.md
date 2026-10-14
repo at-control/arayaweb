@@ -1,5 +1,7 @@
 # SEO review: new Araya design, brand pages and services
 
+Historical audit baseline. On 15 October the owner selected authorised distributor and approved implementation of other improvements. See [implemented changes and remaining inputs](SEO-IMPROVEMENTS-2026-10-15.md); the ratings and content measurements below describe the pre-improvement version.
+
 Reviewed 14 October 2026, Asia/Jakarta. Source: `1772a6f0046862780dbf221f4b887083c11f0794` (website content release `d6235ea`). This is an analysis; no website copy, metadata, indexing setting or hosting configuration was changed.
 
 ## 1. Scope and limits

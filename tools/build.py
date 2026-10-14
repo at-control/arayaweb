@@ -42,7 +42,7 @@ def organization():
     return {
         "@type": "ProfessionalService", "@id": BASE + "#organization",
         "name": "PT Araya Internusa", "alternateName": "Araya Internusa", "url": PRODUCTION,
-        "logo": BASE + "assets/images/araya-logo.png", "image": BASE + "assets/images/og-araya.jpg",
+        "logo": BASE + "assets/images/araya-icon.svg", "image": BASE + "assets/images/og-araya.jpg",
         "description": "Marine, industrial and automation engineering company serving Indonesia: supply, repair, modification, upgrade and retrofit.",
         "email": EMAIL, "telephone": "+62-31-7877990", "foundingDate": "2009",
         "founder": {"@type": "Person", "name": "Arif Fatkur Rohman"},
@@ -52,7 +52,7 @@ def organization():
                      {"@type": "Place", "name": "Jakarta branch office — Townhouse PIK", "address": {"@type": "PostalAddress", "streetAddress": "Townhouse PIK", "addressLocality": "Jakarta", "addressCountry": "ID"}}],
         "openingHoursSpecification": {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "opens": "08:00", "closes": "17:00"},
         "areaServed": {"@type": "Country", "name": "Indonesia"},
-        "knowsAbout": ["Marine automation", "Ship electrical systems", "Generator systems", "PLC and SCADA", "Industrial machinery repair", "Crane repair", "Hazardous-area electrical equipment", "Noris", "ComAp"],
+        "knowsAbout": ["Marine automation", "Alarm monitoring systems", "Ship electrical systems", "Engine overhaul and control", "Generator synchronisation and load sharing", "Water-level and cargo monitoring", "PLC and SCADA", "Industrial machinery repair", "Crane repair", "Hazardous-area electrical equipment", "Noris", "ComAp"],
     }
 
 
@@ -158,7 +158,7 @@ def home():
   <div class="client-marquee"><ul class="client-track" aria-label="Selected clients">{clients}</ul><ul class="client-track" aria-hidden="true">{clients}</ul></div>
 </div></section>
 <section class="section" id="brands"><div class="container">
-  <div class="section-heading"><div><p class="eyebrow">BRAND PARTNERS &amp; EQUIPMENT</p><h2>Specialist partners.<br>Multi-brand expertise.</h2></div><p>PT Araya Internusa distributes Noris and ComAp in Indonesia, and works on equipment from many other manufacturers.</p></div>
+  <div class="section-heading"><div><p class="eyebrow">BRAND PARTNERS &amp; EQUIPMENT</p><h2>Specialist partners.<br>Multi-brand expertise.</h2></div><p>PT Araya Internusa is an authorised distributor for Noris and ComAp in Indonesia, with engineering experience across equipment from many other manufacturers.</p></div>
   <div class="brand-grid">
     <article class="brand-panel"><div class="brand-name">NORIS<span>{escape(BRANDS["noris"]["legal_name"])}</span></div><h3>Instruments &amp; sensors.<br>Marine automation.</h3><p>{escape(BRANDS['noris']['home_summary'])}</p><a class="text-link" href="./noris/">Explore Noris in Indonesia {ARROW}</a></article>
     <article class="brand-panel"><div class="brand-name">ComAp<span>{escape(BRANDS["comap"]["legal_name"])}</span></div><h3>Engine control.<br>Power management.<br>Load sharing.</h3><p>{escape(BRANDS['comap']['home_summary'])}</p><a class="text-link" href="./comap/">Explore ComAp in Indonesia {ARROW}</a></article>
@@ -205,14 +205,14 @@ def main():
     routes = [""]
     website = {"@type": "WebSite", "@id": BASE + "#website", "name": "PT Araya Internusa", "url": BASE, "publisher": {"@id": BASE + "#organization"}}
     service_schema = [{"@type": "Service", "name": service["name"] + " engineering services", "serviceType": service["name"], "url": BASE + "#" + key + "-services", "provider": {"@id": BASE + "#organization"}, "areaServed": {"@type": "Country", "name": "Indonesia"}, "description": service["description"]} for key, service in SERVICES.items()]
-    write("", shell("Home - PT Araya Internusa",
-                    "Marine, industrial and automation engineering in Indonesia: ship systems, generators, cranes and machinery. Noris and ComAp partner.",
+    write("", shell("Marine & Industrial Automation Indonesia | Araya Internusa",
+                    "Marine and industrial engineering in Indonesia: ship systems, engine control, generators and PLC/SCADA. Authorised Noris and ComAp distributor.",
                     home(), schema=[website, *service_schema]))
     for key, service in SERVICES.items():
         write(key, legacy_service_page(key, service))
     for key, data in BRANDS.items():
-        faq = {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in data['faqs']]}
-        write(key, shell(data['title'], data['description'], brand_content(key, data, ARROW), key + '/', [breadcrumb(key + '/', data['name']), faq]))
+        # Keep the visible FAQs. Google retired FAQ rich results in May 2026.
+        write(key, shell(data['title'], data['description'], brand_content(key, data, ARROW), key + '/', [breadcrumb(key + '/', data['name'])]))
         routes.append(key + '/')
     urls = ''.join(f'<url><loc>{BASE}{route}</loc><lastmod>{datetime.now(timezone(timedelta(hours=7))).date().isoformat()}</lastmod></url>' for route in routes)
     (PUBLIC / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>\n', encoding="utf-8")

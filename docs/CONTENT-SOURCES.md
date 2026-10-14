@@ -1,5 +1,9 @@
 # Project scopes and brand details
 
+## Owner-approved SEO wording and service detail — 15 October 2026
+
+Owner explicitly selected authorised distributor for Noris and ComAp and approved the audit's other improvements. The site uses that owner-directed designation; exact appointment/certification documents were not supplied or independently verified in this pass. Richer descriptions are grounded in the existing company profile and owner's earlier service list. Water-level and cargo monitoring are added as explicit marine scopes; engine overhaul, AMS, steering and generator synchronisation/start-stop are made clear. No new project outcomes or exclusive relationships are asserted. [Implementation and provenance](SEO-IMPROVEMENTS-2026-10-15.md).
+
 ## Director and managers — 14 October 2026
 
 Owner explicitly requested a dedicated section using the earlier screenshot's three portraits, names and roles: Arif Fatkur Rohman, S.T., M.MT. (Director), M Rosul Akbar (Manager), Anjas Budiarso (Manager). Original WordPress portraits were recovered from the owner's uploads copy, visually matched and encoded as responsive WebP. Old cached theme placeholder staff names are not used. The two work photographs are retained for later; their gallery is now removed at the owner's request. [Provenance and verification](LEADERSHIP-AND-SERVICE-BALANCE-2026-10-14.md).

@@ -1,5 +1,7 @@
 # Araya website conventions
 
+- Owner direction, 15 October: use **authorised distributor** for Noris and ComAp. Relationship wording is owner-approved; do not invent exclusive status, appointment dates or named certifications. Titles/descriptions and brand intros emphasise distributor intent. Brand `local` copy holds its relationship explicitly; future brands must use their own confirmed designation. Services now total 32 (12 marine, 8 industrial, 12 automation), with water-level/cargo monitoring and explicit overhaul/AMS/steering/generator-control scope. Keep all previous scope IDs. Visible FAQs remain; obsolete FAQPage markup is removed.
+
 - Later owner correction, 14 October: service photographs were too big. Keep their inset row proportion around 32% and restrained height, orange copy rule and subtle card depth. Araya at Work gallery is removed for now. A separate Leadership & management section belongs immediately before Get in Touch, after Brand Partners & Equipment, using original portraits and owner-supplied names/roles (Director plus two Managers); this supersedes the prior inline leadership removal. Do not use cached theme placeholder people or biographies.
 
 - Photo-led landing update, 14 October: service photos and short introductions remain visible; full scopes are collapsed native details below. Preserve all scope/equipment IDs and deep-link expansion. Owner work photos use responsive WebP variants; keep originals outside Git and captions factual. Do not restore small service thumbnails beside long visible lists.

@@ -1,6 +1,9 @@
 # Documentation
 
-Updated 14 October 2026, Asia/Jakarta.
+Updated 15 October 2026, Asia/Jakarta.
+
+- [Implemented SEO improvements](SEO-IMPROVEMENTS-2026-10-15.md): authorised-distributor wording, targeted metadata, richer service content, 32 scopes, structured-data cleanup, migration preparation and verification.
+- [Legacy URL migration map](LEGACY-URL-MAP-2026-10-15.csv): 65 observed URLs, ten equivalent-content destinations and explicit review status for the remainder. No live redirects installed.
 
 - [SEO review: new design, distributor intent and every service](SEO-REVIEW-2026-10-14.md): current production versus noindex preview, technical/on-page findings, manual readiness ratings, brand authorisation evidence, 30-service keyword map and prioritised recommendations. Analysis only.
 

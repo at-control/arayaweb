@@ -1,0 +1,66 @@
+source_path,candidate_target,status,reason
+/araya/project4/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/project3/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/project2/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/project1/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/shop/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/cart/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/checkout/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/my-account/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/2026/04/20/hello-world/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
+/araya/sample-page/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
+/araya/sample-page-2/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
+/araya/onepage/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/services/demolition-services/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/services/industrial/,/#industrial-services,equivalent-content,Permanent server redirect at cutover; verify route and fragment after activation
+/araya/services/civil-engineering/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/services/automation/,/#automation-services,equivalent-content,Permanent server redirect at cutover; verify route and fragment after activation
+/araya/services/marine/,/#marine-services,equivalent-content,Permanent server redirect at cutover; verify route and fragment after activation
+/araya/appointment/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/faq/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/gsap-elements/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
+/araya/blog-elements/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
+/araya/projects-elements/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
+/araya/counter-elements/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
+/araya/partner-logo-elements/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
+/araya/pricing-elements/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
+/araya/team-elements/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
+/araya/testimonials-elements/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
+/araya/work-process-elements/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
+/araya/services-tab-elements/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
+/araya/advance-tab-elements/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
+/araya/icon-box-elements/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
+/araya/services-box-elements/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
+/araya/services/wind-energy/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/services/bio-energy/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/services/solar-energy/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/services/hydro-energy/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/services/oil-construction-and-gas-production/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/services/automation-industry-management/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/services/state-of-the-art-for-hight-control-in/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/services/manufacturing-solutions/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/services/manufacturer-of-tin-lead-and-lead/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/services/fuel-gas-management/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/services/best-innovations-in-metallurgy/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/services/mechanical-engineering/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/services/oil-gas-energy/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/services/bridge-construction/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/services/high-regulation-industry/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/services-single/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/pricing-plans/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/services/industrial-construction/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/team/,/#leadership,equivalent-content,Permanent server redirect at cutover; verify route and fragment after activation
+/araya/contact/,/#contact,equivalent-content,Permanent server redirect at cutover; verify route and fragment after activation
+/araya/2024/02/08/construction-of-a-new-high-tech-plant-in-washingtons/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/2024/02/08/building-resilient-supply-chains-for-industries/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/projects/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/2024/02/08/factories-technologies-in-interactive-and-plants/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/2024/02/07/building-resilient-supply-for-industries-and-factorie/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/2024/02/07/construction-of-a-new-high-tech-plant-in-washington/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/about-us/,/#about,equivalent-content,Permanent server redirect at cutover; verify route and fragment after activation
+/araya/blog/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/contact-2/,/#contact,equivalent-content,Permanent server redirect at cutover; verify route and fragment after activation
+/araya/services/,/#services,equivalent-content,Permanent server redirect at cutover; verify route and fragment after activation
+/araya/about/,/#about,equivalent-content,Permanent server redirect at cutover; verify route and fragment after activation
+/araya/,/,equivalent-content,Permanent server redirect at cutover; verify route and fragment after activation
+/araya/2024/01/03/interactive-technologies-in-factories-and-plants/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home

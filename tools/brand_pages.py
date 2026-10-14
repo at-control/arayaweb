@@ -76,7 +76,7 @@ def brand_content(key, data, arrow):
       <div class="brand-landing-grid"><div><p class="eyebrow">{escape(data['label'])}</p><h1>{data['heading']}</h1><p class="brand-intro">{escape(data['intro'])}</p></div>
       <figure class="product-figure hero-product"><img src="../assets/images/{data['image']}" alt="{escape(data['alt'], quote=True)}" width="{data['image_width']}" height="{data['image_height']}" fetchpriority="high"><figcaption>{escape(data['image_caption'])}</figcaption></figure></div>
     </div></section>
-    <section class="section section-compact" id="about-brand"><div class="container"><div class="brand-profile"><div><p class="eyebrow">THE MANUFACTURER</p><h2>About {name}</h2></div><div><p>{escape(data['profile'])}</p><p>PT Araya Internusa distributes {name} products, with professional engineering experience, certification and international technical backing.</p></div></div><dl class="brand-facts">{facts}</dl></div></section>
+    <section class="section section-compact" id="about-brand"><div class="container"><div class="brand-profile"><div><p class="eyebrow">THE MANUFACTURER</p><h2>About {name}</h2></div><div><p>{escape(data['profile'])}</p><p>{escape(data['local'])}</p></div></div><dl class="brand-facts">{facts}</dl></div></section>
     {brand_contents(data)}
 {application_section}
     <section class="section section-muted" id="portfolio"><div class="container"><p class="eyebrow">{name.upper()} TECHNOLOGY</p><h2>Products{' &amp; systems' if key == 'noris' else ''}</h2><p class="portfolio-intro">Product families and example models. Selection depends on the operating requirements, interfaces and installation.</p><div class="portfolio-list">{portfolio}</div></div></section>
