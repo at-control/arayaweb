@@ -50,4 +50,4 @@ The Contents data is generated from the same application/product records used by
 
 ## Release
 
-Implementation verified locally; publication verification will be recorded here after the content release. Production WordPress remains a separate deployment. The GitHub Pages preview retains noindex,nofollow.
+Published website-content release [612181c](https://github.com/hakiimm8/arayaweb/commit/612181cb62b6a613146359a656194f44c303252d). [Pages deployment](https://github.com/hakiimm8/arayaweb/actions/runs/38499051427) succeeded. All eleven published HTML/sitemap/style/script files return HTTP 200 and match the verified local artifact after line-ending normalization. Browser visual and interaction evidence above was captured on localhost; deployed bytes are identical. Production WordPress remains a separate deployment. The GitHub Pages preview retains noindex,nofollow.

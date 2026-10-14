@@ -1,6 +1,6 @@
 # Araya project notes
 
-Latest release: [dac0b92](https://github.com/hakiimm8/arayaweb/commit/dac0b92eac714fead13f1d2957faa0487d1b5b53), single landing page, dedicated brand guides, consistent company labels and automatic Jakarta-time age updates. See [implementation and verification](LANDING-AND-DATES-2026-10-14.md). Previous current-release labels below are historical.
+Latest release: [612181c](https://github.com/hakiimm8/arayaweb/commit/612181cb62b6a613146359a656194f44c303252d), grouped brand Contents, persistent topic navigation and application-first reading order. See [review, implementation and verification](BRAND-CONTENTS-2026-10-14.md). Previous current-release labels below are historical.
 
 Current release: [921909b](https://github.com/hakiimm8/arayaweb/commit/921909bf355c1ec6454f63127ea26a12e378daa1), 14 October 2026. Professional positioning, navigation/enquiry improvements and motion are recorded in [implementation notes](IMPROVEMENTS-2026-10-14.md). The earlier release notes below are historical.
 
