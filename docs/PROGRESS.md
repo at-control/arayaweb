@@ -2,7 +2,7 @@
 
 ## Loading, counters and original branding — 14 October 2026
 
-Investigated late pictures and recent animation delays. Added matching hero preloads/early low-priority small images; removed large-wrapper fades/delays. Added finite project/age counters, preserved Jakarta rollover, removed Leadership and changed tab branding. Traced owner company-profile artwork into sharp header/tab SVGs. Tests and independent review pass. See [diagnosis, decisions and verification](LOADING-COUNTERS-AND-BRANDING-2026-10-14.md). Publication verification pending.
+Investigated late pictures and recent animation delays. Added matching hero preloads/early low-priority small images; removed large-wrapper fades/delays. Added finite project/age counters, preserved Jakarta rollover, removed Leadership and changed tab branding. Traced owner company-profile artwork into sharp header/tab SVGs. Tests and independent review pass. See [diagnosis, decisions and verification](LOADING-COUNTERS-AND-BRANDING-2026-10-14.md). Published release [fe80362](https://github.com/hakiimm8/arayaweb/commit/fe80362574d96b1ec99cc1d8cae81e9f760cea15); [Pages deployment](https://github.com/hakiimm8/arayaweb/actions/runs/38509655085) succeeded. Fourteen deployed files return 200 and match the verified artifact.
 
 ## Simplified brand guides and motion — 14 October 2026
 

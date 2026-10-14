@@ -51,7 +51,7 @@ These changes remove artificial settling and defer less small-image work. They d
 
 ## Release
 
-Local verification complete. Published commit, deployment and byte verification will be recorded here after release. Production WordPress is separate; the preview retains noindex,nofollow.
+Published website-content release [fe80362](https://github.com/hakiimm8/arayaweb/commit/fe80362574d96b1ec99cc1d8cae81e9f760cea15); [Pages deployment](https://github.com/hakiimm8/arayaweb/actions/runs/38509655085) succeeded. All fourteen published HTML/sitemap/script/style/logo/icon files return HTTP 200 and match the verified artifact (text line endings normalized; PNG compared directly). Browser visual checks were local. Production WordPress is separate; the preview retains noindex,nofollow.
 
 ## Visual evidence
 
