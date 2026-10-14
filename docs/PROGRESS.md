@@ -1,5 +1,9 @@
 # Progress and release record
 
+## Production root preparation — 14 October 2026
+
+Owner requested preparation for `https://arayainternusa.co.id/`. Read-only cPanel inspection verified `public_html` and the PHP entry-point redirect to `araya/`; SSH/Terminal/Git interfaces are available, but external SSH and the activation layout remain unverified. Added an isolated production build, target-aware indexing/canonical/OG/schema/sitemap checks, publication allowlist, ZIP/checksum/provenance packaging, and CI checks/artifact retention before preview deployment. No live upload workflow or credentials were enabled. [Deployment findings and runbook](PRODUCTION-DEPLOYMENT.md); [implementation plan](PRODUCTION-PLAN-2026-10-14.md). Local production tests (5), existing experience tests (6), loading tests (3), counter/date checks and both target validators pass. Independent review caught the preview crawl/noindex interaction and generated-date source-provenance issue; both fixed and re-reviewed with no remaining major finding. No PR-triggered workflows remain. Production WordPress remains unchanged.
+
 ## Final service-sector repetition cleanup — 14 October 2026
 
 Removed the missed per-sector Noris/ComAp promotions, What to send us lists and Discuss work buttons from all three service disclosures. All 30 service scopes remain; Brand Partners and final Contact are shared once. Regression test first failed in each sector and now passes; browser confirms zero repeated action blocks. [Details and evidence](SERVICE-SECTOR-CLEANUP-2026-10-14.md). Published release [3aecf59](https://github.com/hakiimm8/arayaweb/commit/3aecf59c63a5e53bf56404fab648a031f1c11958); [Pages deployment](https://github.com/hakiimm8/arayaweb/actions/runs/38511742944) succeeded. Published homepage matches the artifact and all three sector-removal checks pass.

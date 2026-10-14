@@ -4,6 +4,8 @@ from html import escape
 from urllib.parse import quote
 import json
 import hashlib
+import argparse
+import shutil
 from datetime import datetime, timezone, timedelta
 from brand_profiles import BRANDS
 from brand_pages import brand_content
@@ -16,6 +18,7 @@ CURRENT_YEAR = datetime.now(timezone(timedelta(hours=7))).year
 COMPANY_AGE = CURRENT_YEAR - 2009
 BASE = "https://hakiimm8.github.io/arayaweb/"
 PRODUCTION = "https://arayainternusa.co.id/araya/"
+ROBOTS = "noindex, nofollow"
 ARROW = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg>'
 def asset_version(name):
     # Normalise line endings so Windows (CRLF) and Linux checkouts produce identical output.
@@ -80,7 +83,7 @@ def shell(title, description, content, route="", schema=()):
   <script>document.documentElement.classList.add('js')</script>
   <title>{escape(title)}</title>
   <meta name="description" content="{escape(description, quote=True)}">
-  <meta name="robots" content="noindex, nofollow">
+  <meta name="robots" content="{ROBOTS}">
   <meta name="theme-color" content="#1e2023">
   <link rel="canonical" href="{BASE}{route}">
   <meta property="og:site_name" content="PT Araya Internusa">
@@ -171,6 +174,8 @@ def legacy_service_page(key, service):
     content = f'<section class="section"><div class="container"><h1>{escape(service["name"])} services</h1><p class="lead">Our engineering services are on the main Araya page.</p><a class="button" href="{target}">View {escape(service["short"])} services {ARROW}</a></div></section>'
     html = shell(service['title'], service['description'], content, key + '/')
     html = html.replace(f'<link rel="canonical" href="{BASE}{key}/">', f'<link rel="canonical" href="{BASE}">')
+    if ROBOTS == 'index, follow':
+        html = html.replace('content="index, follow"', 'content="noindex, follow"')
     config = json.dumps(legacy_targets(key, service))
     return html.replace('</body>', f'<script type="application/json" id="legacy-service-targets">{config}</script><script src="../assets/service-redirect.js?v={REDIRECT_VERSION}" defer></script></body>')
 
@@ -182,6 +187,22 @@ def write(route, html):
 
 
 def main():
+    global PUBLIC, BASE, PRODUCTION, ROBOTS
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--target', choices=('preview', 'production'), default='preview')
+    args = parser.parse_args()
+    if args.target == 'production':
+        BASE = PRODUCTION = 'https://arayainternusa.co.id/'
+        ROBOTS = 'index, follow'
+        source = PUBLIC / 'assets'
+        PUBLIC = ROOT / 'dist/production'
+        if (not PUBLIC.resolve().is_relative_to(ROOT.resolve()) or PUBLIC.parent.is_symlink()
+                or PUBLIC.is_symlink() or source.is_symlink()
+                or any(p.is_symlink() for p in source.rglob('*'))
+                or any(p.is_symlink() for p in PUBLIC.rglob('*'))):
+            raise ValueError('Build paths must not contain symlinks')
+        PUBLIC.mkdir(parents=True, exist_ok=True)
+        shutil.copytree(source, PUBLIC / 'assets', dirs_exist_ok=True)
     routes = [""]
     website = {"@type": "WebSite", "@id": BASE + "#website", "name": "PT Araya Internusa", "url": BASE, "publisher": {"@id": BASE + "#organization"}}
     service_schema = [{"@type": "Service", "name": service["name"] + " engineering services", "serviceType": service["name"], "url": BASE + "#" + key + "-services", "provider": {"@id": BASE + "#organization"}, "areaServed": {"@type": "Country", "name": "Indonesia"}, "description": service["description"]} for key, service in SERVICES.items()]
@@ -196,7 +217,10 @@ def main():
         routes.append(key + '/')
     urls = ''.join(f'<url><loc>{BASE}{route}</loc><lastmod>{datetime.now(timezone(timedelta(hours=7))).date().isoformat()}</lastmod></url>' for route in routes)
     (PUBLIC / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>\n', encoding="utf-8")
-    print(f"Built {len(routes)} content pages, 3 legacy service redirects and sitemap.xml.")
+    # Crawlers must be able to read the preview's noindex meta tags.
+    robots = f'User-agent: *\nAllow: /\nSitemap: {BASE}sitemap.xml\n' if args.target == 'production' else 'User-agent: *\nAllow: /\n'
+    (PUBLIC / 'robots.txt').write_text(robots, encoding='utf-8')
+    print(f"Built {args.target}: {len(routes)} content pages, 3 legacy service redirects, sitemap.xml and robots.txt.")
 
 
 if __name__ == "__main__":

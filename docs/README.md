@@ -2,6 +2,8 @@
 
 Updated 14 October 2026, Asia/Jakarta.
 
+- [Production deployment preparation](PRODUCTION-DEPLOYMENT.md): verified root redirect, target-aware build/CI package, recommended SSH promotion, backup/cutover/rollback gates and remaining access setup. Live production has not been switched.
+
 - [Service-sector repetition cleanup](SERVICE-SECTOR-CLEANUP-2026-10-14.md): remove repeated brand promotions, checklists and CTA buttons from all three sectors.
 - [Loading, counters and original branding](LOADING-COUNTERS-AND-BRANDING-2026-10-14.md): image discovery, lighter entrances, counting/New Year behavior, original logo provenance and tab branding.
 - [Simplified brand pages, motion and owner corrections](BRAND-SIMPLIFICATION-AND-MOTION-2026-10-14.md): current product grouping, two-part ComAp guide, final-section CTA, column order and animation.

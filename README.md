@@ -20,6 +20,12 @@ Start with the [documentation index](docs/README.md), [progress/release record](
 
 The build templates require Python 3.12 or newer.
 
+## Production preparation
+
+Target domain: `https://arayainternusa.co.id/`. Run `python tools/build.py --target production`, `python tools/check.py --target production` and `python tools/package_release.py` to create an isolated production ZIP and checksum manifest under ignored `dist/`. The main GitHub Actions workflow validates both targets and retains the production candidate before publishing the noindex preview. It does not upload to the real hosting account.
+
+Read the [deployment runbook](docs/PRODUCTION-DEPLOYMENT.md) for the SSH recommendation, verified root redirect, first-cutover and rollback requirements. Production WordPress remains unchanged until a separately approved live cutover.
+
 Current structure and automatic years: [implementation notes](docs/LANDING-AND-DATES-2026-10-14.md). Date regression checks: node tools/test_company_dates.cjs.
 
 To preview locally, serve `public/` with a static HTTP server. WordPress and PHP are not required for this preview.

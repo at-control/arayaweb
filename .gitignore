@@ -7,3 +7,4 @@ Thumbs.db
 
 # Local source extraction and one-off asset tooling; never deploy or publish.
 tmp/
+dist/

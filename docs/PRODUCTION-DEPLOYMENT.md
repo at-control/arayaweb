@@ -1,0 +1,110 @@
+# Production deployment: arayainternusa.co.id
+
+Prepared 14 October 2026, Asia/Jakarta. **Status: production package and CI preparation; live cutover has not been performed.**
+
+## Recommended workflow
+
+1. Edit templates/assets and commit to `main`.
+2. GitHub Actions builds and checks the noindex preview, runs content/loading/counter/date regressions, builds an isolated production target and checks its SEO metadata and file safety.
+3. The same run retains `araya-production-<commit SHA>` containing a ZIP and SHA-256/provenance manifest, then publishes the preview to GitHub Pages.
+4. Review that preview. Promote the checked production package to Rumahweb using SSH/SFTP, initially through a manually triggered production workflow with a `production` GitHub environment and serialized deployments.
+5. Verify the live root, brand pages, images, navigation, contacts, redirects and indexing. Retain the previous release for rollback.
+
+**Steps 1–3 are implemented in this repository. Steps 4–5 are the proposed production deployment, pending access, backup and server-layout verification.** There is currently no workflow that uploads to or activates production. No hosting credentials are stored in this repository.
+
+GitHub builds the static site; Rumahweb serves the resulting HTML/CSS/JavaScript. The optional Linux VM is unnecessary for this site. Do not introduce a self-hosted runner on the hosting account just to upload static files.
+
+## Hosting findings — directly observed
+
+Read-only inspection of the owner's open Rumahweb cPanel session confirmed:
+
+- Main domain: `arayainternusa.co.id`; document root: the account's `public_html`.
+- SSL certificate is active. cPanel's Force HTTPS Redirect switch is off; existing server/hidden-file HTTPS behavior still needs checking before deciding on a change.
+- SSH Access, Terminal, Git Version Control, FTP Accounts, Backup, Backup Wizard and file restoration interfaces are present. Their presence does **not** prove external SSH connectivity, the SSH port, rsync availability or permission to use a particular deployment layout.
+- `public_html` contains the existing `araya` WordPress directory and a 44-byte root `index.php`.
+- Viewed root `index.php` reads `header("Location: araya/"); exit;`. This explains the root-to-subdirectory redirect. A new `index.html` alone may not take precedence.
+- No files, credentials, DNS, keys, permissions or live configuration were changed during inspection.
+
+Actual account paths belong in private deployment configuration. Older local notes contain a different account-name spelling; re-read the current panel/SSH path when configuring deployment rather than copying those notes.
+
+## Upload options
+
+| Option | Assessment |
+| --- | --- |
+| GitHub Actions → SSH/SFTP to Rumahweb | Recommended, once real connectivity is verified. Build/test once, transfer the checked artifact, preserve release provenance and rollback. Use rsync only if installed and only within a dedicated release directory. |
+| cPanel Git Version Control | Available as a fallback. Deployment requires a checked-in `.cpanel.yml`, clean worktree and appropriate shell/access setup. Never clone the whole repository into the public document root or copy it there with a wildcard. |
+| File Manager ZIP upload | Useful for an initial supervised upload or recovery, but manual work does not provide repeatable CI/CD. Extract the ZIP into a private staging directory first. |
+| FTPS | Fallback if SSH cannot be enabled. Use TLS and certificate verification; plain FTP is unsuitable for credentials/deployment traffic. File-by-file replacement also needs an explicit backup and activation strategy. |
+
+The recommendation uses [cPanel's supported SSH/key facilities](https://docs.cpanel.net/cpanel/security/ssh-access/) and separates deployment from [cPanel Git deployment](https://docs.cpanel.net/knowledge-base/web-services/guide-to-git-deployment/). Rumahweb describes plan-dependent availability in its [SSH hosting guide](https://www.rumahweb.com/journal/cara-menggunakan-ssh-di-hosting/).
+
+## Prepared build and package
+
+From the repository directory:
+
+```text
+python tools/build.py
+python tools/check.py
+python tools/test_experience.py
+python tools/test_loading.py
+node tools/test_counters.cjs
+node tools/test_company_dates.cjs
+python tools/test_production.py
+python tools/package_release.py
+```
+
+`python tools/build.py --target production` generates `dist/production/`; the production regression command above also runs that build. The production build copies the site's static assets and writes fresh pages; it does not overwrite `public/` and does not delete arbitrary files. Unexpected/stale files fail validation rather than being silently uploaded.
+
+- `public/`: GitHub Pages preview; `noindex, nofollow`; preview canonical/OG/sitemap URLs. Preview robots permits crawling so search engines can read the noindex meta tags, following [Google's noindex guidance](https://developers.google.com/search/docs/crawling-indexing/block-indexing).
+- `dist/production/`: root-domain canonical/OG/structured-data/sitemap URLs. Home, Noris and ComAp are `index, follow`. The three compatibility service routes are `noindex, follow`, canonical to the homepage, and retain their hash redirects. Production robots allows crawling and identifies the root sitemap.
+- `dist/araya-production.zip`: site files at the ZIP root, ready for staging. Includes the font licence. Excludes repository metadata, tools, docs, deployment secrets, backups and PHP/WordPress files.
+- `dist/release.json`: source commit, `source_tree_dirty`, raw `working_tree_dirty`, UTC build time, archive SHA-256 and individual file SHA-256 values. Source cleanliness excludes only the eight generated preview HTML/discovery files; templates, assets, docs, workflows and untracked source edits still count. The raw working-tree flag can be true solely because build dates changed generated pages. Keep the manifest with the release record outside the public document root.
+- `dist/` is ignored by Git. The package is generated by CI; do not commit binary release archives.
+
+Local packages built from uncommitted source edits have `source_tree_dirty: true` and are review candidates. Promote a successful CI package with `source_tree_dirty: false` from a reviewed `main` commit for the real release. The artifact is retained for 14 days; preserve the chosen package and manifest in private release storage before expiry. Rebuild/test a new package if the selected artifact has expired. CI provenance is evidence of which source was built, not a guarantee of server compatibility.
+
+## Production workflow activation requirements
+
+Prepare these settings only after owner authorization to grant deployment access:
+
+| GitHub environment setting | Purpose |
+| --- | --- |
+| `PRODUCTION_SSH_HOST` | Provider-confirmed SSH host; a cPanel browser URL is not an SSH endpoint. |
+| `PRODUCTION_SSH_PORT` | Provider-confirmed SSH port; do not assume the cPanel HTTPS port. |
+| `PRODUCTION_SSH_USER` | Deployment identity with the smallest access the provider supports. |
+| `PRODUCTION_SSH_KEY` | Dedicated private key as an environment secret; never paste it into chat or commit it. |
+| `PRODUCTION_KNOWN_HOSTS` | Host key independently verified against Rumahweb, with strict host-key checking enabled. Do not blindly trust an unverified `ssh-keyscan` result. |
+| `PRODUCTION_RELEASE_ROOT` | Verified private release directory outside `public_html`. |
+| Activation configuration | Exact approved document-root/entry-point configuration, discovered from the real account. |
+
+The production job should be manual at first, restricted to main, use a single `production` concurrency group with `cancel-in-progress: false`, and consume an immutable successful build from this repository's main workflow. Verify the build's repository, workflow, conclusion, branch, source SHA, `source_tree_dirty: false`, archive checksum and every staged file checksum before activation. Do not rebuild a different commit after approval or select an artifact by a mutable name such as "latest".
+
+Use a GitHub `production` environment to scope secrets and branch restrictions; enable required reviewers if the account/repository plan supports them. [GitHub documents environment protections and their availability](https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments). No production environment or credentials have been created in this preparation.
+
+The final activation script must validate resolved paths and reject a release/document root outside its configured account directories. If permitted, keep versioned release directories and switch a verified symlink atomically. **Symlink support and main-domain document-root behavior are unverified**; do not assume cPanel allows replacing the main document root. If unavailable, use a supervised staged copy with per-file rollback and an explicit managed-file manifest. Never run `rsync --delete` against the whole `public_html` or the hosting home directory.
+
+## First cutover runbook
+
+These are pending operational steps, not actions already performed:
+
+1. Confirm SSH login, host key, effective user/home, document root, disk headroom, available transfer tools and permissions. Inspect hidden root and WordPress `.htaccess`, symlinks, DirectoryIndex order, HTTPS/www handling and any verification files. Keep all connection details private.
+2. Make a current full file backup **and WordPress database backup**. Store/download them outside the web-accessible document root. Verify archive contents and a usable restoration procedure. Existing archives alone do not prove a current complete backup.
+3. Inventory the old site's actual public URLs, PDFs and linked media. Public crawler access to the root robots and WordPress sitemap could not be confirmed during this session; the URL inventory remains a cutover prerequisite. Obtain it through the current WordPress/admin/files or Search Console if necessary.
+4. Write explicit 301 mappings from the actual legacy URLs to the relevant new content. At minimum the old `/araya/` landing page will map to `/`. Map service URLs to their corresponding homepage sections; keep useful brand destinations distinct. Do not redirect every old path blindly to `/`: assets/downloads/admin routes need separate handling. Retain the previous WordPress files privately or otherwise prevent duplicate indexing after cutover.
+5. Download the approved CI package and manifest; verify checksums. Upload/extract only the package into the confirmed private staging/release directory. Do not upload the repository or backup archives to the public root.
+6. Review a protected staged copy and test the intended server configuration. If exposed at a staging URL, protect it from indexing separately; the production package itself is intentionally indexable. Verify no mail/account files are in the managed deployment set.
+7. At an agreed cutover, back up the exact existing root entry point and hidden configuration privately. Apply the approved entry-point change so root serves the static site instead of redirecting to WordPress. Merge necessary HTTPS/DirectoryIndex/redirect directives with existing provider settings; do not overwrite `.htaccess` blindly. Uploading `index.html` alone is insufficient evidence of activation.
+8. Verify HTTPS root and `/noris/`, `/comap/`, CSS/fonts/images, mobile navigation, final contact destinations, old-link 301s, canonical/OG/JSON-LD, robots and sitemap. Verify that missing URLs return a real 404 and that no redirect loop or old noindex header remains. Do not send a test WhatsApp message or email without authorization.
+9. Keep the old release and database backup available. Submit the production sitemap in the owner's Search Console after successful cutover; DNS and email records should not need a change when retaining Rumahweb hosting. Server-side performance and caching must be checked on Rumahweb after deployment; preview timing is not a production measurement.
+
+## Rollback
+
+Before activation, record the exact previous root entry point, hidden configuration, deployment-owned files and release destination. If the new root fails, restore that entry point/configuration (including the old redirect if restoring WordPress), switch back the previous release where supported, and undo only the files owned by this deployment. Restore WordPress files/database only if they were actually changed; the static deployment should not write to its database. Re-test the old home/brand links and SSL before closing the incident.
+
+No general recursive-delete command or guessed server path is supplied here. The tested rollback commands must be filled in from the verified layout before the first real deployment.
+
+## Actions policy and verification
+
+`.github/workflows/pages.yml` is the only active workflow. It runs on `push` to `main` or manual dispatch, with a main-only job guard. It has no PR event triggers and does not upload to Rumahweb. Validation and production packaging precede preview publication, so a failure stops publication. Do not add skip-CI text to merge commits; default-branch checks/deployment should run normally.
+
+Fresh verification results and published preparation commit/run are recorded in `PROGRESS.md` after review. Implementation plan: [PRODUCTION-PLAN-2026-10-14.md](PRODUCTION-PLAN-2026-10-14.md).

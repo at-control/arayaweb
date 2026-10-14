@@ -1,4 +1,4 @@
-name: Publish preview to GitHub Pages
+name: Check website and publish preview
 on:
   push:
     branches: [main]
@@ -12,12 +12,42 @@ concurrency:
   cancel-in-progress: false
 jobs:
   deploy:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build and validate preview
+        run: |
+          python tools/build.py
+          python tools/check.py
+          python tools/test_experience.py
+          python tools/test_loading.py
+          node --check public/assets/site.js
+          node tools/test_counters.cjs
+          node tools/test_company_dates.cjs
+      - name: Validate and package production candidate
+        run: |
+          python tools/test_production.py
+          python tools/package_release.py
+          python -c "import json; r=json.load(open('dist/release.json')); assert not r['source_tree_dirty'], 'Production source tree changed during CI'"
+      - name: Retain production package for reviewed promotion
+        uses: actions/upload-artifact@v4
+        with:
+          name: araya-production-${{ github.sha }}
+          path: |
+            dist/araya-production.zip
+            dist/release.json
+          if-no-files-found: error
+          retention-days: 14
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
