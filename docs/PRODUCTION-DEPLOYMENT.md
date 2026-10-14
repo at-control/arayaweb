@@ -1,6 +1,24 @@
 # Production deployment: arayainternusa.co.id
 
-Prepared 14 October 2026, Asia/Jakarta. **Status: production package and CI preparation; live cutover has not been performed.**
+Prepared 14 October 2026, Asia/Jakarta. **Status: production package manually staged and verified in a private hosting directory; live cutover has not been performed.**
+
+## Hosting continuation — 14 October 2026
+
+Browser control recovered after the connection failure. The cPanel Terminal works. Git, tar, unzip, SHA-256 tools, SFTP/SCP, PHP, WordPress CLI and mysqldump are available in the account shell; rsync and Python were not found on its PATH. Use an SSH/SFTP or SCP package transfer rather than assuming rsync is installed.
+
+- Created a private backup directory outside the web root with permissions 0700; backup files are 0600. Archived the complete active WordPress directory, root PHP entry point and `.well-known` validation files. The archive is 748,150,974 bytes, creation exited 0 and a full archive read exited 0. Downloaded it to the owner's computer and verified its SHA-256 against the server value.
+- Downloaded the WordPress database through cPanel Backup. Gzip integrity passes; the dump contains 62 CREATE TABLE statements, matching the live database's 62 tables. Local compressed size is 10,881,928 bytes. No SQL data or WordPress configuration was committed to Git.
+- Tested extracting the backed-up root entry point and WordPress `.htaccess` into a separate private restore-check folder; both recovered files match the live originals by SHA-256. A complete database import/whole-site restore rehearsal has not been performed. Unrelated untouched root directories and old ZIP archives were not duplicated into this active-site backup; this is not a full mail/hosting-account backup.
+- WordPress CLI `db export` failed because PHP `proc_open`/`proc_close` are disabled. Used cPanel's supported database backup instead; PHP restrictions remain unchanged.
+- Exported the actual published page/post URLs: 58 pages and 7 posts. Inventory includes real service/about/contact pages plus shop/cart/checkout, sample pages, theme element pages and dated theme articles. Review these individually; likely demo content should not receive unrelated homepage redirects. The full inventory and proposed classifications are retained privately outside the repository; no existing pages were deleted or changed.
+- Root deployment destinations (`assets`, `noris`, `comap`, `index.html`, `robots.txt`, `sitemap.xml`) did not exist at inspection. No root `.htaccess` appeared in the full directory listing. The WordPress subdirectory uses `RewriteBase /araya/` and WordPress/LiteSpeed directives. Preserve the SSL validation directory and unrelated root folders.
+- Rumahweb's [current SSH guide](https://www.rumahweb.com/journal/cara-menggunakan-ssh-di-hosting/) specifies port **2223**. Recorded the server's RSA/Ed25519 public host keys from loopback through the authenticated cPanel Terminal. A strict-host-key SSH handshake from the owner's computer accepted those pinned keys and reached authentication on port 2223; with credentials deliberately disabled it returned Permission denied. Key authentication is not configured yet.
+- The Windows OpenSSH `ssh-keyscan` utility failed with an unsupported hybrid KEX error. The connection check used the authenticated-server host keys and modern `curve25519-sha256` key exchange with strict host-key checking; no host-key or certificate validation was disabled.
+- Manually uploaded the clean CI package for commit `f66ada91a4c19c82adf283d27db3f7e99893ab64` into a private incoming directory and extracted a private release. Verified its archive SHA-256 against the independently downloaded CI manifest, then verified all **65 extracted file hashes** on the server. Archive SHA-256: `7029d22b00d6ac3b498d38628f7b05477b22913af556b91c79df47dc8f5276b1`.
+- No files in the live document root were replaced, no redirect/HTTPS/DNS/email configuration changed, and no public staging URL was created. The existing WordPress site remains live.
+- Prepared a dedicated public-key import form; no Import/Authorize action has been submitted and no private key was pasted into cPanel. Asked the owner for the confirmation required to grant GitHub Actions hosting access and store the private key as a GitHub production secret. No production deployment workflow has been enabled.
+
+Private paths, backup manifests, URL inventory, deployment key and administrative screenshots remain in the owner's local workspace, outside the public Git repository. This section supersedes the earlier unverified Terminal/port/backup statements below; pending cutover gates still apply.
 
 ## Recommended workflow
 
