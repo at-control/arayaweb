@@ -9,7 +9,7 @@ import shutil
 from datetime import datetime, timezone, timedelta
 from brand_profiles import BRANDS
 from brand_pages import brand_content
-from site_content import SERVICES, CLIENTS, BRAND_GROUPS
+from site_content import SERVICES, CLIENTS, BRAND_GROUPS, WORK_PHOTOS
 from landing_services import service_details, legacy_targets
 from ui_components import srcset
 
@@ -131,6 +131,7 @@ def shell(title, description, content, route="", schema=()):
 
 def home():
     service_sections = ''.join(service_details(key, service) for key, service in SERVICES.items())
+    work_photos = ''.join(f'''<figure class="work-photo"><img src="./assets/images/{photo['stem']}-1280.webp" srcset="{srcset(((photo['stem'] + '-800.webp', 800), (photo['stem'] + '-1280.webp', 1280)))}" sizes="(max-width: 680px) calc(100vw - 40px), (max-width: 1200px) calc((100vw - 92px) / 2), 604px" alt="{escape(photo['alt'], quote=True)}" width="{photo['width']}" height="{photo['height']}" loading="lazy" fetchpriority="low" decoding="async"><figcaption><h4>{escape(photo['title'])}</h4><p>{escape(photo['caption'])}</p></figcaption></figure>''' for photo in WORK_PHOTOS)
     # Not lazy-loaded: logos clipped sideways inside the scrolling strip would never load.
     clients = ''.join(f'<li><img{' class="is-emblem"' if c.get("emblem") else ''} src="./assets/images/{c["logo"]}" alt="{escape(c["name"], quote=True)}" width="{c["width"]}" height="{c["height"]}" fetchpriority="low" decoding="async"></li>' for c in CLIENTS)
     groups = ''.join(f'<div><h4>{escape(title)}</h4><p>{escape(" · ".join(brands))}</p></div>' for title, brands in BRAND_GROUPS)
@@ -149,6 +150,7 @@ def home():
 <section class="section section-muted" id="services"><div class="container">
   <div class="section-heading"><div><p class="eyebrow">WHAT WE DO</p><h2>Our services</h2></div><p>Supply, repair, upgrade and retrofit for marine and industrial systems.</p></div>
   <div class="landing-services">{service_sections}</div>
+  <div class="work-gallery" id="engineering-work"><div class="section-heading"><div><p class="eyebrow">ARAYA AT WORK</p><h3>Engineering in action</h3></div><p>A closer look at our work on machinery and electrical systems.</p></div><div class="work-photo-grid">{work_photos}</div></div>
 </div></section>
 <section class="section projects" id="clients"><div class="container">
   <div class="section-heading"><div><p class="eyebrow">OUR CLIENTS</p><h2>Clients who<br>trust Araya.</h2></div><p>Organisations that trust PT Araya Internusa with their engineering and automation work.</p></div>

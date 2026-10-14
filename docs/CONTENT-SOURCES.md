@@ -1,5 +1,9 @@
 # Project scopes and brand details
 
+## Owner work photographs — 14 October 2026
+
+Owner supplied `003.jpg` and `IMG_3859.JPG` for the landing page. They show engine-room machinery work and onboard electrical switchboard review. Published as responsive WebP derivatives with factual captions; no vessel, customer or project-date claims. Original files are retained outside Git. The existing marine, industrial and control-room photographs now lead large service features, with detailed scope text available below. [Asset provenance, sizes and verification](WORK-PHOTOS-2026-10-14.md).
+
 Additional owner-supplied NORINET brochure research was recorded on 9 October 2026 in [NORINET research](NORINET-RESEARCH.md). The two-page document's printed footer is V01.02, October 2019, despite the supplied V01.01 filename. Its screenshots and network diagram were reviewed and compared with the current official remote-access/telemetry page. This record does not add a NORINET website section or a new Araya capability claim.
 
 Checked 8 October 2026 (Asia/Jakarta).

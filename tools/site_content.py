@@ -14,6 +14,17 @@ CLIENTS = [
     {'name': 'PT Armada Cakrawala Esa', 'logo': 'client-armada-cakrawala-esa.webp', 'width': 179, 'height': 53},
 ]
 
+# Owner-provided photos, 14 October 2026. Captions describe the visible work;
+# project/vessel names and exact job scope have not been supplied.
+WORK_PHOTOS = [
+    {'stem': 'work-engine-room', 'width': 1280, 'height': 596,
+     'title': 'Marine machinery', 'caption': 'Engineering work in the engine room.',
+     'alt': 'Araya personnel working around machinery in a vessel’s engine room'},
+    {'stem': 'work-switchboard', 'width': 1280, 'height': 960,
+     'title': 'Electrical systems', 'caption': 'Onboard switchboard inspection and technical review.',
+     'alt': 'Araya personnel reviewing an onboard electrical switchboard'},
+]
+
 # label, service page, anchor on that page
 CAPABILITIES = [
     ('Fire alarm & monitoring', 'marine', 'alarms'),

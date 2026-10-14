@@ -1,5 +1,9 @@
 # Progress and release record
 
+## Photo-led landing page — 14 October 2026
+
+Owner requested larger service photographs and more pictures than text on the landing page. Services now have large visible pictures and brief introductions, with all 30 scope descriptions retained in collapsed native disclosures. Added the two owner-supplied engine-room/switchboard photographs in matching orange-accented cards. Responsive WebP variants total about 102KB for the two smaller candidates, with lazy loading. Desktop, 390px and 355px browser checks confirm contained layouts, loaded pictures, keyboard disclosure and preserved deep links. Local validation and regression checks pass. [Sources, asset sizes, layout and evidence](WORK-PHOTOS-2026-10-14.md). Preview publication pending; production unchanged.
+
 ## Hierarchy, mobile and navbar fixes — 14 October 2026
 
 Owner approved implementation of the complete review. Consolidated service entry layers into three photo-illustrated disclosures, retained all 30 scopes/legacy anchors, added semantic headings and consistent chevrons, and moved About's title before its photo. Brand profiles now precede Contents; Applications/Products headings are direct, Noris group/product levels are distinct, explanations precede diagrams and equipment briefs are compact. Mobile logo grid is regular; header stays in one row and its measured offset is independent of page-index. Navbar tracks current section, page-end Contact and current/future brand identity. Local regression suite and desktop/mobile/narrow-mobile browser checks pass. Independent review findings fixed and covered by tests; no deferred findings. [Implementation, checks and evidence](HIERARCHY-FIXES-2026-10-14.md).

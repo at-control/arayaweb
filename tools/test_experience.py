@@ -70,7 +70,7 @@ class ExperienceTests(unittest.TestCase):
         html = (PUBLIC / 'index.html').read_text(encoding='utf-8')
         for key, service in SERVICES.items():
             with self.subTest(sector=key):
-                block = re.search(rf'<details class="service-detail" id="{key}-services">.*?</details>', html, re.S).group()
+                block = re.search(rf'<article class="service-feature" id="{key}-services".*?</details></article>', html, re.S).group()
                 self.assertEqual(Links(html=block).links, [])
                 self.assertNotIn('What to send us', block)
                 self.assertNotIn('service-brand-links', block)

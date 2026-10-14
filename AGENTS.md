@@ -1,5 +1,7 @@
 # Araya website conventions
 
+- Photo-led landing update, 14 October: service photos and short introductions remain visible; full scopes are collapsed native details below. Preserve all scope/equipment IDs and deep-link expansion. Owner work photos use responsive WebP variants; keep originals outside Git and captions factual. Do not restore small service thumbnails beside long visible lists.
+
 - Preserve the established orange, charcoal and white design, Space Grotesk typography, original Araya logo and engineering photography.
 - Company positioning must emphasise professional engineering experience, certification and international technical backing. Do not use standardised/standardized as company positioning. Do not describe Araya as "local engineers", "local talent", an "Indonesian team" or similar positioning. Geographic coverage and office location remain useful facts. Technical terms such as local SCADA or local/remote control are unaffected.
 - The reference site's Experts block supports technical backing from HIT, Noris Automation and ComAp. Do not imply accreditation, exclusivity or certification from that relationship.

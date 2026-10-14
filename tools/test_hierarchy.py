@@ -14,8 +14,10 @@ class HierarchyTests(unittest.TestCase):
         self.assertNotIn('Explore our services', html)
         self.assertNotIn('class="service-card"', html)
         for key, data in SERVICES.items():
-            block = re.search(rf'<details class="service-detail" id="{key}-services">.*?</details>', html, re.S).group()
-            self.assertRegex(block, r'<summary>.*?<h3[^>]*>')
+            block = re.search(rf'<article class="service-feature" id="{key}-services".*?</details></article>', html, re.S).group()
+            self.assertIn(f'<h3 id="{key}-heading">', block)
+            self.assertLess(block.index('class="service-photo"'), block.index('<h3'))
+            self.assertIn(f'<details class="service-detail" id="{key}-details">', block)
             self.assertEqual(block.count('class="scope-detail"'), len(data['groups']))
             self.assertIn(data['card_image'], block)
             self.assertIn(f'id="{key}-equipment"', block)
