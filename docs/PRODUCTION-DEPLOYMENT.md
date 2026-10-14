@@ -1,6 +1,6 @@
 # Production deployment: arayainternusa.co.id
 
-Prepared 14 October 2026, Asia/Jakarta. **Status: owner-approved SSH and GitHub production secrets configured; manual private staging workflow ready for its first run. Live cutover has not been performed.**
+Prepared 14 October 2026, Asia/Jakarta. **Status: owner-approved SSH and GitHub production secrets configured; manual private staging workflow tested successfully. Live cutover has not been performed.**
 
 ## Hosting continuation — 14 October 2026
 
@@ -138,4 +138,4 @@ Fresh verification results and published preparation commit/run are recorded in 
 
 The dedicated SSH key has hosting-account shell/file access. GitHub environment scoping and branch restriction govern workflow access to it; the key itself is not restricted to staging paths by the provider. To revoke it, deauthorize the dedicated key in cPanel and remove/rotate the GitHub environment key secret. Keep private backups and host-key evidence outside Git.
 
-Checks: six release-candidate regression tests passed; Bash syntax passed; independent critical review found no blocking or major issues. See [staging plan and evidence](PRODUCTION-SSH-PLAN-2026-10-14.md). First end-to-end run evidence will be recorded after execution.
+Checks: six release-candidate regression tests passed; Bash syntax passed; independent critical review found no blocking or major issues. [Staging run 38536832005](https://github.com/hakiimm8/arayaweb/actions/runs/38536832005) successfully uploaded the clean package from [build 38536680421](https://github.com/hakiimm8/arayaweb/actions/runs/38536680421), commit `4a5ed21`. Independent local/SSH readback confirmed matching ZIP/manifest hashes, 0700 staging permissions and unchanged live entry point. See [full staging evidence](PRODUCTION-SSH-PLAN-2026-10-14.md#end-to-end-result).
