@@ -147,7 +147,6 @@ def home():
   <div class="about-media"><img src="./assets/images/team.webp" alt="Araya technicians working together in a vessel’s engine room" width="600" height="600" loading="eager" fetchpriority="low" decoding="async"><div class="since"><strong>2009</strong><span>Where our story began</span></div></div>
   <div class="about-copy"><p class="lead">Professional engineering for marine and industrial systems, backed by certification and international technical expertise.</p><p>Founded in 2009 by Arif Fatkur Rohman, PT Araya Internusa brings together repair, modification, upgrade and retrofit experience. International technical backing includes HIT (Haven- und Industrietechnik GmbH), Noris Automation and ComAp.</p><p>Araya serves projects across Sumatra, Jawa, Kalimantan, Sulawesi and Papua, with branch offices in Sidoarjo and Jakarta. We also extend the life of obsolete or end-of-sale equipment with practical, reliable solutions.</p><div class="scope-list"><span>Marine</span><span>Industrial</span><span>Automation &amp; electrical</span></div><p class="working-practice"><strong>Certified &amp; experienced</strong><br>Professional engineering experience, backed by certification and international technical support.</p></div>
 </div></section>
-<section class="section leadership" id="leadership" aria-labelledby="leadership-heading"><div class="container"><div class="section-heading"><div><p class="eyebrow">OUR PEOPLE</p><h2 id="leadership-heading">Leadership &amp; management.</h2></div></div><div class="leadership-grid">{leadership}</div></div></section>
 <section class="section section-muted" id="services"><div class="container">
   <div class="section-heading"><div><p class="eyebrow">WHAT WE DO</p><h2>Our services</h2></div><p>Supply, repair, upgrade and retrofit for marine and industrial systems.</p></div>
   <div class="landing-services">{service_sections}</div>
@@ -165,7 +164,8 @@ def home():
     <article class="brand-panel"><div class="brand-name">ComAp<span>{escape(BRANDS["comap"]["legal_name"])}</span></div><h3>Engine control.<br>Power management.<br>Load sharing.</h3><p>{escape(BRANDS['comap']['home_summary'])}</p><a class="text-link" href="./comap/">Explore ComAp in Indonesia {ARROW}</a></article>
   </div>
   <div class="equipment-brands"><h3>We also work on equipment from</h3><div class="equipment-brand-grid">{groups}</div><p class="equipment-more">and many more...</p></div>
-</div></section>'''
+</div></section>
+<section class="section leadership" id="leadership" aria-labelledby="leadership-heading"><div class="container"><div class="section-heading"><div><p class="eyebrow">OUR PEOPLE</p><h2 id="leadership-heading">Leadership &amp; management.</h2></div></div><div class="leadership-grid">{leadership}</div></div></section>'''
 
 
 def legacy_service_page(key, service):

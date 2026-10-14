@@ -10,7 +10,7 @@ The owner found the new service pictures too large and disproportionate, request
 - Service pictures now occupy about 32% of their inset feature row, rather than 60%, and are capped at 260px tall on desktop, 230px on tablets and 210px on mobile. At the checked 1309px desktop viewport the first picture is 370.5 × 260px, compared with the previous 743 × 495px at a wider viewport.
 - Added inset image framing, a soft off-white feature background, subtle card shadows and an orange rule beside each introduction. The existing orange/charcoal/white identity and sharp geometry remain.
 - All 30 service scopes remain in native disclosures, with column-first reading order and legacy scope/equipment bookmarks preserved.
-- Added a dedicated **Leadership & management** section between About and Services. Three equal portrait cards use the owner's earlier reference: orange edge accents, overlapping white name panels, clear roles and restrained shadows. No new menu choices, biographies, links or CTA buttons.
+- Added a dedicated **Leadership & management** section. The owner subsequently requested its placement immediately before **Get in Touch**, after Brand Partners & Equipment. Three equal portrait cards use the owner's earlier reference: orange edge accents, overlapping white name panels, clear roles and restrained shadows. No new menu choices, biographies, links or CTA buttons.
 
 ## Names, roles and photo provenance
 
