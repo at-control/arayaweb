@@ -1,5 +1,9 @@
 # Progress and release record
 
+## SEO analysis — 14 October 2026
+
+Reviewed the published new homepage/Noris/ComAp pages, source and freshly built production candidate, current WordPress homepage, manufacturer partner/contact sources and current Google guidance. Documented technical, metadata, content, images, local identity, migration and commercial-intent findings, manual readiness ratings and keyword themes for all 30 scopes. Confirmed intentional preview noindex; new design is not live at the company domain. Manufacturer sources checked do not independently establish Araya's current authorised appointment; absence is not evidence of non-authorisation. PageSpeed API returned 429, so no new performance score is asserted. [Full audit and recommendations](SEO-REVIEW-2026-10-14.md). Raw evidence retained privately; no website/hosting changes.
+
 ## Leadership placement — 14 October 2026
 
 Owner requested Leadership & management immediately before Get in Touch. Moved the existing three-portrait section after Brand Partners & Equipment, as the final homepage section before Contact. Names, roles, portrait styling and service content remain as verified. Source/build order checks and preview validation pass. Release [d6235ea](https://github.com/hakiimm8/arayaweb/commit/d6235ea55cc47da45480dd9dc3d75008eb426484) deployed successfully in [Pages run 38592995060](https://github.com/hakiimm8/arayaweb/actions/runs/38592995060), after a deployment delay. Published homepage matches the release and browser confirms leadership is the final main section immediately before Contact. Screenshot saved in the existing leadership evidence folder. Production unchanged.

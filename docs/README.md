@@ -2,6 +2,8 @@
 
 Updated 14 October 2026, Asia/Jakarta.
 
+- [SEO review: new design, distributor intent and every service](SEO-REVIEW-2026-10-14.md): current production versus noindex preview, technical/on-page findings, manual readiness ratings, brand authorisation evidence, 30-service keyword map and prioritised recommendations. Analysis only.
+
 - [Leadership and service-photo balance](LEADERSHIP-AND-SERVICE-BALANCE-2026-10-14.md): dedicated director/managers section, moderated service photos, visual depth and removal of the temporary work gallery. Supersedes the initial photo-led arrangement below.
 
 - [Photo-led landing page](WORK-PHOTOS-2026-10-14.md): larger service pictures, collapsed full scopes, two owner work-photo cards, responsive WebP preparation and desktop/mobile verification.
