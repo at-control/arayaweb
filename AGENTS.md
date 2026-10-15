@@ -1,5 +1,7 @@
 # Araya website conventions
 
+- Latest owner correction, 15 October: all 32 service-scope descriptions must be short and generic: one brief sentence describing the service, roughly 10–15 words. Remove extended assessment/process explanations and detailed model examples. This supersedes the earlier SEO expansion of these paragraphs; retain headings, anchors, actual service coverage and useful equipment terms.
+
 - Owner direction, 15 October: client logos slide continuously left on mobile as on desktop. Keep both identical tracks, hide the duplicated track from assistive technology, contain overflow inside the strip and retain the static grid only for reduced-motion preference. Mobile spacing is 48px with a 30-second loop; desktop remains unchanged.
 
 - Owner direction, 15 October production launch: deploy the static site at the company-domain root; no website database or company-profile download. Successful main pushes validate/package/publish preview then automatically promote production through pinned SSH. Keep main-only environment policy, no PR triggers, immutable releases outside the document root, exact HTTPS file checks and guarded rollback. Original WordPress files/database stay backed up; never delete them as part of a site release. Current deployment details: docs/PRODUCTION-LAUNCH-2026-10-15.md.

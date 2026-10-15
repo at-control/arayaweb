@@ -1,5 +1,9 @@
 # Progress and release record
 
+## Short generic service descriptions — 15 October 2026
+
+Owner requested concise generic copy across every service. Replaced all 32 scope paragraphs (12 marine, 8 industrial, 12 automation/electrical) with one sentence each, 9–14 words, removing extended assessment/process explanations and model examples. All headings, IDs, service coverage and category structure remain. This supersedes the earlier SEO paragraph expansion. Desktop and 390px browser review confirms shorter copy and no horizontal overflow; screenshots saved privately under `arayaweb/docs/evidence/short-service-copy-20261015/`. Static validator, experience (6), hierarchy (4), production (5) checks and JS syntax pass. Publication pending through normal main CI/CD.
+
 ## Mobile client logos slide left — 15 October 2026
 
 Owner confirmed the client-logo strip should animate on mobile like desktop. Extended the existing CSS-only marquee to mobile with 48px spacing and a 30-second continuous leftward loop. Desktop remains 38 seconds/72px; reduced-motion mode retains a readable grid and one accessible logo list. Browser checks at 390px, 355px and 1280px confirm moving transforms, equal contiguous track widths and no horizontal document overflow. Screenshots and measurements saved privately; viewport reset. [Implementation and evidence](MOBILE-CLIENT-LOGOS-2026-10-15.md). Source [b73fb8c](https://github.com/hakiimm8/arayaweb/commit/b73fb8ca13749f03801efcdaac5a2f0ec9d615d4) passed [CI/Pages 38669115057](https://github.com/hakiimm8/arayaweb/actions/runs/38669115057) and [automatic production 38669162639](https://github.com/hakiimm8/arayaweb/actions/runs/38669162639). Live mobile browser confirms the new stylesheet, both animated tracks, 30-second duration and no page overflow. Later documentation-only pushes follow the normal pipeline; these links record the verified functional release.
