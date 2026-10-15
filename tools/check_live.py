@@ -51,7 +51,7 @@ def check(manifest_path):
     for route, statuses in [('/araya/wp-admin/', {410}),('/araya/wp-content/uploads/company-profile.pdf',{410}),
             ('/araya/project1/',{410}),('/araya.zip',{404}),('/araya-release-missing-test',{404}),
             ('/.araya-current/index.html',{403,404}),('/%2earaya-current/index.html',{403,404}),
-            (f'/.araya-releases/{sha}-1-1/index.html',{403,404}),('/.git/config',{404}),('/wp-config.php',{404})]:
+            (f'/.araya-releases/{sha}-1-1/index.html',{403,404}),('/.git/config',{403,404}),('/wp-config.php',{403,404})]:
         code, _, _ = fetch(BASE+route)
         if code not in statuses:
             raise ValueError(f'Unexpected exposed/retired path: {route} (HTTP {code})')

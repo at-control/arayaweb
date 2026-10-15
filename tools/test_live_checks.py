@@ -44,5 +44,9 @@ class LiveCheckTests(unittest.TestCase):
             status,headers,body=self.response(url)
             return status,{**headers,'X-Robots-Tag':'noindex'},body
         with patch('check_live.fetch',side_effect=hidden),self.assertRaisesRegex(ValueError,'noindex'):check(self.path)
+    def test_provider_forbidden_response_protects_sensitive_paths(self):
+        def forbidden(url):
+            return (403,{},b'Forbidden') if urlsplit(url).path in {'/.git/config','/wp-config.php'} else self.response(url)
+        with patch('check_live.fetch',side_effect=forbidden):check(self.path)
 
 if __name__=='__main__':unittest.main()
