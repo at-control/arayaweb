@@ -39,6 +39,6 @@ Updated 15 October 2026, Asia/Jakarta.
 - [ComAp applications](COMAP-APPLICATIONS.md): application explanations, system diagrams, manufacturer references and regional scope.
 - [NORINET research](NORINET-RESEARCH.md): owner-supplied brochure explanation, current manufacturer cross-check, implemented section and system-diagram provenance.
 
-The latest website-content release is 7fed5f5, deployed successfully on 15 October 2026. Verification and release details are in [Progress and releases](PROGRESS.md). Production WordPress remains unchanged; the public preview intentionally uses `noindex, nofollow`.
+The static website launched at https://arayainternusa.co.id/ from source 2d59720 on 15 October 2026. Verification and release details are in [Progress and releases](PROGRESS.md). Main pushes automatically validate and deploy; the latest production Actions summary records the current release ID. WordPress is retained privately for rollback; the public GitHub preview intentionally uses `noindex, nofollow`.
 
 Full hosting/local-copy findings, handoff, QA scripts and screenshots are retained in the owner's local workspace. They are not part of the deployed `public/` artifact. No credentials, databases or backups belong in these public documents.

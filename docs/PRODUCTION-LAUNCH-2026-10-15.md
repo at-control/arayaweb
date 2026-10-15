@@ -13,8 +13,8 @@ The main domain keeps Rumahweb hosting, SSL and email. Apache-compatible rules t
 - [x] Verify fresh file/database backups on server and owner's computer.
 - [x] Implement tested package validation, guarded activation, rollback and live HTTP checks (`tools/deploy_release.php`, `tools/test_deploy_release.php`, `tools/check_live.py`, `tools/production.htaccess`).
 - [x] Wire automatic production promotion after successful main CI, plus manual deployment and rollback; keep no PR triggers and existing environment protections.
-- [ ] Run existing checks and deployment refusal/rollback fixtures, then push main and verify the first production run.
-- [ ] Verify HTTPS, brand pages, assets, SEO, old redirects, retired downloads, 404 behavior and mobile navigation; save screenshots and release notes.
+- [x] Run existing checks and deployment refusal/rollback fixtures, then push main and verify production.
+- [x] Verify HTTPS, brand pages, assets, SEO, old redirects, retired downloads, 404 behavior and mobile navigation; save screenshots and release notes.
 
 ## Failure and recovery requirements
 
@@ -52,5 +52,20 @@ Source `656d4e0` passed [main CI 38663695623](https://github.com/hakiimm8/arayaw
 Correction: first activation now moves the validated existing WordPress directory into private deployment storage after installing the static pointer/router. Its exact relative destination is recorded privately. Initial rollback restores that directory before removing static routing and public aliases. Later static releases leave it in private storage. No database contents are changed. Additional fixture checks verify private legacy retention and full original-directory restoration; the actual hosting fixture passed with PHP symlink disabled. This removes child-directory routing ambiguity and prevents the old application/assets remaining publicly accessible.
 
 The corrected release `2fb94b9` passed main CI 38664296509 and served the new site with the old `/araya/` route returning 301. Independent public verification matched all 75 file hashes and all page/indexing/redirect/retirement checks. The host's protection returns 403 for `/.git/config`; the original workflow checker incorrectly demanded 404 for that sensitive path. The checker now accepts either 403 or 404 for protected sensitive paths (both deny access), while unknown public URLs must still return 404 and retired WordPress routes must return 410. Five verifier unit tests cover valid bytes, corruption, exposed legacy content, noindex headers and this provider response. Production run 38664332138 uses the older strict checker; it is not counted as a verified successful deployment.
+
+## Successful launch
+
+- Source: [2d59720](https://github.com/hakiimm8/arayaweb/commit/2d5972009badeeb3ff9bbf9eefc01bca6b182472).
+- [Main CI and Pages run 38664775890](https://github.com/hakiimm8/arayaweb/actions/runs/38664775890): successful, including Linux filesystem/refusal/failure-recovery fixtures.
+- [Automatic production run 38664814402](https://github.com/hakiimm8/arayaweb/actions/runs/38664814402): successful. Release ID `2d5972009badeeb3ff9bbf9eefc01bca6b182472-38664814402-1`.
+- Production check passed all **75 exact public file hashes**, three indexable content pages, metadata/canonicals, HTTPS/www and legacy redirects, 410 retired WordPress content/downloads, protected paths and true missing-page 404s.
+- Independent SSH readback confirms the active pointer, privately retained original WordPress directory, ZIP SHA-256 `eccb1f49be745ff78694b92c19c6194619e083c8b46cd3529c2b3de5076478e0` and manifest SHA-256 `d8e1af3161f2b9290bcada63ec8f1625d33f2ee3a8ac623932116e6db1d7fe00`, matching the downloaded CI artifact.
+- Actual browser opens the clean root URL with its new title, company-domain canonical and `index, follow`. ComAp/Noris brand pages load their authorised-distributor introductions and images. At 390px, ComAp → Our Services opens the homepage service section, closes the menu, correctly marks Services active and clears the 72.8px sticky header (section top 124.4px). Contact navigation and WhatsApp destination are correct; no test enquiry was sent. No horizontal overflow observed. Viewport reset after verification.
+- Screenshots and backup/release evidence are retained privately under `arayaweb/docs/evidence/production-launch-20261015/`. Clean live homepage is left open. The GitHub Pages preview remains noindex.
+- Both earlier failed workflow attempts automatically restored WordPress; the second restoration included its privately moved directory. This directly exercised the real initial rollback, in addition to isolated fixtures.
+
+The website is now served statically at https://arayainternusa.co.id/. Future main pushes automatically repeat validation, artifact promotion, activation and public checks. This documentation update also follows that normal pipeline; the Actions production summary is the authoritative latest source/release ID. No database, PHP application, company-profile download, DNS/email change or VM is needed by the site.
+
+Remaining external SEO work: Search Console/property verification and sitemap submission when account access is available. No search-ranking or field Core Web Vitals result is claimed by this deployment record.
 
 Sources: [GitHub workflow triggers](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow), [Apache rewrite flags](https://httpd.apache.org/docs/2.4/rewrite/flags.html). Actual account tests govern compatibility.

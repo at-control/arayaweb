@@ -14,7 +14,7 @@
 - Latest owner direction, 14 October 2026: use certified wording instead of standardised. The owner confirms certification; general certification wording is approved. Exact credential names, issuers, scope, badges and logos still require supplied details.
 - Keep Araya service claims grounded in the supplied reference website/company profile and explicit owner facts. Keep manufacturer examples attributed and distinct from Araya installations.
 - Edit templates/data under tools and regenerate public HTML with python tools/build.py. Check with python tools/check.py, python tools/test_experience.py and node --check public/assets/site.js.
-- Keep findings, progress, release status and accepted visual evidence in docs. Only public is deployed to GitHub Pages; production WordPress is a separate deployment.
+- Keep findings, progress, release status and accepted visual evidence in docs. Only public is deployed to GitHub Pages as noindex preview. Production is now the isolated static build promoted through CI/CD; original WordPress is retained privately for rollback.
 
 - Owner correction, 14 October 2026: never describe a Sidoarjo-based team or Sidoarjo backup team. Araya serves Indonesia professionally, with branch offices in Sidoarjo (Gateway Citra Harmoni RKG 32–33) and Jakarta (Townhouse PIK). No Jakarta unit number, street or postal code was supplied.
 
