@@ -43,9 +43,11 @@ try {
     if (DIRECTORY_SEPARATOR === '/' && function_exists('symlink')) {
         $home=$folder.'/home'; mkdir($home);mkdir($home.'/public_html');mkdir($home.'/araya-deploy',0700);mkdir($home.'/araya-deploy/incoming',0700);
         file_put_contents($home.'/public_html/index.php',"<?php\n\nheader(\"Location: araya/\");\nexit;\n\n?>");
+        mkdir($home.'/public_html/araya');file_put_contents($home.'/public_html/araya/wp-config.php','fixture, no credentials');
         $id=$sha.'-123-1'; $incoming=$home.'/araya-deploy/incoming/'.$id; mkdir($incoming,0700);
         [$a,$m]=package_fixture($incoming,$sha,$files);copy(__DIR__.'/production.htaccess',$incoming.'/production.htaccess');
         activate_release($home,$id,$a,$m);
+        check(!file_exists($home.'/public_html/araya')&&is_file($home.'/araya-deploy/legacy/araya-'.$id.'/wp-config.php'),'legacy directory not privately retained');
         check(readlink($home.'/araya-static/.araya-current')==='releases/'.$id,'first pointer');
         // Force routing write failure after switching to another immutable release.
         $shaFail=str_repeat('c',40);$idFail=$shaFail.'-125-1';$failed=$home.'/araya-deploy/incoming/'.$idFail;mkdir($failed,0700);
@@ -69,6 +71,7 @@ try {
         }} finally {chmod($home.'/public_html',0755);}
         rollback_release($home,$id2);check(readlink($home.'/araya-static/.araya-current')==='releases/'.$id,'restore prior static release');
         rollback_release($home,$id);check(!is_link($home.'/araya-static/.araya-current')&&!file_exists($home.'/public_html/.htaccess'),'restore original root');
+        check(is_file($home.'/public_html/araya/wp-config.php'),'legacy application was not restored');
         file_put_contents($home.'/public_html/.htaccess','unmanaged configuration');
         rejects(function()use($home,$id2,$a2,$m2){activate_release($home,$id2,$a2,$m2);});
         unlink($home.'/public_html/.htaccess');symlink('/tmp',$home.'/araya-static/.araya-current');

@@ -76,12 +76,16 @@ function activate_release($home,$id,$archiveHash,$manifestHash) {
         $previous=pointer_target($homePublic);$routerPath=$root.'/.htaccess';demand(!is_link($routerPath),'Router symlink refused');
         $oldRouter=is_file($routerPath)?file_get_contents($routerPath):null;
         mkdir_checked($base.'/records',0700);
+        $legacyRelative=null;
         if($previous!==null){
             $prevId=basename($previous);$prevRecord=json_decode(file_get_contents($base.'/records/'.$prevId.'.json'),true,512,JSON_THROW_ON_ERROR);
             demand($oldRouter!==null&&hash('sha256',$oldRouter)===($prevRecord['router_sha256']??''),'Existing router was changed outside deployment');
         } else {
             demand($oldRouter===null,'Unmanaged root configuration; refusing overwrite');
             demand(is_file($root.'/index.php')&&!is_link($root.'/index.php')&&hash_file('sha256',$root.'/index.php')==='8305556db7c82cd97c81cb0dcae96d85b4334a039e25d14c2bb5da91f9c8e7ab','Original entry point changed');
+            demand(realpath($root.'/araya')===$root.'/araya'&&!is_link($root.'/araya')&&is_file($root.'/araya/wp-config.php'),'Expected legacy WordPress directory missing');
+            mkdir_checked($base.'/legacy',0700);$legacyRelative='legacy/araya-'.$id;
+            demand(!file_exists($base.'/'.$legacyRelative)&&!is_link($base.'/'.$legacyRelative),'Legacy destination already exists');
         }
         public_layout($home,$root,true);
         mkdir_checked($homePublic.'/releases',0755);$release=$homePublic.'/releases/'.$id;
@@ -90,11 +94,11 @@ function activate_release($home,$id,$archiveHash,$manifestHash) {
         $z=new ZipArchive();demand($z->open($incoming.'/araya-production.zip')===true,'Cannot reopen ZIP');
         try {foreach($m['files'] as $n=>$hash){$dest=$site.'/'.$n;$parent=$site;foreach(explode('/',dirname($n)) as $part){if($part!=='.'){$parent.='/'.$part;mkdir_checked($parent,0755);}}demand(file_put_contents($dest,$z->getFromName($n))!==false,'Cannot write release');chmod($dest,0644);demand(hash_file('sha256',$dest)===$hash,'Extracted hash mismatch');}} finally {$z->close();}
         demand(rename($site,$release),'Cannot install release');chmod($release,0755);
-        $record=['id'=>$id,'source_commit'=>$sha,'previous'=>$previous,'previous_router_base64'=>$oldRouter===null?null:base64_encode($oldRouter),'router_sha256'=>hash('sha256',$router),'manifest_sha256'=>$manifestHash,'activated_utc'=>gmdate('c')];
+        $record=['id'=>$id,'source_commit'=>$sha,'previous'=>$previous,'legacy_relative'=>$legacyRelative,'previous_router_base64'=>$oldRouter===null?null:base64_encode($oldRouter),'router_sha256'=>hash('sha256',$router),'manifest_sha256'=>$manifestHash,'activated_utc'=>gmdate('c')];
         atomic_bytes($base.'/records/'.$id.'.json',json_encode($record,JSON_PRETTY_PRINT)."\n",0600);
         // Initial cutover config points at the new static site, then the pointer is replaced atomically.
-        try {switch_pointer($homePublic,'releases/'.$id);atomic_bytes($routerPath,$router,0644);}
-        catch(Throwable $e){if($previous===null){if(is_link($homePublic.'/.araya-current'))unlink($homePublic.'/.araya-current');}else {switch_pointer($homePublic,$previous);}if($oldRouter===null){if(is_file($routerPath))unlink($routerPath);}elseif(!is_file($routerPath)||file_get_contents($routerPath)!==$oldRouter){atomic_bytes($routerPath,$oldRouter,0644);}throw $e;}
+        try {switch_pointer($homePublic,'releases/'.$id);atomic_bytes($routerPath,$router,0644);if($legacyRelative!==null)demand(rename($root.'/araya',$base.'/'.$legacyRelative),'Cannot move legacy application to private storage');}
+        catch(Throwable $e){if($legacyRelative!==null&&is_dir($base.'/'.$legacyRelative)&&!file_exists($root.'/araya'))demand(rename($base.'/'.$legacyRelative,$root.'/araya'),'Cannot restore legacy application');if($previous===null){if(is_link($homePublic.'/.araya-current'))unlink($homePublic.'/.araya-current');}else {switch_pointer($homePublic,$previous);}if($oldRouter===null){if(is_file($routerPath))unlink($routerPath);}elseif(!is_file($routerPath)||file_get_contents($routerPath)!==$oldRouter){atomic_bytes($routerPath,$oldRouter,0644);}throw $e;}
         return $record;
     });
 }
@@ -120,6 +124,13 @@ function rollback_release($home,$expected) {
         } else {
             demand($oldRouter===null,'Unexpected original router');
             demand(hash_file('sha256',$root.'/index.php')==='8305556db7c82cd97c81cb0dcae96d85b4334a039e25d14c2bb5da91f9c8e7ab','Original PHP changed');
+            $legacyRelative=$record['legacy_relative']??null;
+            if($legacyRelative!==null){
+                demand($legacyRelative==='legacy/araya-'.$expected&&realpath($base.'/'.$legacyRelative)===$base.'/'.$legacyRelative&&!is_link($base.'/'.$legacyRelative),'Unsafe legacy restore path');
+                demand(!file_exists($root.'/araya')&&!is_link($root.'/araya'),'Legacy root path is occupied');
+                demand(is_writable($root)&&is_writable($base.'/legacy'),'Cannot restore legacy routing safely');
+                demand(rename($base.'/'.$legacyRelative,$root.'/araya'),'Cannot restore legacy application');
+            }
             demand(unlink($root.'/.htaccess'),'Cannot restore original routing');demand(unlink($homePublic.'/.araya-current'),'Cannot remove initial pointer');
             foreach(public_links() as $name){demand(readlink($root.'/'.$name)==='../araya-static/.araya-current/'.$name,'Public link changed');demand(unlink($root.'/'.$name),'Cannot remove managed link');}
         }

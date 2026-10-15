@@ -2,7 +2,9 @@
 
 ## Static production launch and automatic deployment — 15 October 2026
 
-Owner authorised the root-domain static launch, no website database/company-profile download and deployment after successful main pushes. Fresh file/database backups passed server integrity checks and local matching SHA-256 verification; database has 62 tables. Implemented immutable releases outside the web root, stable public aliases, managed HTTPS/legacy routing, main-only automatic promotion of the checked CI package, exact public file checks and guarded rollback. Hosting probes and private activation/rollback fixtures pass; independent critical review findings on routing-write recovery were fixed. No PR workflow triggers or environment protection changes. [Launch design, operational instructions and validation](PRODUCTION-LAUNCH-2026-10-15.md). First CI/live activation pending.
+Owner authorised the root-domain static launch, no website database/company-profile download and deployment after successful main pushes. Fresh file/database backups passed server integrity checks and local matching SHA-256 verification; database has 62 tables. Implemented immutable releases outside the web root, stable public aliases, managed HTTPS/legacy routing, main-only automatic promotion of the checked CI package, exact public file checks and guarded rollback. Hosting probes and private activation/rollback fixtures pass; independent critical review findings on routing-write recovery were fixed. No PR workflow triggers or environment protection changes. [Launch design, operational instructions and validation](PRODUCTION-LAUNCH-2026-10-15.md).
+
+Initial source `656d4e0` passed CI 38663695623. Production run 38663747721 failed its legacy-URL gate and automatically restored the original WordPress site; SSH confirmed the original entry point and directory. Correction privately retains the old WordPress directory during first activation, with directory restoration included in initial rollback; actual hosting fixture passed. Corrected launch pending.
 
 ## Authorised-distributor wording and SEO improvements — 15 October 2026
 
