@@ -1,5 +1,9 @@
 # Progress and release record
 
+## Mobile client logos slide left — 15 October 2026
+
+Owner confirmed the client-logo strip should animate on mobile like desktop. Extended the existing CSS-only marquee to mobile with 48px spacing and a 30-second continuous leftward loop. Desktop remains 38 seconds/72px; reduced-motion mode retains a readable grid and one accessible logo list. Browser checks at 390px, 355px and 1280px confirm moving transforms, equal contiguous track widths and no horizontal document overflow. Local screenshot and measurements saved privately; viewport reset. [Implementation and evidence](MOBILE-CLIENT-LOGOS-2026-10-15.md). Publication pending through normal main CI/CD.
+
 ## Static production launch and automatic deployment — 15 October 2026
 
 Owner authorised the root-domain static launch, no website database/company-profile download and deployment after successful main pushes. Fresh file/database backups passed server integrity checks and local matching SHA-256 verification; database has 62 tables. Implemented immutable releases outside the web root, stable public aliases, managed HTTPS/legacy routing, main-only automatic promotion of the checked CI package, exact public file checks and guarded rollback. Hosting probes and private activation/rollback fixtures pass; independent critical review findings on routing-write recovery were fixed. No PR workflow triggers or environment protection changes. [Launch design, operational instructions and validation](PRODUCTION-LAUNCH-2026-10-15.md).

@@ -1,5 +1,7 @@
 # Araya website conventions
 
+- Owner direction, 15 October: client logos slide continuously left on mobile as on desktop. Keep both identical tracks, hide the duplicated track from assistive technology, contain overflow inside the strip and retain the static grid only for reduced-motion preference. Mobile spacing is 48px with a 30-second loop; desktop remains unchanged.
+
 - Owner direction, 15 October production launch: deploy the static site at the company-domain root; no website database or company-profile download. Successful main pushes validate/package/publish preview then automatically promote production through pinned SSH. Keep main-only environment policy, no PR triggers, immutable releases outside the document root, exact HTTPS file checks and guarded rollback. Original WordPress files/database stay backed up; never delete them as part of a site release. Current deployment details: docs/PRODUCTION-LAUNCH-2026-10-15.md.
 
 - Owner direction, 15 October: use **authorised distributor** for Noris and ComAp. Relationship wording is owner-approved; do not invent exclusive status, appointment dates or named certifications. Titles/descriptions and brand intros emphasise distributor intent. Brand `local` copy holds its relationship explicitly; future brands must use their own confirmed designation. Services now total 32 (12 marine, 8 industrial, 12 automation), with water-level/cargo monitoring and explicit overhaul/AMS/steering/generator-control scope. Keep all previous scope IDs. Visible FAQs remain; obsolete FAQPage markup is removed.

@@ -2,6 +2,8 @@
 
 Updated 15 October 2026, Asia/Jakarta.
 
+- [Mobile client logo animation](MOBILE-CLIENT-LOGOS-2026-10-15.md): continuous leftward logo strip matching desktop, responsive spacing, reduced-motion fallback and browser verification.
+
 - [Static production launch and continuous deployment](PRODUCTION-LAUNCH-2026-10-15.md): owner-approved root-domain deployment, verified backups, automatic main promotion, outside-root releases, live checks and guarded rollback. See Progress for current activation status.
 
 - [Implemented SEO improvements](SEO-IMPROVEMENTS-2026-10-15.md): authorised-distributor wording, targeted metadata, richer service content, 32 scopes, structured-data cleanup, migration preparation and verification.
