@@ -1,66 +1,66 @@
 source_path,candidate_target,status,reason
-/araya/project4/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/project3/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/project2/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/project1/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/shop/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/cart/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/checkout/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/my-account/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/2026/04/20/hello-world/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
-/araya/sample-page/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
-/araya/sample-page-2/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
-/araya/onepage/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/services/demolition-services/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/services/industrial/,/#industrial-services,equivalent-content,Permanent server redirect at cutover; verify route and fragment after activation
-/araya/services/civil-engineering/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/services/automation/,/#automation-services,equivalent-content,Permanent server redirect at cutover; verify route and fragment after activation
-/araya/services/marine/,/#marine-services,equivalent-content,Permanent server redirect at cutover; verify route and fragment after activation
-/araya/appointment/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/faq/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/gsap-elements/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
-/araya/blog-elements/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
-/araya/projects-elements/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
-/araya/counter-elements/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
-/araya/partner-logo-elements/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
-/araya/pricing-elements/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
-/araya/team-elements/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
-/araya/testimonials-elements/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
-/araya/work-process-elements/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
-/araya/services-tab-elements/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
-/araya/advance-tab-elements/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
-/araya/icon-box-elements/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
-/araya/services-box-elements/,,review-retirement,Likely theme/demo content; verify before deciding 404/410 or preserving useful content
-/araya/services/wind-energy/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/services/bio-energy/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/services/solar-energy/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/services/hydro-energy/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/services/oil-construction-and-gas-production/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/services/automation-industry-management/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/services/state-of-the-art-for-hight-control-in/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/services/manufacturing-solutions/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/services/manufacturer-of-tin-lead-and-lead/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/services/fuel-gas-management/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/services/best-innovations-in-metallurgy/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/services/mechanical-engineering/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/services/oil-gas-energy/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/services/bridge-construction/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/services/high-regulation-industry/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/services-single/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/pricing-plans/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/services/industrial-construction/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/team/,/#leadership,equivalent-content,Permanent server redirect at cutover; verify route and fragment after activation
-/araya/contact/,/#contact,equivalent-content,Permanent server redirect at cutover; verify route and fragment after activation
-/araya/2024/02/08/construction-of-a-new-high-tech-plant-in-washingtons/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/2024/02/08/building-resilient-supply-chains-for-industries/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/projects/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/2024/02/08/factories-technologies-in-interactive-and-plants/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/2024/02/07/building-resilient-supply-for-industries-and-factorie/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/2024/02/07/construction-of-a-new-high-tech-plant-in-washington/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/about-us/,/#about,equivalent-content,Permanent server redirect at cutover; verify route and fragment after activation
-/araya/blog/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
-/araya/contact-2/,/#contact,equivalent-content,Permanent server redirect at cutover; verify route and fragment after activation
-/araya/services/,/#services,equivalent-content,Permanent server redirect at cutover; verify route and fragment after activation
-/araya/about/,/#about,equivalent-content,Permanent server redirect at cutover; verify route and fragment after activation
-/araya/,/,equivalent-content,Permanent server redirect at cutover; verify route and fragment after activation
-/araya/2024/01/03/interactive-technologies-in-factories-and-plants/,,content-review,Review actual page and Search Console value; do not redirect unrelated content blindly to Home
+/araya/project4/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/project3/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/project2/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/project1/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/shop/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/cart/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/checkout/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/my-account/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/2026/04/20/hello-world/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/sample-page/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/sample-page-2/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/onepage/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/services/demolition-services/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/services/industrial/,/#industrial-services,configured-301,Equivalent content redirect in production.htaccess; launch verification required
+/araya/services/civil-engineering/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/services/automation/,/#automation-services,configured-301,Equivalent content redirect in production.htaccess; launch verification required
+/araya/services/marine/,/#marine-services,configured-301,Equivalent content redirect in production.htaccess; launch verification required
+/araya/appointment/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/faq/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/gsap-elements/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/blog-elements/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/projects-elements/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/counter-elements/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/partner-logo-elements/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/pricing-elements/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/team-elements/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/testimonials-elements/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/work-process-elements/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/services-tab-elements/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/advance-tab-elements/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/icon-box-elements/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/services-box-elements/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/services/wind-energy/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/services/bio-energy/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/services/solar-energy/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/services/hydro-energy/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/services/oil-construction-and-gas-production/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/services/automation-industry-management/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/services/state-of-the-art-for-hight-control-in/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/services/manufacturing-solutions/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/services/manufacturer-of-tin-lead-and-lead/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/services/fuel-gas-management/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/services/best-innovations-in-metallurgy/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/services/mechanical-engineering/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/services/oil-gas-energy/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/services/bridge-construction/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/services/high-regulation-industry/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/services-single/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/pricing-plans/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/services/industrial-construction/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/team/,/#leadership,configured-301,Equivalent content redirect in production.htaccess; launch verification required
+/araya/contact/,/#contact,configured-301,Equivalent content redirect in production.htaccess; launch verification required
+/araya/2024/02/08/construction-of-a-new-high-tech-plant-in-washingtons/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/2024/02/08/building-resilient-supply-chains-for-industries/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/projects/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/2024/02/08/factories-technologies-in-interactive-and-plants/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/2024/02/07/building-resilient-supply-for-industries-and-factorie/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/2024/02/07/construction-of-a-new-high-tech-plant-in-washington/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/about-us/,/#about,configured-301,Equivalent content redirect in production.htaccess; launch verification required
+/araya/blog/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"
+/araya/contact-2/,/#contact,configured-301,Equivalent content redirect in production.htaccess; launch verification required
+/araya/services/,/#services,configured-301,Equivalent content redirect in production.htaccess; launch verification required
+/araya/about/,/#about,configured-301,Equivalent content redirect in production.htaccess; launch verification required
+/araya/,/,configured-301,Equivalent content redirect in production.htaccess; launch verification required
+/araya/2024/01/03/interactive-technologies-in-factories-and-plants/,,configured-410,"Owner approved static-only replacement on 15 October; legacy WordPress route retired, originals retained in verified backups"

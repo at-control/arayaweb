@@ -2,8 +2,10 @@
 
 Updated 15 October 2026, Asia/Jakarta.
 
+- [Static production launch and continuous deployment](PRODUCTION-LAUNCH-2026-10-15.md): owner-approved root-domain deployment, verified backups, automatic main promotion, outside-root releases, live checks and guarded rollback. See Progress for current activation status.
+
 - [Implemented SEO improvements](SEO-IMPROVEMENTS-2026-10-15.md): authorised-distributor wording, targeted metadata, richer service content, 32 scopes, structured-data cleanup, migration preparation and verification.
-- [Legacy URL migration map](LEGACY-URL-MAP-2026-10-15.csv): 65 observed URLs, ten equivalent-content destinations and explicit review status for the remainder. No live redirects installed.
+- [Legacy URL migration map](LEGACY-URL-MAP-2026-10-15.csv): 65 observed URLs, ten equivalent-content redirects and 55 retired routes in the static-only cutover configuration.
 
 - [SEO review: new design, distributor intent and every service](SEO-REVIEW-2026-10-14.md): current production versus noindex preview, technical/on-page findings, manual readiness ratings, brand authorisation evidence, 30-service keyword map and prioritised recommendations. Analysis only.
 
@@ -16,7 +18,7 @@ Updated 15 October 2026, Asia/Jakarta.
 - [Completed hierarchy, mobile and navbar review](HIERARCHY-REVIEW-2026-10-14.md): findings across all three pages, confirmed narrow-mobile anchor overlap, irregular client logos, heading measurements, navbar validation and a proposed shared hierarchy. Review complete; UI fixes not implemented.
 - [Audit pause/resume record](HIERARCHY-AUDIT-IN-PROGRESS-2026-10-14.md): original observations and continuation checklist, superseded by the completed review.
 
-- [Production deployment preparation](PRODUCTION-DEPLOYMENT.md): verified backups, build/package provenance, authorized SSH access and main-restricted GitHub production environment. Private staging is separate from live cutover; production has not been switched.
+- [Production deployment preparation](PRODUCTION-DEPLOYMENT.md): historical hosting inspection, verified backups, build/package provenance, authorised SSH access and main-restricted GitHub production environment. Superseded by the 15 October launch instructions where noted.
 - [GitHub SSH staging plan and verification](PRODUCTION-SSH-PLAN-2026-10-14.md): manual artifact validation, pinned-host transfer, tests, independent review and staging-run evidence.
 
 - [Service-sector repetition cleanup](SERVICE-SECTOR-CLEANUP-2026-10-14.md): remove repeated brand promotions, checklists and CTA buttons from all three sectors.

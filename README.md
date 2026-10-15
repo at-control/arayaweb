@@ -23,7 +23,7 @@ The build templates require Python 3.12 or newer.
 
 ## Production preparation
 
-Target domain: `https://arayainternusa.co.id/`. Run `python tools/build.py --target production`, `python tools/check.py --target production` and `python tools/package_release.py` to create an isolated production ZIP and checksum manifest under ignored `dist/`. The main GitHub Actions workflow validates both targets and retains the production candidate before publishing the noindex preview. It does not upload to the real hosting account.
+Target domain: `https://arayainternusa.co.id/`. Run `python tools/build.py --target production`, `python tools/check.py --target production` and `python tools/package_release.py` to create an isolated production ZIP and checksum manifest under ignored `dist/`. After successful main CI and noindex preview publication, `production.yml` automatically validates and uploads that exact package through pinned SSH, activates an immutable static release and checks every public file over HTTPS. Failed live checks trigger guarded rollback. No database or company-profile download is required. [Launch, backups and manual recovery](docs/PRODUCTION-LAUNCH-2026-10-15.md).
 
 Read the [deployment runbook](docs/PRODUCTION-DEPLOYMENT.md) for the SSH recommendation, verified root redirect, first-cutover and rollback requirements. Production WordPress remains unchanged until a separately approved live cutover.
 
@@ -45,7 +45,7 @@ Marine and industrial sections describe project scopes provided by the owner and
 
 Dedicated Noris and ComAp guides include manufacturer background, grouped product information, an informational equipment brief and expandable FAQs. Only the final shared contact section has enquiry CTA buttons. Noris covers eight product areas; ComAp covers six. These are Araya's brand guides for Indonesia; manufacturer links lead to current product details and documents.
 
-The owner states that Araya distributes Noris and ComAp in Indonesia. Authorization, exclusivity, specific product availability and warranties are not asserted. General certification wording is owner-approved; specific certification names, issuers and scope have not been provided.
+The owner selected authorised distributor wording for Noris and ComAp in Indonesia. Exclusivity, specific product availability and warranties are not asserted. General certification wording is owner-approved; specific certification names, issuers and scope have not been provided.
 
 Manufacturer application sources checked 2026-10-08:
 

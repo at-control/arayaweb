@@ -1,5 +1,9 @@
 # Production deployment: arayainternusa.co.id
 
+## Current direction — 15 October 2026
+
+The owner has now authorised live static deployment and automatic deployment after successful pushes to main, without a database or company-profile download. [Current launch design, validation and operating instructions](PRODUCTION-LAUNCH-2026-10-15.md) supersede the staging-only limits and pending approval statements in the historical preparation notes below. Production activation status is recorded in [Progress](PROGRESS.md).
+
 Prepared 14 October 2026, Asia/Jakarta. **Status: owner-approved SSH and GitHub production secrets configured; manual private staging workflow tested successfully. Live cutover has not been performed.**
 
 ## Hosting continuation — 14 October 2026

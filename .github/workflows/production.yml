@@ -1,0 +1,89 @@
+name: Deploy production on Rumahweb
+on:
+  workflow_run:
+    workflows: [Check website and publish preview]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Deploy a checked build or roll back the expected current release
+        type: choice
+        options: [deploy, rollback]
+        default: deploy
+      build_run_id:
+        description: Successful main preview/build run ID (deploy mode)
+        type: string
+      rollback_release_id:
+        description: Exact current release ID from the production summary (rollback mode)
+        type: string
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: production
+  cancel-in-progress: false
+jobs:
+  deploy:
+    if: >-
+      github.ref == 'refs/heads/main' &&
+      (github.event_name == 'workflow_dispatch' ||
+       (github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.head_repository.full_name == github.repository))
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: production
+      url: https://arayainternusa.co.id/
+    env:
+      GH_TOKEN: ${{ github.token }}
+      BUILD_RUN_ID: ${{ github.event.workflow_run.id || inputs.build_run_id }}
+      DEPLOY_MODE: ${{ inputs.mode || 'deploy' }}
+      ROLLBACK_RELEASE_ID: ${{ inputs.rollback_release_id }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate the selected successful main build
+        if: env.DEPLOY_MODE == 'deploy'
+        id: build
+        shell: bash
+        run: |
+          [[ "$BUILD_RUN_ID" =~ ^[1-9][0-9]{0,19}$ ]]
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$BUILD_RUN_ID" > build-run.json
+          python tools/release_candidate.py run build-run.json "$GITHUB_REPOSITORY" >> "$GITHUB_OUTPUT"
+      - name: Download and validate the exact production package
+        if: env.DEPLOY_MODE == 'deploy'
+        id: package
+        env:
+          BUILD_SHA: ${{ steps.build.outputs.sha }}
+        shell: bash
+        run: |
+          gh run download "$BUILD_RUN_ID" --repo "$GITHUB_REPOSITORY" --name "araya-production-$BUILD_SHA" --dir payload
+          python tools/release_candidate.py package payload "$BUILD_SHA" >> "$GITHUB_OUTPUT"
+      - name: Transfer validated package into private staging
+        if: env.DEPLOY_MODE == 'deploy'
+        env:
+          BUILD_SHA: ${{ steps.build.outputs.sha }}
+          ARCHIVE_SHA: ${{ steps.package.outputs.archive_sha }}
+          MANIFEST_SHA: ${{ steps.package.outputs.manifest_sha }}
+          PRODUCTION_SSH_HOST: ${{ secrets.PRODUCTION_SSH_HOST }}
+          PRODUCTION_SSH_PORT: ${{ secrets.PRODUCTION_SSH_PORT }}
+          PRODUCTION_SSH_USER: ${{ secrets.PRODUCTION_SSH_USER }}
+          PRODUCTION_SSH_KEY: ${{ secrets.PRODUCTION_SSH_KEY }}
+          PRODUCTION_KNOWN_HOSTS: ${{ secrets.PRODUCTION_KNOWN_HOSTS }}
+        run: bash tools/stage_release.sh
+      - name: Activate and verify production, or restore the previous release
+        env:
+          BUILD_SHA: ${{ steps.build.outputs.sha }}
+          ARCHIVE_SHA: ${{ steps.package.outputs.archive_sha }}
+          MANIFEST_SHA: ${{ steps.package.outputs.manifest_sha }}
+          PRODUCTION_SSH_HOST: ${{ secrets.PRODUCTION_SSH_HOST }}
+          PRODUCTION_SSH_PORT: ${{ secrets.PRODUCTION_SSH_PORT }}
+          PRODUCTION_SSH_USER: ${{ secrets.PRODUCTION_SSH_USER }}
+          PRODUCTION_SSH_KEY: ${{ secrets.PRODUCTION_SSH_KEY }}
+          PRODUCTION_KNOWN_HOSTS: ${{ secrets.PRODUCTION_KNOWN_HOSTS }}
+        run: bash tools/activate_release.sh
