@@ -4,14 +4,14 @@
 
 The owner authorised installation, Ads linking and verification, with **no advertising launch**. This implements section 10 of GOOGLE_ADS_PLAN.md. Preserve the static design, short service copy, existing navigation, main-only CI/CD, backups and rollback.
 
-- [ ] Add a shared, accessible consent banner with equally available Accept analytics and Reject optional actions, a linked privacy notice and a persistent footer control. Remember the choice for 180 days; handle unavailable storage safely.
-- [ ] Load GTM-NK3C3RVZ only on the HTTPS production host after analytics consent. Queue denied defaults, then analytics-only grant before loading GTM; advertising storage, personalisation and user-data consent remain denied. Preview/local builds send no production events.
-- [ ] Add one delegated allowlisted contact listener; contact_click includes method and static CTA/page context, never phone/email/message contents or arbitrary URL/text. Rejecting consent never blocks contact links. Do not replay pre-consent clicks.
-- [ ] On withdrawal disable collection, clear GA cookies and reload to unload Google scripts. Synchronise withdrawal between tabs. Avoid duplicate initialisation and duplicate listeners.
-- [ ] Add /privacy/ to generator, route/package validation and guarded deployment aliases; explain Analytics, contact handling, choice storage and withdrawal without inventing certification, retention, CRM or legal claims.
-- [ ] Configure GTM contact-event tag, consent requirement and bounded event parameters. Link GA4 property 560191836 only to Ads customer 115-719-0739; disable advertising personalisation and leave campaigns inactive. Contact clicks remain secondary observations, never qualified leads.
-- [ ] Verify refusal/grant/persistence/withdrawal, storage failure, preview isolation, exact contact allowlists, page-view duplication, attribution handling, mobile layout and keyboard access. Run existing CI gates and deployment fixtures.
-- [ ] Publish the checked container and deploy the checked website through main CI/CD. Verify live routes/assets and Google diagnostics; record exact results and limits here. Do not create or enable a campaign.
+- [x] Add a shared, accessible consent banner with equally available Accept analytics and Reject optional actions, a linked privacy notice and a persistent footer control. Remember the choice for 180 days; handle unavailable storage safely.
+- [x] Load GTM-NK3C3RVZ only on the HTTPS production host after analytics consent. Queue denied defaults, then analytics-only grant before loading GTM; advertising storage, personalisation and user-data consent remain denied. Preview/local builds send no production events.
+- [x] Add one delegated allowlisted contact listener; contact_click includes method and static CTA/page context, never phone/email/message contents or arbitrary URL/text. Rejecting consent never blocks contact links. Do not replay pre-consent clicks.
+- [x] On withdrawal disable collection, clear GA cookies and reload to unload Google scripts. Synchronise withdrawal between tabs. Avoid duplicate initialisation and duplicate listeners.
+- [x] Add /privacy/ to generator, route/package validation and guarded deployment aliases; explain Analytics, contact handling, choice storage and withdrawal without inventing certification, retention, CRM or legal claims.
+- [x] Configure GTM contact-event tag, consent requirement and bounded event parameters. Link GA4 property 560191836 only to Ads customer 115-719-0739; disable advertising personalisation and leave campaigns inactive. Contact clicks remain secondary observations, never qualified leads.
+- [x] Verify refusal/grant/persistence/withdrawal, storage failure, preview isolation, exact contact allowlists, page-view duplication, attribution handling, mobile layout and keyboard access. Run existing CI gates and deployment fixtures.
+- [x] Publish the checked container and deploy the checked website through main CI/CD. Verify live routes/assets and Google diagnostics; record exact results and limits here. Do not create or enable a campaign.
 
 ## Interfaces and files
 
@@ -50,6 +50,7 @@ Browser attachment initially failed in both Edge and the in-app browser. The own
 - Automatic event setting: scrolls ON; history page views, outbound clicks, form interactions, video and file downloads OFF. GA4 stream enhanced measurement had already been limited to page views and scrolls.
 - Publication review found the new template had created an enabled **Allow user-provided data capabilities** setting with automatic personal-data detection. Both controls were explicitly disabled and saved before publication. No extra read-only destination account access was granted.
 - No native Ads conversion tag, campaign, audience or bidding goal was created. Contact clicks are observations, not verified enquiries; no primary lead conversion has been declared.
+- Three event-scoped GA4 custom dimensions were saved and verified in the definitions table: **Contact method → contact_method**, **CTA location → cta_location**, **Page group → page_group**. Regular reporting needs processing time; Realtime already received the parameters. No click event was promoted into a primary Ads bidding goal or a qualified-lead key event.
 
 ### Browser and source verification before website deployment
 
@@ -59,12 +60,36 @@ Browser attachment initially failed in both Edge and the in-app browser. The own
 - Passing: `node tools/test_measurement.cjs`, `python tools/test_tracking_build.py` (2), production (5), experience (6), hierarchy (4), loading (3), release candidate (6), live-verifier fixtures (5), JavaScript syntax and PHP package/provenance/hash/symlink-refusal fixtures. Linux activation fixtures require CI and are not claimed as locally executed on Windows.
 - Workflow triggers remain main push / manual / post-build; no PR-triggered workflow was added. Website publication and live Google ingestion verification remain pending at this checkpoint.
 
+### Production installation and live verification — completed
+
+- Source commit **e0992aa8407ab9701a1cc70510fca7272cba12ff**, pushed to main with no skip-CI instruction.
+- [Build/preview run 39880644654](https://github.com/hakiimm8/arayaweb/actions/runs/39880644654) succeeded. Linux CI also passed atomic activation, stale rollback refusal, static/legacy rollback and filesystem guards; these cover the activation fixtures unavailable in Windows.
+- [Production run 39880685917](https://github.com/hakiimm8/arayaweb/actions/runs/39880685917) succeeded. Release **e0992aa8407ab9701a1cc70510fca7272cba12ff-39880685917-1** activated at 07:53:10 WIB. Previous release **f4a3803d438ba0ff0d0b909bacba5c9bf23042cc-38673578168-1** remains available for guarded rollback. Original WordPress backups were not modified.
+- CI's live verifier passed **78 exact file hashes**, all four indexable routes, canonical/legacy redirects, retired downloads and protected paths. Privacy is served at `https://arayainternusa.co.id/privacy/`.
+- The live HTTPS page reports production mode with zero Google script elements before consent. Refusal persists after reload with zero Google scripts. Accepting loads GTM. Tag Assistant then connected to the correct container and showed the base tag firing once for that document.
+- Actual Page View and contact hits use **G-WMBDHTFPBJ**. Hit Details shows the sanitized `page_location` retaining only the diagnostic source/medium, with the debug parameter removed, and origin-only referrer. The non-personalised-ads flag is 1. The contact event contains `contact_method=whatsapp`, `cta_location=hero`, `page_group=home`; no phone, email, arbitrary link URL or message contents appear in that contact payload.
+- Tag Assistant's contact-event Consent table confirms `analytics_storage=Granted`, while `ad_storage`, `ad_user_data` and `ad_personalization` remain **Denied** (default, update and current state as applicable).
+- GA4 **Realtime received all three real link activations exactly once** in this test: `whatsapp=1`, `email=1`, `phone=1`. The WhatsApp link opened the expected contact destination; no message was sent. Email/phone link activation measured intent only; no email was sent or phone call placed. This is collection verification, not a test of sales response or message delivery.
+- Withdrawal unloaded Google scripts; another reload retained refusal with zero Google script elements. After all channel checks, the normal browser tab was returned to Reject optional and reloaded, again showing zero Google scripts. The diagnostic popup was closed and Tag Assistant reports no actively debugged domains. Browser viewport override was reset.
+- Ads campaign page reloaded and explicitly displayed **0 campaigns**, **0 drafts**, **no enabled campaigns** and **IDR0/day**. No ad launch, budget allocation or financial action occurred.
+- Total page views across this test include deliberate reloads, back navigation and renewed consent. They must not be interpreted as customer traffic or as evidence of duplicate tagging. Tag Assistant showed one base firing and one page-view hit for the inspected accepted document.
+
 ### Evidence and next steps
 
 Screenshots are stored outside the public deployment tree in `../docs/evidence/google-ads-audit-20261021/`:
 
+Two selected screenshots are also retained in this repository for portable review: [mobile banner](evidence/consent-20261023/mobile-consent.png) and [GA4 receipt of all three contact methods](evidence/consent-20261023/ga4-contact-methods.png). Other diagnostic screenshots stay in the local evidence folder; they are not website assets.
+
 - `ga4-ads-linked-20261023.png`: successful link to the correct Ads account.
 - `gtm-v2-live-20261023.png`: published GTM version summary.
 - `consent-mobile-20261023.png`: mobile consent banner and keyboard focus.
+- `ga4-pageview-hit-20261023.png`: actual destination, page-view hit and consent encoding.
+- `ga4-contact-hit-20261023.png`: contact payload contains only the bounded reporting values.
+- `consent-state-20261023.png`: analytics granted, advertising categories denied.
+- `ga4-realtime-contact-20261023.png`: received contact event in GA4.
+- `ga4-all-contact-methods-20261023.png`: email, phone and WhatsApp, one received event each.
+- `ads-inactive-20261023.png`: no enabled campaigns and IDR0/day.
 
-Next: run final source/build gates, commit/push the authorised website installation, watch immutable CI/CD, verify live files/redirects/privacy and actual Google collection after consent, check no collection before consent/after withdrawal, and recheck Ads has no enabled campaigns. Do not launch ads. Google reports can lag; distinguish browser/tag diagnostics from processed reporting.
+### Remaining business work, outside this installation
+
+No task blocker remains for the authorised installation and connection. Standard/custom-dimension reports can lag and were not claimed as populated. An actual paid-click attribution test is not possible without traffic and was not simulated using a fabricated click ID. Ads billing, advertiser verification, keyword/bid research, sales qualification, campaign goals and launch approval remain separate gates in GOOGLE_ADS_PLAN.md. No campaign or conversion-bidding action should be enabled from these diagnostic clicks. A true enquiry requires a received message/call and sales qualification; website clicks alone do not establish that outcome.
