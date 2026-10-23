@@ -34,7 +34,7 @@ def check(manifest_path):
     sha = manifest['source_commit']
     with ThreadPoolExecutor(max_workers=6) as pool:
         list(pool.map(lambda item: verify_file(item, sha), manifest['files'].items()))
-    for route, name in [('/', 'index.html'), ('/noris/', 'noris/index.html'), ('/comap/', 'comap/index.html')]:
+    for route, name in [('/', 'index.html'), ('/noris/', 'noris/index.html'), ('/comap/', 'comap/index.html'), ('/privacy/', 'privacy/index.html')]:
         code, headers, body = fetch(f'{BASE}{route}?araya_release={sha}')
         if code != 200 or hashlib.sha256(body).hexdigest() != manifest['files'][name] or b'content="index, follow"' not in body:
             raise ValueError(f'Live content/indexing mismatch: {route}')
@@ -42,7 +42,7 @@ def check(manifest_path):
         '/araya/services/':'/#services','/araya/services/marine/':'/#marine-services',
         '/araya/services/industrial/':'/#industrial-services', '/araya/services/automation/':'/#automation-services',
         '/araya/team/':'/#leadership','/araya/contact/':'/#contact','/araya/contact-2/':'/#contact',
-        '/index.php':'/','/noris':'/noris/','/comap':'/comap/'}
+        '/index.php':'/','/noris':'/noris/','/comap':'/comap/','/privacy':'/privacy/'}
     for source, target in redirects.items():
         code, headers, _ = fetch(BASE+source)
         location = headers.get('Location', '')
@@ -59,7 +59,7 @@ def check(manifest_path):
         code, headers, _ = fetch(source)
         if code != 301 or headers.get('Location') != BASE+'/':
             raise ValueError(f'HTTPS/hostname redirect mismatch: {source}')
-    print(f'PASS live HTTPS: {len(manifest["files"])} exact file hashes, three indexable pages, redirects, retired downloads and protected paths.')
+    print(f'PASS live HTTPS: {len(manifest["files"])} exact file hashes, four indexable pages, redirects, retired downloads and protected paths.')
 
 if __name__ == '__main__':
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('manifest');parser.add_argument('--attempts',type=int,default=1);args=parser.parse_args()

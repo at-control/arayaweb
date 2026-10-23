@@ -4,7 +4,7 @@ function demand($ok, $why) { if (!$ok) throw new RuntimeException($why); }
 function valid_release_id($id) {return preg_match('/\A[a-f0-9]{40}-[1-9][0-9]{0,19}-[1-9][0-9]{0,9}\z/',$id)===1;}
 function safe_public_name($name) {
     if(!is_string($name)||preg_match('~(?:\A/|\\\\|(?:\A|/)\.|//)~',$name))return false;
-    return in_array($name,['index.html','noris/index.html','comap/index.html','marine/index.html','industrial/index.html','automation/index.html','robots.txt','sitemap.xml','assets/fonts/OFL.txt'],true)
+    return in_array($name,['index.html','noris/index.html','comap/index.html','privacy/index.html','marine/index.html','industrial/index.html','automation/index.html','robots.txt','sitemap.xml','assets/fonts/OFL.txt'],true)
         ||preg_match('~\Aassets/[A-Za-z0-9_./-]+\.(?:css|js|svg|webp|png|jpg|jpeg|woff2|pdf)\z~',$name)===1;
 }
 function verify_package($dir,$sha,$archiveHash,$manifestHash) {
@@ -13,7 +13,7 @@ function verify_package($dir,$sha,$archiveHash,$manifestHash) {
     demand(hash_file('sha256',$dir.'/araya-production.zip')===$archiveHash&&hash_file('sha256',$dir.'/release.json')===$manifestHash,'Transport hash mismatch');
     $m=json_decode(file_get_contents($dir.'/release.json'),true,512,JSON_THROW_ON_ERROR);
     demand(($m['source_commit']??'')===$sha&&($m['source_tree_dirty']??null)===false&&($m['target']??'')==='https://arayainternusa.co.id/'&&($m['archive']??'')==='araya-production.zip'&&($m['archive_sha256']??'')===$archiveHash&&is_array($m['files']??null),'Invalid provenance');
-    $required=['index.html','noris/index.html','comap/index.html','marine/index.html','industrial/index.html','automation/index.html','robots.txt','sitemap.xml','assets/site.css','assets/site.js','assets/company-date.js','assets/service-redirect.js','assets/fonts/space-grotesk.woff2','assets/fonts/OFL.txt'];
+    $required=['index.html','noris/index.html','comap/index.html','privacy/index.html','marine/index.html','industrial/index.html','automation/index.html','robots.txt','sitemap.xml','assets/site.css','assets/site.js','assets/measurement.js','assets/measurement.css','assets/company-date.js','assets/service-redirect.js','assets/fonts/space-grotesk.woff2','assets/fonts/OFL.txt'];
     demand(!array_diff($required,array_keys($m['files'])),'Incomplete release');
     foreach($m['files'] as $n=>$hash){demand(safe_public_name($n)&&preg_match('/\A[a-f0-9]{64}\z/',$hash),'Unsafe publication entry');}
     $z=new ZipArchive();demand($z->open($dir.'/araya-production.zip')===true,'Unreadable ZIP');
@@ -35,7 +35,7 @@ function checked_layout($home) {
     return [$home.'/public_html',$home.'/araya-deploy'];
 }
 function mkdir_checked($path,$mode) {if(!file_exists($path)){demand(mkdir($path,$mode),'Cannot create directory');chmod($path,$mode);}demand(is_dir($path)&&!is_link($path)&&realpath($path)===$path,'Unsafe directory');}
-function public_links() {return ['index.html','assets','noris','comap','marine','industrial','automation','robots.txt','sitemap.xml'];}
+function public_links() {return ['index.html','assets','noris','comap','marine','industrial','automation','privacy','robots.txt','sitemap.xml'];}
 function public_layout($home,$root,$create=false) {
     $public=$home.'/araya-static';mkdir_checked($public,0755);mkdir_checked($public.'/releases',0755);
     foreach(public_links() as $name){

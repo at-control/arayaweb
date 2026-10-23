@@ -34,9 +34,9 @@ class CandidateTests(unittest.TestCase):
 
     def package(self, root, *, extras=None, overrides=None):
         files = {p: b'fixture' for p in (
-            'index.html', 'noris/index.html', 'comap/index.html', 'marine/index.html',
+            'index.html', 'noris/index.html', 'comap/index.html', 'privacy/index.html', 'marine/index.html',
             'industrial/index.html', 'automation/index.html', 'robots.txt', 'sitemap.xml',
-            'assets/site.css', 'assets/site.js', 'assets/company-date.js',
+            'assets/site.css', 'assets/site.js', 'assets/measurement.js', 'assets/measurement.css', 'assets/company-date.js',
             'assets/service-redirect.js', 'assets/fonts/space-grotesk.woff2', 'assets/fonts/OFL.txt')}
         files.update(extras or {})
         archive = root / 'araya-production.zip'

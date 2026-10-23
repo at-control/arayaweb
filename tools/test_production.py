@@ -31,7 +31,7 @@ class ProductionTests(unittest.TestCase):
         self.assertEqual(self.preview_before, after)
 
     def test_production_metadata_and_sitemap(self):
-        for route in ('', 'noris/', 'comap/'):
+        for route in ('', 'noris/', 'comap/', 'privacy/'):
             html = (PRODUCTION / route / 'index.html').read_text(encoding='utf-8')
             self.assertIn('content="index, follow"', html)
             self.assertIn(f'rel="canonical" href="{BASE}{route}"', html)
@@ -39,7 +39,7 @@ class ProductionTests(unittest.TestCase):
             self.assertNotIn('hakiimm8.github.io', html)
             self.assertNotIn('https://arayainternusa.co.id/araya/', html)
         sitemap = (PRODUCTION / 'sitemap.xml').read_text(encoding='utf-8')
-        self.assertEqual(sitemap.count('<loc>'), 3)
+        self.assertEqual(sitemap.count('<loc>'), 4)
         self.assertIn(f'<loc>{BASE}comap/</loc>', sitemap)
         self.assertIn(f'Sitemap: {BASE}sitemap.xml', (PRODUCTION / 'robots.txt').read_text())
         for key in ('marine', 'industrial', 'automation'):

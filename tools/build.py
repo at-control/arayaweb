@@ -12,6 +12,7 @@ from brand_pages import brand_content
 from site_content import SERVICES, CLIENTS, BRAND_GROUPS, LEADERSHIP
 from landing_services import service_details, legacy_targets
 from ui_components import srcset
+from measurement import banner, privacy_content
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
@@ -20,6 +21,7 @@ COMPANY_AGE = CURRENT_YEAR - 2009
 BASE = "https://hakiimm8.github.io/arayaweb/"
 PRODUCTION = "https://arayainternusa.co.id/araya/"
 ROBOTS = "noindex, nofollow"
+BUILD_TARGET = 'preview'
 ARROW = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg>'
 def asset_version(name):
     # Normalise line endings so Windows (CRLF) and Linux checkouts produce identical output.
@@ -70,6 +72,7 @@ def shell(title, description, content, route="", schema=()):
     service_footer_links = ''.join(f'<a href="{home}#{key}-services">{escape(data["name"])}</a>' for key, data in SERVICES.items())
     contact_topic = (BRANDS.get(route.strip("/")) or SERVICES.get(route.strip("/")) or {}).get("name", "a project")
     hero_brand = BRANDS.get(route.strip('/'))
+    tracking_target = BUILD_TARGET if route.strip('/') not in SERVICES else 'off'
     image_preload = ''
     if hero_brand:
         image_preload = f'<link rel="preload" as="image" href="{prefix}assets/images/{hero_brand["image"]}" fetchpriority="high">'
@@ -98,14 +101,17 @@ def shell(title, description, content, route="", schema=()):
   <link rel="preload" href="{prefix}assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
 {"  " + image_preload if image_preload else ""}
   <link rel="stylesheet" href="{prefix}assets/site.css?v={CSS_VERSION}">
+  <link rel="stylesheet" href="{prefix}assets/measurement.css?v={asset_version('measurement.css')}">
   <script src="{prefix}assets/company-date.js?v={DATE_VERSION}" defer></script>
   <script src="{prefix}assets/site.js?v={JS_VERSION}" defer></script>
+  <script src="{prefix}assets/measurement.js?v={asset_version('measurement.js')}" data-measurement="{tracking_target}" defer></script>
   <script type="application/ld+json">{json.dumps({"@context": "https://schema.org", "@graph": [organization(), *schema]}, ensure_ascii=False)}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
+{banner(prefix)}
 <header class="site-header">
-  <div class="utility"><div class="container utility-inner"><span>Sidoarjo &amp; Jakarta · Indonesia · Mon–Sat 08.00–17.00</span><a href="mailto:{EMAIL}">{EMAIL}</a><a href="tel:+62317877990">+62 (031) 7877990</a></div></div>
+  <div class="utility"><div class="container utility-inner"><span>Sidoarjo &amp; Jakarta · Indonesia · Mon–Sat 08.00–17.00</span><a data-contact-location="utility" href="mailto:{EMAIL}">{EMAIL}</a><a data-contact-location="utility" href="tel:+62317877990">+62 (031) 7877990</a></div></div>
   <div class="container navigation">
     <a class="brand" href="{home}" aria-label="PT Araya Internusa home"><img src="{prefix}assets/images/araya-logo.svg" alt="PT Araya Internusa" width="4165" height="961"></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation"><span>Menu</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
@@ -117,15 +123,15 @@ def shell(title, description, content, route="", schema=()):
 </header>
 <main id="main">{content}</main>
 <section class="contact" id="contact" aria-labelledby="contact-heading">
-  <div class="container contact-intro"><div><p class="eyebrow">GET IN TOUCH</p><h2 id="contact-heading">Let’s find the right solution.</h2><p>Send the equipment model, a nameplate photo and the problem or change you need.</p></div><div class="contact-actions"><a class="button" href="{whatsapp(contact_topic)}">Chat on WhatsApp {ARROW}</a><a class="button button-outline" href="mailto:{EMAIL}">Email our team {ARROW}</a></div></div>
+  <div class="container contact-intro"><div><p class="eyebrow">GET IN TOUCH</p><h2 id="contact-heading">Let’s find the right solution.</h2><p>Send the equipment model, a nameplate photo and the problem or change you need.</p></div><div class="contact-actions"><a class="button" data-contact-location="contact" href="{whatsapp(contact_topic)}">Chat on WhatsApp {ARROW}</a><a class="button button-outline" data-contact-location="contact" href="mailto:{EMAIL}">Email our team {ARROW}</a></div></div>
   <div class="container footer-grid">
     <div class="footer-company"><img src="{prefix}assets/images/araya-logo.svg" alt="PT Araya Internusa" width="4165" height="961" loading="lazy"><p><span class="company-age-copy"><span data-company-age>{COMPANY_AGE}</span> years of </span>marine, industrial and automation engineering across Indonesia.</p></div>
     <div><h3>Explore Araya</h3><a href="{home}#about">About Us</a>{service_footer_links}{brand_footer_links}<a href="{home}#clients">Our Clients</a></div>
     <div><h3>Branch Offices</h3><p><strong>Sidoarjo</strong><a href="{MAP}">Gateway Citra Harmoni RKG 32–33<br>Taman, Sidoarjo<br>Jawa Timur 61257, Indonesia</a></p><p><strong>Jakarta</strong><a href="{JAKARTA_MAP}">Townhouse PIK<br>Jakarta, Indonesia</a></p><p class="contact-note">Mon–Sat, 08.00–17.00 WIB</p></div>
-    <div><h3>Contact Us</h3><a href="mailto:{EMAIL}">{EMAIL}</a><a href="tel:+62317877990">+62 (031) 7877990</a><a href="{whatsapp(contact_topic)}">WhatsApp: +62 813 2639 6262</a><p class="contact-note">Share your system details with our team.</p></div>
+    <div><h3>Contact Us</h3><a data-contact-location="footer" href="mailto:{EMAIL}">{EMAIL}</a><a data-contact-location="footer" href="tel:+62317877990">+62 (031) 7877990</a><a data-contact-location="footer" href="{whatsapp(contact_topic)}">WhatsApp: +62 813 2639 6262</a><p class="contact-note">Share your system details with our team.</p></div>
   </div>
 </section>
-<footer class="copyright"><div class="container"><span>© <span class="company-age-copy" data-current-year>{CURRENT_YEAR}</span> PT Araya Internusa.</span></div></footer>
+<footer class="copyright"><div class="container"><span>© <span class="company-age-copy" data-current-year>{CURRENT_YEAR}</span> PT Araya Internusa.</span><div class="privacy-links"><a href="{prefix}privacy/">Privacy notice</a><button class="privacy-choice" type="button" data-consent-action="open">Privacy choices</button></div></div></footer>
 </body></html>'''
 
 
@@ -139,7 +145,7 @@ def home():
 <section class="hero" aria-labelledby="hero-heading">
   <img class="hero-photo" src="./assets/images/ship-1400.webp" srcset="{srcset((("ship-800.webp", 800), ("ship-1400.webp", 1400)))}" sizes="100vw" alt="PELNI passenger vessel alongside a quay, from Araya’s marine project photographs" width="1400" height="784" fetchpriority="high">
   <div class="hero-shade"></div>
-  <div class="container hero-content"><p class="eyebrow">PT ARAYA INTERNUSA</p><h1 id="hero-heading">Marine, industrial &amp;<br>automation engineering<br><span>across Indonesia.</span></h1><p class="hero-description">Supply, repair, modification, upgrade and retrofit for marine equipment, industrial systems and automation.</p><div class="hero-actions"><a class="button" href="{whatsapp()}">Discuss your project {ARROW}</a><a class="button button-outline" href="#services">Our services {ARROW}</a></div></div>
+  <div class="container hero-content"><p class="eyebrow">PT ARAYA INTERNUSA</p><h1 id="hero-heading">Marine, industrial &amp;<br>automation engineering<br><span>across Indonesia.</span></h1><p class="hero-description">Supply, repair, modification, upgrade and retrofit for marine equipment, industrial systems and automation.</p><div class="hero-actions"><a class="button" data-contact-location="hero" href="{whatsapp()}">Discuss your project {ARROW}</a><a class="button button-outline" href="#services">Our services {ARROW}</a></div></div>
   <div class="hero-index" aria-hidden="true"><span data-count="1500" data-count-suffix="+">1,500+</span> / PROJECTS <span class="company-age-copy">OVER <span class="company-age" data-count data-company-age>{COMPANY_AGE}</span> YEARS</span></div>
 </section>
 <section class="section about" id="about"><div class="container about-grid">
@@ -186,10 +192,11 @@ def write(route, html):
 
 
 def main():
-    global PUBLIC, BASE, PRODUCTION, ROBOTS
+    global PUBLIC, BASE, PRODUCTION, ROBOTS, BUILD_TARGET
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--target', choices=('preview', 'production'), default='preview')
     args = parser.parse_args()
+    BUILD_TARGET = args.target
     if args.target == 'production':
         BASE = PRODUCTION = 'https://arayainternusa.co.id/'
         ROBOTS = 'index, follow'
@@ -214,6 +221,8 @@ def main():
         # Keep the visible FAQs. Google retired FAQ rich results in May 2026.
         write(key, shell(data['title'], data['description'], brand_content(key, data, ARROW), key + '/', [breadcrumb(key + '/', data['name'])]))
         routes.append(key + '/')
+    write('privacy', shell('Privacy notice | PT Araya Internusa', 'How PT Araya Internusa handles website analytics, your privacy choices and contact enquiries.', privacy_content(), 'privacy/', [breadcrumb('privacy/', 'Privacy notice')]))
+    routes.append('privacy/')
     urls = ''.join(f'<url><loc>{BASE}{route}</loc><lastmod>{datetime.now(timezone(timedelta(hours=7))).date().isoformat()}</lastmod></url>' for route in routes)
     (PUBLIC / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>\n', encoding="utf-8")
     # Crawlers must be able to read the preview's noindex meta tags.

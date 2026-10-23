@@ -40,6 +40,8 @@ jobs:
           node tools/test_navigation.cjs
           node tools/test_counters.cjs
           node tools/test_company_dates.cjs
+          node tools/test_measurement.cjs
+          python tools/test_tracking_build.py
       - name: Validate and package production candidate
         run: |
           python tools/test_production.py

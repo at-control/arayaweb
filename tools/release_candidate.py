@@ -10,6 +10,7 @@ from check import ALL_ROUTES, ASSET_SUFFIXES
 
 SHA_PATTERN = re.compile(r'[a-f0-9]{40}')
 REQUIRED = ALL_ROUTES | {'robots.txt', 'sitemap.xml', 'assets/site.css', 'assets/site.js',
+    'assets/measurement.js', 'assets/measurement.css',
     'assets/company-date.js', 'assets/service-redirect.js', 'assets/fonts/space-grotesk.woff2',
     'assets/fonts/OFL.txt'}
 

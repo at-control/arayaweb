@@ -77,7 +77,7 @@ test "$(cd "$root" && pwd -P)" = "$root"
 test ! -L "$public"
 if [[ ! -d "$public" ]]; then mkdir -m 755 "$public"; fi
 test "$(cd "$public" && pwd -P)" = "$public"
-for name in index.html assets noris comap marine industrial automation robots.txt sitemap.xml; do
+for name in index.html assets noris comap marine industrial automation privacy robots.txt sitemap.xml; do
   alias="$root/$name"; expected="../araya-static/.araya-current/$name"
   if [[ -L "$alias" ]]; then test "$(readlink "$alias")" = "$expected"; else test ! -e "$alias"; ln -s "$expected" "$alias"; fi
 done
