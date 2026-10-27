@@ -140,6 +140,12 @@ if (menuButton && navigation) {
     pending = false;
     const edge = Math.max(0, header.getBoundingClientRect().bottom);
     document.documentElement.style.setProperty('--header-edge', `${edge}px`);
+    // Anchor destinations use the settled sticky height, even when the utility bar is visible.
+    if (typeof getComputedStyle === 'function') {
+      const stickyTop = parseFloat(getComputedStyle(header).top) || 0;
+      const settledEdge = Math.max(0, header.getBoundingClientRect().height + stickyTop);
+      document.documentElement.style.setProperty('--anchor-header', `${settledEdge}px`);
+    }
     document.documentElement.style.setProperty('--index-height', '0px');
     // Include the upper reading area, not only the exact sticky-header boundary.
     const threshold = edge + Math.min(180, Math.max(0, (window.innerHeight - edge) / 3));
@@ -166,6 +172,18 @@ if (menuButton && navigation) {
   update();
 })();
 
+// Home on the current page returns to the top without reloading or replaying entrances.
+document.addEventListener('click', event => {
+  const link = event.target.closest('a[href]');
+  if (!link || event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+  const normalize = path => path.replace(/index\.html$/, '').replace(/\/$/, '');
+  if (link.origin !== location.origin || normalize(link.pathname) !== normalize(location.pathname) || link.hash || link.search !== location.search) return;
+  if (!link.closest('.navigation')) return;
+  event.preventDefault();
+  history.pushState(null, '', link.pathname + link.search);
+  window.scrollTo({top:0, behavior:window.matchMedia('(prefers-reduced-motion:reduce)').matches ? 'instant' : 'smooth'});
+});
+
 // Short text-only entrances: pictures and large sections never wait for a fade.
 const motionPreference = window.matchMedia('(prefers-reduced-motion:reduce)');
 if ('IntersectionObserver' in window && typeof Element.prototype.animate === 'function') {
@@ -177,7 +195,7 @@ if ('IntersectionObserver' in window && typeof Element.prototype.animate === 'fu
       if (motionPreference.matches) return;
       const animation = entry.target.animate(
         [{transform:'translateY(8px)'}, {transform:'translateY(0)'}],
-        {duration:280, easing:'cubic-bezier(.2,.7,.3,1)'});
+        {duration:entry.target.closest('.hero-content,.brand-landing-grid') ? 950 : 600, easing:'cubic-bezier(.22,.61,.36,1)'});
       running.add(animation);
       animation.finished.catch(() => {}).finally(() => running.delete(animation));
     });

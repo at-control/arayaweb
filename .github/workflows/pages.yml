@@ -38,6 +38,7 @@ jobs:
           bash -n tools/stage_release.sh tools/activate_release.sh
           node --check public/assets/site.js
           node tools/test_navigation.cjs
+          node tools/test_home_navigation.cjs
           node tools/test_counters.cjs
           node tools/test_company_dates.cjs
           node tools/test_measurement.cjs

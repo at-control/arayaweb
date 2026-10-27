@@ -144,7 +144,7 @@ def home():
 <section class="hero" aria-labelledby="hero-heading">
   <img class="hero-photo" src="./assets/images/ship-1400.webp" srcset="{srcset((("ship-800.webp", 800), ("ship-1400.webp", 1400)))}" sizes="100vw" alt="PELNI passenger vessel alongside a quay, from Araya’s marine project photographs" width="1400" height="784" fetchpriority="high">
   <div class="hero-shade"></div>
-  <div class="container hero-content"><p class="eyebrow">PT ARAYA INTERNUSA</p><h1 id="hero-heading">Marine, industrial &amp;<br>automation engineering<br><span>across Indonesia.</span></h1><p class="hero-description">Supply, repair, modification, upgrade and retrofit for marine equipment, industrial systems and automation.</p><div class="hero-actions"><a class="button" data-contact-location="hero" href="{whatsapp()}">Discuss your project {ARROW}</a><a class="button button-outline" href="#services">Our services {ARROW}</a></div></div>
+  <div class="container hero-content"><h1 id="hero-heading">Marine, industrial &amp;<br>automation engineering<br><span>across Indonesia.</span></h1><p class="hero-description">Supply, repair, modification, upgrade and retrofit for marine equipment, industrial systems and automation.</p><div class="hero-actions"><a class="button" data-contact-location="hero" href="{whatsapp()}">Discuss your project {ARROW}</a><a class="button button-outline" href="#services">Our services {ARROW}</a></div></div>
   <div class="hero-index" aria-hidden="true"><span data-count="1500" data-count-suffix="+">1,500+</span> / PROJECTS <span class="company-age-copy">OVER <span class="company-age" data-count data-company-age>{COMPANY_AGE}</span> YEARS</span></div>
 </section>
 <section class="section about" id="about"><div class="container about-grid">
