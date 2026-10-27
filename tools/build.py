@@ -46,13 +46,12 @@ def organization():
         "name": "PT Araya Internusa", "alternateName": "Araya Internusa", "url": PRODUCTION,
         "logo": BASE + "assets/images/araya-icon.svg", "image": BASE + "assets/images/og-araya.jpg",
         "description": "Marine, industrial and automation engineering company serving Indonesia: supply, repair, modification, upgrade and retrofit.",
-        "email": EMAIL, "telephone": "+62-31-7877990", "foundingDate": "2009",
+        "email": EMAIL, "telephone": "+6281326396262", "foundingDate": "2009",
         "founder": {"@type": "Person", "name": "Arif Fatkur Rohman"},
         "address": {"@type": "PostalAddress", "streetAddress": "Gateway Citra Harmoni RKG 32–33", "addressLocality": "Taman, Sidoarjo",
                     "addressRegion": "Jawa Timur", "postalCode": "61257", "addressCountry": "ID"},
-        "location": [{"@type": "Place", "name": "Sidoarjo branch office", "address": {"@type": "PostalAddress", "streetAddress": "Gateway Citra Harmoni RKG 32–33", "addressLocality": "Taman, Sidoarjo", "addressRegion": "Jawa Timur", "postalCode": "61257", "addressCountry": "ID"}},
+        "location": [{"@type": "Place", "name": "Surabaya office — Sidoarjo", "address": {"@type": "PostalAddress", "streetAddress": "Gateway Citra Harmoni RKG 32–33", "addressLocality": "Taman, Sidoarjo", "addressRegion": "Jawa Timur", "postalCode": "61257", "addressCountry": "ID"}},
                      {"@type": "Place", "name": "Jakarta branch office — Townhouse PIK", "address": {"@type": "PostalAddress", "streetAddress": "Townhouse PIK", "addressLocality": "Jakarta", "addressCountry": "ID"}}],
-        "openingHoursSpecification": {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "opens": "08:00", "closes": "17:00"},
         "areaServed": {"@type": "Country", "name": "Indonesia"},
         "knowsAbout": ["Marine automation", "Alarm monitoring systems", "Ship electrical systems", "Engine overhaul and control", "Generator synchronisation and load sharing", "Water-level and cargo monitoring", "PLC and SCADA", "Industrial machinery repair", "Crane repair", "Hazardous-area electrical equipment", "Noris", "ComAp"],
     }
@@ -111,7 +110,7 @@ def shell(title, description, content, route="", schema=()):
 <a class="skip-link" href="#main">Skip to content</a>
 {banner(prefix)}
 <header class="site-header">
-  <div class="utility"><div class="container utility-inner"><span>Sidoarjo &amp; Jakarta · Indonesia · Mon–Sat 08.00–17.00</span><a data-contact-location="utility" href="mailto:{EMAIL}">{EMAIL}</a><a data-contact-location="utility" href="tel:+62317877990">+62 (031) 7877990</a></div></div>
+  <div class="utility"><div class="container utility-inner"><span>Surabaya &amp; Jakarta Offices</span><a data-contact-location="utility" href="mailto:{EMAIL}">{EMAIL}</a><a data-contact-location="utility" href="{whatsapp()}">WhatsApp: +62 813 2639 6262</a></div></div>
   <div class="container navigation">
     <a class="brand" href="{home}" aria-label="PT Araya Internusa home"><img src="{prefix}assets/images/araya-logo.svg" alt="PT Araya Internusa" width="4165" height="961"></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation"><span>Menu</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
@@ -127,8 +126,8 @@ def shell(title, description, content, route="", schema=()):
   <div class="container footer-grid">
     <div class="footer-company"><img src="{prefix}assets/images/araya-logo.svg" alt="PT Araya Internusa" width="4165" height="961" loading="lazy"><p><span class="company-age-copy"><span data-company-age>{COMPANY_AGE}</span> years of </span>marine, industrial and automation engineering across Indonesia.</p></div>
     <div><h3>Explore Araya</h3><a href="{home}#about">About Us</a>{service_footer_links}{brand_footer_links}<a href="{home}#clients">Our Clients</a></div>
-    <div><h3>Branch Offices</h3><p><strong>Sidoarjo</strong><a href="{MAP}">Gateway Citra Harmoni RKG 32–33<br>Taman, Sidoarjo<br>Jawa Timur 61257, Indonesia</a></p><p><strong>Jakarta</strong><a href="{JAKARTA_MAP}">Townhouse PIK<br>Jakarta, Indonesia</a></p><p class="contact-note">Mon–Sat, 08.00–17.00 WIB</p></div>
-    <div><h3>Contact Us</h3><a data-contact-location="footer" href="mailto:{EMAIL}">{EMAIL}</a><a data-contact-location="footer" href="tel:+62317877990">+62 (031) 7877990</a><a data-contact-location="footer" href="{whatsapp(contact_topic)}">WhatsApp: +62 813 2639 6262</a><p class="contact-note">Share your system details with our team.</p></div>
+    <div><h3>Branch Offices</h3><p><strong>Surabaya office</strong><a href="{MAP}">Gateway Citra Harmoni RKG 32–33<br>Taman, Sidoarjo<br>Jawa Timur 61257, Indonesia</a></p><p><strong>Jakarta</strong><a href="{JAKARTA_MAP}">Townhouse PIK<br>Jakarta, Indonesia</a></p></div>
+    <div><h3>Contact Us</h3><a data-contact-location="footer" href="mailto:{EMAIL}">{EMAIL}</a><a data-contact-location="footer" href="{whatsapp(contact_topic)}">WhatsApp: +62 813 2639 6262</a><p class="contact-note">Share your system details with our team.</p></div>
   </div>
 </section>
 <footer class="copyright"><div class="container"><span>© <span class="company-age-copy" data-current-year>{CURRENT_YEAR}</span> PT Araya Internusa.</span><div class="privacy-links"><a href="{prefix}privacy/">Privacy notice</a><button class="privacy-choice" type="button" data-consent-action="open">Privacy choices</button></div></div></footer>
@@ -151,7 +150,7 @@ def home():
 <section class="section about" id="about"><div class="container about-grid">
   <div class="about-heading"><p class="eyebrow">ABOUT PT ARAYA INTERNUSA</p><h2><span class="company-age-copy"><span data-count data-company-age>{COMPANY_AGE}</span> years of<br></span>professional engineering.</h2></div>
   <div class="about-media"><img src="./assets/images/team.webp" alt="Araya technicians working together in a vessel’s engine room" width="600" height="600" loading="eager" fetchpriority="low" decoding="async"><div class="since"><strong>2009</strong><span>Where our story began</span></div></div>
-  <div class="about-copy"><p class="lead">Professional engineering for marine and industrial systems, backed by certification and international technical expertise.</p><p>Founded in 2009 by Arif Fatkur Rohman, PT Araya Internusa brings together repair, modification, upgrade and retrofit experience. International technical backing includes HIT (Haven- und Industrietechnik GmbH), Noris Automation and ComAp.</p><p>Araya serves projects across Sumatra, Jawa, Kalimantan, Sulawesi and Papua, with branch offices in Sidoarjo and Jakarta. We also extend the life of obsolete or end-of-sale equipment with practical, reliable solutions.</p><div class="scope-list"><span>Marine</span><span>Industrial</span><span>Automation &amp; electrical</span></div><p class="working-practice"><strong>Certified &amp; experienced</strong><br>Professional engineering experience, backed by certification and international technical support.</p></div>
+  <div class="about-copy"><p class="lead">Professional engineering for marine and industrial systems, backed by certification and international technical expertise.</p><p>Founded in 2009 by Arif Fatkur Rohman, PT Araya Internusa brings together repair, modification, upgrade and retrofit experience. International technical backing includes HIT (Haven- und Industrietechnik GmbH), Noris Automation and ComAp.</p><p>Araya serves projects across Sumatra, Jawa, Kalimantan, Sulawesi and Papua, with offices in Surabaya and Jakarta. We also extend the life of obsolete or end-of-sale equipment with practical, reliable solutions.</p><div class="scope-list"><span>Marine</span><span>Industrial</span><span>Automation &amp; electrical</span></div><p class="working-practice"><strong>Certified &amp; experienced</strong><br>Professional engineering experience, backed by certification and international technical support.</p></div>
 </div></section>
 <section class="section section-muted" id="services"><div class="container">
   <div class="section-heading"><div><p class="eyebrow">WHAT WE DO</p><h2>Our services</h2></div><p>Supply, repair, upgrade and retrofit for marine and industrial systems.</p></div>
@@ -213,7 +212,7 @@ def main():
     website = {"@type": "WebSite", "@id": BASE + "#website", "name": "PT Araya Internusa", "url": BASE, "publisher": {"@id": BASE + "#organization"}}
     service_schema = [{"@type": "Service", "name": service["name"] + " engineering services", "serviceType": service["name"], "url": BASE + "#" + key + "-services", "provider": {"@id": BASE + "#organization"}, "areaServed": {"@type": "Country", "name": "Indonesia"}, "description": service["description"]} for key, service in SERVICES.items()]
     write("", shell("Marine & Industrial Automation Indonesia | Araya Internusa",
-                    "Marine and industrial engineering in Indonesia: ship systems, engine control, generators and PLC/SCADA. Authorised Noris and ComAp distributor.",
+                    "Ship maintenance, repair and retrofit across Indonesia. Offices in Surabaya and Jakarta. Marine engineering and authorised Noris and ComAp distributor.",
                     home(), schema=[website, *service_schema]))
     for key, service in SERVICES.items():
         write(key, legacy_service_page(key, service))

@@ -61,9 +61,9 @@ SERVICES = {
     'marine': {
         'name': 'Marine', 'short': 'marine', 'label': 'Marine engineering',
         'title': 'Marine Electrical & Automation Services Indonesia | Araya',
-        'description': 'Marine engineering in Indonesia: fire alarm and AMS, engine overhaul and control, generator synchronisation, steering, cargo monitoring and system retrofit.',
+        'description': 'Ship maintenance, repair and retrofit across Indonesia, with offices in Surabaya and Jakarta. Electrical, mechanical and automation systems for ships.',
         'heading': 'Marine engineering.<br>Engine room to bridge.',
-        'intro': 'Supply and repair of electrical, mechanical and automation systems on board.',
+        'intro': 'Ship maintenance, repair and retrofit services across Indonesia, with offices in Surabaya and Jakarta.',
         'hero_image': 'marine.webp', 'hero_width': 767, 'hero_height': 883, 'hero_alt': 'Araya technician inspecting marine engine equipment',
         'card_image': 'marine.webp', 'card_width': 767, 'card_height': 883, 'card_alt': 'Technical inspection of marine engine equipment',
         'summary': 'Supply and repair of onboard systems, from engine room to bridge.',
