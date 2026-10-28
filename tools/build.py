@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
 CURRENT_YEAR = datetime.now(timezone(timedelta(hours=7))).year
 COMPANY_AGE = CURRENT_YEAR - 2009
-BASE = "https://hakiimm8.github.io/arayaweb/"
+BASE = "https://at-control.github.io/arayaweb/"
 PRODUCTION = "https://arayainternusa.co.id/araya/"
 ROBOTS = "noindex, nofollow"
 BUILD_TARGET = 'preview'

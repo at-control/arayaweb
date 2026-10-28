@@ -37,6 +37,7 @@ class ProductionTests(unittest.TestCase):
             self.assertIn(f'rel="canonical" href="{BASE}{route}"', html)
             self.assertIn(f'property="og:url" content="{BASE}{route}"', html)
             self.assertNotIn('hakiimm8.github.io', html)
+            self.assertNotIn('at-control.github.io', html)
             self.assertNotIn('https://arayainternusa.co.id/araya/', html)
         sitemap = (PRODUCTION / 'sitemap.xml').read_text(encoding='utf-8')
         self.assertEqual(sitemap.count('<loc>'), 4)

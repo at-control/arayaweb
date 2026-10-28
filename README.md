@@ -2,7 +2,9 @@
 
 Static review preview for PT Araya Internusa, preserving the existing website's orange/charcoal/white industrial styling and Space Grotesk typography.
 
-Preview: https://hakiimm8.github.io/arayaweb/
+Preview: https://at-control.github.io/arayaweb/
+
+Repository: https://github.com/at-control/arayaweb/ — public. Transfer and CI/CD verification: [29 October notes](docs/REPOSITORY-TRANSFER-2026-10-29.md).
 
 Saved audit findings, design decisions, verification results and next steps: [Project notes](docs/PROJECT-NOTES.md).
 

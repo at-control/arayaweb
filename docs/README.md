@@ -1,5 +1,7 @@
 # Documentation
 
+- [Repository transfer and CI/CD verification](REPOSITORY-TRANSFER-2026-10-29.md): organisation ownership, preview URL migration, deployment environments and post-transfer workflow evidence.
+
 Updated 15 October 2026, Asia/Jakarta.
 
 - [Mobile client logo animation](MOBILE-CLIENT-LOGOS-2026-10-15.md): continuous leftward logo strip matching desktop, responsive spacing, reduced-motion fallback and browser verification.
