@@ -40,7 +40,7 @@ assert.equal(f.window.dataLayer.filter(x=>x.event==='contact_click').length,3,'O
 f.action('reject'); assert.equal(f.reloads,1); assert.equal(f.window['ga-disable-G-WMBDHTFPBJ'],true); assert.ok(f.cookies.some(x=>x.startsWith('_ga='))); assert.ok(!f.cookies.some(x=>x.startsWith('unrelated=')));
 f=fixture({saved:choice(true)}); assert.equal(f.scripts.length,1,'Persisted acceptance loads once');
 for(const saved of [choice(false),'broken',{...choice(true),at:now-181*86400000},{...choice(true),at:now+86400000}]) {f=fixture({saved});assert.equal(f.scripts.length,0);}
-for(const opts of [{host:'localhost'},{host:'hakiimm8.github.io'},{host:'at-control.github.io'},{target:'preview'},{broken:true}]) {f=fixture({...opts,saved:choice(true)});assert.equal(f.scripts.length,0);}
+for(const opts of [{host:'localhost'},{host:'hakiimm8.github.io'},{host:'at-control.github.io'},{host:'arayainternusa.github.io'},{target:'preview'},{broken:true}]) {f=fixture({...opts,saved:choice(true)});assert.equal(f.scripts.length,0);}
 f=fixture({saved:choice(true)}); f.events.storage({key:'araya_consent_v1',newValue:JSON.stringify(choice(false))}); assert.equal(f.reloads,1,'Withdrawal propagates between tabs');
 f=fixture({saved:choice(true)}); f.events.storage({key:null,newValue:null}); assert.equal(f.reloads,1,'Clearing all storage must also withdraw consent');
 f=fixture({broken:true}); f.action('accept'); f.contact('tel:+62317877990'); assert.equal(f.window.dataLayer.filter(x=>x.event==='contact_click').length,1,'Explicit consent applies within the page even if storage is unavailable');

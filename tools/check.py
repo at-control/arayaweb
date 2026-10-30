@@ -63,7 +63,7 @@ def main():
     args = parser.parse_args()
     production = args.target == 'production'
     PUBLIC = ROOT / 'dist/production' if production else ROOT / 'public'
-    base = 'https://arayainternusa.co.id/' if production else 'https://at-control.github.io/arayaweb/'
+    base = 'https://arayainternusa.co.id/' if production else 'https://arayainternusa.github.io/arayaweb/'
     pages = {path.resolve(): Page(path) for path in PUBLIC.rglob("*.html")}
     errors = []
     if {p.relative_to(PUBLIC.resolve()).as_posix() for p in pages} != ALL_ROUTES:
@@ -80,7 +80,7 @@ def main():
             json.loads(page.schema)
         except (ValueError, TypeError):
             page.errors.append('Invalid structured data')
-        if production and any(url in page.schema for url in ('hakiimm8.github.io', 'at-control.github.io', 'https://arayainternusa.co.id/araya/')):
+        if production and any(url in page.schema for url in ('hakiimm8.github.io', 'at-control.github.io', 'arayainternusa.github.io', 'https://arayainternusa.co.id/araya/')):
             page.errors.append('Production structured data references the old or preview URL')
         for link in page.links:
             url = urlsplit(link)

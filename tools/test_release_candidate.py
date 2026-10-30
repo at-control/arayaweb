@@ -9,7 +9,7 @@ import warnings
 from release_candidate import validate_run, validate_package, destination
 
 SHA = 'a' * 40
-REPO = 'at-control/arayaweb'
+REPO = 'arayainternusa/arayaweb'
 
 
 class CandidateTests(unittest.TestCase):
